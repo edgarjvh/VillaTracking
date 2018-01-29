@@ -235,4 +235,13 @@
   <data name="marker_icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marker_icon_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="collapse_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\collapse_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uncollapse_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\uncollapse_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_server_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\main_server_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -92,10 +92,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property isMainServer() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property isMainServer() As Boolean
             Get
-                Return CType(Me("isMainServer"),String)
+                Return CType(Me("isMainServer"),Boolean)
             End Get
             Set
                 Me("isMainServer") = value
@@ -243,6 +243,78 @@ Namespace My
             End Get
             Set
                 Me("writeTimeout") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property ignitionTemplate() As String
+            Get
+                Return CType(Me("ignitionTemplate"),String)
+            End Get
+            Set
+                Me("ignitionTemplate") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property batteryTemplate() As String
+            Get
+                Return CType(Me("batteryTemplate"),String)
+            End Get
+            Set
+                Me("batteryTemplate") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property geofenceTemplate() As String
+            Get
+                Return CType(Me("geofenceTemplate"),String)
+            End Get
+            Set
+                Me("geofenceTemplate") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property speedTemplate() As String
+            Get
+                Return CType(Me("speedTemplate"),String)
+            End Get
+            Set
+                Me("speedTemplate") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property motionTemplate() As String
+            Get
+                Return CType(Me("motionTemplate"),String)
+            End Get
+            Set
+                Me("motionTemplate") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property noReportingInterval() As Integer
+            Get
+                Return CType(Me("noReportingInterval"),Integer)
+            End Get
+            Set
+                Me("noReportingInterval") = value
             End Set
         End Property
     End Class

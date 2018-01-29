@@ -99,8 +99,11 @@
     <Compile Include="Data\Encryptation.vb" />
     <Compile Include="Data\GmapMarkerEvent.vb" />
     <Compile Include="Data\GmapMarkerMain.vb" />
+    <Compile Include="Data\GmapMarkerTravel.vb" />
+    <Compile Include="Data\Marker.vb" />
     <Compile Include="Data\PduDecoder.vb" />
     <Compile Include="Data\Procedure.vb" />
+    <Compile Include="Data\TreeNodeTravel.vb" />
     <Compile Include="Forms\frmClients.Designer.vb">
       <DependentUpon>frmClients.vb</DependentUpon>
     </Compile>
@@ -234,11 +237,53 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmClients.resx">
+      <DependentUpon>frmClients.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDataBase.resx">
+      <DependentUpon>frmDataBase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDealers.resx">
+      <DependentUpon>frmDealers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDeviceConfig.resx">
+      <DependentUpon>frmDeviceConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDevices.resx">
+      <DependentUpon>frmDevices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmEventHistory.resx">
+      <DependentUpon>frmEventHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGeofences.resx">
+      <DependentUpon>frmGeofences.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmModemSms.resx">
+      <DependentUpon>frmModemSms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmNoReporting.resx">
+      <DependentUpon>frmNoReporting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReports.resx">
+      <DependentUpon>frmReports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSimCards.resx">
+      <DependentUpon>frmSimCards.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSwitchUser.resx">
+      <DependentUpon>frmSwitchUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTravelHistory.resx">
+      <DependentUpon>frmTravelHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmUsers.resx">
+      <DependentUpon>frmUsers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -282,6 +327,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\Images\main_server_icon.png" />
+    <None Include="Files\Images\uncollapse_icon.png" />
     <None Include="Resources\marker_icon_default.png" />
     <None Include="Files\Images\Logotipo_White.png" />
     <None Include="Files\Images\voice_icon.png" />
@@ -318,6 +365,7 @@
     <None Include="Files\Images\change_user_icon.png" />
     <None Include="Files\Images\car_moving_icon.png" />
     <None Include="Files\Images\auto_center_icon.png" />
+    <None Include="Files\Images\collapse_icon.png" />
     <Content Include="Files\Images\icon.ico" />
     <Content Include="Files\Images\Isotipo.png" />
     <None Include="Files\Images\Logotipo White.png" />

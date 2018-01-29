@@ -11,8 +11,8 @@
     <Setting Name="currentVoice" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="isMainServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="isMainServer" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="currentConn" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -49,6 +49,24 @@
     </Setting>
     <Setting Name="writeTimeout" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ignitionTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="batteryTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="geofenceTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="speedTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="motionTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="noReportingInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

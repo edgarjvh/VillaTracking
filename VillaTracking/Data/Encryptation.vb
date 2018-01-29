@@ -21,7 +21,7 @@ Public Class Encryptation
 
     Private ReadOnly key() As Byte = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
 
-    Private ReadOnly iv() As Byte = {25, 11, 27, 35, 24, 32, 87, 14} ' Cambiar los valores numéricos por unos diferentes ya que es parte de la llave de codificación y decodificación.
+    Private ReadOnly iv() As Byte = {41, 16, 38, 35, 24, 32, 87, 14} ' Cambiar los valores numéricos por unos diferentes ya que es parte de la llave de codificación y decodificación.
 
     Public Sub New()
         m_key = key
