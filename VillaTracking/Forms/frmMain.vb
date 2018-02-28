@@ -131,10 +131,21 @@ Public Class FrmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
 
+        If File.Exists(Application.StartupPath & "\images\Logotipo2.png") Then
+            pboxLogo.Image = Image.FromFile(Application.StartupPath & "\images\Logotipo2.png")
+        Else
+            pboxLogo.Image = My.Resources.Logotipo_White
+        End If
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         Dim ver As String = "0.0.0.0"
         Try
             ver = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString
         Catch ex As Exception
+
         End Try
 
         Text = String.Format("Villa Tracking v{0} - Principal", ver)
@@ -178,6 +189,12 @@ Public Class FrmMain
         bgwModemSms.RunWorkerAsync()
         bgwGetCurrentLocations.RunWorkerAsync()
         bgwSendEventsEmail.RunWorkerAsync()
+
+        If btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen Then
+            timerCountdown.Start()
+        Else
+            timerCountdown.Stop()
+        End If
     End Sub
 
     Private Sub timerCountdown_Tick(sender As Object, e As EventArgs) Handles timerCountdown.Tick
@@ -1266,6 +1283,7 @@ Public Class FrmMain
                 btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
                 btnMonitoring.Text = "ACTIVO"
                 timerCountdown.Start()
+
             Else
                 btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed
                 btnMonitoring.Text = "INACTIVO"

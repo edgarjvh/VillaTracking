@@ -3,6 +3,7 @@ Imports System.Web.Script.Serialization
 Imports GMap.NET
 Imports GMap
 Imports GMap.NET.WindowsForms
+Imports System.IO
 
 Public Class frmGeofences
     Dim selectedPage As Integer = 0
@@ -122,6 +123,11 @@ Public Class frmGeofences
 
     Private Sub frmGeofences_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         panel2LastHeight = splitHeader.Panel2.Height
         tbarMapZoom.Value = mapMainGeofence.Zoom
         tbarMapAsign.Value = mapAsigns.Zoom

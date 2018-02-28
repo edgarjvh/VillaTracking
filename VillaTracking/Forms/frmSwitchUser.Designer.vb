@@ -77,7 +77,7 @@ Partial Class frmSwitchUser
         '
         'txtPass
         '
-        Me.txtPass.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPass.HintText = "Hint Text"
         Me.txtPass.HintTextColor = System.Drawing.Color.Gray
         Me.txtPass.HintTextEnabled = False
@@ -88,14 +88,14 @@ Partial Class frmSwitchUser
         Me.txtPass.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtPass.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPass.Size = New System.Drawing.Size(236, 21)
+        Me.txtPass.Size = New System.Drawing.Size(236, 20)
         Me.txtPass.TabIndex = 9
         Me.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtDni
         '
         Me.txtDni.CaracterDecimal = False
-        Me.txtDni.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDni.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDni.HintText = "Hint Text"
         Me.txtDni.HintTextColor = System.Drawing.Color.Gray
         Me.txtDni.HintTextEnabled = False
@@ -105,7 +105,7 @@ Partial Class frmSwitchUser
         Me.txtDni.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtDni.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtDni.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtDni.Size = New System.Drawing.Size(236, 21)
+        Me.txtDni.Size = New System.Drawing.Size(236, 20)
         Me.txtDni.TabIndex = 8
         Me.txtDni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -122,20 +122,20 @@ Partial Class frmSwitchUser
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(25, 102)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 14)
+        Me.Label3.Size = New System.Drawing.Size(71, 13)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "Contraseña"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(25, 77)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(56, 14)
+        Me.Label1.Size = New System.Drawing.Size(66, 13)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Cédula Rif"
         '
@@ -150,7 +150,7 @@ Partial Class frmSwitchUser
         '
         'frmSwitchUser
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(356, 184)
         Me.Controls.Add(Me.btnLogin)
@@ -161,7 +161,7 @@ Partial Class frmSwitchUser
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblStatus)
-        Me.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False

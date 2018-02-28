@@ -1,4 +1,6 @@
-﻿Public Class frmSwitchUser
+﻿Imports System.IO
+
+Public Class frmSwitchUser
     Private msgTittle = "Mensaje del Sistema"
 
     Private Sub frmSwitchUser_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -122,5 +124,17 @@
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Mensaje del Sistema")
         End Try
+    End Sub
+
+    Private Sub frmSwitchUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists(Application.StartupPath & "\images\Logotipo.png") Then
+            pboxLogo.Image = Image.FromFile(Application.StartupPath & "\images\Logotipo.png")
+        Else
+            pboxLogo.Image = My.Resources.Logotipo
+        End If
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
     End Sub
 End Class

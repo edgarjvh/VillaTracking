@@ -26,6 +26,11 @@ Public Class frmDevices
 
     Private Sub frmDevices_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         rbtnDeviceMaintaining.BringToFront()
         rbtnDeviceFiltering.BringToFront()
 

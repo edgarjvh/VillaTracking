@@ -23,26 +23,26 @@ Partial Class FrmMain
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle58 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle59 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle60 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle65 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle61 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle62 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle63 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle64 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle66 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle70 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle71 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle72 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle76 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle73 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle74 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle75 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle67 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle68 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle69 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.splitParent = New System.Windows.Forms.SplitContainer()
         Me.panelLoadingClients = New ZUControls.ZUPanel()
         Me.pbarStatusLoadingClients = New System.Windows.Forms.ProgressBar()
@@ -105,22 +105,6 @@ Partial Class FrmMain
         Me.dgvVehicles_call_pass = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tpageEvents = New System.Windows.Forms.TabPage()
         Me.dgvEvents = New System.Windows.Forms.DataGridView()
-        Me.dgvEvents_onMap = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.dgvEvents_client_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_imei = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_license_plate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_date_time = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_validation = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_client_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_vehicle_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_report_type_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_geofence_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_geofence_points = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_latitude = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_longitude = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_speed = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvEvents_orientation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tpageNoReportingVehicles = New System.Windows.Forms.TabPage()
         Me.dgvNoReportingVehicles = New System.Windows.Forms.DataGridView()
         Me.dgvNoReportingVehicles_client_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -194,6 +178,22 @@ Partial Class FrmMain
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblUser = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.dgvEvents_onMap = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.dgvEvents_client_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_imei = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_license_plate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_date_time = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_validation = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_client_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_vehicle_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_report_type_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_geofence_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_geofence_points = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_latitude = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_longitude = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_speed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvEvents_orientation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.splitParent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.splitParent.Panel1.SuspendLayout()
         Me.splitParent.Panel2.SuspendLayout()
@@ -270,7 +270,7 @@ Partial Class FrmMain
         'lblStatusLoadingClients
         '
         Me.lblStatusLoadingClients.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblStatusLoadingClients.Font = New System.Drawing.Font("NewsGoth BT", 6.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatusLoadingClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatusLoadingClients.ForeColor = System.Drawing.Color.Blue
         Me.lblStatusLoadingClients.Location = New System.Drawing.Point(0, 0)
         Me.lblStatusLoadingClients.Name = "lblStatusLoadingClients"
@@ -285,7 +285,7 @@ Partial Class FrmMain
         Me.tviewClients.CheckBoxes = True
         Me.tviewClients.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tviewClients.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll
-        Me.tviewClients.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tviewClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tviewClients.Location = New System.Drawing.Point(0, 89)
         Me.tviewClients.Name = "tviewClients"
         Me.tviewClients.Size = New System.Drawing.Size(267, 384)
@@ -306,10 +306,10 @@ Partial Class FrmMain
         '
         Me.cboxExpandClients.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboxExpandClients.AutoSize = True
-        Me.cboxExpandClients.Font = New System.Drawing.Font("NewsGoth BT", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboxExpandClients.Location = New System.Drawing.Point(208, 9)
+        Me.cboxExpandClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxExpandClients.Location = New System.Drawing.Point(206, 9)
         Me.cboxExpandClients.Name = "cboxExpandClients"
-        Me.cboxExpandClients.Size = New System.Drawing.Size(58, 15)
+        Me.cboxExpandClients.Size = New System.Drawing.Size(60, 16)
         Me.cboxExpandClients.TabIndex = 8
         Me.cboxExpandClients.Text = "Expandir"
         Me.cboxExpandClients.UseVisualStyleBackColor = True
@@ -317,10 +317,10 @@ Partial Class FrmMain
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(10, 9)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(57, 14)
+        Me.Label7.Size = New System.Drawing.Size(62, 13)
         Me.Label7.TabIndex = 7
         Me.Label7.Text = "Filtrar Por"
         '
@@ -330,7 +330,7 @@ Partial Class FrmMain
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtClientFilter.BackColor = System.Drawing.Color.LightYellow
         Me.txtClientFilter.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtClientFilter.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtClientFilter.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClientFilter.HintText = "Hint Text"
         Me.txtClientFilter.HintTextColor = System.Drawing.Color.Gray
         Me.txtClientFilter.HintTextEnabled = False
@@ -339,7 +339,7 @@ Partial Class FrmMain
         Me.txtClientFilter.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtClientFilter.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtClientFilter.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtClientFilter.Size = New System.Drawing.Size(122, 21)
+        Me.txtClientFilter.Size = New System.Drawing.Size(122, 20)
         Me.txtClientFilter.TabIndex = 6
         Me.txtClientFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -376,24 +376,24 @@ Partial Class FrmMain
         'lblVehiclesQuantity
         '
         Me.lblVehiclesQuantity.AutoSize = True
-        Me.lblVehiclesQuantity.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVehiclesQuantity.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblVehiclesQuantity.ForeColor = System.Drawing.Color.Green
         Me.lblVehiclesQuantity.Location = New System.Drawing.Point(192, 32)
         Me.lblVehiclesQuantity.Margin = New System.Windows.Forms.Padding(0)
         Me.lblVehiclesQuantity.Name = "lblVehiclesQuantity"
-        Me.lblVehiclesQuantity.Size = New System.Drawing.Size(35, 14)
+        Me.lblVehiclesQuantity.Size = New System.Drawing.Size(35, 13)
         Me.lblVehiclesQuantity.TabIndex = 3
         Me.lblVehiclesQuantity.Text = "0000"
         '
         'lblClientsQuantity
         '
         Me.lblClientsQuantity.AutoSize = True
-        Me.lblClientsQuantity.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblClientsQuantity.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblClientsQuantity.ForeColor = System.Drawing.Color.Green
         Me.lblClientsQuantity.Location = New System.Drawing.Point(95, 32)
         Me.lblClientsQuantity.Margin = New System.Windows.Forms.Padding(0)
         Me.lblClientsQuantity.Name = "lblClientsQuantity"
-        Me.lblClientsQuantity.Size = New System.Drawing.Size(35, 14)
+        Me.lblClientsQuantity.Size = New System.Drawing.Size(35, 13)
         Me.lblClientsQuantity.TabIndex = 3
         Me.lblClientsQuantity.Text = "0000"
         '
@@ -402,7 +402,7 @@ Partial Class FrmMain
         Me.cboDealers.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboDealers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboDealers.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboDealers.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDealers.FormattingEnabled = True
         Me.cboDealers.HintText = "Hint Text"
         Me.cboDealers.HintTextColor = System.Drawing.Color.Gray
@@ -411,37 +411,37 @@ Partial Class FrmMain
         Me.cboDealers.Name = "cboDealers"
         Me.cboDealers.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboDealers.OnLeaveBackColor = System.Drawing.Color.White
-        Me.cboDealers.Size = New System.Drawing.Size(167, 22)
+        Me.cboDealers.Size = New System.Drawing.Size(167, 21)
         Me.cboDealers.TabIndex = 2
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(135, 32)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 14)
+        Me.Label6.Size = New System.Drawing.Size(68, 13)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "Vehículos:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(47, 32)
         Me.Label5.Margin = New System.Windows.Forms.Padding(3, 0, 1, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(49, 14)
+        Me.Label5.Size = New System.Drawing.Size(56, 13)
         Me.Label5.TabIndex = 1
         Me.Label5.Text = "Clientes:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(47, 6)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(42, 14)
+        Me.Label4.Size = New System.Drawing.Size(48, 13)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "Dealer:"
         '
@@ -480,6 +480,7 @@ Partial Class FrmMain
         Me.panelGeofencesVehicles.Name = "panelGeofencesVehicles"
         Me.panelGeofencesVehicles.Size = New System.Drawing.Size(204, 243)
         Me.panelGeofencesVehicles.TabIndex = 7
+        Me.panelGeofencesVehicles.Visible = False
         '
         'dgvGeofences
         '
@@ -491,24 +492,24 @@ Partial Class FrmMain
         Me.dgvGeofences.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvGeofences.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvGeofences.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("NewsGoth BT", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGeofences.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle58.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle58.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle58.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvGeofences.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle58
         Me.dgvGeofences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGeofences.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvGeofences_on_map, Me.dgvGeofences_name, Me.dgvGeofences_imei, Me.dgvGeofences_geofence_id, Me.dgvGeofences_vehicle_id, Me.dgvGeofences_points})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGeofences.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle59.BackColor = System.Drawing.Color.Silver
+        DataGridViewCellStyle59.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle59.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle59.SelectionBackColor = System.Drawing.Color.Gold
+        DataGridViewCellStyle59.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvGeofences.DefaultCellStyle = DataGridViewCellStyle59
         Me.dgvGeofences.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvGeofences.EnableHeadersVisualStyles = False
         Me.dgvGeofences.GridColor = System.Drawing.SystemColors.Control
@@ -568,7 +569,7 @@ Partial Class FrmMain
         '
         Me.lblLicensePlate.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.lblLicensePlate.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblLicensePlate.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLicensePlate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLicensePlate.ForeColor = System.Drawing.Color.White
         Me.lblLicensePlate.Location = New System.Drawing.Point(0, 18)
         Me.lblLicensePlate.Name = "lblLicensePlate"
@@ -581,7 +582,7 @@ Partial Class FrmMain
         '
         Me.label8.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(89, Byte), Integer), CType(CType(179, Byte), Integer))
         Me.label8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.label8.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label8.ForeColor = System.Drawing.Color.Black
         Me.label8.Location = New System.Drawing.Point(0, 0)
         Me.label8.Name = "label8"
@@ -627,7 +628,7 @@ Partial Class FrmMain
         Me.btnHybrid.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnHybrid.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnHybrid.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHybrid.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHybrid.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHybrid.Location = New System.Drawing.Point(169, 4)
         Me.btnHybrid.Name = "btnHybrid"
         Me.btnHybrid.Size = New System.Drawing.Size(75, 23)
@@ -650,7 +651,7 @@ Partial Class FrmMain
         Me.btnSatellite.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnSatellite.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSatellite.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSatellite.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSatellite.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSatellite.Location = New System.Drawing.Point(88, 4)
         Me.btnSatellite.Name = "btnSatellite"
         Me.btnSatellite.Size = New System.Drawing.Size(75, 23)
@@ -673,7 +674,7 @@ Partial Class FrmMain
         Me.btnMap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnMap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnMap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMap.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMap.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMap.Location = New System.Drawing.Point(7, 4)
         Me.btnMap.Name = "btnMap"
         Me.btnMap.Size = New System.Drawing.Size(75, 23)
@@ -716,7 +717,7 @@ Partial Class FrmMain
         Me.tabConsole.Controls.Add(Me.tpageModemSms)
         Me.tabConsole.Dock = System.Windows.Forms.DockStyle.Fill
         Me.tabConsole.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
-        Me.tabConsole.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tabConsole.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tabConsole.ItemSize = New System.Drawing.Size(220, 21)
         Me.tabConsole.Location = New System.Drawing.Point(0, 0)
         Me.tabConsole.Name = "tabConsole"
@@ -747,23 +748,23 @@ Partial Class FrmMain
         Me.dgvConsoleVehicles.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvConsoleVehicles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvConsoleVehicles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvConsoleVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle60.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle60.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle60.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle60.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle60.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvConsoleVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle60
         Me.dgvConsoleVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvConsoleVehicles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvVehicles_onMap, Me.dgvVehicles_config, Me.dgvVehicles_device_model, Me.dgvVehicles_imei, Me.dgvVehicles_simcard, Me.dgvVehicles_cliente_name, Me.dgvVehicles_license_plate, Me.dgvVehicles_brand, Me.dgvVehicles_model, Me.dgvVehicles_type, Me.dgvVehicles_year, Me.dgvVehicles_color, Me.dgvVehicles_last_report, Me.dgvVehicles_speed, Me.dgvVehicles_expiration_date, Me.dgvVehicles_client_id, Me.dgvVehicles_vehicle_id, Me.dgvVehicles_device_id, Me.dgvVehicles_device_model_id, Me.dgvVehicles_sms_stop, Me.dgvVehicles_sms_resume, Me.dgvVehicles_gprs_stop, Me.dgvVehicles_gprs_resume, Me.dgvVehicles_call_pass})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvConsoleVehicles.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle65.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle65.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle65.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle65.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle65.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle65.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvConsoleVehicles.DefaultCellStyle = DataGridViewCellStyle65
         Me.dgvConsoleVehicles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvConsoleVehicles.EnableHeadersVisualStyles = False
         Me.dgvConsoleVehicles.GridColor = System.Drawing.Color.White
@@ -783,7 +784,7 @@ Partial Class FrmMain
         Me.dgvVehicles_onMap.HeaderText = "VER"
         Me.dgvVehicles_onMap.Name = "dgvVehicles_onMap"
         Me.dgvVehicles_onMap.ReadOnly = True
-        Me.dgvVehicles_onMap.Width = 32
+        Me.dgvVehicles_onMap.Width = 36
         '
         'dgvVehicles_config
         '
@@ -801,7 +802,7 @@ Partial Class FrmMain
         Me.dgvVehicles_device_model.HeaderText = "DISPOSITIVO"
         Me.dgvVehicles_device_model.Name = "dgvVehicles_device_model"
         Me.dgvVehicles_device_model.ReadOnly = True
-        Me.dgvVehicles_device_model.Width = 96
+        Me.dgvVehicles_device_model.Width = 109
         '
         'dgvVehicles_imei
         '
@@ -809,7 +810,7 @@ Partial Class FrmMain
         Me.dgvVehicles_imei.Name = "dgvVehicles_imei"
         Me.dgvVehicles_imei.ReadOnly = True
         Me.dgvVehicles_imei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_imei.Width = 35
+        Me.dgvVehicles_imei.Width = 37
         '
         'dgvVehicles_simcard
         '
@@ -817,13 +818,13 @@ Partial Class FrmMain
         Me.dgvVehicles_simcard.Name = "dgvVehicles_simcard"
         Me.dgvVehicles_simcard.ReadOnly = True
         Me.dgvVehicles_simcard.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_simcard.Width = 62
+        Me.dgvVehicles_simcard.Width = 71
         '
         'dgvVehicles_cliente_name
         '
         Me.dgvVehicles_cliente_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.dgvVehicles_cliente_name.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.dgvVehicles_cliente_name.DefaultCellStyle = DataGridViewCellStyle61
         Me.dgvVehicles_cliente_name.HeaderText = "CLIENTE"
         Me.dgvVehicles_cliente_name.Name = "dgvVehicles_cliente_name"
         Me.dgvVehicles_cliente_name.ReadOnly = True
@@ -835,7 +836,7 @@ Partial Class FrmMain
         Me.dgvVehicles_license_plate.Name = "dgvVehicles_license_plate"
         Me.dgvVehicles_license_plate.ReadOnly = True
         Me.dgvVehicles_license_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_license_plate.Width = 72
+        Me.dgvVehicles_license_plate.Width = 82
         '
         'dgvVehicles_brand
         '
@@ -843,7 +844,7 @@ Partial Class FrmMain
         Me.dgvVehicles_brand.Name = "dgvVehicles_brand"
         Me.dgvVehicles_brand.ReadOnly = True
         Me.dgvVehicles_brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_brand.Width = 48
+        Me.dgvVehicles_brand.Width = 54
         '
         'dgvVehicles_model
         '
@@ -851,7 +852,7 @@ Partial Class FrmMain
         Me.dgvVehicles_model.Name = "dgvVehicles_model"
         Me.dgvVehicles_model.ReadOnly = True
         Me.dgvVehicles_model.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_model.Width = 55
+        Me.dgvVehicles_model.Width = 63
         '
         'dgvVehicles_type
         '
@@ -864,14 +865,14 @@ Partial Class FrmMain
         '
         'dgvVehicles_year
         '
-        DataGridViewCellStyle5.Format = "####"
-        DataGridViewCellStyle5.NullValue = "0000"
-        Me.dgvVehicles_year.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle62.Format = "####"
+        DataGridViewCellStyle62.NullValue = "0000"
+        Me.dgvVehicles_year.DefaultCellStyle = DataGridViewCellStyle62
         Me.dgvVehicles_year.HeaderText = "AÑO"
         Me.dgvVehicles_year.Name = "dgvVehicles_year"
         Me.dgvVehicles_year.ReadOnly = True
         Me.dgvVehicles_year.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_year.Width = 33
+        Me.dgvVehicles_year.Width = 37
         '
         'dgvVehicles_color
         '
@@ -879,31 +880,30 @@ Partial Class FrmMain
         Me.dgvVehicles_color.Name = "dgvVehicles_color"
         Me.dgvVehicles_color.ReadOnly = True
         Me.dgvVehicles_color.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_color.Width = 45
+        Me.dgvVehicles_color.Width = 53
         '
         'dgvVehicles_last_report
         '
-        DataGridViewCellStyle6.Format = "d"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.dgvVehicles_last_report.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle63.Format = "d"
+        DataGridViewCellStyle63.NullValue = Nothing
+        Me.dgvVehicles_last_report.DefaultCellStyle = DataGridViewCellStyle63
         Me.dgvVehicles_last_report.HeaderText = "ÚLTIMO REPORTE"
         Me.dgvVehicles_last_report.Name = "dgvVehicles_last_report"
         Me.dgvVehicles_last_report.ReadOnly = True
         Me.dgvVehicles_last_report.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_last_report.Width = 102
+        Me.dgvVehicles_last_report.Width = 121
         '
         'dgvVehicles_speed
         '
         Me.dgvVehicles_speed.HeaderText = "VELOCIDAD"
         Me.dgvVehicles_speed.Name = "dgvVehicles_speed"
         Me.dgvVehicles_speed.ReadOnly = True
-        Me.dgvVehicles_speed.Width = 91
         '
         'dgvVehicles_expiration_date
         '
-        DataGridViewCellStyle7.Format = "d"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.dgvVehicles_expiration_date.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle64.Format = "d"
+        DataGridViewCellStyle64.NullValue = Nothing
+        Me.dgvVehicles_expiration_date.DefaultCellStyle = DataGridViewCellStyle64
         Me.dgvVehicles_expiration_date.HeaderText = "FECHA VENCIMIENTO"
         Me.dgvVehicles_expiration_date.Name = "dgvVehicles_expiration_date"
         Me.dgvVehicles_expiration_date.ReadOnly = True
@@ -989,7 +989,7 @@ Partial Class FrmMain
         Me.tpageEvents.Location = New System.Drawing.Point(4, 25)
         Me.tpageEvents.Name = "tpageEvents"
         Me.tpageEvents.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpageEvents.Size = New System.Drawing.Size(906, 192)
+        Me.tpageEvents.Size = New System.Drawing.Size(910, 193)
         Me.tpageEvents.TabIndex = 1
         Me.tpageEvents.Text = "EVENTOS (000)"
         Me.tpageEvents.UseVisualStyleBackColor = True
@@ -1005,23 +1005,23 @@ Partial Class FrmMain
         Me.dgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvEvents.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvEvents.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvEvents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle66.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle66.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle66.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle66.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle66.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvEvents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle66
         Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvEvents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvEvents_onMap, Me.dgvEvents_client_name, Me.dgvEvents_imei, Me.dgvEvents_license_plate, Me.dgvEvents_date_time, Me.dgvEvents_name, Me.dgvEvents_validation, Me.dgvEvents_client_id, Me.dgvEvents_vehicle_id, Me.dgvEvents_report_type_id, Me.dgvEvents_geofence_id, Me.dgvEvents_geofence_points, Me.dgvEvents_latitude, Me.dgvEvents_longitude, Me.dgvEvents_speed, Me.dgvEvents_orientation})
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEvents.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle70.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle70.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle70.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle70.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle70.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEvents.DefaultCellStyle = DataGridViewCellStyle70
         Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvEvents.EnableHeadersVisualStyles = False
         Me.dgvEvents.GridColor = System.Drawing.Color.White
@@ -1033,160 +1033,8 @@ Partial Class FrmMain
         Me.dgvEvents.RowHeadersVisible = False
         Me.dgvEvents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvEvents.Size = New System.Drawing.Size(900, 186)
+        Me.dgvEvents.Size = New System.Drawing.Size(904, 187)
         Me.dgvEvents.TabIndex = 4
-        '
-        'dgvEvents_onMap
-        '
-        Me.dgvEvents_onMap.DataPropertyName = "dgvEvents_onMap"
-        Me.dgvEvents_onMap.HeaderText = "VER"
-        Me.dgvEvents_onMap.Name = "dgvEvents_onMap"
-        Me.dgvEvents_onMap.ReadOnly = True
-        Me.dgvEvents_onMap.Width = 32
-        '
-        'dgvEvents_client_name
-        '
-        Me.dgvEvents_client_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.dgvEvents_client_name.DataPropertyName = "dgvEvents_client_name"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.dgvEvents_client_name.DefaultCellStyle = DataGridViewCellStyle10
-        Me.dgvEvents_client_name.HeaderText = "CLIENTE"
-        Me.dgvEvents_client_name.Name = "dgvEvents_client_name"
-        Me.dgvEvents_client_name.ReadOnly = True
-        Me.dgvEvents_client_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'dgvEvents_imei
-        '
-        Me.dgvEvents_imei.DataPropertyName = "dgvEvents_imei"
-        Me.dgvEvents_imei.HeaderText = "IMEI"
-        Me.dgvEvents_imei.Name = "dgvEvents_imei"
-        Me.dgvEvents_imei.ReadOnly = True
-        Me.dgvEvents_imei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_imei.Width = 35
-        '
-        'dgvEvents_license_plate
-        '
-        Me.dgvEvents_license_plate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.dgvEvents_license_plate.DataPropertyName = "dgvEvents_license_plate"
-        Me.dgvEvents_license_plate.HeaderText = "MATRÍCULA"
-        Me.dgvEvents_license_plate.Name = "dgvEvents_license_plate"
-        Me.dgvEvents_license_plate.ReadOnly = True
-        Me.dgvEvents_license_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_license_plate.Width = 120
-        '
-        'dgvEvents_date_time
-        '
-        Me.dgvEvents_date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.dgvEvents_date_time.DataPropertyName = "dgvEvents_date_time"
-        DataGridViewCellStyle11.Format = "G"
-        DataGridViewCellStyle11.NullValue = Nothing
-        Me.dgvEvents_date_time.DefaultCellStyle = DataGridViewCellStyle11
-        Me.dgvEvents_date_time.HeaderText = "FECHA"
-        Me.dgvEvents_date_time.Name = "dgvEvents_date_time"
-        Me.dgvEvents_date_time.ReadOnly = True
-        Me.dgvEvents_date_time.Width = 165
-        '
-        'dgvEvents_name
-        '
-        Me.dgvEvents_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.dgvEvents_name.DataPropertyName = "dgvEvents_name"
-        Me.dgvEvents_name.HeaderText = "EVENTO"
-        Me.dgvEvents_name.Name = "dgvEvents_name"
-        Me.dgvEvents_name.ReadOnly = True
-        Me.dgvEvents_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'dgvEvents_validation
-        '
-        Me.dgvEvents_validation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.dgvEvents_validation.DataPropertyName = "dgvEvents_validation"
-        DataGridViewCellStyle12.Format = "G"
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.dgvEvents_validation.DefaultCellStyle = DataGridViewCellStyle12
-        Me.dgvEvents_validation.HeaderText = "VÁLIDO HASTA"
-        Me.dgvEvents_validation.Name = "dgvEvents_validation"
-        Me.dgvEvents_validation.ReadOnly = True
-        Me.dgvEvents_validation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_validation.Width = 165
-        '
-        'dgvEvents_client_id
-        '
-        Me.dgvEvents_client_id.DataPropertyName = "dgvEvents_client_id"
-        Me.dgvEvents_client_id.HeaderText = "ID CLIENTE"
-        Me.dgvEvents_client_id.Name = "dgvEvents_client_id"
-        Me.dgvEvents_client_id.ReadOnly = True
-        Me.dgvEvents_client_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_client_id.Visible = False
-        Me.dgvEvents_client_id.Width = 82
-        '
-        'dgvEvents_vehicle_id
-        '
-        Me.dgvEvents_vehicle_id.DataPropertyName = "dgvEvents_vehicle_id"
-        Me.dgvEvents_vehicle_id.HeaderText = "ID VEHICULO"
-        Me.dgvEvents_vehicle_id.Name = "dgvEvents_vehicle_id"
-        Me.dgvEvents_vehicle_id.ReadOnly = True
-        Me.dgvEvents_vehicle_id.Width = 99
-        '
-        'dgvEvents_report_type_id
-        '
-        Me.dgvEvents_report_type_id.DataPropertyName = "dgvEvents_report_type_id"
-        Me.dgvEvents_report_type_id.HeaderText = "ID TIPO REPORTE"
-        Me.dgvEvents_report_type_id.Name = "dgvEvents_report_type_id"
-        Me.dgvEvents_report_type_id.ReadOnly = True
-        Me.dgvEvents_report_type_id.Width = 120
-        '
-        'dgvEvents_geofence_id
-        '
-        Me.dgvEvents_geofence_id.DataPropertyName = "dgvEvents_geofence_id"
-        Me.dgvEvents_geofence_id.HeaderText = "ID GEOCERCA"
-        Me.dgvEvents_geofence_id.Name = "dgvEvents_geofence_id"
-        Me.dgvEvents_geofence_id.ReadOnly = True
-        Me.dgvEvents_geofence_id.Visible = False
-        Me.dgvEvents_geofence_id.Width = 116
-        '
-        'dgvEvents_geofence_points
-        '
-        Me.dgvEvents_geofence_points.DataPropertyName = "dgvEvents_geofence_points"
-        Me.dgvEvents_geofence_points.HeaderText = "PUNTOS GEOCERCA"
-        Me.dgvEvents_geofence_points.Name = "dgvEvents_geofence_points"
-        Me.dgvEvents_geofence_points.ReadOnly = True
-        Me.dgvEvents_geofence_points.Visible = False
-        Me.dgvEvents_geofence_points.Width = 154
-        '
-        'dgvEvents_latitude
-        '
-        Me.dgvEvents_latitude.DataPropertyName = "dgvEvents_latitude"
-        Me.dgvEvents_latitude.HeaderText = "LATITUD"
-        Me.dgvEvents_latitude.Name = "dgvEvents_latitude"
-        Me.dgvEvents_latitude.ReadOnly = True
-        Me.dgvEvents_latitude.Visible = False
-        Me.dgvEvents_latitude.Width = 85
-        '
-        'dgvEvents_longitude
-        '
-        Me.dgvEvents_longitude.DataPropertyName = "dgvEvents_longitude"
-        Me.dgvEvents_longitude.HeaderText = "LONGITUD"
-        Me.dgvEvents_longitude.Name = "dgvEvents_longitude"
-        Me.dgvEvents_longitude.ReadOnly = True
-        Me.dgvEvents_longitude.Visible = False
-        Me.dgvEvents_longitude.Width = 96
-        '
-        'dgvEvents_speed
-        '
-        Me.dgvEvents_speed.DataPropertyName = "dgvEvents_speed"
-        Me.dgvEvents_speed.HeaderText = "VELOCIDAD"
-        Me.dgvEvents_speed.Name = "dgvEvents_speed"
-        Me.dgvEvents_speed.ReadOnly = True
-        Me.dgvEvents_speed.Visible = False
-        Me.dgvEvents_speed.Width = 102
-        '
-        'dgvEvents_orientation
-        '
-        Me.dgvEvents_orientation.DataPropertyName = "dgvEvents_orientation"
-        Me.dgvEvents_orientation.HeaderText = "ORIENTACIÓN"
-        Me.dgvEvents_orientation.Name = "dgvEvents_orientation"
-        Me.dgvEvents_orientation.ReadOnly = True
-        Me.dgvEvents_orientation.Visible = False
-        Me.dgvEvents_orientation.Width = 117
         '
         'tpageNoReportingVehicles
         '
@@ -1194,7 +1042,7 @@ Partial Class FrmMain
         Me.tpageNoReportingVehicles.Location = New System.Drawing.Point(4, 25)
         Me.tpageNoReportingVehicles.Name = "tpageNoReportingVehicles"
         Me.tpageNoReportingVehicles.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpageNoReportingVehicles.Size = New System.Drawing.Size(906, 192)
+        Me.tpageNoReportingVehicles.Size = New System.Drawing.Size(910, 193)
         Me.tpageNoReportingVehicles.TabIndex = 2
         Me.tpageNoReportingVehicles.Text = "VEHÍCULOS SIN REPORTAR (000)"
         Me.tpageNoReportingVehicles.UseVisualStyleBackColor = True
@@ -1205,30 +1053,30 @@ Partial Class FrmMain
         Me.dgvNoReportingVehicles.AllowUserToDeleteRows = False
         Me.dgvNoReportingVehicles.AllowUserToResizeColumns = False
         Me.dgvNoReportingVehicles.AllowUserToResizeRows = False
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Gray
-        Me.dgvNoReportingVehicles.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle71.BackColor = System.Drawing.Color.Gray
+        Me.dgvNoReportingVehicles.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle71
         Me.dgvNoReportingVehicles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvNoReportingVehicles.BackgroundColor = System.Drawing.Color.White
         Me.dgvNoReportingVehicles.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvNoReportingVehicles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvNoReportingVehicles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvNoReportingVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle72.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle72.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle72.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle72.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle72.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvNoReportingVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle72
         Me.dgvNoReportingVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvNoReportingVehicles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvNoReportingVehicles_client_name, Me.dgvNoReportingVehicles_imei, Me.dgvNoReportingVehicles_license_plate, Me.dgvNoReportingVehicles_no_report_since, Me.dgvNoReportingVehicles_difference, Me.dgvNoReportingVehicles_validation, Me.dgvNoReportingVehicles_client_id})
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle19.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvNoReportingVehicles.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle76.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle76.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle76.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle76.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle76.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle76.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvNoReportingVehicles.DefaultCellStyle = DataGridViewCellStyle76
         Me.dgvNoReportingVehicles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvNoReportingVehicles.EnableHeadersVisualStyles = False
         Me.dgvNoReportingVehicles.GridColor = System.Drawing.Color.White
@@ -1240,15 +1088,15 @@ Partial Class FrmMain
         Me.dgvNoReportingVehicles.RowHeadersVisible = False
         Me.dgvNoReportingVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvNoReportingVehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvNoReportingVehicles.Size = New System.Drawing.Size(900, 186)
+        Me.dgvNoReportingVehicles.Size = New System.Drawing.Size(904, 187)
         Me.dgvNoReportingVehicles.TabIndex = 5
         '
         'dgvNoReportingVehicles_client_name
         '
         Me.dgvNoReportingVehicles_client_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.dgvNoReportingVehicles_client_name.DataPropertyName = "dgvNoReportingVehicles_client_name"
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.dgvNoReportingVehicles_client_name.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.dgvNoReportingVehicles_client_name.DefaultCellStyle = DataGridViewCellStyle73
         Me.dgvNoReportingVehicles_client_name.HeaderText = "CLIENTE"
         Me.dgvNoReportingVehicles_client_name.Name = "dgvNoReportingVehicles_client_name"
         Me.dgvNoReportingVehicles_client_name.ReadOnly = True
@@ -1261,7 +1109,7 @@ Partial Class FrmMain
         Me.dgvNoReportingVehicles_imei.Name = "dgvNoReportingVehicles_imei"
         Me.dgvNoReportingVehicles_imei.ReadOnly = True
         Me.dgvNoReportingVehicles_imei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvNoReportingVehicles_imei.Width = 35
+        Me.dgvNoReportingVehicles_imei.Width = 37
         '
         'dgvNoReportingVehicles_license_plate
         '
@@ -1270,18 +1118,18 @@ Partial Class FrmMain
         Me.dgvNoReportingVehicles_license_plate.Name = "dgvNoReportingVehicles_license_plate"
         Me.dgvNoReportingVehicles_license_plate.ReadOnly = True
         Me.dgvNoReportingVehicles_license_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvNoReportingVehicles_license_plate.Width = 72
+        Me.dgvNoReportingVehicles_license_plate.Width = 82
         '
         'dgvNoReportingVehicles_no_report_since
         '
         Me.dgvNoReportingVehicles_no_report_since.DataPropertyName = "dgvNoReportingVehicles_no_report_since"
-        DataGridViewCellStyle17.Format = "G"
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.dgvNoReportingVehicles_no_report_since.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle74.Format = "G"
+        DataGridViewCellStyle74.NullValue = Nothing
+        Me.dgvNoReportingVehicles_no_report_since.DefaultCellStyle = DataGridViewCellStyle74
         Me.dgvNoReportingVehicles_no_report_since.HeaderText = "SIN REPORTAR DESDE"
         Me.dgvNoReportingVehicles_no_report_since.Name = "dgvNoReportingVehicles_no_report_since"
         Me.dgvNoReportingVehicles_no_report_since.ReadOnly = True
-        Me.dgvNoReportingVehicles_no_report_since.Width = 145
+        Me.dgvNoReportingVehicles_no_report_since.Width = 169
         '
         'dgvNoReportingVehicles_difference
         '
@@ -1296,14 +1144,14 @@ Partial Class FrmMain
         'dgvNoReportingVehicles_validation
         '
         Me.dgvNoReportingVehicles_validation.DataPropertyName = "dgvNoReportingVehicles_validation"
-        DataGridViewCellStyle18.Format = "G"
-        DataGridViewCellStyle18.NullValue = Nothing
-        Me.dgvNoReportingVehicles_validation.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle75.Format = "G"
+        DataGridViewCellStyle75.NullValue = Nothing
+        Me.dgvNoReportingVehicles_validation.DefaultCellStyle = DataGridViewCellStyle75
         Me.dgvNoReportingVehicles_validation.HeaderText = "VÁLIDO HASTA"
         Me.dgvNoReportingVehicles_validation.Name = "dgvNoReportingVehicles_validation"
         Me.dgvNoReportingVehicles_validation.ReadOnly = True
         Me.dgvNoReportingVehicles_validation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvNoReportingVehicles_validation.Width = 87
+        Me.dgvNoReportingVehicles_validation.Width = 101
         '
         'dgvNoReportingVehicles_client_id
         '
@@ -1322,7 +1170,7 @@ Partial Class FrmMain
         Me.tpageModemSms.Location = New System.Drawing.Point(4, 25)
         Me.tpageModemSms.Name = "tpageModemSms"
         Me.tpageModemSms.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpageModemSms.Size = New System.Drawing.Size(906, 192)
+        Me.tpageModemSms.Size = New System.Drawing.Size(910, 193)
         Me.tpageModemSms.TabIndex = 3
         Me.tpageModemSms.Text = "MODEM SMS"
         Me.tpageModemSms.UseVisualStyleBackColor = True
@@ -1331,11 +1179,11 @@ Partial Class FrmMain
         '
         Me.rtb.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.rtb.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rtb.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rtb.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rtb.Location = New System.Drawing.Point(3, 31)
         Me.rtb.Name = "rtb"
         Me.rtb.ReadOnly = True
-        Me.rtb.Size = New System.Drawing.Size(900, 158)
+        Me.rtb.Size = New System.Drawing.Size(904, 159)
         Me.rtb.TabIndex = 2
         Me.rtb.Text = ""
         '
@@ -1349,7 +1197,7 @@ Partial Class FrmMain
         Me.panelModemSms.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelModemSms.Location = New System.Drawing.Point(3, 3)
         Me.panelModemSms.Name = "panelModemSms"
-        Me.panelModemSms.Size = New System.Drawing.Size(900, 28)
+        Me.panelModemSms.Size = New System.Drawing.Size(904, 28)
         Me.panelModemSms.TabIndex = 1
         '
         'btnSendAtCommand
@@ -1367,8 +1215,8 @@ Partial Class FrmMain
         Me.btnSendAtCommand.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnSendAtCommand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSendAtCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSendAtCommand.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSendAtCommand.Location = New System.Drawing.Point(373, 3)
+        Me.btnSendAtCommand.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSendAtCommand.Location = New System.Drawing.Point(395, 3)
         Me.btnSendAtCommand.Name = "btnSendAtCommand"
         Me.btnSendAtCommand.Size = New System.Drawing.Size(75, 23)
         Me.btnSendAtCommand.TabIndex = 4
@@ -1377,25 +1225,25 @@ Partial Class FrmMain
         '
         'txtAtCommand
         '
-        Me.txtAtCommand.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtAtCommand.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAtCommand.HintText = "Hint Text"
         Me.txtAtCommand.HintTextColor = System.Drawing.Color.Gray
         Me.txtAtCommand.HintTextEnabled = False
-        Me.txtAtCommand.Location = New System.Drawing.Point(107, 5)
+        Me.txtAtCommand.Location = New System.Drawing.Point(129, 5)
         Me.txtAtCommand.Name = "txtAtCommand"
         Me.txtAtCommand.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtAtCommand.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtAtCommand.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtAtCommand.Size = New System.Drawing.Size(260, 21)
+        Me.txtAtCommand.Size = New System.Drawing.Size(260, 20)
         Me.txtAtCommand.TabIndex = 3
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(4, 8)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(103, 14)
+        Me.Label9.Size = New System.Drawing.Size(119, 13)
         Me.Label9.TabIndex = 2
         Me.Label9.Text = "Enviar Comando AT"
         '
@@ -1405,10 +1253,10 @@ Partial Class FrmMain
         Me.cboxAutoScroll.AutoSize = True
         Me.cboxAutoScroll.Checked = True
         Me.cboxAutoScroll.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.cboxAutoScroll.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboxAutoScroll.Location = New System.Drawing.Point(768, 7)
+        Me.cboxAutoScroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxAutoScroll.Location = New System.Drawing.Point(756, 7)
         Me.cboxAutoScroll.Name = "cboxAutoScroll"
-        Me.cboxAutoScroll.Size = New System.Drawing.Size(129, 18)
+        Me.cboxAutoScroll.Size = New System.Drawing.Size(145, 17)
         Me.cboxAutoScroll.TabIndex = 1
         Me.cboxAutoScroll.Text = "Auto Desplazamiento"
         Me.cboxAutoScroll.UseVisualStyleBackColor = True
@@ -1429,8 +1277,8 @@ Partial Class FrmMain
         Me.btnClearDgvModemSms.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnClearDgvModemSms.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnClearDgvModemSms.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClearDgvModemSms.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClearDgvModemSms.Location = New System.Drawing.Point(684, 3)
+        Me.btnClearDgvModemSms.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClearDgvModemSms.Location = New System.Drawing.Point(675, 3)
         Me.btnClearDgvModemSms.Name = "btnClearDgvModemSms"
         Me.btnClearDgvModemSms.Size = New System.Drawing.Size(75, 23)
         Me.btnClearDgvModemSms.TabIndex = 0
@@ -1502,9 +1350,7 @@ Partial Class FrmMain
         '
         'VentanaDeGeocercasToolStripMenuItem
         '
-        Me.VentanaDeGeocercasToolStripMenuItem.Checked = True
         Me.VentanaDeGeocercasToolStripMenuItem.CheckOnClick = True
-        Me.VentanaDeGeocercasToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.VentanaDeGeocercasToolStripMenuItem.Name = "VentanaDeGeocercasToolStripMenuItem"
         Me.VentanaDeGeocercasToolStripMenuItem.Size = New System.Drawing.Size(230, 38)
         Me.VentanaDeGeocercasToolStripMenuItem.Text = "Ventana de Geocercas"
@@ -1694,60 +1540,60 @@ Partial Class FrmMain
         '
         'menuUsers
         '
-        Me.menuUsers.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuUsers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuUsers.ForeColor = System.Drawing.Color.White
         Me.menuUsers.Image = Global.VillaTracking.My.Resources.Resources.user_icon
         Me.menuUsers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuUsers.Name = "menuUsers"
-        Me.menuUsers.Size = New System.Drawing.Size(64, 51)
+        Me.menuUsers.Size = New System.Drawing.Size(76, 51)
         Me.menuUsers.Text = "&Usuarios"
         Me.menuUsers.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuUsers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuDealers
         '
-        Me.menuDealers.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuDealers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuDealers.ForeColor = System.Drawing.Color.White
         Me.menuDealers.Image = Global.VillaTracking.My.Resources.Resources.dealer_icon
         Me.menuDealers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuDealers.Name = "menuDealers"
-        Me.menuDealers.Size = New System.Drawing.Size(57, 51)
+        Me.menuDealers.Size = New System.Drawing.Size(69, 51)
         Me.menuDealers.Text = "D&ealers"
         Me.menuDealers.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuDealers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuSimCards
         '
-        Me.menuSimCards.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuSimCards.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuSimCards.ForeColor = System.Drawing.Color.White
         Me.menuSimCards.Image = Global.VillaTracking.My.Resources.Resources.simcard_icon
         Me.menuSimCards.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuSimCards.Name = "menuSimCards"
-        Me.menuSimCards.Size = New System.Drawing.Size(72, 51)
+        Me.menuSimCards.Size = New System.Drawing.Size(85, 51)
         Me.menuSimCards.Text = "&Sim Cards"
         Me.menuSimCards.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuSimCards.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuDevices
         '
-        Me.menuDevices.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuDevices.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuDevices.ForeColor = System.Drawing.Color.White
         Me.menuDevices.Image = Global.VillaTracking.My.Resources.Resources.gps_icon
         Me.menuDevices.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuDevices.Name = "menuDevices"
-        Me.menuDevices.Size = New System.Drawing.Size(80, 51)
+        Me.menuDevices.Size = New System.Drawing.Size(96, 51)
         Me.menuDevices.Text = "&Dispositivos"
         Me.menuDevices.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuDevices.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuClients
         '
-        Me.menuClients.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuClients.ForeColor = System.Drawing.Color.White
         Me.menuClients.Image = Global.VillaTracking.My.Resources.Resources.costumer_icon
         Me.menuClients.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuClients.Name = "menuClients"
-        Me.menuClients.Size = New System.Drawing.Size(60, 51)
+        Me.menuClients.Size = New System.Drawing.Size(71, 51)
         Me.menuClients.Text = "&Clientes"
         Me.menuClients.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuClients.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal
@@ -1755,72 +1601,72 @@ Partial Class FrmMain
         '
         'menuTravelHistory
         '
-        Me.menuTravelHistory.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuTravelHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuTravelHistory.ForeColor = System.Drawing.Color.White
         Me.menuTravelHistory.Image = Global.VillaTracking.My.Resources.Resources.travel_history_icon
         Me.menuTravelHistory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuTravelHistory.Name = "menuTravelHistory"
-        Me.menuTravelHistory.Size = New System.Drawing.Size(69, 51)
+        Me.menuTravelHistory.Size = New System.Drawing.Size(82, 51)
         Me.menuTravelHistory.Text = "&Recorrido"
         Me.menuTravelHistory.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuTravelHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuEventHistory
         '
-        Me.menuEventHistory.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuEventHistory.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuEventHistory.ForeColor = System.Drawing.Color.White
         Me.menuEventHistory.Image = Global.VillaTracking.My.Resources.Resources.event_history_icon
         Me.menuEventHistory.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuEventHistory.Name = "menuEventHistory"
-        Me.menuEventHistory.Size = New System.Drawing.Size(60, 51)
+        Me.menuEventHistory.Size = New System.Drawing.Size(69, 51)
         Me.menuEventHistory.Text = "E&ventos"
         Me.menuEventHistory.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuEventHistory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuGeofence
         '
-        Me.menuGeofence.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuGeofence.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuGeofence.ForeColor = System.Drawing.Color.White
         Me.menuGeofence.Image = Global.VillaTracking.My.Resources.Resources.geofence_icon
         Me.menuGeofence.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuGeofence.Name = "menuGeofence"
-        Me.menuGeofence.Size = New System.Drawing.Size(72, 51)
+        Me.menuGeofence.Size = New System.Drawing.Size(87, 51)
         Me.menuGeofence.Text = "&Geocercas"
         Me.menuGeofence.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuGeofence.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuReports
         '
-        Me.menuReports.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuReports.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuReports.ForeColor = System.Drawing.Color.White
         Me.menuReports.Image = Global.VillaTracking.My.Resources.Resources.reports_icon
         Me.menuReports.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuReports.Name = "menuReports"
-        Me.menuReports.Size = New System.Drawing.Size(65, 51)
+        Me.menuReports.Size = New System.Drawing.Size(75, 51)
         Me.menuReports.Text = "&Informes"
         Me.menuReports.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuNoReporting
         '
-        Me.menuNoReporting.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuNoReporting.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuNoReporting.ForeColor = System.Drawing.Color.White
         Me.menuNoReporting.Image = Global.VillaTracking.My.Resources.Resources.no_reporting_icon
         Me.menuNoReporting.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuNoReporting.Name = "menuNoReporting"
-        Me.menuNoReporting.Size = New System.Drawing.Size(85, 51)
+        Me.menuNoReporting.Size = New System.Drawing.Size(100, 51)
         Me.menuNoReporting.Text = "Sin Reportar"
         Me.menuNoReporting.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuNoReporting.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
         'menuOptions
         '
-        Me.menuOptions.Font = New System.Drawing.Font("NewsGoth BT", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.menuOptions.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.menuOptions.ForeColor = System.Drawing.Color.White
         Me.menuOptions.Image = Global.VillaTracking.My.Resources.Resources.settings_icon
         Me.menuOptions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.menuOptions.Name = "menuOptions"
-        Me.menuOptions.Size = New System.Drawing.Size(67, 51)
+        Me.menuOptions.Size = New System.Drawing.Size(79, 51)
         Me.menuOptions.Text = "&Opciones"
         Me.menuOptions.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.menuOptions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
@@ -1847,10 +1693,10 @@ Partial Class FrmMain
         Me.panelSignal.Controls.Add(Me.cboxModem)
         Me.panelSignal.Controls.Add(Me.pbarModem)
         Me.panelSignal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelSignal.Location = New System.Drawing.Point(510, 2)
+        Me.panelSignal.Location = New System.Drawing.Point(579, 2)
         Me.panelSignal.Name = "panelSignal"
         Me.panelSignal.Padding = New System.Windows.Forms.Padding(20, 1, 5, 2)
-        Me.panelSignal.Size = New System.Drawing.Size(687, 19)
+        Me.panelSignal.Size = New System.Drawing.Size(618, 19)
         Me.panelSignal.TabIndex = 6
         '
         'cboxModem
@@ -1859,11 +1705,11 @@ Partial Class FrmMain
         Me.cboxModem.Checked = True
         Me.cboxModem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.cboxModem.Dock = System.Windows.Forms.DockStyle.Left
-        Me.cboxModem.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxModem.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxModem.ForeColor = System.Drawing.Color.Red
         Me.cboxModem.Location = New System.Drawing.Point(20, 1)
         Me.cboxModem.Name = "cboxModem"
-        Me.cboxModem.Size = New System.Drawing.Size(131, 16)
+        Me.cboxModem.Size = New System.Drawing.Size(152, 16)
         Me.cboxModem.TabIndex = 6
         Me.cboxModem.Text = "Módem Desconectado"
         Me.cboxModem.UseVisualStyleBackColor = True
@@ -1874,7 +1720,7 @@ Partial Class FrmMain
         Me.pbarModem.Location = New System.Drawing.Point(20, 1)
         Me.pbarModem.Maximum = 32
         Me.pbarModem.Name = "pbarModem"
-        Me.pbarModem.Size = New System.Drawing.Size(662, 16)
+        Me.pbarModem.Size = New System.Drawing.Size(593, 16)
         Me.pbarModem.TabIndex = 7
         '
         'btnMonitoring
@@ -1887,30 +1733,30 @@ Partial Class FrmMain
         Me.btnMonitoring.BackgroundOnHover = CType(resources.GetObject("btnMonitoring.BackgroundOnHover"), System.Drawing.Image)
         Me.btnMonitoring.BackgroundOnNormal = CType(resources.GetObject("btnMonitoring.BackgroundOnNormal"), System.Drawing.Image)
         Me.btnMonitoring.BackgroundStyle = ZUControls.ZUButton.styleType.Native
-        Me.btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed
+        Me.btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
         Me.btnMonitoring.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnMonitoring.FlatAppearance.BorderSize = 0
         Me.btnMonitoring.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnMonitoring.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnMonitoring.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnMonitoring.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnMonitoring.Location = New System.Drawing.Point(442, 2)
+        Me.btnMonitoring.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnMonitoring.Location = New System.Drawing.Point(497, 2)
         Me.btnMonitoring.Name = "btnMonitoring"
-        Me.btnMonitoring.Size = New System.Drawing.Size(68, 19)
+        Me.btnMonitoring.Size = New System.Drawing.Size(82, 19)
         Me.btnMonitoring.TabIndex = 7
-        Me.btnMonitoring.Text = "INACTIVO"
+        Me.btnMonitoring.Text = "ACTIVO"
         Me.btnMonitoring.UseVisualStyleBackColor = False
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label3.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Yellow
-        Me.Label3.Location = New System.Drawing.Point(367, 2)
+        Me.Label3.Location = New System.Drawing.Point(415, 2)
         Me.Label3.Name = "Label3"
         Me.Label3.Padding = New System.Windows.Forms.Padding(15, 2, 0, 0)
-        Me.Label3.Size = New System.Drawing.Size(75, 16)
+        Me.Label3.Size = New System.Drawing.Size(82, 15)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Monitoreo:"
         '
@@ -1918,12 +1764,12 @@ Partial Class FrmMain
         '
         Me.lblDateTime.AutoSize = True
         Me.lblDateTime.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lblDateTime.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDateTime.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTime.ForeColor = System.Drawing.Color.White
-        Me.lblDateTime.Location = New System.Drawing.Point(239, 2)
+        Me.lblDateTime.Location = New System.Drawing.Point(276, 2)
         Me.lblDateTime.Name = "lblDateTime"
         Me.lblDateTime.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
-        Me.lblDateTime.Size = New System.Drawing.Size(128, 16)
+        Me.lblDateTime.Size = New System.Drawing.Size(139, 15)
         Me.lblDateTime.TabIndex = 3
         Me.lblDateTime.Text = "19/05/2017 12:00 a.m."
         '
@@ -1931,12 +1777,12 @@ Partial Class FrmMain
         '
         Me.Label2.AutoSize = True
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label2.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Yellow
-        Me.Label2.Location = New System.Drawing.Point(152, 2)
+        Me.Label2.Location = New System.Drawing.Point(174, 2)
         Me.Label2.Name = "Label2"
         Me.Label2.Padding = New System.Windows.Forms.Padding(15, 2, 0, 0)
-        Me.Label2.Size = New System.Drawing.Size(87, 16)
+        Me.Label2.Size = New System.Drawing.Size(102, 15)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Fecha / Hora:"
         '
@@ -1945,12 +1791,12 @@ Partial Class FrmMain
         Me.lblUser.AutoSize = True
         Me.lblUser.BackColor = System.Drawing.Color.Black
         Me.lblUser.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lblUser.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUser.ForeColor = System.Drawing.Color.White
-        Me.lblUser.Location = New System.Drawing.Point(57, 2)
+        Me.lblUser.Location = New System.Drawing.Point(63, 2)
         Me.lblUser.Name = "lblUser"
         Me.lblUser.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
-        Me.lblUser.Size = New System.Drawing.Size(95, 16)
+        Me.lblUser.Size = New System.Drawing.Size(111, 15)
         Me.lblUser.TabIndex = 1
         Me.lblUser.Text = "ADMINISTRADOR"
         Me.lblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1960,15 +1806,168 @@ Partial Class FrmMain
         Me.Label1.AutoSize = True
         Me.Label1.Cursor = System.Windows.Forms.Cursors.Default
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label1.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Yellow
         Me.Label1.Location = New System.Drawing.Point(5, 2)
         Me.Label1.Name = "Label1"
         Me.Label1.Padding = New System.Windows.Forms.Padding(0, 2, 0, 0)
-        Me.Label1.Size = New System.Drawing.Size(52, 16)
+        Me.Label1.Size = New System.Drawing.Size(58, 15)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Usuario: "
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'dgvEvents_onMap
+        '
+        Me.dgvEvents_onMap.DataPropertyName = "dgvEvents_onMap"
+        Me.dgvEvents_onMap.HeaderText = "VER"
+        Me.dgvEvents_onMap.Name = "dgvEvents_onMap"
+        Me.dgvEvents_onMap.ReadOnly = True
+        Me.dgvEvents_onMap.Width = 36
+        '
+        'dgvEvents_client_name
+        '
+        Me.dgvEvents_client_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.dgvEvents_client_name.DataPropertyName = "dgvEvents_client_name"
+        DataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.dgvEvents_client_name.DefaultCellStyle = DataGridViewCellStyle67
+        Me.dgvEvents_client_name.HeaderText = "CLIENTE"
+        Me.dgvEvents_client_name.Name = "dgvEvents_client_name"
+        Me.dgvEvents_client_name.ReadOnly = True
+        Me.dgvEvents_client_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'dgvEvents_imei
+        '
+        Me.dgvEvents_imei.DataPropertyName = "dgvEvents_imei"
+        Me.dgvEvents_imei.HeaderText = "IMEI"
+        Me.dgvEvents_imei.Name = "dgvEvents_imei"
+        Me.dgvEvents_imei.ReadOnly = True
+        Me.dgvEvents_imei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvEvents_imei.Width = 37
+        '
+        'dgvEvents_license_plate
+        '
+        Me.dgvEvents_license_plate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.dgvEvents_license_plate.DataPropertyName = "dgvEvents_license_plate"
+        Me.dgvEvents_license_plate.HeaderText = "MATRÍCULA"
+        Me.dgvEvents_license_plate.Name = "dgvEvents_license_plate"
+        Me.dgvEvents_license_plate.ReadOnly = True
+        Me.dgvEvents_license_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvEvents_license_plate.Width = 120
+        '
+        'dgvEvents_date_time
+        '
+        Me.dgvEvents_date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.dgvEvents_date_time.DataPropertyName = "dgvEvents_date_time"
+        DataGridViewCellStyle68.Format = "G"
+        DataGridViewCellStyle68.NullValue = Nothing
+        Me.dgvEvents_date_time.DefaultCellStyle = DataGridViewCellStyle68
+        Me.dgvEvents_date_time.HeaderText = "FECHA"
+        Me.dgvEvents_date_time.Name = "dgvEvents_date_time"
+        Me.dgvEvents_date_time.ReadOnly = True
+        Me.dgvEvents_date_time.Width = 165
+        '
+        'dgvEvents_name
+        '
+        Me.dgvEvents_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.dgvEvents_name.DataPropertyName = "dgvEvents_name"
+        Me.dgvEvents_name.HeaderText = "EVENTO"
+        Me.dgvEvents_name.Name = "dgvEvents_name"
+        Me.dgvEvents_name.ReadOnly = True
+        Me.dgvEvents_name.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'dgvEvents_validation
+        '
+        Me.dgvEvents_validation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.dgvEvents_validation.DataPropertyName = "dgvEvents_validation"
+        DataGridViewCellStyle69.Format = "G"
+        DataGridViewCellStyle69.NullValue = Nothing
+        Me.dgvEvents_validation.DefaultCellStyle = DataGridViewCellStyle69
+        Me.dgvEvents_validation.HeaderText = "VÁLIDO HASTA"
+        Me.dgvEvents_validation.Name = "dgvEvents_validation"
+        Me.dgvEvents_validation.ReadOnly = True
+        Me.dgvEvents_validation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvEvents_validation.Width = 165
+        '
+        'dgvEvents_client_id
+        '
+        Me.dgvEvents_client_id.DataPropertyName = "dgvEvents_client_id"
+        Me.dgvEvents_client_id.HeaderText = "ID CLIENTE"
+        Me.dgvEvents_client_id.Name = "dgvEvents_client_id"
+        Me.dgvEvents_client_id.ReadOnly = True
+        Me.dgvEvents_client_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvEvents_client_id.Visible = False
+        Me.dgvEvents_client_id.Width = 80
+        '
+        'dgvEvents_vehicle_id
+        '
+        Me.dgvEvents_vehicle_id.DataPropertyName = "dgvEvents_vehicle_id"
+        Me.dgvEvents_vehicle_id.HeaderText = "ID VEHICULO"
+        Me.dgvEvents_vehicle_id.Name = "dgvEvents_vehicle_id"
+        Me.dgvEvents_vehicle_id.ReadOnly = True
+        Me.dgvEvents_vehicle_id.Visible = False
+        Me.dgvEvents_vehicle_id.Width = 109
+        '
+        'dgvEvents_report_type_id
+        '
+        Me.dgvEvents_report_type_id.DataPropertyName = "dgvEvents_report_type_id"
+        Me.dgvEvents_report_type_id.HeaderText = "ID TIPO REPORTE"
+        Me.dgvEvents_report_type_id.Name = "dgvEvents_report_type_id"
+        Me.dgvEvents_report_type_id.ReadOnly = True
+        Me.dgvEvents_report_type_id.Visible = False
+        Me.dgvEvents_report_type_id.Width = 139
+        '
+        'dgvEvents_geofence_id
+        '
+        Me.dgvEvents_geofence_id.DataPropertyName = "dgvEvents_geofence_id"
+        Me.dgvEvents_geofence_id.HeaderText = "ID GEOCERCA"
+        Me.dgvEvents_geofence_id.Name = "dgvEvents_geofence_id"
+        Me.dgvEvents_geofence_id.ReadOnly = True
+        Me.dgvEvents_geofence_id.Visible = False
+        Me.dgvEvents_geofence_id.Width = 114
+        '
+        'dgvEvents_geofence_points
+        '
+        Me.dgvEvents_geofence_points.DataPropertyName = "dgvEvents_geofence_points"
+        Me.dgvEvents_geofence_points.HeaderText = "PUNTOS GEOCERCA"
+        Me.dgvEvents_geofence_points.Name = "dgvEvents_geofence_points"
+        Me.dgvEvents_geofence_points.ReadOnly = True
+        Me.dgvEvents_geofence_points.Visible = False
+        Me.dgvEvents_geofence_points.Width = 152
+        '
+        'dgvEvents_latitude
+        '
+        Me.dgvEvents_latitude.DataPropertyName = "dgvEvents_latitude"
+        Me.dgvEvents_latitude.HeaderText = "LATITUD"
+        Me.dgvEvents_latitude.Name = "dgvEvents_latitude"
+        Me.dgvEvents_latitude.ReadOnly = True
+        Me.dgvEvents_latitude.Visible = False
+        Me.dgvEvents_latitude.Width = 83
+        '
+        'dgvEvents_longitude
+        '
+        Me.dgvEvents_longitude.DataPropertyName = "dgvEvents_longitude"
+        Me.dgvEvents_longitude.HeaderText = "LONGITUD"
+        Me.dgvEvents_longitude.Name = "dgvEvents_longitude"
+        Me.dgvEvents_longitude.ReadOnly = True
+        Me.dgvEvents_longitude.Visible = False
+        Me.dgvEvents_longitude.Width = 94
+        '
+        'dgvEvents_speed
+        '
+        Me.dgvEvents_speed.DataPropertyName = "dgvEvents_speed"
+        Me.dgvEvents_speed.HeaderText = "VELOCIDAD"
+        Me.dgvEvents_speed.Name = "dgvEvents_speed"
+        Me.dgvEvents_speed.ReadOnly = True
+        Me.dgvEvents_speed.Visible = False
+        '
+        'dgvEvents_orientation
+        '
+        Me.dgvEvents_orientation.DataPropertyName = "dgvEvents_orientation"
+        Me.dgvEvents_orientation.HeaderText = "ORIENTACIÓN"
+        Me.dgvEvents_orientation.Name = "dgvEvents_orientation"
+        Me.dgvEvents_orientation.ReadOnly = True
+        Me.dgvEvents_orientation.Visible = False
+        Me.dgvEvents_orientation.Width = 115
         '
         'FrmMain
         '
@@ -2131,22 +2130,6 @@ Partial Class FrmMain
     Friend WithEvents dgvGeofences_vehicle_id As DataGridViewTextBoxColumn
     Friend WithEvents dgvGeofences_points As DataGridViewTextBoxColumn
     Friend WithEvents VentanaDeGeocercasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents dgvEvents_onMap As DataGridViewCheckBoxColumn
-    Friend WithEvents dgvEvents_client_name As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_imei As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_license_plate As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_date_time As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_name As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_validation As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_client_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_vehicle_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_report_type_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_geofence_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_geofence_points As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_latitude As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_longitude As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_speed As DataGridViewTextBoxColumn
-    Friend WithEvents dgvEvents_orientation As DataGridViewTextBoxColumn
     Friend WithEvents btnSendAtCommand As ZUControls.ZUButton
     Friend WithEvents txtAtCommand As ZUControls.ZUTextBox
     Friend WithEvents Label9 As Label
@@ -2175,4 +2158,20 @@ Partial Class FrmMain
     Friend WithEvents dgvVehicles_gprs_stop As DataGridViewTextBoxColumn
     Friend WithEvents dgvVehicles_gprs_resume As DataGridViewTextBoxColumn
     Friend WithEvents dgvVehicles_call_pass As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_onMap As DataGridViewCheckBoxColumn
+    Friend WithEvents dgvEvents_client_name As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_imei As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_license_plate As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_date_time As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_name As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_validation As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_client_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_vehicle_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_report_type_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_geofence_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_geofence_points As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_latitude As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_longitude As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_speed As DataGridViewTextBoxColumn
+    Friend WithEvents dgvEvents_orientation As DataGridViewTextBoxColumn
 End Class

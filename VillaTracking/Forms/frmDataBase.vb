@@ -1,8 +1,13 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
 Imports MySql.Data.MySqlClient
 
 Public Class frmDataBase
     Private Sub frmDataBase_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         ' declaracion de variables de conexion
         Dim server As String = Nothing
         Dim user As String = Nothing

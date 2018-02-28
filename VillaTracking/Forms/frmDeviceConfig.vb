@@ -1,4 +1,5 @@
-﻿Imports System.IO.Ports
+﻿Imports System.IO
+Imports System.IO.Ports
 
 Public Class frmDeviceConfig
     Dim port As SerialPort
@@ -77,6 +78,11 @@ Public Class frmDeviceConfig
 
     Private Sub frmDeviceConfig_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         txtDevicePass.Focus()
     End Sub
 

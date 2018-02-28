@@ -16,6 +16,10 @@ Public Class frmNoReporting
     Private Sub frmNoReporting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
 
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         Dim TargetKey As RegistryKey
         TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
         btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)

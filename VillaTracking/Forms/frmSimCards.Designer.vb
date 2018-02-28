@@ -65,7 +65,7 @@ Partial Class frmSimCards
         Me.bgwDeletingSimCard = New System.ComponentModel.BackgroundWorker()
         Me.bgwSearchingSimCards = New System.ComponentModel.BackgroundWorker()
         Me.bgwExporting = New System.ComponentModel.BackgroundWorker()
-        Me.dgvSimCards = New DataGridView()
+        Me.dgvSimCards = New System.Windows.Forms.DataGridView()
         Me.dgvSimCards_operator = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSimCards_serial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvSimCards_phone_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -111,7 +111,7 @@ Partial Class frmSimCards
         'lblLoading
         '
         Me.lblLoading.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lblLoading.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLoading.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLoading.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.lblLoading.Location = New System.Drawing.Point(0, 0)
         Me.lblLoading.Name = "lblLoading"
@@ -144,10 +144,10 @@ Partial Class frmSimCards
         '
         Me.rbtnFActive.AutoSize = True
         Me.rbtnFActive.Checked = True
-        Me.rbtnFActive.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnFActive.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbtnFActive.Location = New System.Drawing.Point(3, 1)
         Me.rbtnFActive.Name = "rbtnFActive"
-        Me.rbtnFActive.Size = New System.Drawing.Size(55, 18)
+        Me.rbtnFActive.Size = New System.Drawing.Size(61, 17)
         Me.rbtnFActive.TabIndex = 0
         Me.rbtnFActive.TabStop = True
         Me.rbtnFActive.Text = "Activa"
@@ -156,10 +156,10 @@ Partial Class frmSimCards
         'rbtnFInactive
         '
         Me.rbtnFInactive.AutoSize = True
-        Me.rbtnFInactive.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnFInactive.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbtnFInactive.Location = New System.Drawing.Point(70, 1)
         Me.rbtnFInactive.Name = "rbtnFInactive"
-        Me.rbtnFInactive.Size = New System.Drawing.Size(64, 18)
+        Me.rbtnFInactive.Size = New System.Drawing.Size(71, 17)
         Me.rbtnFInactive.TabIndex = 1
         Me.rbtnFInactive.Text = "Inactiva"
         Me.rbtnFInactive.UseVisualStyleBackColor = True
@@ -169,11 +169,11 @@ Partial Class frmSimCards
         Me.rbtnSimCardMaintaining.AutoSize = True
         Me.rbtnSimCardMaintaining.BackColor = System.Drawing.SystemColors.Control
         Me.rbtnSimCardMaintaining.Checked = True
-        Me.rbtnSimCardMaintaining.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnSimCardMaintaining.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbtnSimCardMaintaining.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.rbtnSimCardMaintaining.Location = New System.Drawing.Point(10, 1)
         Me.rbtnSimCardMaintaining.Name = "rbtnSimCardMaintaining"
-        Me.rbtnSimCardMaintaining.Size = New System.Drawing.Size(82, 18)
+        Me.rbtnSimCardMaintaining.Size = New System.Drawing.Size(92, 17)
         Me.rbtnSimCardMaintaining.TabIndex = 0
         Me.rbtnSimCardMaintaining.TabStop = True
         Me.rbtnSimCardMaintaining.Text = "Mantenedor"
@@ -206,7 +206,7 @@ Partial Class frmSimCards
         '
         Me.txtFApn.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtFApn.Enabled = False
-        Me.txtFApn.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFApn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFApn.HintText = "Hint Text"
         Me.txtFApn.HintTextColor = System.Drawing.Color.Gray
         Me.txtFApn.HintTextEnabled = False
@@ -216,7 +216,7 @@ Partial Class frmSimCards
         Me.txtFApn.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtFApn.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtFApn.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtFApn.Size = New System.Drawing.Size(402, 21)
+        Me.txtFApn.Size = New System.Drawing.Size(402, 20)
         Me.txtFApn.TabIndex = 6
         '
         'txtFSerialPhone
@@ -224,38 +224,38 @@ Partial Class frmSimCards
         Me.txtFSerialPhone.CaracterDecimal = False
         Me.txtFSerialPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtFSerialPhone.Enabled = False
-        Me.txtFSerialPhone.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFSerialPhone.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFSerialPhone.HintText = "Hint Text"
         Me.txtFSerialPhone.HintTextColor = System.Drawing.Color.Gray
         Me.txtFSerialPhone.HintTextEnabled = False
-        Me.txtFSerialPhone.Location = New System.Drawing.Point(126, 49)
+        Me.txtFSerialPhone.Location = New System.Drawing.Point(139, 49)
         Me.txtFSerialPhone.MaxLength = 25
         Me.txtFSerialPhone.Name = "txtFSerialPhone"
         Me.txtFSerialPhone.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtFSerialPhone.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtFSerialPhone.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtFSerialPhone.Size = New System.Drawing.Size(344, 21)
+        Me.txtFSerialPhone.Size = New System.Drawing.Size(331, 20)
         Me.txtFSerialPhone.TabIndex = 4
         '
         'cboFOperator
         '
         Me.cboFOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboFOperator.Enabled = False
-        Me.cboFOperator.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboFOperator.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboFOperator.FormattingEnabled = True
         Me.cboFOperator.HintText = "Hint Text"
         Me.cboFOperator.HintTextColor = System.Drawing.Color.Gray
         Me.cboFOperator.HintTextEnabled = False
-        Me.cboFOperator.Location = New System.Drawing.Point(100, 23)
+        Me.cboFOperator.Location = New System.Drawing.Point(108, 23)
         Me.cboFOperator.Name = "cboFOperator"
         Me.cboFOperator.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboFOperator.OnLeaveBackColor = System.Drawing.Color.White
-        Me.cboFOperator.Size = New System.Drawing.Size(370, 22)
+        Me.cboFOperator.Size = New System.Drawing.Size(362, 21)
         Me.cboFOperator.TabIndex = 2
         '
         'lblResult
         '
-        Me.lblResult.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResult.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblResult.ForeColor = System.Drawing.Color.Blue
         Me.lblResult.Location = New System.Drawing.Point(274, 106)
         Me.lblResult.Name = "lblResult"
@@ -278,10 +278,10 @@ Partial Class frmSimCards
         '
         Me.rbtnFAsignedYes.AutoSize = True
         Me.rbtnFAsignedYes.Checked = True
-        Me.rbtnFAsignedYes.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnFAsignedYes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbtnFAsignedYes.Location = New System.Drawing.Point(3, 1)
         Me.rbtnFAsignedYes.Name = "rbtnFAsignedYes"
-        Me.rbtnFAsignedYes.Size = New System.Drawing.Size(34, 18)
+        Me.rbtnFAsignedYes.Size = New System.Drawing.Size(36, 17)
         Me.rbtnFAsignedYes.TabIndex = 0
         Me.rbtnFAsignedYes.TabStop = True
         Me.rbtnFAsignedYes.Text = "Si"
@@ -290,10 +290,10 @@ Partial Class frmSimCards
         'rbtnFAsignedNo
         '
         Me.rbtnFAsignedNo.AutoSize = True
-        Me.rbtnFAsignedNo.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnFAsignedNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbtnFAsignedNo.Location = New System.Drawing.Point(51, 1)
         Me.rbtnFAsignedNo.Name = "rbtnFAsignedNo"
-        Me.rbtnFAsignedNo.Size = New System.Drawing.Size(39, 18)
+        Me.rbtnFAsignedNo.Size = New System.Drawing.Size(41, 17)
         Me.rbtnFAsignedNo.TabIndex = 1
         Me.rbtnFAsignedNo.Text = "No"
         Me.rbtnFAsignedNo.UseVisualStyleBackColor = True
@@ -412,7 +412,7 @@ Partial Class frmSimCards
         Me.gboxSimCardMaintaining.Controls.Add(Me.Label3)
         Me.gboxSimCardMaintaining.Controls.Add(Me.Label1)
         Me.gboxSimCardMaintaining.Dock = System.Windows.Forms.DockStyle.Top
-        Me.gboxSimCardMaintaining.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gboxSimCardMaintaining.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gboxSimCardMaintaining.Location = New System.Drawing.Point(0, 0)
         Me.gboxSimCardMaintaining.Name = "gboxSimCardMaintaining"
         Me.gboxSimCardMaintaining.Size = New System.Drawing.Size(482, 162)
@@ -424,23 +424,23 @@ Partial Class frmSimCards
         Me.txtMPhoneNumber.CaracterDecimal = False
         Me.txtMPhoneNumber.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMPhoneNumber.Enabled = False
-        Me.txtMPhoneNumber.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMPhoneNumber.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMPhoneNumber.HintText = "Hint Text"
         Me.txtMPhoneNumber.HintTextColor = System.Drawing.Color.Gray
         Me.txtMPhoneNumber.HintTextEnabled = False
-        Me.txtMPhoneNumber.Location = New System.Drawing.Point(68, 49)
+        Me.txtMPhoneNumber.Location = New System.Drawing.Point(77, 49)
         Me.txtMPhoneNumber.Name = "txtMPhoneNumber"
         Me.txtMPhoneNumber.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtMPhoneNumber.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMPhoneNumber.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtMPhoneNumber.Size = New System.Drawing.Size(128, 21)
+        Me.txtMPhoneNumber.Size = New System.Drawing.Size(128, 20)
         Me.txtMPhoneNumber.TabIndex = 3
         '
         'txtMApn
         '
         Me.txtMApn.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower
         Me.txtMApn.Enabled = False
-        Me.txtMApn.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMApn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMApn.HintText = "Hint Text"
         Me.txtMApn.HintTextColor = System.Drawing.Color.Gray
         Me.txtMApn.HintTextEnabled = False
@@ -449,30 +449,30 @@ Partial Class frmSimCards
         Me.txtMApn.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtMApn.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMApn.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtMApn.Size = New System.Drawing.Size(230, 21)
+        Me.txtMApn.Size = New System.Drawing.Size(230, 20)
         Me.txtMApn.TabIndex = 4
         '
         'txtMObservations
         '
         Me.txtMObservations.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMObservations.Enabled = False
-        Me.txtMObservations.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMObservations.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMObservations.HintText = "Hint Text"
         Me.txtMObservations.HintTextColor = System.Drawing.Color.Gray
         Me.txtMObservations.HintTextEnabled = False
-        Me.txtMObservations.Location = New System.Drawing.Point(96, 74)
+        Me.txtMObservations.Location = New System.Drawing.Point(112, 74)
         Me.txtMObservations.Name = "txtMObservations"
         Me.txtMObservations.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtMObservations.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMObservations.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtMObservations.Size = New System.Drawing.Size(374, 21)
+        Me.txtMObservations.Size = New System.Drawing.Size(358, 20)
         Me.txtMObservations.TabIndex = 5
         '
         'txtMSerial
         '
         Me.txtMSerial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtMSerial.Enabled = False
-        Me.txtMSerial.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMSerial.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtMSerial.HintText = "Hint Text"
         Me.txtMSerial.HintTextColor = System.Drawing.Color.Gray
         Me.txtMSerial.HintTextEnabled = False
@@ -481,23 +481,23 @@ Partial Class frmSimCards
         Me.txtMSerial.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtMSerial.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMSerial.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtMSerial.Size = New System.Drawing.Size(201, 21)
+        Me.txtMSerial.Size = New System.Drawing.Size(201, 20)
         Me.txtMSerial.TabIndex = 2
         '
         'cboMOperator
         '
         Me.cboMOperator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboMOperator.Enabled = False
-        Me.cboMOperator.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboMOperator.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboMOperator.FormattingEnabled = True
         Me.cboMOperator.HintText = "Hint Text"
         Me.cboMOperator.HintTextColor = System.Drawing.Color.Gray
         Me.cboMOperator.HintTextEnabled = False
-        Me.cboMOperator.Location = New System.Drawing.Point(78, 24)
+        Me.cboMOperator.Location = New System.Drawing.Point(87, 24)
         Me.cboMOperator.Name = "cboMOperator"
         Me.cboMOperator.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboMOperator.OnLeaveBackColor = System.Drawing.Color.White
-        Me.cboMOperator.Size = New System.Drawing.Size(136, 22)
+        Me.cboMOperator.Size = New System.Drawing.Size(136, 21)
         Me.cboMOperator.TabIndex = 1
         '
         'cboxMStatus
@@ -507,7 +507,7 @@ Partial Class frmSimCards
         Me.cboxMStatus.Enabled = False
         Me.cboxMStatus.Location = New System.Drawing.Point(411, 102)
         Me.cboxMStatus.Name = "cboxMStatus"
-        Me.cboxMStatus.Size = New System.Drawing.Size(60, 18)
+        Me.cboxMStatus.Size = New System.Drawing.Size(65, 17)
         Me.cboxMStatus.TabIndex = 9
         Me.cboxMStatus.Text = "Estado"
         Me.cboxMStatus.UseVisualStyleBackColor = True
@@ -519,7 +519,7 @@ Partial Class frmSimCards
         Me.cboxMData.Enabled = False
         Me.cboxMData.Location = New System.Drawing.Point(255, 102)
         Me.cboxMData.Name = "cboxMData"
-        Me.cboxMData.Size = New System.Drawing.Size(127, 18)
+        Me.cboxMData.Size = New System.Drawing.Size(149, 17)
         Me.cboxMData.TabIndex = 8
         Me.cboxMData.Text = "Datos de Navegación"
         Me.cboxMData.UseVisualStyleBackColor = True
@@ -531,7 +531,7 @@ Partial Class frmSimCards
         Me.cboxMSms.Enabled = False
         Me.cboxMSms.Location = New System.Drawing.Point(110, 102)
         Me.cboxMSms.Name = "cboxMSms"
-        Me.cboxMSms.Size = New System.Drawing.Size(113, 18)
+        Me.cboxMSms.Size = New System.Drawing.Size(133, 17)
         Me.cboxMSms.TabIndex = 7
         Me.cboxMSms.Text = "Mensajes de Texto"
         Me.cboxMSms.UseVisualStyleBackColor = True
@@ -543,7 +543,7 @@ Partial Class frmSimCards
         Me.cboxMCall.Enabled = False
         Me.cboxMCall.Location = New System.Drawing.Point(14, 102)
         Me.cboxMCall.Name = "cboxMCall"
-        Me.cboxMCall.Size = New System.Drawing.Size(73, 18)
+        Me.cboxMCall.Size = New System.Drawing.Size(79, 17)
         Me.cboxMCall.TabIndex = 6
         Me.cboxMCall.Text = "Llamadas"
         Me.cboxMCall.UseVisualStyleBackColor = True
@@ -554,7 +554,7 @@ Partial Class frmSimCards
         Me.Label4.Enabled = False
         Me.Label4.Location = New System.Drawing.Point(208, 52)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(26, 14)
+        Me.Label4.Size = New System.Drawing.Size(29, 13)
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Apn"
         '
@@ -564,7 +564,7 @@ Partial Class frmSimCards
         Me.Label5.Enabled = False
         Me.Label5.Location = New System.Drawing.Point(15, 77)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 14)
+        Me.Label5.Size = New System.Drawing.Size(91, 13)
         Me.Label5.TabIndex = 16
         Me.Label5.Text = "Observaciones"
         '
@@ -574,7 +574,7 @@ Partial Class frmSimCards
         Me.Label2.Enabled = False
         Me.Label2.Location = New System.Drawing.Point(15, 52)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 14)
+        Me.Label2.Size = New System.Drawing.Size(57, 13)
         Me.Label2.TabIndex = 16
         Me.Label2.Text = "Teléfono"
         '
@@ -584,7 +584,7 @@ Partial Class frmSimCards
         Me.Label3.Enabled = False
         Me.Label3.Location = New System.Drawing.Point(15, 27)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 14)
+        Me.Label3.Size = New System.Drawing.Size(66, 13)
         Me.Label3.TabIndex = 18
         Me.Label3.Text = "Operadora"
         '
@@ -594,7 +594,7 @@ Partial Class frmSimCards
         Me.Label1.Enabled = False
         Me.Label1.Location = New System.Drawing.Point(229, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 14)
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Serial"
         '
@@ -614,7 +614,7 @@ Partial Class frmSimCards
         Me.btnExportExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnExportExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExportExcel.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnExportExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExportExcel.Location = New System.Drawing.Point(274, 126)
         Me.btnExportExcel.Name = "btnExportExcel"
         Me.btnExportExcel.Size = New System.Drawing.Size(115, 23)
@@ -657,7 +657,7 @@ Partial Class frmSimCards
         Me.dgvSimCards.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -667,7 +667,7 @@ Partial Class frmSimCards
         Me.dgvSimCards.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvSimCards_operator, Me.dgvSimCards_serial, Me.dgvSimCards_phone_number, Me.dgvSimCards_apn, Me.dgvSimCards_observations, Me.dgvSimCards_call_service, Me.dgvSimCards_sms_service, Me.dgvSimCards_data_service, Me.dgvSimCards_status, Me.dgvSimCards_asigned, Me.dgvSimCards_simcard_id})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.Silver
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
@@ -691,28 +691,28 @@ Partial Class frmSimCards
         Me.dgvSimCards_operator.HeaderText = "OPERADORA"
         Me.dgvSimCards_operator.Name = "dgvSimCards_operator"
         Me.dgvSimCards_operator.ReadOnly = True
-        Me.dgvSimCards_operator.Width = 94
+        Me.dgvSimCards_operator.Width = 107
         '
         'dgvSimCards_serial
         '
         Me.dgvSimCards_serial.HeaderText = "SERIAL"
         Me.dgvSimCards_serial.Name = "dgvSimCards_serial"
         Me.dgvSimCards_serial.ReadOnly = True
-        Me.dgvSimCards_serial.Width = 67
+        Me.dgvSimCards_serial.Width = 74
         '
         'dgvSimCards_phone_number
         '
         Me.dgvSimCards_phone_number.HeaderText = "TELÉFONO"
         Me.dgvSimCards_phone_number.Name = "dgvSimCards_phone_number"
         Me.dgvSimCards_phone_number.ReadOnly = True
-        Me.dgvSimCards_phone_number.Width = 84
+        Me.dgvSimCards_phone_number.Width = 95
         '
         'dgvSimCards_apn
         '
         Me.dgvSimCards_apn.HeaderText = "APN"
         Me.dgvSimCards_apn.Name = "dgvSimCards_apn"
         Me.dgvSimCards_apn.ReadOnly = True
-        Me.dgvSimCards_apn.Width = 52
+        Me.dgvSimCards_apn.Width = 55
         '
         'dgvSimCards_observations
         '
@@ -798,7 +798,7 @@ Partial Class frmSimCards
         Me.gboxSimCardFiltering.Controls.Add(Me.cboxFOperator)
         Me.gboxSimCardFiltering.Dock = System.Windows.Forms.DockStyle.Fill
         Me.gboxSimCardFiltering.Enabled = False
-        Me.gboxSimCardFiltering.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gboxSimCardFiltering.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gboxSimCardFiltering.Location = New System.Drawing.Point(0, 162)
         Me.gboxSimCardFiltering.Name = "gboxSimCardFiltering"
         Me.gboxSimCardFiltering.Size = New System.Drawing.Size(482, 157)
@@ -820,7 +820,7 @@ Partial Class frmSimCards
         Me.btnSearchSimCards.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnSearchSimCards.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSearchSimCards.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearchSimCards.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearchSimCards.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSearchSimCards.Location = New System.Drawing.Point(395, 126)
         Me.btnSearchSimCards.Name = "btnSearchSimCards"
         Me.btnSearchSimCards.Size = New System.Drawing.Size(75, 23)
@@ -832,11 +832,11 @@ Partial Class frmSimCards
         '
         Me.rbtnSimCardFiltering.AutoSize = True
         Me.rbtnSimCardFiltering.BackColor = System.Drawing.SystemColors.Control
-        Me.rbtnSimCardFiltering.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbtnSimCardFiltering.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.rbtnSimCardFiltering.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.rbtnSimCardFiltering.Location = New System.Drawing.Point(10, 0)
         Me.rbtnSimCardFiltering.Name = "rbtnSimCardFiltering"
-        Me.rbtnSimCardFiltering.Size = New System.Drawing.Size(51, 18)
+        Me.rbtnSimCardFiltering.Size = New System.Drawing.Size(53, 17)
         Me.rbtnSimCardFiltering.TabIndex = 0
         Me.rbtnSimCardFiltering.Text = "Filtro"
         Me.rbtnSimCardFiltering.UseVisualStyleBackColor = False
@@ -844,10 +844,10 @@ Partial Class frmSimCards
         'cboxFAsigned
         '
         Me.cboxFAsigned.AutoSize = True
-        Me.cboxFAsigned.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFAsigned.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFAsigned.Location = New System.Drawing.Point(18, 125)
         Me.cboxFAsigned.Name = "cboxFAsigned"
-        Me.cboxFAsigned.Size = New System.Drawing.Size(70, 18)
+        Me.cboxFAsigned.Size = New System.Drawing.Size(78, 17)
         Me.cboxFAsigned.TabIndex = 9
         Me.cboxFAsigned.Text = "Asignado"
         Me.cboxFAsigned.UseVisualStyleBackColor = True
@@ -855,10 +855,10 @@ Partial Class frmSimCards
         'cboxFStatus
         '
         Me.cboxFStatus.AutoSize = True
-        Me.cboxFStatus.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFStatus.Location = New System.Drawing.Point(18, 102)
         Me.cboxFStatus.Name = "cboxFStatus"
-        Me.cboxFStatus.Size = New System.Drawing.Size(60, 18)
+        Me.cboxFStatus.Size = New System.Drawing.Size(65, 17)
         Me.cboxFStatus.TabIndex = 7
         Me.cboxFStatus.Text = "Estado"
         Me.cboxFStatus.UseVisualStyleBackColor = True
@@ -866,10 +866,10 @@ Partial Class frmSimCards
         'cboxFApn
         '
         Me.cboxFApn.AutoSize = True
-        Me.cboxFApn.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFApn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFApn.Location = New System.Drawing.Point(18, 77)
         Me.cboxFApn.Name = "cboxFApn"
-        Me.cboxFApn.Size = New System.Drawing.Size(45, 18)
+        Me.cboxFApn.Size = New System.Drawing.Size(48, 17)
         Me.cboxFApn.TabIndex = 5
         Me.cboxFApn.Text = "Apn"
         Me.cboxFApn.UseVisualStyleBackColor = True
@@ -877,10 +877,10 @@ Partial Class frmSimCards
         'cboxFSerialPhone
         '
         Me.cboxFSerialPhone.AutoSize = True
-        Me.cboxFSerialPhone.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFSerialPhone.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFSerialPhone.Location = New System.Drawing.Point(18, 52)
         Me.cboxFSerialPhone.Name = "cboxFSerialPhone"
-        Me.cboxFSerialPhone.Size = New System.Drawing.Size(102, 18)
+        Me.cboxFSerialPhone.Size = New System.Drawing.Size(122, 17)
         Me.cboxFSerialPhone.TabIndex = 3
         Me.cboxFSerialPhone.Text = "Serial / Teléfono"
         Me.cboxFSerialPhone.UseVisualStyleBackColor = True
@@ -888,10 +888,10 @@ Partial Class frmSimCards
         'cboxFOperator
         '
         Me.cboxFOperator.AutoSize = True
-        Me.cboxFOperator.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxFOperator.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxFOperator.Location = New System.Drawing.Point(18, 25)
         Me.cboxFOperator.Name = "cboxFOperator"
-        Me.cboxFOperator.Size = New System.Drawing.Size(76, 18)
+        Me.cboxFOperator.Size = New System.Drawing.Size(85, 17)
         Me.cboxFOperator.TabIndex = 1
         Me.cboxFOperator.Text = "Operadora"
         Me.cboxFOperator.UseVisualStyleBackColor = True

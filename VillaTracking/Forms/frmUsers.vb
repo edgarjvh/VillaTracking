@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
 
 Public Class frmUsers
 
@@ -147,6 +148,10 @@ Public Class frmUsers
 
     Private Sub frmUsers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
 
         dgvUsers.ScrollBars = ScrollBars.None
         DrawingControl.SuspendDrawing(dgvUsers)

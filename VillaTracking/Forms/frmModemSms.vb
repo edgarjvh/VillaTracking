@@ -1,5 +1,11 @@
-﻿Public Class frmModemSms
+﻿Imports System.IO
+
+Public Class frmModemSms
     Private Sub frmModemSms_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         cboBaudRate.Text = My.Settings.baudRate
         cboDataBits.Text = My.Settings.dataBits
         cboParity.Text = My.Settings.parity

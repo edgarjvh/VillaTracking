@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
 Imports GMap.NET
 Imports GMap.NET.WindowsForms
 
@@ -58,6 +59,10 @@ Public Class frmTravelHistory
     End Sub
 
     Private Sub frmTravelHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         CheckForIllegalCrossThreadCalls = False
         dtpDateFrom.Value = Now
         dtpDateTo.Value = Now

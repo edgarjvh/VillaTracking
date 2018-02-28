@@ -111,6 +111,11 @@ Public Class frmReports
 
     Private Sub frmReports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
+
+        If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
+            Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
+        End If
+
         bgwGetClientsUsersReportTypes.RunWorkerAsync()
         dtpByMonth.Value = Date.Parse("01/" & Now.Month.ToString("00") & "/" & Now.Year.ToString("0000"))
         dtpByYear.Value = Now
