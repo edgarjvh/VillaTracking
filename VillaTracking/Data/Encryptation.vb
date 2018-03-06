@@ -78,9 +78,9 @@ Public Class Encryptation
 
         memStream.Position = 0
 
-        Dim result(CType(memStream.Length - 1, System.Int32)) As Byte
+        Dim result(memStream.Length - 1) As Byte
 
-        memStream.Read(result, 0, CType(result.Length, System.Int32))
+        memStream.Read(result, 0, result.Length)
 
         ' Libera y cierra los streams
 

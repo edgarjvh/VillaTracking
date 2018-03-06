@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VillaTracking", "VillaTracking\VillaTracking.vbproj", "{226B8BC7-CC31-4938-A0ED-E6BC70DA22A4}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VillaTracking.App", "VillaTracking\VillaTracking.App.vbproj", "{226B8BC7-CC31-4938-A0ED-E6BC70DA22A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZUControls", "ZUControls\ZUControls.csproj", "{89145B74-4200-4DB8-A4D0-6088BE97F2F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillaTracking.Controls", "ZUControls\VillaTracking.Controls.csproj", "{89145B74-4200-4DB8-A4D0-6088BE97F2F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VillaTracking.WebApi", "VillaTracking.WebApi\VillaTracking.WebApi.csproj", "{FBC91F96-E09E-4136-8A0D-AD88D1376642}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VillaTracking.Setup", "VillaTracking.Setup\VillaTracking.Setup.vdproj", "{0C916442-800E-4AB5-890E-11C1C19E2134}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,12 @@ Global
 		{89145B74-4200-4DB8-A4D0-6088BE97F2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89145B74-4200-4DB8-A4D0-6088BE97F2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89145B74-4200-4DB8-A4D0-6088BE97F2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBC91F96-E09E-4136-8A0D-AD88D1376642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBC91F96-E09E-4136-8A0D-AD88D1376642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBC91F96-E09E-4136-8A0D-AD88D1376642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBC91F96-E09E-4136-8A0D-AD88D1376642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C916442-800E-4AB5-890E-11C1C19E2134}.Debug|Any CPU.ActiveCfg = Debug
+		{0C916442-800E-4AB5-890E-11C1C19E2134}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
