@@ -6,6 +6,10 @@ Imports GMap.NET.WindowsForms
 Imports VillaTracking.SMS.Decoder
 Imports System.Deployment.Application
 Imports System.IO
+Imports System.Speech
+Imports System.Speech.Synthesis
+Imports System.Net.Sockets
+Imports System.Net
 
 Public Class FrmMain
     Private _countDown As Integer = 30
@@ -17,6 +21,13 @@ Public Class FrmMain
             _countDown = value
         End Set
     End Property
+
+    Dim voice As LTTS7Lib.LTTS7 = New LTTS7Lib.LTTS7
+    Dim synth As SpeechSynthesizer
+    Dim voices As New List(Of String)
+    Dim voiceName As String = ""
+    Dim RemoteIpEndPoint As New IPEndPoint(IPAddress.Any, 0)
+    Dim receivingUdpClient As UdpClient
 
     Public Sub New()
 
@@ -35,12 +46,33 @@ Public Class FrmMain
             .LastName = ""
         }
 
+
         lblUser.Text = CurUser.FirstName & " " & CurUser.LastName
         tbarMapZoom.Parent = mapMain
         btnMap.Parent = mapMain
         btnSatellite.Parent = mapMain
         btnHybrid.Parent = mapMain
         setEventsDatatable()
+
+        synth = New SpeechSynthesizer
+
+        For Each voice As InstalledVoice In synth.GetInstalledVoices
+            If voice.VoiceInfo.Name.ToLower.Contains("helena") Then
+                voiceName = voice.VoiceInfo.Name
+                Exit For
+            End If
+        Next
+
+        Try
+            voice.Frequency = "48000"
+            voice.Language = "SpanishMx"
+            voice.Pitch = 30
+            voice.Speed = 50
+            voice.Voice = My.Settings.currentVoice
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Public Sub New(ByVal user As Object)
@@ -79,6 +111,27 @@ Public Class FrmMain
 
         setEventsDatatable()
         markersMovingLayer.IsVisibile = False
+
+        synth = New SpeechSynthesizer
+
+        For Each voice As InstalledVoice In synth.GetInstalledVoices
+            If voice.VoiceInfo.Name.ToLower.Contains("helena") Then
+                voiceName = voice.VoiceInfo.Name
+                synth.SelectVoice(voiceName)
+                Exit For
+            End If
+        Next
+
+        Try
+            voice.Frequency = "48000"
+            voice.Language = "SpanishMx"
+            voice.Pitch = 30
+            voice.Speed = 50
+            voice.Voice = My.Settings.currentVoice
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private _curUser As User
@@ -189,6 +242,10 @@ Public Class FrmMain
         bgwModemSms.RunWorkerAsync()
         bgwGetCurrentLocations.RunWorkerAsync()
         bgwSendEventsEmail.RunWorkerAsync()
+
+        Dim lep As New IPEndPoint(IPAddress.Any, 15002)
+        receivingUdpClient = New UdpClient(lep)
+        bgwGprsEvents.RunWorkerAsync()
 
         If btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen Then
             timerCountdown.Start()
@@ -1382,9 +1439,11 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) + " " + apellido(0) + ", Entrada a Geocerca"
+
+
+                                    textToVoice = nombre(0) & " " + apellido(0) & ", Entrada a Geocerca"
                                 Else
-                                    textToVoice = first_name + ", Entrada a Geocerca"
+                                    textToVoice = first_name & ", Entrada a Geocerca"
                                 End If
                             Else
                                 Continue For
@@ -1399,9 +1458,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) + " " + apellido(0) + ", Salida de Geocerca"
+                                    textToVoice = nombre(0) & " " + apellido(0) & ", Salida de Geocerca"
                                 Else
-                                    textToVoice = first_name + ", Salida de Geocerca"
+                                    textToVoice = first_name & ", Salida de Geocerca"
                                 End If
                             Else
                                 Continue For
@@ -1416,9 +1475,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) + " " + apellido(0) + ", Alerta de Batería"
+                                    textToVoice = nombre(0) & " " + apellido(0) & ", Alerta de Batería"
                                 Else
-                                    textToVoice = first_name + ", Alerta de Batería"
+                                    textToVoice = first_name & ", Alerta de Batería"
                                 End If
                             Else
                                 Continue For
@@ -1433,7 +1492,7 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) + " " + apellido(0) + ", Alerta de Batería"
+                                    textToVoice = nombre(0) & " " & apellido(0) & ", Alerta de Batería"
                                 Else
                                     textToVoice = first_name + ", Alerta de Batería"
                                 End If
@@ -1450,9 +1509,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) + " " + apellido(0) + ", Exceso de Velocidad"
+                                    textToVoice = nombre(0) & " " + apellido(0) & ", Exceso de Velocidad"
                                 Else
-                                    textToVoice = first_name + ", Exceso de Velocidad"
+                                    textToVoice = first_name & ", Exceso de Velocidad"
                                 End If
                             Else
                                 Continue For
@@ -1467,9 +1526,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) + " " + apellido(0) + ", Exceso de Velocidad"
+                                    textToVoice = nombre(0) & " " & apellido(0) & ", Exceso de Velocidad"
                                 Else
-                                    textToVoice = first_name + ", Exceso de Velocidad"
+                                    textToVoice = first_name & ", Exceso de Velocidad"
                                 End If
                             Else
                                 Continue For
@@ -1524,28 +1583,40 @@ Public Class FrmMain
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Mensaje del Sistema")
         End Try
 
-        Dim thread As New Threading.Thread(AddressOf speak)
-        thread.Start()
-
-    End Sub
-
-    Private Sub speak()
+        'Dim thread As New Threading.Thread(AddressOf speak)
+        'thread.Start()
         Try
-            Dim voice As LTTS7Lib.LTTS7 = New LTTS7Lib.LTTS7
-            voice.Frequency = "48000"
-            voice.Language = "SpanishMx"
-            voice.Pitch = 30
-            voice.Speed = 50
-            voice.Voice = My.Settings.currentVoice
-
-            While textsToVoice.Count > 0
-                voice.Read(textsToVoice(0))
-                textsToVoice.RemoveAt(0)
-            End While
+            If Not bgwTTS.IsBusy AndAlso textsToVoice.Count > 0 AndAlso voiceName.Length > 0 Then
+                bgwTTS.RunWorkerAsync()
+            End If
 
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub bgwTTS_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwTTS.DoWork
+        Try
+            While textsToVoice.Count > 0
+                synth.Speak(textsToVoice(0))
+                textsToVoice.RemoveAt(0)
+            End While
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub bgwTTS_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles bgwTTS.ProgressChanged
+        Dim texto As String = e.UserState.ToString()
+        voice.Read(texto)
+    End Sub
+
+    Private Sub bgwTTS_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwTTS.RunWorkerCompleted
+
+    End Sub
+
+    Private Sub speak()
+
     End Sub
 
     Private Sub bgwGetEvents_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwGetEvents.RunWorkerCompleted
@@ -2395,5 +2466,64 @@ Public Class FrmMain
         Else
             MsgBox("El modem est{a desconectado", MsgBoxStyle.Critical, "Mensaje del Sistema")
         End If
+    End Sub
+
+    Private Sub bgwGprsEvents_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwGprsEvents.DoWork
+        While True
+            Dim receiveBytes As Byte() = receivingUdpClient.Receive(RemoteIpEndPoint)
+            Dim strReturnData As String = Encoding.ASCII.GetString(receiveBytes)
+            Dim first_name, last_name, textToVoice As String
+
+            If strReturnData.Contains("*") Then
+                Dim data() As String = strReturnData.Split("*")
+                Dim imei As String = data(0)
+                Dim type As String = data(1)
+
+                Dim proc As New Procedure
+
+                If Not proc.GetData("clients_getByImei", imei) Then
+                    MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
+                    Exit Sub
+                End If
+
+                If proc.Ds.Tables(0).Rows.Count > 0 Then
+                    Dim row As DataRow = proc.Ds.Tables(0).Rows(0)
+
+                    first_name = If(row("first_name") Is DBNull.Value, "", row("first_name"))
+                    last_name = If(row("last_name") Is DBNull.Value, "", row("last_name"))
+
+                    If type = "jt" Then
+                        If last_name.Length > 0 Then
+                            Dim nombre As String() = first_name.Split(" ")
+                            Dim apellido As String() = last_name.Split(" ")
+
+                            textToVoice = nombre(0) & " " + apellido(0) & ", Apagado Exitoso"
+                        Else
+                            textToVoice = first_name & ", Apagado Exitoso"
+                        End If
+
+                        If textToVoice.Length > 0 Then
+                            synth.SelectVoice(voiceName)
+                            synth.Speak(textToVoice)
+                        End If
+
+                    ElseIf type = "kt" Then
+                        If last_name.Length > 0 Then
+                            Dim nombre As String() = first_name.Split(" ")
+                            Dim apellido As String() = last_name.Split(" ")
+
+                            textToVoice = nombre(0) & " " + apellido(0) & ", Encendido Exitoso"
+                        Else
+                            textToVoice = first_name & ", Encendido Exitoso"
+                        End If
+
+                        If textToVoice.Length > 0 Then
+                            synth.SelectVoice(voiceName)
+                            synth.Speak(textToVoice)
+                        End If
+                    End If
+                End If
+            End If
+        End While
     End Sub
 End Class

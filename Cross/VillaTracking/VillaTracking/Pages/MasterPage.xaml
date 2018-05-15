@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages ="clr-namespace:VillaTracking.Pages;assembly=VillaTracking"
+             x:Class="VillaTracking.Pages.MasterPage">
+    <MasterDetailPage.Master>
+        <pages:pageMenu></pages:pageMenu>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage
+            x:Name="Navigator"
+            BarBackgroundColor="{StaticResource MainColor}"
+            BarTextColor="White">
+            <x:Arguments>
+                <pages:pageMain>
+
+                </pages:pageMain>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

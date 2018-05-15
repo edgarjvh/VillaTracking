@@ -153,10 +153,10 @@ Public Class frmLogin
             Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
         End If
 
-        panelLogin.Enabled = False
+        panelLogin.Enabled = True
         panelLicense.Enabled = False
 
-        bgwLicense.RunWorkerAsync("1")
+        'bgwLicense.RunWorkerAsync("1")
     End Sub
 
     Private Sub bgwLicense_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLicense.DoWork

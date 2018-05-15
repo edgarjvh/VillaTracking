@@ -271,7 +271,7 @@ Partial Class frmClients
         Me.btnFLastTen.Location = New System.Drawing.Point(440, 69)
         Me.btnFLastTen.Name = "btnFLastTen"
         Me.btnFLastTen.Size = New System.Drawing.Size(75, 25)
-        Me.btnFLastTen.TabIndex = 13
+        Me.btnFLastTen.TabIndex = 11
         Me.btnFLastTen.Text = "Últimos 10"
         Me.btnFLastTen.UseVisualStyleBackColor = False
         '
@@ -294,7 +294,7 @@ Partial Class frmClients
         Me.btnFSearch.Location = New System.Drawing.Point(521, 69)
         Me.btnFSearch.Name = "btnFSearch"
         Me.btnFSearch.Size = New System.Drawing.Size(75, 25)
-        Me.btnFSearch.TabIndex = 14
+        Me.btnFSearch.TabIndex = 12
         Me.btnFSearch.Text = "Buscar"
         Me.btnFSearch.UseVisualStyleBackColor = False
         '
@@ -306,7 +306,7 @@ Partial Class frmClients
         Me.dtpFRangeTo.Location = New System.Drawing.Point(288, 73)
         Me.dtpFRangeTo.Name = "dtpFRangeTo"
         Me.dtpFRangeTo.Size = New System.Drawing.Size(117, 21)
-        Me.dtpFRangeTo.TabIndex = 12
+        Me.dtpFRangeTo.TabIndex = 10
         '
         'dtpFRangeFrom
         '
@@ -316,7 +316,7 @@ Partial Class frmClients
         Me.dtpFRangeFrom.Location = New System.Drawing.Point(124, 73)
         Me.dtpFRangeFrom.Name = "dtpFRangeFrom"
         Me.dtpFRangeFrom.Size = New System.Drawing.Size(115, 21)
-        Me.dtpFRangeFrom.TabIndex = 11
+        Me.dtpFRangeFrom.TabIndex = 8
         '
         'dtpFByYear
         '
@@ -330,7 +330,7 @@ Partial Class frmClients
         Me.dtpFByYear.Name = "dtpFByYear"
         Me.dtpFByYear.ShowUpDown = True
         Me.dtpFByYear.Size = New System.Drawing.Size(53, 21)
-        Me.dtpFByYear.TabIndex = 9
+        Me.dtpFByYear.TabIndex = 6
         Me.dtpFByYear.Value = New Date(2017, 5, 1, 0, 0, 0, 0)
         '
         'dtpFByMonth
@@ -345,7 +345,7 @@ Partial Class frmClients
         Me.dtpFByMonth.Name = "dtpFByMonth"
         Me.dtpFByMonth.ShowUpDown = True
         Me.dtpFByMonth.Size = New System.Drawing.Size(120, 21)
-        Me.dtpFByMonth.TabIndex = 7
+        Me.dtpFByMonth.TabIndex = 5
         Me.dtpFByMonth.Value = New Date(2017, 5, 1, 0, 0, 0, 0)
         '
         'cboFUser
@@ -362,7 +362,7 @@ Partial Class frmClients
         Me.cboFUser.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboFUser.OnLeaveBackColor = System.Drawing.Color.White
         Me.cboFUser.Size = New System.Drawing.Size(211, 22)
-        Me.cboFUser.TabIndex = 4
+        Me.cboFUser.TabIndex = 2
         '
         'cboFReportType
         '
@@ -378,7 +378,7 @@ Partial Class frmClients
         Me.cboFReportType.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboFReportType.OnLeaveBackColor = System.Drawing.Color.White
         Me.cboFReportType.Size = New System.Drawing.Size(199, 22)
-        Me.cboFReportType.TabIndex = 2
+        Me.cboFReportType.TabIndex = 1
         '
         'rbtnFByRange
         '
@@ -405,7 +405,7 @@ Partial Class frmClients
         Me.Label33.Location = New System.Drawing.Point(255, 76)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(28, 11)
-        Me.Label33.TabIndex = 7
+        Me.Label33.TabIndex = 9
         Me.Label33.Text = "Hasta"
         '
         'dgvReports_receiver
@@ -477,7 +477,7 @@ Partial Class frmClients
         Me.gboxSearchReports.Location = New System.Drawing.Point(0, 149)
         Me.gboxSearchReports.Name = "gboxSearchReports"
         Me.gboxSearchReports.Size = New System.Drawing.Size(598, 99)
-        Me.gboxSearchReports.TabIndex = 2
+        Me.gboxSearchReports.TabIndex = 1
         Me.gboxSearchReports.TabStop = False
         '
         'rbtnFByMonth
@@ -486,7 +486,7 @@ Partial Class frmClients
         Me.rbtnFByMonth.Location = New System.Drawing.Point(268, 48)
         Me.rbtnFByMonth.Name = "rbtnFByMonth"
         Me.rbtnFByMonth.Size = New System.Drawing.Size(64, 18)
-        Me.rbtnFByMonth.TabIndex = 6
+        Me.rbtnFByMonth.TabIndex = 4
         Me.rbtnFByMonth.Text = "Por Mes"
         Me.rbtnFByMonth.UseVisualStyleBackColor = True
         '
@@ -557,7 +557,7 @@ Partial Class frmClients
         Me.cboFVehicle.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboFVehicle.OnLeaveBackColor = System.Drawing.Color.White
         Me.cboFVehicle.Size = New System.Drawing.Size(127, 22)
-        Me.cboFVehicle.TabIndex = 2
+        Me.cboFVehicle.TabIndex = 3
         '
         'dgvReports_communication_mode
         '
@@ -611,7 +611,7 @@ Partial Class frmClients
         Me.btnSaveClient.Location = New System.Drawing.Point(586, 101)
         Me.btnSaveClient.Name = "btnSaveClient"
         Me.btnSaveClient.Size = New System.Drawing.Size(75, 29)
-        Me.btnSaveClient.TabIndex = 10
+        Me.btnSaveClient.TabIndex = 7
         Me.btnSaveClient.Text = "Guardar"
         Me.btnSaveClient.UseVisualStyleBackColor = False
         '
@@ -635,7 +635,7 @@ Partial Class frmClients
         Me.btnDeleteClient.Location = New System.Drawing.Point(586, 131)
         Me.btnDeleteClient.Name = "btnDeleteClient"
         Me.btnDeleteClient.Size = New System.Drawing.Size(75, 29)
-        Me.btnDeleteClient.TabIndex = 11
+        Me.btnDeleteClient.TabIndex = 8
         Me.btnDeleteClient.Text = "Eliminar"
         Me.btnDeleteClient.UseVisualStyleBackColor = False
         '
@@ -647,7 +647,7 @@ Partial Class frmClients
         Me.cboxClientStatus.Location = New System.Drawing.Point(8, 171)
         Me.cboxClientStatus.Name = "cboxClientStatus"
         Me.cboxClientStatus.Size = New System.Drawing.Size(60, 18)
-        Me.cboxClientStatus.TabIndex = 27
+        Me.cboxClientStatus.TabIndex = 10
         Me.cboxClientStatus.Text = "Estado"
         Me.cboxClientStatus.UseVisualStyleBackColor = True
         '
@@ -671,7 +671,7 @@ Partial Class frmClients
         Me.btnCancelClient.Location = New System.Drawing.Point(586, 163)
         Me.btnCancelClient.Name = "btnCancelClient"
         Me.btnCancelClient.Size = New System.Drawing.Size(75, 29)
-        Me.btnCancelClient.TabIndex = 12
+        Me.btnCancelClient.TabIndex = 9
         Me.btnCancelClient.Text = "Cancelar"
         Me.btnCancelClient.UseVisualStyleBackColor = False
         '
@@ -717,7 +717,7 @@ Partial Class frmClients
         Me.txtDni.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtDni.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtDni.Size = New System.Drawing.Size(440, 21)
-        Me.txtDni.TabIndex = 6
+        Me.txtDni.TabIndex = 0
         '
         'rbtnDni
         '
@@ -753,7 +753,7 @@ Partial Class frmClients
         Me.btnRegisterClient.Location = New System.Drawing.Point(532, 0)
         Me.btnRegisterClient.Name = "btnRegisterClient"
         Me.btnRegisterClient.Size = New System.Drawing.Size(62, 25)
-        Me.btnRegisterClient.TabIndex = 4
+        Me.btnRegisterClient.TabIndex = 1
         Me.btnRegisterClient.Text = "Registrar"
         Me.btnRegisterClient.UseVisualStyleBackColor = False
         '
@@ -778,7 +778,7 @@ Partial Class frmClients
         Me.btnEditClient.Location = New System.Drawing.Point(599, 0)
         Me.btnEditClient.Name = "btnEditClient"
         Me.btnEditClient.Size = New System.Drawing.Size(62, 25)
-        Me.btnEditClient.TabIndex = 5
+        Me.btnEditClient.TabIndex = 2
         Me.btnEditClient.Text = "Modificar"
         Me.btnEditClient.UseVisualStyleBackColor = False
         '
@@ -878,7 +878,7 @@ Partial Class frmClients
         Me.dgvReports.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvReports.Size = New System.Drawing.Size(598, 542)
-        Me.dgvReports.TabIndex = 3
+        Me.dgvReports.TabIndex = 2
         '
         'dgvReports_date_time
         '
@@ -931,7 +931,7 @@ Partial Class frmClients
         Me.gboxInsertReport.Location = New System.Drawing.Point(0, 0)
         Me.gboxInsertReport.Name = "gboxInsertReport"
         Me.gboxInsertReport.Size = New System.Drawing.Size(598, 149)
-        Me.gboxInsertReport.TabIndex = 1
+        Me.gboxInsertReport.TabIndex = 0
         Me.gboxInsertReport.TabStop = False
         '
         'cboxGeneralReport
@@ -971,7 +971,7 @@ Partial Class frmClients
         Me.btnMReceiverUser.Location = New System.Drawing.Point(353, 69)
         Me.btnMReceiverUser.Name = "btnMReceiverUser"
         Me.btnMReceiverUser.Size = New System.Drawing.Size(20, 22)
-        Me.btnMReceiverUser.TabIndex = 10
+        Me.btnMReceiverUser.TabIndex = 9
         Me.btnMReceiverUser.UseVisualStyleBackColor = True
         '
         'btnMTransmitterClient
@@ -985,7 +985,7 @@ Partial Class frmClients
         Me.btnMTransmitterClient.Location = New System.Drawing.Point(80, 69)
         Me.btnMTransmitterClient.Name = "btnMTransmitterClient"
         Me.btnMTransmitterClient.Size = New System.Drawing.Size(20, 22)
-        Me.btnMTransmitterClient.TabIndex = 8
+        Me.btnMTransmitterClient.TabIndex = 7
         Me.btnMTransmitterClient.UseVisualStyleBackColor = True
         '
         'btnMTransmitterUser
@@ -1021,7 +1021,7 @@ Partial Class frmClients
         Me.btnMInsertReport.Location = New System.Drawing.Point(518, 94)
         Me.btnMInsertReport.Name = "btnMInsertReport"
         Me.btnMInsertReport.Size = New System.Drawing.Size(78, 50)
-        Me.btnMInsertReport.TabIndex = 14
+        Me.btnMInsertReport.TabIndex = 12
         Me.btnMInsertReport.Text = "Ingresar Reporte"
         Me.btnMInsertReport.UseVisualStyleBackColor = False
         '
@@ -1066,7 +1066,7 @@ Partial Class frmClients
         Me.txtMDescription.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMDescription.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtMDescription.Size = New System.Drawing.Size(436, 49)
-        Me.txtMDescription.TabIndex = 13
+        Me.txtMDescription.TabIndex = 11
         '
         'txtMReceiver
         '
@@ -1081,7 +1081,7 @@ Partial Class frmClients
         Me.txtMReceiver.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMReceiver.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtMReceiver.Size = New System.Drawing.Size(191, 21)
-        Me.txtMReceiver.TabIndex = 12
+        Me.txtMReceiver.TabIndex = 10
         '
         'txtMTransmitter
         '
@@ -1096,7 +1096,7 @@ Partial Class frmClients
         Me.txtMTransmitter.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtMTransmitter.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtMTransmitter.Size = New System.Drawing.Size(195, 21)
-        Me.txtMTransmitter.TabIndex = 9
+        Me.txtMTransmitter.TabIndex = 8
         '
         'Label27
         '
@@ -1338,7 +1338,7 @@ Partial Class frmClients
         Me.cboxVehicleStatus.Location = New System.Drawing.Point(599, 102)
         Me.cboxVehicleStatus.Name = "cboxVehicleStatus"
         Me.cboxVehicleStatus.Size = New System.Drawing.Size(60, 18)
-        Me.cboxVehicleStatus.TabIndex = 10
+        Me.cboxVehicleStatus.TabIndex = 13
         Me.cboxVehicleStatus.Text = "Estado"
         Me.cboxVehicleStatus.UseVisualStyleBackColor = True
         '
@@ -1361,7 +1361,7 @@ Partial Class frmClients
         Me.btnCancelVehicle.Location = New System.Drawing.Point(488, 152)
         Me.btnCancelVehicle.Name = "btnCancelVehicle"
         Me.btnCancelVehicle.Size = New System.Drawing.Size(75, 25)
-        Me.btnCancelVehicle.TabIndex = 20
+        Me.btnCancelVehicle.TabIndex = 19
         Me.btnCancelVehicle.Text = "Cancelar"
         Me.btnCancelVehicle.UseVisualStyleBackColor = False
         '
@@ -1385,7 +1385,7 @@ Partial Class frmClients
         Me.btnDeleteVehicle.Location = New System.Drawing.Point(391, 152)
         Me.btnDeleteVehicle.Name = "btnDeleteVehicle"
         Me.btnDeleteVehicle.Size = New System.Drawing.Size(75, 25)
-        Me.btnDeleteVehicle.TabIndex = 19
+        Me.btnDeleteVehicle.TabIndex = 18
         Me.btnDeleteVehicle.Text = "Eliminar"
         Me.btnDeleteVehicle.UseVisualStyleBackColor = False
         '
@@ -1409,7 +1409,7 @@ Partial Class frmClients
         Me.btnSaveVehicle.Location = New System.Drawing.Point(294, 152)
         Me.btnSaveVehicle.Name = "btnSaveVehicle"
         Me.btnSaveVehicle.Size = New System.Drawing.Size(75, 25)
-        Me.btnSaveVehicle.TabIndex = 18
+        Me.btnSaveVehicle.TabIndex = 17
         Me.btnSaveVehicle.Text = "Guardar"
         Me.btnSaveVehicle.UseVisualStyleBackColor = False
         '
@@ -1433,7 +1433,7 @@ Partial Class frmClients
         Me.btnEditVehicle.Location = New System.Drawing.Point(197, 152)
         Me.btnEditVehicle.Name = "btnEditVehicle"
         Me.btnEditVehicle.Size = New System.Drawing.Size(75, 25)
-        Me.btnEditVehicle.TabIndex = 17
+        Me.btnEditVehicle.TabIndex = 16
         Me.btnEditVehicle.Text = "Editar"
         Me.btnEditVehicle.UseVisualStyleBackColor = False
         '
@@ -1456,7 +1456,7 @@ Partial Class frmClients
         Me.btnNewVehicle.Location = New System.Drawing.Point(100, 152)
         Me.btnNewVehicle.Name = "btnNewVehicle"
         Me.btnNewVehicle.Size = New System.Drawing.Size(75, 25)
-        Me.btnNewVehicle.TabIndex = 16
+        Me.btnNewVehicle.TabIndex = 15
         Me.btnNewVehicle.Text = "Nuevo"
         Me.btnNewVehicle.UseVisualStyleBackColor = False
         '
@@ -1504,7 +1504,7 @@ Partial Class frmClients
         Me.dtpExpirationDate.Location = New System.Drawing.Point(548, 73)
         Me.dtpExpirationDate.Name = "dtpExpirationDate"
         Me.dtpExpirationDate.Size = New System.Drawing.Size(111, 21)
-        Me.dtpExpirationDate.TabIndex = 9
+        Me.dtpExpirationDate.TabIndex = 10
         '
         'dtpInstallationDate
         '
@@ -1515,7 +1515,7 @@ Partial Class frmClients
         Me.dtpInstallationDate.Location = New System.Drawing.Point(368, 73)
         Me.dtpInstallationDate.Name = "dtpInstallationDate"
         Me.dtpInstallationDate.Size = New System.Drawing.Size(107, 21)
-        Me.dtpInstallationDate.TabIndex = 8
+        Me.dtpInstallationDate.TabIndex = 9
         '
         'Label7
         '
@@ -1540,7 +1540,7 @@ Partial Class frmClients
         Me.cboDevice.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboDevice.OnLeaveBackColor = System.Drawing.Color.White
         Me.cboDevice.Size = New System.Drawing.Size(179, 22)
-        Me.cboDevice.TabIndex = 14
+        Me.cboDevice.TabIndex = 11
         '
         'cboDealer
         '
@@ -1556,7 +1556,7 @@ Partial Class frmClients
         Me.cboDealer.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboDealer.OnLeaveBackColor = System.Drawing.Color.White
         Me.cboDealer.Size = New System.Drawing.Size(247, 22)
-        Me.cboDealer.TabIndex = 7
+        Me.cboDealer.TabIndex = 8
         '
         'Label8
         '
@@ -1583,7 +1583,7 @@ Partial Class frmClients
         Me.txtSpeedLimit.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtSpeedLimit.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtSpeedLimit.Size = New System.Drawing.Size(80, 21)
-        Me.txtSpeedLimit.TabIndex = 6
+        Me.txtSpeedLimit.TabIndex = 7
         '
         'Label9
         '
@@ -1650,7 +1650,7 @@ Partial Class frmClients
         Me.tabConsole.Name = "tabConsole"
         Me.tabConsole.SelectedIndex = 0
         Me.tabConsole.Size = New System.Drawing.Size(1283, 829)
-        Me.tabConsole.TabIndex = 1
+        Me.tabConsole.TabIndex = 0
         '
         'tpageClient
         '
@@ -1710,7 +1710,7 @@ Partial Class frmClients
         Me.panelHeaderVehicles.Location = New System.Drawing.Point(3, 445)
         Me.panelHeaderVehicles.Name = "panelHeaderVehicles"
         Me.panelHeaderVehicles.Size = New System.Drawing.Size(667, 352)
-        Me.panelHeaderVehicles.TabIndex = 17
+        Me.panelHeaderVehicles.TabIndex = 3
         '
         'panelLoadingVehicles
         '
@@ -1755,7 +1755,7 @@ Partial Class frmClients
         Me.Label35.Location = New System.Drawing.Point(0, 0)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(663, 20)
-        Me.Label35.TabIndex = 21
+        Me.Label35.TabIndex = 0
         Me.Label35.Text = "VEHÍCULOS"
         Me.Label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -1773,7 +1773,7 @@ Partial Class frmClients
         Me.txtVehicleObservations.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtVehicleObservations.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtVehicleObservations.Size = New System.Drawing.Size(573, 21)
-        Me.txtVehicleObservations.TabIndex = 15
+        Me.txtVehicleObservations.TabIndex = 14
         '
         'dgvVehicles
         '
@@ -1817,7 +1817,7 @@ Partial Class frmClients
         Me.dgvVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvVehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvVehicles.Size = New System.Drawing.Size(663, 162)
-        Me.dgvVehicles.TabIndex = 1
+        Me.dgvVehicles.TabIndex = 20
         '
         'dgvVehicles_dealer_name
         '
@@ -1939,7 +1939,7 @@ Partial Class frmClients
         Me.txtModel.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtModel.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtModel.Size = New System.Drawing.Size(161, 21)
-        Me.txtModel.TabIndex = 2
+        Me.txtModel.TabIndex = 3
         '
         'txtColor
         '
@@ -1956,7 +1956,7 @@ Partial Class frmClients
         Me.txtColor.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtColor.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtColor.Size = New System.Drawing.Size(150, 21)
-        Me.txtColor.TabIndex = 5
+        Me.txtColor.TabIndex = 6
         '
         'Label12
         '
@@ -1981,7 +1981,7 @@ Partial Class frmClients
         Me.txtCallPass.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtCallPass.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtCallPass.Size = New System.Drawing.Size(227, 21)
-        Me.txtCallPass.TabIndex = 11
+        Me.txtCallPass.TabIndex = 12
         '
         'Label13
         '
@@ -2007,7 +2007,7 @@ Partial Class frmClients
         Me.txtType.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtType.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtType.Size = New System.Drawing.Size(208, 21)
-        Me.txtType.TabIndex = 3
+        Me.txtType.TabIndex = 5
         '
         'Label14
         '
@@ -2033,7 +2033,7 @@ Partial Class frmClients
         Me.txtBrand.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtBrand.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtBrand.Size = New System.Drawing.Size(159, 21)
-        Me.txtBrand.TabIndex = 1
+        Me.txtBrand.TabIndex = 2
         '
         'Label34
         '
@@ -2068,7 +2068,7 @@ Partial Class frmClients
         Me.txtLicensePlate.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtLicensePlate.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtLicensePlate.Size = New System.Drawing.Size(73, 21)
-        Me.txtLicensePlate.TabIndex = 0
+        Me.txtLicensePlate.TabIndex = 1
         '
         'panelHeaderContacts
         '
@@ -2094,7 +2094,7 @@ Partial Class frmClients
         Me.panelHeaderContacts.Location = New System.Drawing.Point(3, 230)
         Me.panelHeaderContacts.Name = "panelHeaderContacts"
         Me.panelHeaderContacts.Size = New System.Drawing.Size(667, 215)
-        Me.panelHeaderContacts.TabIndex = 16
+        Me.panelHeaderContacts.TabIndex = 2
         '
         'Label36
         '
@@ -2105,7 +2105,7 @@ Partial Class frmClients
         Me.Label36.Location = New System.Drawing.Point(0, 0)
         Me.Label36.Name = "Label36"
         Me.Label36.Size = New System.Drawing.Size(667, 20)
-        Me.Label36.TabIndex = 10
+        Me.Label36.TabIndex = 0
         Me.Label36.Text = "CONTACTOS"
         Me.Label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -2128,7 +2128,7 @@ Partial Class frmClients
         Me.btnCancelContact.Location = New System.Drawing.Point(490, 97)
         Me.btnCancelContact.Name = "btnCancelContact"
         Me.btnCancelContact.Size = New System.Drawing.Size(75, 25)
-        Me.btnCancelContact.TabIndex = 9
+        Me.btnCancelContact.TabIndex = 10
         Me.btnCancelContact.Text = "Cancelar"
         Me.btnCancelContact.UseVisualStyleBackColor = False
         '
@@ -2152,7 +2152,7 @@ Partial Class frmClients
         Me.btnDeleteContact.Location = New System.Drawing.Point(393, 97)
         Me.btnDeleteContact.Name = "btnDeleteContact"
         Me.btnDeleteContact.Size = New System.Drawing.Size(75, 25)
-        Me.btnDeleteContact.TabIndex = 8
+        Me.btnDeleteContact.TabIndex = 9
         Me.btnDeleteContact.Text = "Eliminar"
         Me.btnDeleteContact.UseVisualStyleBackColor = False
         '
@@ -2175,7 +2175,7 @@ Partial Class frmClients
         Me.btnSaveContact.Location = New System.Drawing.Point(296, 97)
         Me.btnSaveContact.Name = "btnSaveContact"
         Me.btnSaveContact.Size = New System.Drawing.Size(75, 25)
-        Me.btnSaveContact.TabIndex = 7
+        Me.btnSaveContact.TabIndex = 8
         Me.btnSaveContact.Text = "Guardar"
         Me.btnSaveContact.UseVisualStyleBackColor = False
         '
@@ -2198,7 +2198,7 @@ Partial Class frmClients
         Me.btnEditContact.Location = New System.Drawing.Point(199, 97)
         Me.btnEditContact.Name = "btnEditContact"
         Me.btnEditContact.Size = New System.Drawing.Size(75, 25)
-        Me.btnEditContact.TabIndex = 6
+        Me.btnEditContact.TabIndex = 7
         Me.btnEditContact.Text = "Editar"
         Me.btnEditContact.UseVisualStyleBackColor = False
         '
@@ -2220,7 +2220,7 @@ Partial Class frmClients
         Me.btnNewContact.Location = New System.Drawing.Point(102, 97)
         Me.btnNewContact.Name = "btnNewContact"
         Me.btnNewContact.Size = New System.Drawing.Size(75, 25)
-        Me.btnNewContact.TabIndex = 5
+        Me.btnNewContact.TabIndex = 6
         Me.btnNewContact.Text = "Nuevo"
         Me.btnNewContact.UseVisualStyleBackColor = False
         '
@@ -2238,7 +2238,7 @@ Partial Class frmClients
         Me.txtContactObservations.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactObservations.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtContactObservations.Size = New System.Drawing.Size(575, 21)
-        Me.txtContactObservations.TabIndex = 4
+        Me.txtContactObservations.TabIndex = 5
         '
         'txtContactName
         '
@@ -2254,7 +2254,7 @@ Partial Class frmClients
         Me.txtContactName.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactName.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtContactName.Size = New System.Drawing.Size(447, 21)
-        Me.txtContactName.TabIndex = 1
+        Me.txtContactName.TabIndex = 2
         '
         'Label6
         '
@@ -2316,7 +2316,7 @@ Partial Class frmClients
         Me.txtContactPhoneNumber2.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactPhoneNumber2.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtContactPhoneNumber2.Size = New System.Drawing.Size(273, 21)
-        Me.txtContactPhoneNumber2.TabIndex = 3
+        Me.txtContactPhoneNumber2.TabIndex = 4
         '
         'txtContactPhoneNumber1
         '
@@ -2333,7 +2333,7 @@ Partial Class frmClients
         Me.txtContactPhoneNumber1.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactPhoneNumber1.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtContactPhoneNumber1.Size = New System.Drawing.Size(251, 21)
-        Me.txtContactPhoneNumber1.TabIndex = 2
+        Me.txtContactPhoneNumber1.TabIndex = 3
         '
         'txtContactDni
         '
@@ -2350,7 +2350,7 @@ Partial Class frmClients
         Me.txtContactDni.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactDni.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtContactDni.Size = New System.Drawing.Size(106, 21)
-        Me.txtContactDni.TabIndex = 0
+        Me.txtContactDni.TabIndex = 1
         '
         'panelLoadingContacts
         '
@@ -2428,7 +2428,7 @@ Partial Class frmClients
         Me.dgvContacts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvContacts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvContacts.Size = New System.Drawing.Size(667, 87)
-        Me.dgvContacts.TabIndex = 1
+        Me.dgvContacts.TabIndex = 11
         '
         'dgvContacts_dni
         '
@@ -2499,7 +2499,7 @@ Partial Class frmClients
         Me.panelCenterPersonal.Location = New System.Drawing.Point(3, 33)
         Me.panelCenterPersonal.Name = "panelCenterPersonal"
         Me.panelCenterPersonal.Size = New System.Drawing.Size(667, 197)
-        Me.panelCenterPersonal.TabIndex = 14
+        Me.panelCenterPersonal.TabIndex = 1
         '
         'Label22
         '
@@ -2561,7 +2561,7 @@ Partial Class frmClients
         Me.txtEmail.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtEmail.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtEmail.Size = New System.Drawing.Size(538, 21)
-        Me.txtEmail.TabIndex = 23
+        Me.txtEmail.TabIndex = 4
         '
         'txtObservations
         '
@@ -2578,7 +2578,7 @@ Partial Class frmClients
         Me.txtObservations.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtObservations.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtObservations.Size = New System.Drawing.Size(478, 63)
-        Me.txtObservations.TabIndex = 24
+        Me.txtObservations.TabIndex = 6
         '
         'txtAddress
         '
@@ -2595,7 +2595,7 @@ Partial Class frmClients
         Me.txtAddress.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtAddress.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtAddress.Size = New System.Drawing.Size(589, 19)
-        Me.txtAddress.TabIndex = 22
+        Me.txtAddress.TabIndex = 5
         '
         'txtLastName
         '
@@ -2611,7 +2611,7 @@ Partial Class frmClients
         Me.txtLastName.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtLastName.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtLastName.Size = New System.Drawing.Size(255, 21)
-        Me.txtLastName.TabIndex = 11
+        Me.txtLastName.TabIndex = 1
         '
         'txtPhoneNumber2
         '
@@ -2629,7 +2629,7 @@ Partial Class frmClients
         Me.txtPhoneNumber2.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtPhoneNumber2.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtPhoneNumber2.Size = New System.Drawing.Size(262, 21)
-        Me.txtPhoneNumber2.TabIndex = 21
+        Me.txtPhoneNumber2.TabIndex = 3
         '
         'txtPhoneNumber1
         '
@@ -2647,7 +2647,7 @@ Partial Class frmClients
         Me.txtPhoneNumber1.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtPhoneNumber1.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtPhoneNumber1.Size = New System.Drawing.Size(241, 21)
-        Me.txtPhoneNumber1.TabIndex = 13
+        Me.txtPhoneNumber1.TabIndex = 2
         '
         'txtFirstName
         '
@@ -2663,7 +2663,7 @@ Partial Class frmClients
         Me.txtFirstName.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtFirstName.OnLeaveBackColor = System.Drawing.Color.White
         Me.txtFirstName.Size = New System.Drawing.Size(269, 21)
-        Me.txtFirstName.TabIndex = 10
+        Me.txtFirstName.TabIndex = 0
         '
         'frmClients
         '
@@ -2672,7 +2672,9 @@ Partial Class frmClients
         Me.ClientSize = New System.Drawing.Size(1283, 829)
         Me.Controls.Add(Me.tabConsole)
         Me.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "frmClients"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"

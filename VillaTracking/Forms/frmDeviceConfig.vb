@@ -1,5 +1,8 @@
 ﻿Imports System.IO
 Imports System.IO.Ports
+Imports System.Net
+Imports System.Net.Sockets
+Imports System.Text
 
 Public Class frmDeviceConfig
     Dim port As SerialPort
@@ -276,7 +279,7 @@ Public Class frmDeviceConfig
         frm.BringToFront()
     End Sub
 
-    Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
+    Private Sub ZuButton1_Click(sender As Object, e As EventArgs) Handles ZuButton1.Click
         If txtSimcard.Text.Trim = "" Then
             MsgBox("El campo simcard está vacío", MsgBoxStyle.Exclamation, "Mensaje del Sistema")
             Exit Sub
@@ -289,12 +292,12 @@ Public Class frmDeviceConfig
         End If
 
         sms_stop = sms_stop.Replace("[ID]", txtImei.Text.Trim)
-        sms_stop = sms_stop.Replace("[pass]", "116069")
+        sms_stop = sms_stop.Replace("[pass]", "123456")
 
         sendCommand(txtSimcard.Text.Trim, sms_stop)
     End Sub
 
-    Private Sub btnResume_Click(sender As Object, e As EventArgs) Handles btnResume.Click
+    Private Sub ZuButton2_Click(sender As Object, e As EventArgs) Handles ZuButton2.Click
         If txtSimcard.Text.Trim = "" Then
             MsgBox("El campo simcard está vacío", MsgBoxStyle.Exclamation, "Mensaje del Sistema")
             Exit Sub
@@ -307,9 +310,23 @@ Public Class frmDeviceConfig
         End If
 
         sms_resume = sms_resume.Replace("[ID]", txtImei.Text.Trim)
-        sms_resume = sms_resume.Replace("[pass]", "116069")
+        sms_resume = sms_resume.Replace("[pass]", "123456")
 
         sendCommand(txtSimcard.Text.Trim, sms_resume)
+    End Sub
+
+    Private Sub btnStop_Click(sender As Object, e As EventArgs) Handles btnStop.Click
+        Dim udp As New UdpClient
+        Dim ep As New IPEndPoint(IPAddress.Parse("172.87.221.236"), 15001)
+        Dim respuesta As Byte() = Encoding.ASCII.GetBytes("@**,imei:" & txtImei.Text.Trim & ",J@" & txtImei.Text.Trim)
+        udp.Send(respuesta, respuesta.Length, ep)
+    End Sub
+
+    Private Sub btnResume_Click(sender As Object, e As EventArgs) Handles btnResume.Click
+        Dim udp As New UdpClient
+        Dim ep As New IPEndPoint(IPAddress.Parse("172.87.221.236"), 15001)
+        Dim respuesta As Byte() = Encoding.ASCII.GetBytes("@**,imei:" & txtImei.Text.Trim & ",K@" & txtImei.Text.Trim)
+        udp.Send(respuesta, respuesta.Length, ep)
     End Sub
 
     Private Sub btnImei_Click(sender As Object, e As EventArgs) Handles btnImei.Click

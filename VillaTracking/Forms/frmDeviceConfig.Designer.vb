@@ -65,6 +65,8 @@ Partial Class frmDeviceConfig
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gboxSmsCommands = New System.Windows.Forms.GroupBox()
         Me.gboxDevice = New System.Windows.Forms.GroupBox()
+        Me.ZuButton1 = New ZUControls.ZUButton()
+        Me.ZuButton2 = New ZUControls.ZUButton()
         Me.gboxSmsCommands.SuspendLayout()
         Me.gboxDevice.SuspendLayout()
         Me.SuspendLayout()
@@ -125,7 +127,7 @@ Partial Class frmDeviceConfig
         Me.rbtnTcp.ForeColor = System.Drawing.Color.Black
         Me.rbtnTcp.Location = New System.Drawing.Point(102, 143)
         Me.rbtnTcp.Name = "rbtnTcp"
-        Me.rbtnTcp.Size = New System.Drawing.Size(46, 17)
+        Me.rbtnTcp.Size = New System.Drawing.Size(45, 18)
         Me.rbtnTcp.TabIndex = 7
         Me.rbtnTcp.Text = "TCP"
         Me.rbtnTcp.UseVisualStyleBackColor = True
@@ -138,7 +140,7 @@ Partial Class frmDeviceConfig
         Me.rbtnUdp.ForeColor = System.Drawing.Color.Black
         Me.rbtnUdp.Location = New System.Drawing.Point(51, 143)
         Me.rbtnUdp.Name = "rbtnUdp"
-        Me.rbtnUdp.Size = New System.Drawing.Size(48, 17)
+        Me.rbtnUdp.Size = New System.Drawing.Size(47, 18)
         Me.rbtnUdp.TabIndex = 6
         Me.rbtnUdp.TabStop = True
         Me.rbtnUdp.Text = "UDP"
@@ -283,7 +285,7 @@ Partial Class frmDeviceConfig
         Me.btnResume.Name = "btnResume"
         Me.btnResume.Size = New System.Drawing.Size(56, 25)
         Me.btnResume.TabIndex = 18
-        Me.btnResume.Text = "Enviar"
+        Me.btnResume.Text = "GPRS"
         Me.btnResume.UseVisualStyleBackColor = False
         '
         'btnStop
@@ -307,7 +309,7 @@ Partial Class frmDeviceConfig
         Me.btnStop.Name = "btnStop"
         Me.btnStop.Size = New System.Drawing.Size(56, 25)
         Me.btnStop.TabIndex = 17
-        Me.btnStop.Text = "Enviar"
+        Me.btnStop.Text = "GPRS"
         Me.btnStop.UseVisualStyleBackColor = False
         '
         'btnAdmin
@@ -716,6 +718,8 @@ Partial Class frmDeviceConfig
         '
         'gboxSmsCommands
         '
+        Me.gboxSmsCommands.Controls.Add(Me.ZuButton2)
+        Me.gboxSmsCommands.Controls.Add(Me.ZuButton1)
         Me.gboxSmsCommands.Controls.Add(Me.btnFicha)
         Me.gboxSmsCommands.Controls.Add(Me.txtCallPass)
         Me.gboxSmsCommands.Controls.Add(Me.Label7)
@@ -777,6 +781,52 @@ Partial Class frmDeviceConfig
         Me.gboxDevice.TabIndex = 2
         Me.gboxDevice.TabStop = False
         Me.gboxDevice.Text = "Dispositivo"
+        '
+        'ZuButton1
+        '
+        Me.ZuButton1.BackColor = System.Drawing.Color.Transparent
+        Me.ZuButton1.BackgroundImage = CType(resources.GetObject("ZuButton1.BackgroundImage"), System.Drawing.Image)
+        Me.ZuButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ZuButton1.BackgroundOnClick = CType(resources.GetObject("ZuButton1.BackgroundOnClick"), System.Drawing.Image)
+        Me.ZuButton1.BackgroundOnDisabled = CType(resources.GetObject("ZuButton1.BackgroundOnDisabled"), System.Drawing.Image)
+        Me.ZuButton1.BackgroundOnHover = CType(resources.GetObject("ZuButton1.BackgroundOnHover"), System.Drawing.Image)
+        Me.ZuButton1.BackgroundOnNormal = CType(resources.GetObject("ZuButton1.BackgroundOnNormal"), System.Drawing.Image)
+        Me.ZuButton1.BackgroundStyle = ZUControls.ZUButton.styleType.Native
+        Me.ZuButton1.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed
+        Me.ZuButton1.FlatAppearance.BorderSize = 0
+        Me.ZuButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.ZuButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.ZuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ZuButton1.ForeColor = System.Drawing.Color.Black
+        Me.ZuButton1.Location = New System.Drawing.Point(411, 140)
+        Me.ZuButton1.Name = "ZuButton1"
+        Me.ZuButton1.Size = New System.Drawing.Size(56, 25)
+        Me.ZuButton1.TabIndex = 22
+        Me.ZuButton1.Text = "SMS"
+        Me.ZuButton1.UseVisualStyleBackColor = False
+        '
+        'ZuButton2
+        '
+        Me.ZuButton2.BackColor = System.Drawing.Color.Transparent
+        Me.ZuButton2.BackgroundImage = CType(resources.GetObject("ZuButton2.BackgroundImage"), System.Drawing.Image)
+        Me.ZuButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ZuButton2.BackgroundOnClick = CType(resources.GetObject("ZuButton2.BackgroundOnClick"), System.Drawing.Image)
+        Me.ZuButton2.BackgroundOnDisabled = CType(resources.GetObject("ZuButton2.BackgroundOnDisabled"), System.Drawing.Image)
+        Me.ZuButton2.BackgroundOnHover = CType(resources.GetObject("ZuButton2.BackgroundOnHover"), System.Drawing.Image)
+        Me.ZuButton2.BackgroundOnNormal = CType(resources.GetObject("ZuButton2.BackgroundOnNormal"), System.Drawing.Image)
+        Me.ZuButton2.BackgroundStyle = ZUControls.ZUButton.styleType.Native
+        Me.ZuButton2.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+        Me.ZuButton2.FlatAppearance.BorderSize = 0
+        Me.ZuButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.ZuButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.ZuButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ZuButton2.ForeColor = System.Drawing.Color.Black
+        Me.ZuButton2.Location = New System.Drawing.Point(411, 171)
+        Me.ZuButton2.Name = "ZuButton2"
+        Me.ZuButton2.Size = New System.Drawing.Size(56, 25)
+        Me.ZuButton2.TabIndex = 22
+        Me.ZuButton2.Text = "SMS"
+        Me.ZuButton2.UseVisualStyleBackColor = False
         '
         'frmDeviceConfig
         '
@@ -840,4 +890,6 @@ Partial Class frmDeviceConfig
     Friend WithEvents Label1 As Label
     Friend WithEvents gboxSmsCommands As GroupBox
     Friend WithEvents gboxDevice As GroupBox
+    Friend WithEvents ZuButton2 As ZUControls.ZUButton
+    Friend WithEvents ZuButton1 As ZUControls.ZUButton
 End Class

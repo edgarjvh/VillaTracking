@@ -15,7 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>C:\inetpub\wwwroot\VillaTracking\</PublishUrl>
+    <PublishUrl>E:\Pen VillaTracking\Villa Tracking\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://server.villatracking.com:8000/</InstallUrl>
-    <UpdateUrl>http://server.villatracking.com:8000/</UpdateUrl>
+    <InstallUrl>http://camimpeg.villasoftgps.com.ve/</InstallUrl>
+    <UpdateUrl>http://camimpeg.villasoftgps.com.ve/</UpdateUrl>
     <SupportUrl>http://www.villatracking.com</SupportUrl>
     <ProductName>Villa Tracking</ProductName>
     <PublisherName>Edgar Villasmil</PublisherName>
@@ -121,13 +121,12 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>

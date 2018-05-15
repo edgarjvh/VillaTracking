@@ -16,12 +16,14 @@ namespace VillaTracking.WebApi.Controllers
     {
         string strConn = "server=localhost;uid=root;pwd=Villa112016;database=zutrackingcross";
 
-        // GET: api/User
-        public HttpResponseMessage Get()
+        [HttpGet]
+        [Route("api/user/{username}/{password}")]
+        public HttpResponseMessage login(string username, string password)
         {
             try
             {
-                List<User> users = new List<User>();
+                User user = new User();
+                Encryptation enc = new Encryptation();
 
                 string query = "SELECT " +
                                     "user_id," +
@@ -34,96 +36,24 @@ namespace VillaTracking.WebApi.Controllers
                                     "phone_number2," +
                                     "permission_level," +
                                     "status," +
-                                    "image," +
-                                    "pass " +
-                                "FROM users";
+                                    "image " +
+                                "FROM users " +
+                                "WHERE " +
+                                    "dni = @1 AND pass = @2";
 
                 using (MySqlConnection conn = new MySqlConnection(strConn))
                 {
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@1", username);
+                    cmd.Parameters.AddWithValue("@2", enc.Encrypt(password));
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
 
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                        {
-                            DataRow row = ds.Tables[0].Rows[i];
-
-                            User user = new User();
-
-                            user.Id = (int)row["user_id"];
-                            user.Dni = (long)row["dni"];
-                            user.FirstName = row["first_name"].ToString();
-                            user.LastName = row["last_name"].ToString();
-                            user.Email = row["email"].ToString();
-                            user.Address = row["address"].ToString();
-                            user.PhoneNumber1 = long.Parse(row["phone_number1"].ToString());
-                            user.PermissionLevel = (int)row["permission_level"];
-                            user.Image = row["image"];
-                            user.Status = (int)row["status"];
-                            user.Pass = row["pass"].ToString();
-                        
-                            users.Add(user);
-                        }
-                    }
-                }
-
-                var json = JsonConvert.SerializeObject(users);
-
-                return Request.CreateResponse(HttpStatusCode.OK, json);
-            }
-            catch (Exception ex)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
-            }
-        }
-
-        // GET: api/User/5
-        public HttpResponseMessage Get(string dni, string pass)
-        {
-            List<User> users = new List<User>();
-            Encryptation enc = new Encryptation();
-
-            string query = "SELECT " +
-                                "user_id," +
-                                "dni," +
-                                "first_name," +
-                                "last_name," +
-                                "address," +
-                                "email," +
-                                "phone_number1," +
-                                "phone_number2," +
-                                "permission_level," +
-                                "status," +
-                                "image," +
-                                "pass " +
-                            "FROM users " +
-                            "WHERE dni = @1 AND pass = @2";
-
-            using (MySqlConnection conn = new MySqlConnection(strConn))
-            {
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@1", dni);
-                pass = enc.Encrypt(pass);
-                //Rl1TYn+pBQc=
-                //Rl1TYn+pBQc=
-                cmd.Parameters.AddWithValue("@2", pass);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                    {
-                        DataRow row = ds.Tables[0].Rows[i];
-
-                        User user = new User();
-
+                        DataRow row = ds.Tables[0].Rows[0];                       
                         user.Id = (int)row["user_id"];
                         user.Dni = (long)row["dni"];
                         user.FirstName = row["first_name"].ToString();
@@ -132,57 +62,26 @@ namespace VillaTracking.WebApi.Controllers
                         user.Address = row["address"].ToString();
                         user.PhoneNumber1 = long.Parse(row["phone_number1"].ToString());
                         user.PermissionLevel = (int)row["permission_level"];
-                        user.Image = row["image"];
                         user.Status = (int)row["status"];
-                        user.Pass = row["pass"].ToString();
 
-                        users.Add(user);
+                        //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        //{
+
+                        //    users.Add(user);
+                        //}
+
+                        return Request.CreateResponse(HttpStatusCode.OK, JsonConvert.SerializeObject(user));
                     }
-                }
-            }
-            var json = JsonConvert.SerializeObject(users);
-            return Request.CreateResponse(HttpStatusCode.OK, json);
-        }
-
-        // POST: api/User
-        public HttpResponseMessage Post([FromBody]User user)
-        {
-            string query = "" +
-                "INSERT INTO users (" +
-                "dni," +
-                "first_name," +
-                "last_name," +
-                "email," +
-                "address," +
-                "phone_number1," +
-                "phone_number2," +
-                "image," +
-                "pass) values (" +
-                "@1,@2,@3,@4,@5,@6,@7,@8,@9)";
-
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(strConn))
-                {
-                    conn.Open();
-
-                }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.NoContent);
+                    }
+                }                
             }
             catch (Exception ex)
             {
-                
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
             }
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
-        }
-
-        // PUT: api/User/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/User/5
-        public void Delete(int id)
-        {
-        }
+        }        
     }
 }

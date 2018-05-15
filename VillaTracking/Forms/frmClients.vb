@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
+
 Public Class frmClients
 
     Dim main As Form
@@ -64,10 +65,46 @@ Public Class frmClients
     Dim curContactMode As ContactMode = ContactMode.Registering
     Dim curVehicleMode As VehicleMode = VehicleMode.Registering
     Dim currentClient As Object = Nothing
-    Dim dtReportTypes As DataTable
-    Dim dtVehicles As DataTable
-    Dim dtPhoneNumbers As DataTable
-    Dim dtUsers As DataTable
+
+    Private _dtReportTypes As DataTable
+    Private dtVehicles As DataTable
+    Private dtPhoneNumbers As DataTable
+    Private dtUsers As DataTable
+    Public Property DTReportTypes() As DataTable
+        Get
+            Return _dtReportTypes
+        End Get
+        Set(ByVal value As DataTable)
+            _dtReportTypes = value
+        End Set
+    End Property
+
+    Public Property DtVehicles1() As DataTable
+        Get
+            Return dtVehicles
+        End Get
+        Set(value As DataTable)
+            dtVehicles = value
+        End Set
+    End Property
+
+    Public Property DtPhoneNumbers1() As DataTable
+        Get
+            Return dtPhoneNumbers
+        End Get
+        Set(value As DataTable)
+            dtPhoneNumbers = value
+        End Set
+    End Property
+
+    Public Property DtUsers1() As DataTable
+        Get
+            Return dtUsers
+        End Get
+        Set(value As DataTable)
+            dtUsers = value
+        End Set
+    End Property
 
     Enum ClientMode
         Registering
@@ -1570,13 +1607,14 @@ Public Class frmClients
     End Sub
 
     Private Sub bgwFiller_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwFiller.DoWork
+
         Try
             Dim proc As New Procedure
 
-            dtReportTypes = New DataTable("dtReportTypes")
-            dtVehicles = New DataTable("dtVehicles")
-            dtPhoneNumbers = New DataTable("dtPhoneNumbers")
-            dtUsers = New DataTable("dtUsers")
+            DTReportTypes = New DataTable("dtReportTypes")
+            DtVehicles1 = New DataTable("dtVehicles")
+            DtPhoneNumbers1 = New DataTable("dtPhoneNumbers")
+            DtUsers1 = New DataTable("dtUsers")
 
             Dim col1 As New DataColumn("report_type_id")
             Dim col2 As New DataColumn("report_name")
@@ -1587,79 +1625,80 @@ Public Class frmClients
             Dim col7 As New DataColumn("vehicle_id")
             Dim col8 As New DataColumn("license_plate")
 
-            dtReportTypes.Columns.Add(col1)
-            dtReportTypes.Columns.Add(col2)
-            dtPhoneNumbers.Columns.Add(col3)
-            dtPhoneNumbers.Columns.Add(col4)
-            dtUsers.Columns.Add(col5)
-            dtUsers.Columns.Add(col6)
-            dtVehicles.Columns.Add(col7)
-            dtVehicles.Columns.Add(col8)
-
-            Dim row As DataRow
+            DTReportTypes.Columns.Add(col1)
+            DTReportTypes.Columns.Add(col2)
+            DtPhoneNumbers1.Columns.Add(col3)
+            DtPhoneNumbers1.Columns.Add(col4)
+            DtUsers1.Columns.Add(col5)
+            DtUsers1.Columns.Add(col6)
+            DtVehicles1.Columns.Add(col7)
+            DtVehicles1.Columns.Add(col8)
 
             If proc.GetData("clients_misc") Then
                 If proc.Ds.Tables(0).Rows.Count > 0 Then
                     For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
                         Dim row2 As DataRow = proc.Ds.Tables(0).Rows(i)
-                        row = dtReportTypes.NewRow()
+                        Dim row As DataRow = DTReportTypes.NewRow()
                         row.Item("report_type_id") = If(row2("report_type_id") Is DBNull.Value, 0, row2("report_type_id"))
                         row.Item("report_name") = If(row2("report_name") Is DBNull.Value, "", row2("report_name"))
-                        dtReportTypes.Rows.Add(row)
+                        DTReportTypes.Rows.Add(row)
                     Next
                 End If
 
                 If proc.Ds.Tables(1).Rows.Count > 0 Then
                     For i = 0 To proc.Ds.Tables(1).Rows.Count - 1
                         Dim row2 As DataRow = proc.Ds.Tables(1).Rows(i)
-                        row = dtPhoneNumbers.NewRow()
+                        Dim row As DataRow = DtPhoneNumbers1.NewRow()
                         row.Item("phone_number_id") = If(row2("phone_number_id") Is DBNull.Value, 0, row2("phone_number_id"))
                         row.Item("phone_number") = If(row2("phone_number") Is DBNull.Value, 0, row2("phone_number"))
-                        dtPhoneNumbers.Rows.Add(row)
+                        DtPhoneNumbers1.Rows.Add(row)
                     Next
                 End If
 
                 If proc.Ds.Tables(2).Rows.Count > 0 Then
                     For i = 0 To proc.Ds.Tables(2).Rows.Count - 1
                         Dim row2 As DataRow = proc.Ds.Tables(2).Rows(i)
-                        row = dtUsers.NewRow()
+                        Dim row As DataRow = DtUsers1.NewRow()
                         row.Item("user_id") = If(row2("user_id") Is DBNull.Value, 0, row2("user_id"))
                         row.Item("user_name") = (If(row2("first_name") Is DBNull.Value, "", row2("first_name")) & " " & If(row2("last_name") Is DBNull.Value, "", row2("last_name"))).ToString().Trim
-                        dtUsers.Rows.Add(row)
+                        DtUsers1.Rows.Add(row)
                     Next
                 End If
 
-                cboMReportType.DataSource = dtReportTypes
+
+                cboFUser.DataSource = DtUsers1
+                cboFUser.ValueMember = "user_id"
+                cboFUser.DisplayMember = "user_name"
+                cboFUser.SelectedIndex = -1
+
+                cboMReportType.DataSource = DTReportTypes
                 cboMReportType.ValueMember = "report_type_id"
                 cboMReportType.DisplayMember = "report_name"
                 cboMReportType.SelectedIndex = -1
 
-                cboFReportType.DataSource = dtReportTypes
+                cboFReportType.DataSource = DTReportTypes
                 cboFReportType.ValueMember = "report_type_id"
                 cboFReportType.DisplayMember = "report_name"
                 cboFReportType.SelectedIndex = -1
 
-                cboFUser.DataSource = dtUsers
-                cboFUser.ValueMember = "user_id"
-                cboFUser.DisplayMember = "user_name"
-                cboFUser.SelectedIndex = -1
+
             End If
 
             If dgvVehicles.Rows.Count > 0 Then
                 For i = 0 To dgvVehicles.Rows.Count - 1
-                    Dim row2 As DataRow = dtVehicles.NewRow
+                    Dim row2 As DataRow = DtVehicles1.NewRow
                     row2.Item("vehicle_id") = dgvVehicles.Rows(i).Cells("dgvVehicles_vehicle_id").Value
                     row2.Item("license_plate") = dgvVehicles.Rows(i).Cells("dgvVehicles_license_plate").Value
-                    dtVehicles.Rows.Add(row2)
+                    DtVehicles1.Rows.Add(row2)
                 Next
             End If
 
-            cboMVehicle.DataSource = dtVehicles
+            cboMVehicle.DataSource = DtVehicles1
             cboMVehicle.ValueMember = "vehicle_id"
             cboMVehicle.DisplayMember = "license_plate"
             cboMVehicle.SelectedIndex = -1
 
-            cboFVehicle.DataSource = dtVehicles
+            cboFVehicle.DataSource = DtVehicles1
             cboFVehicle.ValueMember = "vehicle_id"
             cboFVehicle.DisplayMember = "license_plate"
             cboFVehicle.SelectedIndex = -1
@@ -1669,21 +1708,21 @@ Public Class frmClients
     End Sub
 
     Private Sub cboMReportType_Enter(sender As Object, e As EventArgs)
-        cboMReportType.DataSource = dtReportTypes
+        cboMReportType.DataSource = DTReportTypes
         cboMReportType.DisplayMember = "report_name"
         cboMReportType.ValueMember = "report_type_id"
         cboMReportType.SelectedIndex = -1
     End Sub
 
     Private Sub cboFReportType_Enter(sender As Object, e As EventArgs)
-        cboFReportType.DataSource = dtReportTypes
+        cboFReportType.DataSource = DTReportTypes
         cboFReportType.DisplayMember = "report_name"
         cboFReportType.ValueMember = "report_type_id"
         cboFReportType.SelectedIndex = -1
     End Sub
 
     Private Sub cboFUser_Enter(sender As Object, e As EventArgs)
-        cboFUser.DataSource = dtUsers
+        cboFUser.DataSource = DtUsers1
         cboFUser.DisplayMember = "user_name"
         cboFUser.ValueMember = "user_id"
         cboFUser.SelectedIndex = -1
@@ -1712,44 +1751,44 @@ Public Class frmClients
     End Sub
 
     Private Sub btnMTransmitterUser_Click(sender As Object, e As EventArgs) Handles btnMTransmitterUser.Click
-        Dim c As Integer = dtPhoneNumbers.Rows.Count - 1
+        Dim c As Integer = DtPhoneNumbers1.Rows.Count - 1
 
         For i = 0 To c
             If txtMTransmitter.Text.Trim = "" Then
-                txtMTransmitter.Text = dtPhoneNumbers.Rows(0)("phone_number")
+                txtMTransmitter.Text = DtPhoneNumbers1.Rows(0)("phone_number")
                 Exit Sub
             Else
-                If txtMTransmitter.Text.Trim = dtPhoneNumbers.Rows(i)("phone_number") Then
-                    txtMTransmitter.Text = dtPhoneNumbers.Rows(If(i < c, i + 1, 0))("phone_number")
+                If txtMTransmitter.Text.Trim = DtPhoneNumbers1.Rows(i)("phone_number") Then
+                    txtMTransmitter.Text = DtPhoneNumbers1.Rows(If(i < c, i + 1, 0))("phone_number")
                     Exit Sub
                 End If
             End If
         Next
 
         Try
-            txtMTransmitter.Text = dtPhoneNumbers.Rows(0)("phone_number")
+            txtMTransmitter.Text = DtPhoneNumbers1.Rows(0)("phone_number")
         Catch ex As Exception
         End Try
 
     End Sub
 
     Private Sub btnMReceiverUser_Click(sender As Object, e As EventArgs) Handles btnMReceiverUser.Click
-        Dim c As Integer = dtPhoneNumbers.Rows.Count - 1
+        Dim c As Integer = DtPhoneNumbers1.Rows.Count - 1
 
         For i = 0 To c
             If txtMReceiver.Text.Trim = "" Then
-                txtMReceiver.Text = dtPhoneNumbers.Rows(0)("phone_number")
+                txtMReceiver.Text = DtPhoneNumbers1.Rows(0)("phone_number")
                 Exit Sub
             Else
-                If txtMReceiver.Text.Trim = dtPhoneNumbers.Rows(i)("phone_number") Then
-                    txtMReceiver.Text = dtPhoneNumbers.Rows(If(i < c, i + 1, 0))("phone_number")
+                If txtMReceiver.Text.Trim = DtPhoneNumbers1.Rows(i)("phone_number") Then
+                    txtMReceiver.Text = DtPhoneNumbers1.Rows(If(i < c, i + 1, 0))("phone_number")
                     Exit Sub
                 End If
             End If
         Next
 
         Try
-            txtMReceiver.Text = dtPhoneNumbers.Rows(0)("phone_number")
+            txtMReceiver.Text = DtPhoneNumbers1.Rows(0)("phone_number")
         Catch ex As Exception
         End Try
 
@@ -2255,8 +2294,12 @@ Public Class frmClients
             Else
                 query = query & " ORDER BY r.date_time DESC LIMIT 10;"
 
-                If query.Contains("[client_id]") Then
-                    query = query.Replace("[client_id]", CInt(currentClient.Id))
+                If currentClient IsNot Nothing Then
+                    If query.Contains("[client_id]") Then
+                        query = query.Replace("[client_id]", CInt(currentClient.Id))
+                    End If
+                Else
+                    Exit Sub
                 End If
             End If
 
@@ -2411,6 +2454,7 @@ Public Class frmClients
         If Not bgwSearchingReports.IsBusy Then
             bgwSearchingReports.RunWorkerAsync(2)
         End If
+
 
         bgwFiller.RunWorkerAsync()
 
