@@ -45,10 +45,14 @@ Public Class frmSimCards
         rbtnSimCardMaintaining.BringToFront()
         rbtnSimCardFiltering.BringToFront()
 
-        Dim TargetKey As RegistryKey
-        TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
-        btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
-        TargetKey.Close()
+        Try
+            Dim TargetKey As RegistryKey
+            TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
+            btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
+            TargetKey.Close()
+        Catch ex As Exception
+
+        End Try
 
         cboMOperator.Items.Add("DIGITEL")
         cboMOperator.Items.Add("MOVILNET")

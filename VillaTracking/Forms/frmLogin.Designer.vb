@@ -125,10 +125,10 @@ Partial Class frmLogin
         '
         Me.pboxLoading.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pboxLoading.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.pboxLoading.Image = Global.VillaTracking.My.Resources.Resources.loading
-        Me.pboxLoading.Location = New System.Drawing.Point(316, 181)
+        Me.pboxLoading.Image = Global.VillaTracking.My.Resources.Resources.Isotipo1
+        Me.pboxLoading.Location = New System.Drawing.Point(315, 181)
         Me.pboxLoading.Name = "pboxLoading"
-        Me.pboxLoading.Size = New System.Drawing.Size(21, 25)
+        Me.pboxLoading.Size = New System.Drawing.Size(22, 25)
         Me.pboxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pboxLoading.TabIndex = 6
         Me.pboxLoading.TabStop = False

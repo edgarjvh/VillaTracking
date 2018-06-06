@@ -375,6 +375,7 @@ Public Class frmClients
                             For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
                                 Dim rowVehicle As DataRow = proc.Ds.Tables(0).Rows(i)
                                 Dim vehicle As New Vehicle
+                                vehicle.Code = If(rowVehicle("vehicle_code") Is DBNull.Value, 0, rowVehicle("vehicle_code"))
                                 vehicle.VehicleId = If(rowVehicle("vehicle_id") Is DBNull.Value, 0, rowVehicle("vehicle_id"))
                                 vehicle.LicensePlate = If(rowVehicle("license_plate") Is DBNull.Value, "", rowVehicle("license_plate"))
                                 vehicle.Brand = If(rowVehicle("brand") Is DBNull.Value, "", rowVehicle("brand"))
@@ -394,10 +395,23 @@ Public Class frmClients
                                 vehicle.Dealer.DealerId = If(rowVehicle("dealer_id") Is DBNull.Value, 0, rowVehicle("dealer_id"))
                                 vehicle.Dealer.Name = If(rowVehicle("name") Is DBNull.Value, "", rowVehicle("name"))
                                 vehicle.Dealer.Contact = If(rowVehicle("contact") Is DBNull.Value, "", rowVehicle("contact"))
+                                vehicle.SimCard.SimCardId = If(rowVehicle("simcard_id") Is DBNull.Value, 0, rowVehicle("simcard_id"))
+                                vehicle.SimCard.MobileOperator = If(rowVehicle("operator") Is DBNull.Value, "", rowVehicle("operator"))
+                                vehicle.SimCard.Serial = If(rowVehicle("serial") Is DBNull.Value, "", rowVehicle("serial"))
+                                vehicle.SimCard.PhoneNumber = If(rowVehicle("phone_number") Is DBNull.Value, 0, rowVehicle("phone_number"))
+                                vehicle.SimCard.Apn = If(rowVehicle("apn") Is DBNull.Value, "", rowVehicle("apn"))
+                                vehicle.SimCard.CallService = If(rowVehicle("call_service") Is DBNull.Value, 0, rowVehicle("call_service"))
+                                vehicle.SimCard.SmsService = If(rowVehicle("sms_service") Is DBNull.Value, 0, rowVehicle("sms_service"))
+                                vehicle.SimCard.DataService = If(rowVehicle("data_service") Is DBNull.Value, 0, rowVehicle("data_service"))
+                                vehicle.SimCard.Status = If(rowVehicle("status3") Is DBNull.Value, 0, rowVehicle("status3"))
+                                vehicle.SimCard.Asigned = If(rowVehicle("asigned1") Is DBNull.Value, 0, rowVehicle("asigned1"))
+                                vehicle.SimCard.Observations = If(rowVehicle("observations2") Is DBNull.Value, "", rowVehicle("observations2"))
                                 client.Vehicles.Add(vehicle)
                             Next
                         End If
                     End If
+
+
                     currentClient = client
                     bgwGetClientByDni.ReportProgress(2)
                 Else
@@ -450,6 +464,7 @@ Public Class frmClients
                 If (currentClient.Vehicles.Count > 0) Then
                     For v = 0 To currentClient.Vehicles.Count - 1
                         dgvVehicles.Rows.Add()
+                        dgvVehicles.Rows(v).Cells("dgvVehicles_vehicle_code").Value = currentClient.Vehicles(v).Code
                         dgvVehicles.Rows(v).Cells("dgvVehicles_dealer_name").Value = currentClient.Vehicles(v).Dealer.Name
                         dgvVehicles.Rows(v).Cells("dgvVehicles_imei").Value = currentClient.Vehicles(v).Device.Imei
                         dgvVehicles.Rows(v).Cells("dgvVehicles_license_plate").Value = currentClient.Vehicles(v).LicensePlate
@@ -468,6 +483,7 @@ Public Class frmClients
                         dgvVehicles.Rows(v).Cells("dgvVehicles_vehicle_id").Value = currentClient.Vehicles(v).VehicleId
                         dgvVehicles.Rows(v).Cells("dgvVehicles_device_id").Value = currentClient.Vehicles(v).Device.DeviceId
                         dgvVehicles.Rows(v).Cells("dgvVehicles_dealer_id").Value = currentClient.Vehicles(v).Dealer.DealerId
+                        dgvVehicles.Rows(v).Cells("dgvVehicles_phone_number").Value = currentClient.Vehicles(v).SimCard.PhoneNumber
                     Next
                 End If
 
@@ -626,14 +642,7 @@ Public Class frmClients
         btnEditClient.Enabled = False
         btnSaveClient.Enabled = True
         curClientMode = ClientMode.Editing
-    End Sub
-
-    Private Sub cboxClientStatus_CheckedChanged(sender As Object, e As EventArgs) Handles cboxClientStatus.CheckedChanged
-        If cboxClientStatus.Checked Then
-            lblStatus.BackColor = Color.LightGreen
-        Else
-            lblStatus.BackColor = Color.LightCoral
-        End If
+        txtVehicleCode.Focus()
     End Sub
 
     Private Sub btnDeleteClient_Click(sender As Object, e As EventArgs) Handles btnDeleteClient.Click
@@ -1125,7 +1134,7 @@ Public Class frmClients
                 btnSaveVehicle.Enabled = True
                 btnDeleteVehicle.Enabled = False
                 btnCancelVehicle.Enabled = True
-                txtLicensePlate.Focus()
+                txtVehicleCode.Focus()
                 dgvVehicles.Enabled = False
 
                 Exit Select
@@ -1260,6 +1269,7 @@ Public Class frmClients
                     For v = 0 To e.UserState.Rows.Count - 1
                         Dim rowVehicle As DataRow = e.UserState.Rows(v)
                         dgvVehicles.Rows.Add()
+                        dgvVehicles.Rows(v).Cells("dgvVehicles_vehicle_code").Value = If(rowVehicle("vehicle_code") Is DBNull.Value, "", rowVehicle("vehicle_code"))
                         dgvVehicles.Rows(v).Cells("dgvVehicles_dealer_name").Value = If(rowVehicle("name") Is DBNull.Value, "", rowVehicle("name"))
                         dgvVehicles.Rows(v).Cells("dgvVehicles_imei").Value = If(rowVehicle("imei") Is DBNull.Value, "", rowVehicle("imei"))
                         dgvVehicles.Rows(v).Cells("dgvVehicles_license_plate").Value = If(rowVehicle("license_plate") Is DBNull.Value, "", rowVehicle("license_plate"))
@@ -1278,6 +1288,7 @@ Public Class frmClients
                         dgvVehicles.Rows(v).Cells("dgvVehicles_vehicle_id").Value = If(rowVehicle("vehicle_id") Is DBNull.Value, 0, rowVehicle("vehicle_id"))
                         dgvVehicles.Rows(v).Cells("dgvVehicles_device_id").Value = If(rowVehicle("device_id") Is DBNull.Value, 0, rowVehicle("device_id"))
                         dgvVehicles.Rows(v).Cells("dgvVehicles_dealer_id").Value = If(rowVehicle("dealer_id") Is DBNull.Value, 0, rowVehicle("dealer_id"))
+                        dgvVehicles.Rows(v).Cells("dgvVehicles_phone_number").Value = If(rowVehicle("phone_number") Is DBNull.Value, 0, rowVehicle("phone_number"))
                     Next
                 End If
 
@@ -1372,11 +1383,12 @@ Public Class frmClients
                                                     txtColor.Text.Trim,
                                                     txtSpeedLimit.Text.Trim,
                                                     If(txtCallPass.Text.Trim = "", "", enc.Encrypt(txtCallPass.Text.Trim)),
-                                                    dtpInstallationDate.Value,
-                                                    dtpExpirationDate.Value,
+                                                    Now,
+                                                    Now.AddYears(10),
                                                     1,
                                                     If(cboxVehicleStatus.Checked, 1, 0),
-                                                    txtObservations.Text.Trim) Then
+                                                    txtObservations.Text.Trim,
+                                                    txtVehicleCode.Text.Trim) Then
                     bgwSavingVehicles.ReportProgress(2)
                 Else
                     bgwSavingVehicles.ReportProgress(3, proc.ErrorMsg)
@@ -1399,7 +1411,8 @@ Public Class frmClients
                                                     dtpExpirationDate.Value,
                                                     1,
                                                     If(cboxVehicleStatus.Checked, 1, 0),
-                                                    txtObservations.Text.Trim) Then
+                                                    txtObservations.Text.Trim,
+                                                    txtVehicleCode.Text.Trim) Then
                     bgwSavingVehicles.ReportProgress(2)
                 Else
                     bgwSavingVehicles.ReportProgress(3, proc.ErrorMsg)
@@ -1482,6 +1495,7 @@ Public Class frmClients
     Private Sub dgvVehicles_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvVehicles.CellClick
         If e.RowIndex >= 0 Then
             Dim enc As New Encryptation
+            txtVehicleCode.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_vehicle_code").Value
             txtLicensePlate.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_license_plate").Value
             txtBrand.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_brand").Value
             txtModel.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_model").Value
@@ -2482,6 +2496,7 @@ Public Class frmClients
     Private Sub dgvVehicles_KeyUp(sender As Object, e As KeyEventArgs) Handles dgvVehicles.KeyUp
         If e.KeyCode = Keys.Down Then
             Dim enc As New Encryptation
+            txtVehicleCode.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_vehicle_code").Value
             txtLicensePlate.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_license_plate").Value
             txtBrand.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_brand").Value
             txtModel.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_model").Value
@@ -2522,6 +2537,7 @@ Public Class frmClients
 
         If e.KeyCode = Keys.Up Then
             Dim enc As New Encryptation
+            txtVehicleCode.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_vehicle_code").Value
             txtLicensePlate.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_license_plate").Value
             txtBrand.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_brand").Value
             txtModel.Text = dgvVehicles.CurrentRow.Cells("dgvVehicles_model").Value

@@ -36,6 +36,10 @@ Public Class frmLogin
                 Exit Sub
             End If
 
+            txtDni.Enabled = False
+            txtPass.Enabled = False
+            btnLogin.Enabled = False
+
             If txtDni.Text.Trim = "12345" AndAlso txtPass.Text.Trim = "12345" Then
                 Dim user As New User With {
                     .Id = 0,
@@ -347,5 +351,23 @@ Public Class frmLogin
         If Not bgwLicense.IsBusy Then
             bgwLicense.RunWorkerAsync("2")
         End If
+    End Sub
+
+    Private Sub txtDni_KeyDown(sender As Object, e As KeyEventArgs) Handles txtDni.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            txtPass.Focus()
+        End If
+    End Sub
+
+    Private Sub txtPass_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPass.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnLogin_Click(Nothing, Nothing)
+        End If
+    End Sub
+
+    Private Sub bgwLogin_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwLogin.RunWorkerCompleted
+        txtDni.Enabled = True
+        txtPass.Enabled = True
+        btnLogin.Enabled = True
     End Sub
 End Class

@@ -32,6 +32,16 @@ Public Class GmapMarkerTravel
         End Set
     End Property
 
+    Private _code As String
+    Public Property Code() As String
+        Get
+            Return _code
+        End Get
+        Set(ByVal value As String)
+            _code = value
+        End Set
+    End Property
+
     Private _selected As Boolean
     Public Property Selected() As Boolean
         Get
@@ -107,6 +117,17 @@ Public Class GmapMarkerTravel
         End Get
         Set(ByVal value As String)
             _last_date_time = value
+            SetToolTip()
+        End Set
+    End Property
+
+    Private _origin As String
+    Public Property Origin() As String
+        Get
+            Return _origin
+        End Get
+        Set(ByVal value As String)
+            _origin = value
             SetToolTip()
         End Set
     End Property
@@ -190,7 +211,8 @@ Public Class GmapMarkerTravel
     End Function
 
     Private Sub SetToolTip()
-        ToolTipText = "Registro Nº: " & Index.ToString("000") & vbNewLine &
+        ToolTipText = "Código: " & Code & vbNewLine &
+                      "Registro Nº: " & Index.ToString("000") & vbNewLine &
                       "Fecha: " & If(LastDateTime = "", "", LastDateTime & " >> ") & CurrentDateTime & vbNewLine &
                       "Velocidad: " & Speed & " Km/H" & vbNewLine &
                       "Latitud: " & Math.Round(Position.Lat, 6) & vbNewLine &
@@ -202,17 +224,15 @@ Public Class GmapMarkerTravel
         If Selected Then
             ToolTip.Fill = New SolidBrush(Color.LightBlue)
         Else
-            ToolTip.Fill = If(Fix = "A", If(Speed > 0, New SolidBrush(Color.LightGreen), New SolidBrush(Color.LightCoral)), New SolidBrush(Color.Orange))
+            ToolTip.Fill = If(Origin = "sms", New SolidBrush(Color.Orange), If(Speed > 0, New SolidBrush(Color.LightGreen), New SolidBrush(Color.LightCoral)))
         End If
-
-
     End Sub
 
     Private Sub ChangeImage()
         If Selected Then
-            Image = If(Speed > 0, New Bitmap(My.Resources.move_selected_icon), New Bitmap(My.Resources.stop_selected_icon))
+            Image = If(Origin = "sms", New Bitmap(My.Resources.stop_selected_icon), If(Speed > 0, New Bitmap(My.Resources.move_selected_icon), New Bitmap(My.Resources.stop_selected_icon)))
         Else
-            Image = If(Fix = "A", If(Speed > 0, New Bitmap(My.Resources.move_icon), New Bitmap(My.Resources.stop_icon)), New Bitmap(My.Resources.move_error_icon))
+            Image = If(Origin = "sms", New Bitmap(My.Resources.stop_error_icon), If(Speed > 0, New Bitmap(My.Resources.move_icon), New Bitmap(My.Resources.stop_icon)))
         End If
 
         Size = New Size(Image.Size.Width, Image.Size.Height)

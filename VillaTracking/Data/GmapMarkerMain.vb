@@ -1,4 +1,5 @@
-﻿Imports System.Drawing.Drawing2D
+﻿Imports System.ComponentModel
+Imports System.Drawing
 Imports GMap.NET
 Imports GMap.NET.WindowsForms
 
@@ -7,12 +8,9 @@ Public Class GmapMarkerMain
 
     Public Sub New(p As PointLatLng)
         MyBase.New(p)
-
-        Image = New Bitmap(My.Resources.marker_icon_default)
         Orientation = 0
+        Image = New Bitmap(My.Resources.marker_icon_default)
         Fix = "A"
-        Speed = 0
-        DateTime = Now
     End Sub
 
     Public Overrides Sub OnRender(g As Graphics)
@@ -32,6 +30,16 @@ Public Class GmapMarkerMain
         End Set
     End Property
 
+    Private _code As String
+    Public Property Code() As String
+        Get
+            Return _code
+        End Get
+        Set(ByVal value As String)
+            _code = value
+        End Set
+    End Property
+
     Private _client As String
     Public Property Client() As String
         Get
@@ -39,7 +47,6 @@ Public Class GmapMarkerMain
         End Get
         Set(ByVal value As String)
             _client = value
-            SetToolTip()
         End Set
     End Property
 
@@ -50,7 +57,6 @@ Public Class GmapMarkerMain
         End Get
         Set(ByVal value As String)
             _imei = value
-            SetToolTip()
         End Set
     End Property
 
@@ -61,7 +67,6 @@ Public Class GmapMarkerMain
         End Get
         Set(ByVal value As String)
             _license_plate = value
-            SetToolTip()
         End Set
     End Property
 
@@ -72,8 +77,6 @@ Public Class GmapMarkerMain
         End Get
         Set(ByVal value As Integer)
             _speed = value
-            ChangeImage()
-            SetToolTip()
         End Set
     End Property
 
@@ -104,9 +107,19 @@ Public Class GmapMarkerMain
         End Get
         Set(ByVal value As Date)
             _date_time = value
-            SetToolTip()
         End Set
     End Property
+
+    Private _origin As String
+    Public Property Origin() As String
+        Get
+            Return _origin
+        End Get
+        Set(ByVal value As String)
+            _origin = value
+        End Set
+    End Property
+
 #End Region
 
     Private Shared Function RotateImage(image As Image, angle As Single) As Bitmap
@@ -165,9 +178,9 @@ Public Class GmapMarkerMain
             ' This array will be used to pass in the three points that 
             ' make up the rotated image
             Dim points As Point() = Nothing
-            g.SmoothingMode = SmoothingMode.AntiAlias
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality
+            g.SmoothingMode = Drawing2D.SmoothingMode.AntiAlias
+            g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+            g.PixelOffsetMode = Drawing2D.PixelOffsetMode.HighQuality
 
 
             If locked_theta >= 0.0 AndAlso locked_theta < pi2 Then
@@ -186,22 +199,18 @@ Public Class GmapMarkerMain
         Return rotatedBmp
     End Function
 
-    Private Sub SetToolTip()
-        ToolTipText = "Cliente: " & Client & vbNewLine &
-                      "Matrícula: " & LicensePlate & vbNewLine &
-                      "Imei: " & Imei & vbNewLine &
-                      "Latitud: " & Math.Round(Position.Lat, 6) & vbNewLine &
-                      "Longitud: " & Math.Round(Position.Lng, 6) & vbNewLine &
-                      "Velocidad: " & Speed & " Km/H" & vbNewLine &
-                      "Fecha: " & DateTime.ToString("dd/MM/yyyy hh:mm:ss tt")
-        ToolTipMode = MarkerTooltipMode.OnMouseOver
-        ToolTip.Format.Alignment = StringAlignment.Near
-
-        ToolTip.Fill = If(Fix = "A", If(Speed > 0, New SolidBrush(Color.LightGreen), New SolidBrush(Color.LightCoral)), New SolidBrush(Color.Orange))
+    Public Sub SetToolTip()
+        Try
+            ToolTipText = LicensePlate
+            ToolTipMode = MarkerTooltipMode.Always
+            ToolTip.Format.Alignment = StringAlignment.Near
+            ToolTip.Fill = If(Origin.ToLower = "sms", New SolidBrush(Color.Orange), If(Speed > 0, New SolidBrush(Color.LightGreen), New SolidBrush(Color.LightCoral)))
+        Catch ex As Exception
+        End Try
     End Sub
 
-    Private Sub ChangeImage()
-        Image = If(Fix = "A", If(Speed > 0, New Bitmap(My.Resources.move_icon), New Bitmap(My.Resources.stop_icon)), New Bitmap(My.Resources.move_error_icon))
+    Public Sub SetIcon()
+        Image = If(Origin.ToLower = "sms", New Bitmap(My.Resources.stop_error_icon), If(Speed > 0, New Bitmap(My.Resources.move_icon), New Bitmap(My.Resources.stop_icon)))
         Size = New Size(Image.Size.Width, Image.Size.Height)
     End Sub
 End Class

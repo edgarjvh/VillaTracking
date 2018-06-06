@@ -11,6 +11,16 @@ Public Class Vehicle
     End Property
 
     Private _license_plate As String
+
+    Private _code As String
+    Public Property Code() As String
+        Get
+            Return _code
+        End Get
+        Set(ByVal value As String)
+            _code = value
+        End Set
+    End Property
     Public Property LicensePlate() As String
         Get
             Return _license_plate
@@ -170,9 +180,20 @@ Public Class Vehicle
         End Set
     End Property
 
+    Private _simcard As SimCard
+    Public Property SimCard() As SimCard
+        Get
+            Return _simcard
+        End Get
+        Set(ByVal value As SimCard)
+            _simcard = value
+        End Set
+    End Property
+
     Public Sub New()
         Device = New Device
         Dealer = New Dealer
         Client = New Client
+        SimCard = New SimCard
     End Sub
 End Class

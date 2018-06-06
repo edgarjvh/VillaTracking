@@ -96,11 +96,13 @@ Public Class frmEventHistory
         dtpByYear.Value = Now
         dtpByRangeFrom.Value = Now
         dtpByRangeTo.Value = Now
-
-        Dim TargetKey As RegistryKey
-        TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
-        btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
-        TargetKey.Close()
+        Try
+            Dim TargetKey As RegistryKey
+            TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
+            btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
+            TargetKey.Close()
+        Catch ex As Exception
+        End Try
 
         bgwGetClients.RunWorkerAsync()
     End Sub

@@ -32,6 +32,16 @@ Public Class GmapMarkerEvent
         End Set
     End Property
 
+    Private _code As String
+    Public Property Code() As String
+        Get
+            Return _code
+        End Get
+        Set(ByVal value As String)
+            _code = value
+        End Set
+    End Property
+
     Private _selected As Boolean
     Public Property Selected() As Boolean
         Get
@@ -99,6 +109,17 @@ Public Class GmapMarkerEvent
             SetToolTip()
         End Set
     End Property
+
+    Private _origin As String
+    Public Property Origin() As String
+        Get
+            Return _origin
+        End Get
+        Set(ByVal value As String)
+            _origin = value
+            SetToolTip()
+        End Set
+    End Property
 #End Region
 
     Private Shared Function RotateImage(image As Image, angle As Single) As Bitmap
@@ -161,7 +182,6 @@ Public Class GmapMarkerEvent
             g.InterpolationMode = InterpolationMode.HighQualityBicubic
             g.PixelOffsetMode = PixelOffsetMode.HighQuality
 
-
             If locked_theta >= 0.0 AndAlso locked_theta < pi2 Then
                 points = New Point() {New Point(Convert.ToInt32(oppositeBottom), 0), New Point(nWidth, Convert.ToInt32(oppositeTop)), New Point(0, Convert.ToInt32(adjacentBottom))}
             ElseIf locked_theta >= pi2 AndAlso locked_theta < Math.PI Then
@@ -179,7 +199,8 @@ Public Class GmapMarkerEvent
     End Function
 
     Private Sub SetToolTip()
-        ToolTipText = "Fecha: " & DateTime & vbNewLine &
+        ToolTipText = "Código: " & Code & vbNewLine &
+                      "Fecha: " & DateTime & vbNewLine &
                       "Velocidad: " & Speed & " Km/H" & vbNewLine &
                       "Latitud: " & Math.Round(Position.Lat, 6) & vbNewLine &
                       "Longitud: " & Math.Round(Position.Lng, 6)
@@ -190,17 +211,15 @@ Public Class GmapMarkerEvent
         If Selected Then
             ToolTip.Fill = New SolidBrush(Color.LightBlue)
         Else
-            ToolTip.Fill = If(Fix = "A", If(Speed > 0, New SolidBrush(Color.LightGreen), New SolidBrush(Color.LightCoral)), New SolidBrush(Color.Orange))
+            ToolTip.Fill = If(Origin = "sms", New SolidBrush(Color.Orange), If(Speed > 0, New SolidBrush(Color.LightGreen), New SolidBrush(Color.LightCoral)))
         End If
-
-
     End Sub
 
     Private Sub ChangeImage()
         If Selected Then
-            Image = If(Speed > 0, New Bitmap(My.Resources.move_selected_icon), New Bitmap(My.Resources.stop_selected_icon))
+            Image = If(Origin = "sms", New Bitmap(My.Resources.stop_selected_icon), If(Speed > 0, New Bitmap(My.Resources.move_selected_icon), New Bitmap(My.Resources.stop_selected_icon)))
         Else
-            Image = If(Fix = "A", If(Speed > 0, New Bitmap(My.Resources.move_icon), New Bitmap(My.Resources.stop_icon)), New Bitmap(My.Resources.move_error_icon))
+            Image = If(Origin = "sms", New Bitmap(My.Resources.stop_error_icon), If(Speed > 0, New Bitmap(My.Resources.move_icon), New Bitmap(My.Resources.stop_icon)))
         End If
 
         Size = New Size(Image.Size.Width, Image.Size.Height)

@@ -34,10 +34,13 @@ Public Class frmDevices
         rbtnDeviceMaintaining.BringToFront()
         rbtnDeviceFiltering.BringToFront()
 
-        Dim TargetKey As RegistryKey
-        TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
-        btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
-        TargetKey.Close()
+        Try
+            Dim TargetKey As RegistryKey
+            TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
+            btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
+            TargetKey.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub btnNewDevice_Click(sender As Object, e As EventArgs) Handles btnNewDevice.Click

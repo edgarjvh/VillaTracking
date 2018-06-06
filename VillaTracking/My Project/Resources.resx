@@ -118,130 +118,133 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="auto_center_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\auto_center_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="car_moving_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\car_moving_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="change_user_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\change_user_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="clients_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Files\Images\clients_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clients_icon_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\clients_icon_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="costumer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\costumer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="database_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\database_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dealer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\dealer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="event_history_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\event_history_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="geofence_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Files\Images\geofence_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gps_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\gps_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Isotipo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\Isotipo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lock_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\lock_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logotipo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\Logotipo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logotipo_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\Logotipo_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="map_control_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\map_control_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="modem_sms_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\modem_sms_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="move_error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\move_error_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="move_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\move_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="move_selected_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\move_selected_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="no_reporting_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\no_reporting_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\refresh_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="refresh_icon_smaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\refresh_icon_smaller.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reports_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\reports_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="settings_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\settings_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="show_alerts_layer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\show_alerts_layer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="show_map_center_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\show_map_center_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="simcard_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\simcard_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop_error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\stop_error_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\stop_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop_selected_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\stop_selected_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="travel_history_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\travel_history_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="collapse_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\collapse_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Files\Images\user_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user_icon_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\user_icon_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="refresh_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\refresh_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logotipo_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\Logotipo_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="database_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\database_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vehicles_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Files\Images\vehicles_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="voice_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\voice_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\settings_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="marker_icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\marker_icon_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="move_selected_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\move_selected_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="collapse_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\collapse_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="move_error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\move_error_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="simcard_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\simcard_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dealer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\dealer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_icon_smaller" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\refresh_icon_smaller.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="show_alerts_layer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\show_alerts_layer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="main_server_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\main_server_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Isotipo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\Isotipo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="no_reporting_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\no_reporting_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="travel_history_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\travel_history_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reports_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\reports_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="uncollapse_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Files\Images\uncollapse_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="main_server_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Files\Images\main_server_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stop_error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\stop_error_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clients_icon_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\clients_icon_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="event_history_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\event_history_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="move_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\move_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\stop_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="auto_center_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\auto_center_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_icon_clicked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\user_icon_clicked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logotipo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\Logotipo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gps_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\gps_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\lock_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="map_control_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\map_control_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stop_selected_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\stop_selected_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="car_moving_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\car_moving_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="marker_icon_default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\marker_icon_default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="show_map_center_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\show_map_center_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="costumer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\costumer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="voice_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\voice_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="change_user_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\change_user_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="modem_sms_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\modem_sms_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Isotipo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Files\Images\Isotipo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -19,12 +19,13 @@ Public Class frmNoReporting
         If File.Exists(Application.StartupPath & "\images\app_icon.ico") Then
             Icon = New Icon(Application.StartupPath & "\images\app_icon.ico")
         End If
-
-        Dim TargetKey As RegistryKey
-        TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
-        btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
-        TargetKey.Close()
-
+        Try
+            Dim TargetKey As RegistryKey
+            TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
+            btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
+            TargetKey.Close()
+        Catch ex As Exception
+        End Try
         numNoReporting.Value = My.Settings.noReportingInterval
 
         dgvNoReporting.ScrollBars = ScrollBars.None

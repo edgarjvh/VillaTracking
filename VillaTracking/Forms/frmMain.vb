@@ -10,8 +10,24 @@ Imports System.Speech
 Imports System.Speech.Synthesis
 Imports System.Net.Sockets
 Imports System.Net
+Imports System.Globalization
+Imports MySql.Data.MySqlClient
+Imports LTTS7Lib
 
 Public Class FrmMain
+
+#Region "Properties"
+    Private _curUser As User
+    Public Property CurUser() As User
+        Get
+            Return _curUser
+        End Get
+        Set(ByVal value As User)
+            _curUser = value
+            lblUser.Text = _curUser.FirstName & " " & _curUser.LastName
+        End Set
+    End Property
+
     Private _countDown As Integer = 30
     Public Property CountDown() As Integer
         Get
@@ -22,17 +38,115 @@ Public Class FrmMain
         End Set
     End Property
 
-    Dim voice As LTTS7Lib.LTTS7 = New LTTS7Lib.LTTS7
-    Dim synth As SpeechSynthesizer
-    Dim voices As New List(Of String)
-    Dim voiceName As String = ""
-    Dim RemoteIpEndPoint As New IPEndPoint(IPAddress.Any, 0)
-    Dim receivingUdpClient As UdpClient
+    Private _voiceName As String = ""
+    Public Property VoiceName() As String
+        Get
+            Return _voiceName
+        End Get
+        Set(ByVal value As String)
+            _voiceName = value
+        End Set
+    End Property
 
+    Dim _synth As SpeechSynthesizer
+    Public Property Synth As SpeechSynthesizer
+        Get
+            Return _synth
+        End Get
+        Set(value As SpeechSynthesizer)
+            _synth = value
+        End Set
+    End Property
+
+    Dim _voices As New List(Of String)
+    Public Property Voices As List(Of String)
+        Get
+            Return _voices
+        End Get
+        Set(value As List(Of String))
+            _voices = value
+        End Set
+    End Property
+
+    Dim _voice As LTTS7Lib.LTTS7 = New LTTS7Lib.LTTS7
+    Public Property Voice As LTTS7
+        Get
+            Return _voice
+        End Get
+        Set(value As LTTS7)
+            _voice = value
+        End Set
+    End Property
+
+
+    Dim _selectedTabPage As Integer = 0
+    Public Property SelectedTabPage As Integer
+        Get
+            Return _selectedTabPage
+        End Get
+        Set(value As Integer)
+            _selectedTabPage = value
+        End Set
+    End Property
+
+    Dim _textToVoice As New List(Of String)
+    Public Property TextToVoice As List(Of String)
+        Get
+            Return _textToVoice
+        End Get
+        Set(value As List(Of String))
+            _textToVoice = value
+        End Set
+    End Property
+
+    ' ======================================== UDP CLIENT SOCKETS ========================================
+    Dim _udpGprsEvents As UdpClient
+    Public Property UdpGprsEvents As UdpClient
+        Get
+            Return _udpGprsEvents
+        End Get
+        Set(value As UdpClient)
+            _udpGprsEvents = value
+        End Set
+    End Property
+
+    Private _udpGprsReceiver As UdpClient
+    Public Property UdpGprsReceiver() As UdpClient
+        Get
+            Return _udpGprsReceiver
+        End Get
+        Set(ByVal value As UdpClient)
+            _udpGprsReceiver = value
+        End Set
+    End Property
+
+    Private _markerTooltipMode As MarkerTooltipMode = MarkerTooltipMode.Always
+    Public Property MarkerTooltipMode() As MarkerTooltipMode
+        Get
+            Return _markerTooltipMode
+        End Get
+        Set(ByVal value As MarkerTooltipMode)
+            _markerTooltipMode = value
+        End Set
+    End Property
+
+
+    Dim markersLayer As New GMapOverlay("markersLayer")
+    Dim markersMovingLayer As New GMapOverlay("markersMovingLayer")
+    Dim eventsLayer As New GMapOverlay("eventsLayer")
+    Dim dtEvents As New DataTable("dtEvents")
+    Dim bgw As BackgroundWorker
+    Dim clientsCount As Integer = 0
+    Dim vehiclesCount As Integer = 0
+    Private dbClick As Boolean = False
+
+#End Region
+
+#Region "Constructors"
     Public Sub New()
-
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
+
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
 
@@ -46,33 +160,20 @@ Public Class FrmMain
             .LastName = ""
         }
 
-
-        lblUser.Text = CurUser.FirstName & " " & CurUser.LastName
         tbarMapZoom.Parent = mapMain
         btnMap.Parent = mapMain
         btnSatellite.Parent = mapMain
         btnHybrid.Parent = mapMain
         setEventsDatatable()
 
-        synth = New SpeechSynthesizer
+        Synth = New SpeechSynthesizer
 
-        For Each voice As InstalledVoice In synth.GetInstalledVoices
+        For Each voice As InstalledVoice In Synth.GetInstalledVoices
             If voice.VoiceInfo.Name.ToLower.Contains("helena") Then
-                voiceName = voice.VoiceInfo.Name
+                VoiceName = voice.VoiceInfo.Name
                 Exit For
             End If
         Next
-
-        Try
-            voice.Frequency = "48000"
-            voice.Language = "SpanishMx"
-            voice.Pitch = 30
-            voice.Speed = 50
-            voice.Voice = My.Settings.currentVoice
-
-        Catch ex As Exception
-
-        End Try
     End Sub
 
     Public Sub New(ByVal user As Object)
@@ -86,6 +187,8 @@ Public Class FrmMain
         My.Settings.curUserId = CurUser.Id
         My.Settings.curUserName = (CurUser.FirstName & " " & CurUser.LastName).ToString().Trim
         My.Settings.Save()
+
+
         lblUser.Text = My.Settings.curUserName
         tbarMapZoom.Parent = mapMain
         btnMap.Parent = mapMain
@@ -112,47 +215,30 @@ Public Class FrmMain
         setEventsDatatable()
         markersMovingLayer.IsVisibile = False
 
-        synth = New SpeechSynthesizer
+        Synth = New SpeechSynthesizer
 
-        For Each voice As InstalledVoice In synth.GetInstalledVoices
+        For Each voice As InstalledVoice In Synth.GetInstalledVoices
             If voice.VoiceInfo.Name.ToLower.Contains("helena") Then
-                voiceName = voice.VoiceInfo.Name
-                synth.SelectVoice(voiceName)
+                VoiceName = voice.VoiceInfo.Name
+                Synth.SelectVoice(VoiceName)
                 Exit For
             End If
         Next
 
-        Try
-            voice.Frequency = "48000"
-            voice.Language = "SpanishMx"
-            voice.Pitch = 30
-            voice.Speed = 50
-            voice.Voice = My.Settings.currentVoice
+        'Try
+        '    Voice.Frequency = "48000"
+        '    Voice.Language = "SpanishMx"
+        '    Voice.Pitch = 30
+        '    Voice.Speed = 50
+        '    Voice.Voice = My.Settings.currentVoice
 
-        Catch ex As Exception
+        'Catch ex As Exception
 
-        End Try
+        'End Try
     End Sub
+#End Region
 
-    Private _curUser As User
-    Public Property CurUser() As User
-        Get
-            Return _curUser
-        End Get
-        Set(ByVal value As User)
-            _curUser = value
-        End Set
-    End Property
-
-
-    Dim selectedPage As Integer = 0
-    Dim markersLayer As New GMapOverlay("markersLayer")
-    Dim markersMovingLayer As New GMapOverlay("markersMovingLayer")
-    Dim eventsLayer As New GMapOverlay("eventsLayer")
-    Dim bgw As BackgroundWorker
-    Dim textsToVoice As New List(Of String)
-    Dim dtEvents As New DataTable("dtEvents")
-
+#Region "Methods"
     Private Sub setEventsDatatable()
         dtEvents.Columns.Add(New DataColumn("dgvEvents_onMap"))
         dtEvents.Columns.Add(New DataColumn("dgvEvents_client_name"))
@@ -177,10 +263,315 @@ Public Class FrmMain
         lblUser.Text = username
     End Sub
 
-    Private Sub timerDateTime_Tick(sender As Object, e As EventArgs) Handles timerDateTime.Tick
-        lblDateTime.Text = Now.ToString("MMMM dd, yyyy - hh:mm:ss tt")
+    Public Sub getDealers(ByVal index As Integer)
+        Try
+            Dim proc As New Procedure
+
+            Dim dt As New DataTable("dealers")
+            Dim col1 As New DataColumn("dealer_id")
+            Dim col2 As New DataColumn("name")
+            dt.Columns.Add(col1)
+            dt.Columns.Add(col2)
+
+            If proc.GetData("dealers_getAll") Then
+                If proc.Ds.Tables(0).Rows.Count > 0 Then
+                    Dim row As DataRow = dt.NewRow
+                    row.Item("dealer_id") = 0
+                    row.Item("name") = "TODOS"
+                    dt.Rows.Add(row)
+
+                    For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
+                        Dim row2 As DataRow = proc.Ds.Tables(0).Rows(i)
+                        row = dt.NewRow
+                        row.Item("dealer_id") = row2("dealer_id")
+                        row.Item("name") = row2("name")
+                        dt.Rows.Add(row)
+                    Next
+                End If
+            Else
+                MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
+            End If
+
+            cboDealers.DataSource = Nothing
+            cboDealers.DataSource = dt
+            cboDealers.DisplayMember = "name"
+            cboDealers.ValueMember = "dealer_id"
+            cboDealers.SelectedIndex = index
+        Catch ex As Exception
+            'MsgBox(ex.Message, MsgBoxStyle.Critical, "Mensaje del Sistema")
+        End Try
     End Sub
 
+    Public Function sTiempo(dInicio As Date, dFin As Date) As String
+        Dim functionReturnValue As String = Nothing
+        functionReturnValue = CInt((dFin - dInicio).TotalSeconds / 86400 Mod 365) & " días, "
+        functionReturnValue = (functionReturnValue & CInt((dFin - dInicio).TotalSeconds / 3600 Mod 24)) & " horas, "
+        functionReturnValue = (functionReturnValue & CInt((dFin - dInicio).TotalSeconds / 60 Mod 60)) & " minutos, "
+        functionReturnValue = (functionReturnValue & CInt((dFin - dInicio).TotalSeconds Mod 60)) & " segundos."
+        Return functionReturnValue
+    End Function
+
+    Private Sub speak()
+
+    End Sub
+
+    Private Sub connectModem()
+        With serialModemSms
+            If .IsOpen Then
+                .Close()
+            End If
+
+            .PortName = My.Settings.portName
+            .BaudRate = My.Settings.baudRate
+            .DataBits = My.Settings.dataBits
+            Select Case My.Settings.stopBits
+                Case "1"
+                    .StopBits = Ports.StopBits.One
+                Case "1.5"
+                    .StopBits = Ports.StopBits.OnePointFive
+                Case "2"
+                    .StopBits = Ports.StopBits.Two
+                Case "Ninguno"
+                    .StopBits = Ports.StopBits.None
+            End Select
+
+            Select Case My.Settings.parity
+                Case "Par"
+                    .Parity = Ports.Parity.Even
+                Case "Impar"
+                    .Parity = Ports.Parity.Odd
+                Case "Ninguno"
+                    .Parity = Ports.Parity.None
+                Case "Marca"
+                    .Parity = Ports.Parity.Mark
+                Case "Espacio"
+                    .Parity = Ports.Parity.Space
+            End Select
+
+            Select Case My.Settings.handshake
+                Case "Hardware"
+                    .Handshake = Ports.Handshake.RequestToSend
+                Case "Xon / Xoff"
+                    .Handshake = Ports.Handshake.XOnXOff
+                Case "Ninguno"
+                    .Handshake = Ports.Handshake.None
+                Case "Hardware y Xon/Xoff"
+                    .Handshake = Ports.Handshake.RequestToSendXOnXOff
+            End Select
+
+            .DtrEnable = False
+            .ReadBufferSize = My.Settings.readBufferSize
+            .WriteBufferSize = My.Settings.writeBufferSize
+            .WriteTimeout = My.Settings.writeTimeout
+            .RtsEnable = True
+            .Encoding = Encoding.Default
+            .Open()
+        End With
+    End Sub
+
+    Private Shared Function IsThirdLevel(node As TreeNode) As Boolean
+        Return node.Parent IsNot Nothing AndAlso node.Parent.Parent IsNot Nothing
+    End Function
+
+    Function refreshEvents(ByVal license_plate As String, ByVal report_type_id As Integer, ByVal validation As Date)
+        Try
+            DrawingControl.SuspendDrawing(dgvEvents)
+            For Each row As DataGridViewRow In Me.dgvEvents.Rows
+                If Not TypeOf row.Cells("dgvEvents_report_type_id").Value Is DBNull Then
+                    If row.Cells("dgvEvents_license_plate").Value = license_plate AndAlso
+                        row.Cells("dgvEvents_report_type_id").Value = report_type_id Then
+
+                        row.Cells("dgvEvents_validation").Value = validation
+                    End If
+                End If
+            Next
+            dgvEvents.Refresh()
+            DrawingControl.ResumeDrawing(dgvEvents)
+        Catch ex As Exception
+
+        End Try
+
+        Return Nothing
+    End Function
+
+    Private Sub drawGeofenceSelected(ByVal pts As List(Of PointLatLng), ByVal curLocation As PointLatLng)
+
+        Dim geofence As New GMapPolygon(pts, "geofenceSelected")
+        geofence.Stroke = New Pen(Brushes.Blue, 2)
+        geofence.Fill = New SolidBrush(Color.FromArgb(50, Color.LightCoral))
+
+        If geofence.IsInside(curLocation) Then
+            geofence.Fill = New SolidBrush(Color.FromArgb(50, Color.LightGreen))
+        End If
+
+        eventsLayer.Polygons.Clear()
+        eventsLayer.Polygons.Add(geofence)
+
+        If Not mapMain.Overlays.Contains(eventsLayer) Then
+            mapMain.Overlays.Add(eventsLayer)
+        End If
+
+        eventsLayer.IsVisibile = CapaDeEventosToolStripMenuItem.Checked
+    End Sub
+
+    Private Sub rtbAppendText(ByVal box As RichTextBox, ByVal color As Color, ByVal text As String)
+        Dim start As Integer = box.TextLength
+        box.AppendText(text)
+        Dim [end] As Integer = box.TextLength
+        box.[Select](start, [end] - start)
+
+        If True Then
+            box.SelectionColor = color
+        End If
+
+        box.SelectionLength = 0
+
+        If cboxAutoScroll.Checked Then
+            box.Select(box.Text.Length, 0)
+            box.ScrollToCaret()
+        End If
+    End Sub
+
+    Public Function updateValidationEvents(ByVal license_plate As String, ByVal report_type_id As Integer, ByVal validation As Date)
+        'For Each row As DataGridViewRow In Me.dgvEvents.Rows
+        '    If Not TypeOf row.Cells("dgvEvents_report_type_id").Value Is DBNull Then
+        '        If row.Cells("dgvEvents_license_plate").Value = license_plate AndAlso
+        '                row.Cells("dgvEvents_report_type_id").Value = report_type_id Then
+
+        '            row.Cells("dgvEvents_validation").Value = validation
+        '        End If
+        '    End If
+        'Next
+
+        Invoke(refreshEvents(license_plate, report_type_id, validation))
+        Return Nothing
+    End Function
+
+    Private Function getLatitudeTK103A(ByVal latOriginal As String)
+        Dim tempGrados As String = Mid(latOriginal, 1, 2)
+        Dim tempMinutos As String = Mid(latOriginal, 3)
+        Dim _minLat As Double = Math.Round(Convert.ToDouble(tempMinutos, System.Globalization.CultureInfo.InvariantCulture) / 60, 6)
+        Dim minLat() As String = CStr(_minLat).Split(",")
+        Dim lat As String = CInt(tempGrados) & "." & minLat(1)
+
+        Return lat
+    End Function
+
+    Private Function getLongitudeTK103A(ByVal lngOriginal As String)
+        Dim tempGrados As String = Mid(lngOriginal, 2, 2)
+        Dim tempMinutos As String = Mid(lngOriginal, 4)
+        Dim _minLng As Double = Math.Round(Convert.ToDouble(tempMinutos, System.Globalization.CultureInfo.InvariantCulture) / 60, 6)
+        Dim minLng() As String = CStr(_minLng).Split(",")
+        Dim lng As String = (CInt(tempGrados) * -1) & "." & minLng(1)
+
+        Return lng
+    End Function
+
+    Private Sub OnGettingMarker(ByVal latitude As Double,
+                                ByVal longitude As Double,
+                                ByVal imei As String,
+                                ByVal client As String,
+                                ByVal code As String,
+                                ByVal license_plate As String,
+                                ByVal origin As String,
+                                ByVal orientation As Integer,
+                                ByVal date_time As Date,
+                                ByVal fix As String,
+                                ByVal speed As Integer)
+
+        Dim existDevice As Boolean = False
+
+        ' si existen marcadores se verifica que no existe el actual a procesar
+        If markersLayer.Markers.Count > 0 Then
+            For Each marker As GmapMarkerMain In markersLayer.Markers
+                If marker.Imei = imei Then
+                    marker.Position = New PointLatLng(latitude, longitude)
+                    marker.Client = client
+                    marker.Code = code
+                    marker.LicensePlate = license_plate
+                    marker.Origin = origin
+                    marker.Orientation = orientation
+                    marker.Fix = fix
+                    marker.Speed = speed
+                    marker.DateTime = date_time
+                    marker.SetToolTip()
+                    marker.SetIcon()
+
+                    If dgvConsoleVehicles.CurrentRow IsNot Nothing Then
+                        If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
+                            mapMain.Position = marker.Position
+                        End If
+                    End If
+
+                    ' se cambia la variable de que existe el gps a true
+                    existDevice = True
+                    Exit For
+                End If
+            Next
+        End If
+
+        ' si no existe se agrega uno nuevo
+        If Not existDevice Then
+            ' se instancia un nuevo marcador
+            ' se configuran las propiedades del marcador
+            Dim marker As New GmapMarkerMain(New PointLatLng(latitude, longitude))
+            marker.Imei = imei
+            marker.Client = client
+            marker.Code = code
+            marker.LicensePlate = license_plate
+            marker.Origin = origin
+            marker.Orientation = orientation
+            marker.DateTime = date_time
+            marker.Fix = fix
+            marker.Speed = speed
+            marker.IsVisible = False
+            marker.SetToolTip()
+            marker.SetIcon()
+
+            If dgvConsoleVehicles.CurrentRow IsNot Nothing Then
+                If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
+                    mapMain.Position = marker.Position
+                End If
+            End If
+            ' se agrega el marcador a la capa
+            markersLayer.Markers.Add(marker)
+        End If
+
+        If dgvConsoleVehicles.Rows.Count > 0 Then
+            For Each row As DataGridViewRow In dgvConsoleVehicles.Rows
+                If row.Cells("dgvVehicles_imei").Value.ToString = imei Then
+                    row.Cells("dgvVehicles_last_report").Value = date_time.ToString("dd/MM/yyyy hh:mm:ss tt")
+                    row.Cells("dgvVehicles_speed").Value = speed & " Km/H"
+                    row.Cells("dgvVehicles_origin").Value = origin.ToUpper
+                End If
+            Next
+        End If
+
+        If speed > 0 Then
+            If client <> "" Then
+                ' se configuran las propiedades del marcador
+                Dim markerMoving As New GmapMarkerMain(New PointLatLng(latitude, longitude))
+                markerMoving.Imei = imei
+                markerMoving.Client = client
+                markerMoving.Code = code
+                markerMoving.LicensePlate = license_plate
+                markerMoving.Origin = origin
+                markerMoving.Orientation = orientation
+                markerMoving.DateTime = date_time
+                markerMoving.Fix = fix
+                markerMoving.Speed = speed
+                markerMoving.IsVisible = True
+
+                markerMoving.SetToolTip()
+                markerMoving.SetIcon()
+                ' se agrega el marcador a la capa
+                markersMovingLayer.Markers.Add(markerMoving)
+            End If
+        End If
+    End Sub
+#End Region
+
+#Region "Events"
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CheckForIllegalCrossThreadCalls = False
 
@@ -198,12 +589,23 @@ Public Class FrmMain
         Try
             ver = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString
         Catch ex As Exception
-
         End Try
 
         Text = String.Format("Villa Tracking v{0} - Principal", ver)
 
-        tabConsole.TabPages.Remove(tpageNoReportingVehicles)
+        btnMonitoring.ButtonStyle = If(
+            My.Settings.isMonitoring,
+            ZUControls.ZUButton.buttonStyles.StyleGreen,
+            ZUControls.ZUButton.buttonStyles.StyleRed)
+
+        btnMonitoring.Text = If(
+            My.Settings.isMonitoring,
+            "ACTIVO",
+            "INACTIVO")
+
+        cboxModem.Checked = My.Settings.isModemConnected
+
+        'tabConsole.TabPages.Remove(tpageGprsReceiver)
         tabConsole.SelectedTab = tpageModemSms
         tabConsole.SelectedTab = tpageVehicles
 
@@ -211,47 +613,54 @@ Public Class FrmMain
         'menuEventHistory.Text = "Historial de" & vbNewLine & "Eventos"
         'menuNoReporting.Text = "Vehículos" & vbNewLine & "Sin Reportar"
 
-        Select Case My.Settings.currentVoice
-            Case "Ximena"
-                rbtnOptionXimena.Checked = True
-                Exit Select
-            Case "Carlos"
-                rbtnOptionCarlos.Checked = True
-                Exit Select
-            Case "Carmen"
-                rbtnOptionCarmen.Checked = True
-                Exit Select
-            Case "Soledad"
-                rbtnOptionSoledad.Checked = True
-                Exit Select
-            Case "Jorge"
-                rbtnOptionJorge.Checked = True
-                Exit Select
-            Case Else
-                rbtnOptionNone.Checked = True
-                Exit Select
-        End Select
+        'Select Case My.Settings.currentVoice
+        '    Case "Ximena"
+        '        rbtnOptionXimena.Checked = True
+        '        Exit Select
+        '    Case "Carlos"
+        '        rbtnOptionCarlos.Checked = True
+        '        Exit Select
+        '    Case "Carmen"
+        '        rbtnOptionCarmen.Checked = True
+        '        Exit Select
+        '    Case "Soledad"
+        '        rbtnOptionSoledad.Checked = True
+        '        Exit Select
+        '    Case "Jorge"
+        '        rbtnOptionJorge.Checked = True
+        '        Exit Select
+        '    Case Else
+        '        rbtnOptionNone.Checked = True
+        '        Exit Select
+        'End Select
 
         eventsLayer.IsVisibile = False
 
         ServidorPrincipalToolStripMenuItem.Checked = My.Settings.isMainServer
 
         timerDateTime.Start()
+        timerCountdown.Start()
         tbarMapZoom.Value = mapMain.Zoom
         getDealers(0)
+
+        UdpGprsEvents = New UdpClient(New IPEndPoint(IPAddress.Any, 15002))
+        bgwGprsEvents.RunWorkerAsync()
+
+        UdpGprsReceiver = New UdpClient(New IPEndPoint(IPAddress.Any, 15003))
+
         bgwModemSms.RunWorkerAsync()
         bgwGetCurrentLocations.RunWorkerAsync()
         bgwSendEventsEmail.RunWorkerAsync()
 
-        Dim lep As New IPEndPoint(IPAddress.Any, 15002)
-        receivingUdpClient = New UdpClient(lep)
-        bgwGprsEvents.RunWorkerAsync()
-
-        If btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen Then
-            timerCountdown.Start()
-        Else
-            timerCountdown.Stop()
+        If Not bgwGetEvents.IsBusy Then
+            DrawingControl.SuspendDrawing(dgvEvents)
+            dgvEvents.ScrollBars = ScrollBars.None
+            bgwGetEvents.RunWorkerAsync()
         End If
+    End Sub
+
+    Private Sub timerDateTime_Tick(sender As Object, e As EventArgs) Handles timerDateTime.Tick
+        lblDateTime.Text = Now.ToString("MMMM dd, yyyy - hh:mm:ss tt")
     End Sub
 
     Private Sub timerCountdown_Tick(sender As Object, e As EventArgs) Handles timerCountdown.Tick
@@ -264,11 +673,11 @@ Public Class FrmMain
 
         Select Case CountDown
             Case 25
-                If Not bgwGetEvents.IsBusy Then
-                    DrawingControl.SuspendDrawing(dgvEvents)
-                    dgvEvents.ScrollBars = ScrollBars.None
-                    bgwGetEvents.RunWorkerAsync()
-                End If
+                'If Not bgwGetEvents.IsBusy Then
+                '    DrawingControl.SuspendDrawing(dgvEvents)
+                '    dgvEvents.ScrollBars = ScrollBars.None
+                '    bgwGetEvents.RunWorkerAsync()
+                'End If
 
                 If Not bgwModemSms.IsBusy Then
                     bgwModemSms.RunWorkerAsync()
@@ -287,9 +696,13 @@ Public Class FrmMain
                 End If
                 Exit Select
             Case 15
-                If Not bgwGeofences.IsBusy Then
-                    bgwGeofences.RunWorkerAsync()
-                End If
+                'If Not bgwGetCurrentLocations.IsBusy Then
+                '    bgwGetCurrentLocations.RunWorkerAsync()
+                'End If
+
+                'If Not bgwGeofences.IsBusy Then
+                '    bgwGeofences.RunWorkerAsync()
+                'End If
 
                 If Not bgwModemSms.IsBusy Then
                     bgwModemSms.RunWorkerAsync()
@@ -306,9 +719,9 @@ Public Class FrmMain
                 End If
                 Exit Select
             Case 1
-                If Not bgwGetCurrentLocations.IsBusy Then
-                    bgwGetCurrentLocations.RunWorkerAsync()
-                End If
+                'If Not bgwGetCurrentLocations.IsBusy Then
+                '    bgwGetCurrentLocations.RunWorkerAsync()
+                'End If
                 If Not bgwModemSms.IsBusy Then
                     bgwModemSms.RunWorkerAsync()
                 End If
@@ -326,7 +739,7 @@ Public Class FrmMain
     End Sub
 
     Private Sub tabConsole_DrawItem(sender As Object, e As DrawItemEventArgs) Handles tabConsole.DrawItem
-        If e.Index = selectedPage Then
+        If e.Index = SelectedTabPage Then
             e.Graphics.FillRectangle(New SolidBrush(Color.LightGreen), e.Bounds)
         Else
             e.Graphics.FillRectangle(New SolidBrush(Color.FromKnownColor(KnownColor.Control)), e.Bounds)
@@ -355,7 +768,7 @@ Public Class FrmMain
     End Sub
 
     Private Sub tabConsole_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tabConsole.SelectedIndexChanged
-        selectedPage = tabConsole.SelectedIndex
+        SelectedTabPage = tabConsole.SelectedIndex
         tabConsole.Refresh()
     End Sub
 
@@ -664,13 +1077,12 @@ Public Class FrmMain
         End If
     End Sub
 
-    Dim clientsCount As Integer = 0
-    Dim vehiclesCount As Integer = 0
-
     Private Sub bgwGetClients_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwGetClients.DoWork
         Try
             Do
             Loop While bgwGetCurrentLocations.IsBusy
+
+            btnBgwGetClients.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
 
             Dim proc As New Procedure
             Dim enc As New Encryptation
@@ -717,7 +1129,7 @@ Public Class FrmMain
 
                             ' se verifica si tiene vehiculos, y si el vehiculo tiene gps, y si el gps tiene linea
                             If Not TypeOf row("license_plate") Is DBNull AndAlso Not TypeOf row("imei") Is DBNull AndAlso Not TypeOf row("phone_number") Is DBNull Then
-                                Dim LicenseChildNodeText As String = String.Format("Matrícula: {0}", row("license_plate"))
+                                Dim LicenseChildNodeText As String = String.Format("Código: {0} - Matrícula: {1}", row("vehicle_code"), row("license_plate"))
                                 Dim LicenseChildNode As New ZUControls.HiddenCheckBoxTreeNode(LicenseChildNodeText)
                                 LicenseChildNode.ForeColor = Color.Blue
 
@@ -748,7 +1160,7 @@ Public Class FrmMain
                             ' si es el mismo que el anterior significa que se agregara otro vehiculo al mismo cliente
                             If last_client_id = client_id Then
                                 If Not TypeOf row("license_plate") Is DBNull AndAlso Not TypeOf row("imei") Is DBNull AndAlso Not TypeOf row("phone_number") Is DBNull Then
-                                    Dim LicenseChildNodeText As String = String.Format("Matrícula: {0}", row("license_plate"))
+                                    Dim LicenseChildNodeText As String = String.Format("Código: {0} - Matrícula: {1}", row("vehicle_code"), row("license_plate"))
                                     Dim LicenseChildNode As New ZUControls.HiddenCheckBoxTreeNode(LicenseChildNodeText)
                                     LicenseChildNode.ForeColor = Color.Blue
 
@@ -801,7 +1213,7 @@ Public Class FrmMain
 
                                 ' se verifica si tiene vehiculos, y si el vehiculo tiene gps, y si el gps tiene linea
                                 If Not TypeOf row("license_plate") Is DBNull AndAlso Not TypeOf row("imei") Is DBNull AndAlso Not TypeOf row("phone_number") Is DBNull Then
-                                    Dim LicenseChildNodeText As String = String.Format("Matrícula: {0}", row("license_plate"))
+                                    Dim LicenseChildNodeText As String = String.Format("Código: {0} - Matrícula: {1}", row("vehicle_code"), row("license_plate"))
                                     Dim LicenseChildNode As New ZUControls.HiddenCheckBoxTreeNode(LicenseChildNodeText)
                                     LicenseChildNode.ForeColor = Color.Blue
 
@@ -868,45 +1280,8 @@ Public Class FrmMain
         End If
 
         DrawingControl.ResumeDrawing(tviewClients)
-    End Sub
 
-    Public Sub getDealers(ByVal index As Integer)
-        Try
-            Dim proc As New Procedure
-
-            Dim dt As New DataTable("dealers")
-            Dim col1 As New DataColumn("dealer_id")
-            Dim col2 As New DataColumn("name")
-            dt.Columns.Add(col1)
-            dt.Columns.Add(col2)
-
-            If proc.GetData("dealers_getAll") Then
-                If proc.Ds.Tables(0).Rows.Count > 0 Then
-                    Dim row As DataRow = dt.NewRow
-                    row.Item("dealer_id") = 0
-                    row.Item("name") = "TODOS"
-                    dt.Rows.Add(row)
-
-                    For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
-                        Dim row2 As DataRow = proc.Ds.Tables(0).Rows(i)
-                        row = dt.NewRow
-                        row.Item("dealer_id") = row2("dealer_id")
-                        row.Item("name") = row2("name")
-                        dt.Rows.Add(row)
-                    Next
-                End If
-            Else
-                MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
-            End If
-
-            cboDealers.DataSource = Nothing
-            cboDealers.DataSource = dt
-            cboDealers.DisplayMember = "name"
-            cboDealers.ValueMember = "dealer_id"
-            cboDealers.SelectedIndex = index
-        Catch ex As Exception
-            'MsgBox(ex.Message, MsgBoxStyle.Critical, "Mensaje del Sistema")
-        End Try
+        btnBgwGetClients.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
     End Sub
 
     Private Sub tviewClients_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles tviewClients.NodeMouseDoubleClick
@@ -938,6 +1313,7 @@ Public Class FrmMain
                 bgw.WorkerSupportsCancellation = True
                 AddHandler bgw.DoWork, AddressOf bgw_DoWork
                 AddHandler bgw.ProgressChanged, AddressOf bgw_ReportProgress
+                AddHandler bgw.RunWorkerCompleted, AddressOf bgw_RunWorkerCompleted
 
                 dgvConsoleVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
                 dgvConsoleVehicles.ScrollBars = ScrollBars.None
@@ -960,22 +1336,22 @@ Public Class FrmMain
                         End If
                     Next
 
-                    For x = 0 To rowsToRemove.Count - 1
+                    For z = 0 To rowsToRemove.Count - 1
                         For Each marker As GmapMarkerMain In markersLayer.Markers
-                            If rowsToRemove(x).Cells("dgvVehicles_imei").Value = marker.Imei Then
+                            If rowsToRemove(z).Cells("dgvVehicles_imei").Value = marker.Imei Then
                                 marker.IsVisible = False
                                 Exit For
                             End If
                         Next
 
                         If lblLicensePlate.Text <> "---" Then
-                            If rowsToRemove(x).Cells("dgvVehicles_license_plate").Value = lblLicensePlate.Text Then
+                            If rowsToRemove(z).Cells("dgvVehicles_license_plate").Value = lblLicensePlate.Text Then
                                 lblLicensePlate.Text = "---"
                                 dgvGeofences.Rows.Clear()
                                 eventsLayer.Polygons.Clear()
                             End If
                         End If
-                        dgvConsoleVehicles.Rows.Remove(rowsToRemove(x))
+                        dgvConsoleVehicles.Rows.Remove(rowsToRemove(z))
                     Next
                 End If
                 e.Node.BackColor = Color.Empty
@@ -1007,6 +1383,7 @@ Public Class FrmMain
                         dgvConsoleVehicles.Rows.Add(
                             False,
                             Nothing,
+                            If(rowVehicle("vehicle_code") Is DBNull.Value, "", rowVehicle("vehicle_code")),
                             If(rowVehicle("device_model") Is DBNull.Value, "", rowVehicle("device_model")),
                             If(rowVehicle("imei") Is DBNull.Value, "", rowVehicle("imei")),
                             If(rowVehicle("phone_number") Is DBNull.Value, 0, rowVehicle("phone_number")),
@@ -1028,7 +1405,8 @@ Public Class FrmMain
                             If(rowVehicle("sms_resume") Is DBNull.Value, "", rowVehicle("sms_resume")),
                             If(rowVehicle("gprs_stop") Is DBNull.Value, "", rowVehicle("gprs_stop")),
                             If(rowVehicle("gprs_resume") Is DBNull.Value, "", rowVehicle("gprs_resume")),
-                            If(rowVehicle("phone_pass") Is DBNull.Value, "", rowVehicle("phone_pass"))
+                            If(rowVehicle("phone_pass") Is DBNull.Value, "", rowVehicle("phone_pass")),
+                            If(rowVehicle("origin") Is DBNull.Value, "", rowVehicle("origin").ToString.ToUpper)
                         )
                         bgw.ReportProgress(1, e.Argument)
                     Next
@@ -1045,10 +1423,6 @@ Public Class FrmMain
     End Sub
 
     Private Sub bgw_ReportProgress(sender As Object, e As ProgressChangedEventArgs)
-        DrawingControl.ResumeDrawing(dgvConsoleVehicles)
-        dgvConsoleVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-        dgvConsoleVehicles.ScrollBars = ScrollBars.Both
-
         For Each node As TreeNode In tviewClients.Nodes
             If node.Tag = e.UserState Then
                 If e.ProgressPercentage = 1 Then
@@ -1057,10 +1431,15 @@ Public Class FrmMain
                     node.BackColor = Color.Empty
                     node.Checked = False
                 End If
-
                 Exit For
             End If
         Next
+    End Sub
+
+    Private Sub bgw_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs)
+        DrawingControl.ResumeDrawing(dgvConsoleVehicles)
+        dgvConsoleVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
+        dgvConsoleVehicles.ScrollBars = ScrollBars.Both
     End Sub
 
     Private Sub dgvConsoleVehicles_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles dgvConsoleVehicles.RowsAdded
@@ -1077,6 +1456,8 @@ Public Class FrmMain
             Do
             Loop While bgwGetClients.IsBusy
 
+            btnBgwGetCurrentLocations.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+
             Dim proc As New Procedure
 
             markersMovingLayer.Markers.Clear()
@@ -1088,6 +1469,7 @@ Public Class FrmMain
 
                         ' se obtienen los datos de la BD en variables y se formatea segun se requiera
                         Dim client_name As String = (If(row("first_name") Is DBNull.Value, "", row("first_name")) & " " & If(row("last_name") Is DBNull.Value, "", row("last_name"))).ToString().Trim
+                        Dim vehicle_code As String = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code"))
                         Dim license_plate As String = If(row("license_plate") Is DBNull.Value, "", row("license_plate"))
                         Dim imei As String = If(row("imei") Is DBNull.Value, "", row("imei"))
                         Dim latitude As Double = If(row("latitude") Is DBNull.Value, 0, row("latitude"))
@@ -1096,69 +1478,24 @@ Public Class FrmMain
                         Dim speed As Integer = If(row("speed") Is DBNull.Value, 0, row("speed"))
                         Dim orientation As Integer = If(row("orientation") Is DBNull.Value, 0, row("orientation"))
                         Dim fix As String = If(row("fix") Is DBNull.Value, "", row("fix"))
+                        Dim origin As String = If(row("origin") Is DBNull.Value, "", row("origin"))
 
-                        ' variable que indica si se debe agregar un marcador o actualizar
-                        Dim existDevice As Boolean = False
+                        Dim marker As New GmapMarkerMain(New PointLatLng(latitude, longitude))
+                        marker.Imei = imei
+                        marker.Client = client_name
+                        marker.Code = vehicle_code
+                        marker.LicensePlate = license_plate
+                        marker.Origin = origin
+                        marker.Orientation = orientation
+                        marker.DateTime = date_time
+                        marker.Fix = fix
+                        marker.Speed = speed
+                        marker.IsVisible = False
 
-                        ' si existen marcadores se verifica que no existe el actual a procesar
-                        If markersLayer.Markers.Count > 0 Then
-                            For Each marker As GmapMarkerMain In markersLayer.Markers
-                                If marker.Imei = imei Then
-                                    marker.Position = New PointLatLng(latitude, longitude)
-                                    marker.Client = client_name
-                                    marker.LicensePlate = license_plate
-                                    marker.Orientation = orientation
-                                    marker.Fix = fix
-                                    marker.Speed = speed
-                                    marker.DateTime = date_time
-
-                                    If dgvConsoleVehicles.CurrentRow IsNot Nothing Then
-                                        If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
-                                            mapMain.Position = marker.Position
-                                        End If
-                                    End If
-
-                                    ' se cambia la variable de que existe el gps a true
-                                    existDevice = True
-                                    Exit For
-                                End If
-                            Next
-                        End If
-
-                        ' si no existe se agrega uno nuevo
-                        If Not existDevice Then
-                            ' se instancia un nuevo marcador
-                            Dim marker As New GmapMarkerMain(New PointLatLng(latitude, longitude))
-
-                            ' se configuran las propiedades del marcador
-                            marker.Imei = imei
-                            marker.Client = client_name
-                            marker.LicensePlate = license_plate
-                            marker.Orientation = orientation
-                            marker.DateTime = date_time
-                            marker.Fix = fix
-                            marker.Speed = speed
-                            marker.IsVisible = False
-                            ' se agrega el marcador a la capa
-                            markersLayer.Markers.Add(marker)
-                        End If
-
-                        If speed > 0 Then
-                            If client_name <> "" Then
-                                Dim markerMoving As New GmapMarkerMain(New PointLatLng(latitude, longitude))
-                                ' se configuran las propiedades del marcador
-                                markerMoving.Imei = imei
-                                markerMoving.Client = client_name
-                                markerMoving.LicensePlate = license_plate
-                                markerMoving.Orientation = orientation
-                                markerMoving.DateTime = date_time
-                                markerMoving.Fix = fix
-                                markerMoving.Speed = speed
-                                markerMoving.IsVisible = True
-                                ' se agrega el marcador a la capa
-                                markersMovingLayer.Markers.Add(markerMoving)
-                            End If
-                        End If
+                        marker.SetToolTip()
+                        marker.SetIcon()
+                        ' se agrega el marcador a la capa
+                        markersLayer.Markers.Add(marker)
                     Next
 
                     ' se verifica que la capa de marcadores se agregue en el mapa
@@ -1187,8 +1524,14 @@ Public Class FrmMain
         End Try
     End Sub
 
+
     Private Sub bgwGetCurrentLocations_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwGetCurrentLocations.RunWorkerCompleted
         Try
+
+            If My.Settings.isMonitoring Then
+                bgwGprsReceiver.RunWorkerAsync()
+            End If
+
             ' actualiza la columna de velocidad y ultimo reporte de la ventana de vehiculos de la consola
             If dgvConsoleVehicles.Rows.Count > 0 Then
                 For Each marker As GmapMarkerMain In markersLayer.Markers
@@ -1196,6 +1539,7 @@ Public Class FrmMain
                         If row.Cells("dgvVehicles_imei").Value.ToString().Equals(marker.Imei) Then
                             row.Cells("dgvVehicles_last_report").Value = marker.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt")
                             row.Cells("dgvVehicles_speed").Value = marker.Speed & " Km/H"
+                            row.Cells("dgvVehicles_origin").Value = marker.Origin.ToUpper
                             marker.IsVisible = row.Cells("dgvVehicles_onMap").Value
                             Exit For
                         End If
@@ -1205,6 +1549,8 @@ Public Class FrmMain
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Mensaje del Sistema")
         End Try
+
+        btnBgwGetCurrentLocations.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
     End Sub
 
     Private Sub dgvConsoleVehicles_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvConsoleVehicles.CellMouseClick
@@ -1287,15 +1633,6 @@ Public Class FrmMain
         End Try
     End Sub
 
-    Public Function sTiempo(dInicio As Date, dFin As Date) As String
-        Dim functionReturnValue As String = Nothing
-        functionReturnValue = CInt((dFin - dInicio).TotalSeconds / 86400 Mod 365) & " días, "
-        functionReturnValue = (functionReturnValue & CInt((dFin - dInicio).TotalSeconds / 3600 Mod 24)) & " horas, "
-        functionReturnValue = (functionReturnValue & CInt((dFin - dInicio).TotalSeconds / 60 Mod 60)) & " minutos, "
-        functionReturnValue = (functionReturnValue & CInt((dFin - dInicio).TotalSeconds Mod 60)) & " segundos."
-        Return functionReturnValue
-    End Function
-
     Private Sub bgwNoReportingVehicles_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwNoReportingVehicles.DoWork
         Try
             Dim proc As New Procedure
@@ -1309,7 +1646,7 @@ Public Class FrmMain
                             If(row("vehicle_id") Is DBNull.Value, 0, row("vehicle_id")) > 0 AndAlso
                              If(row("client_id") Is DBNull.Value, 0, row("client_id")) > 0 Then
 
-                            dgvNoReportingVehicles.Rows.Add(
+                            dgvGprsReceiver.Rows.Add(
                                                         (If(row("first_name") Is DBNull.Value, "", row("first_name")) & " " & If(row("last_name") Is DBNull.Value, "", row("last_name"))).ToString().Trim,
                                                         If(row("imei") Is DBNull.Value, "", row("imei")),
                                                         If(row("license_plate") Is DBNull.Value, "", row("license_plate")),
@@ -1329,9 +1666,9 @@ Public Class FrmMain
     End Sub
 
     Private Sub bgwNoReportingVehicles_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwNoReportingVehicles.RunWorkerCompleted
-        dgvNoReportingVehicles.ScrollBars = ScrollBars.Both
-        DrawingControl.ResumeDrawing(dgvNoReportingVehicles)
-        tpageNoReportingVehicles.Text = "VEHÍCULOS SIN REPORTAR (" & dgvNoReportingVehicles.Rows.Count.ToString("000") & ")"
+        dgvGprsReceiver.ScrollBars = ScrollBars.Both
+        DrawingControl.ResumeDrawing(dgvGprsReceiver)
+        tpageGprsReceiver.Text = "VEHÍCULOS SIN REPORTAR (" & dgvGprsReceiver.Rows.Count.ToString("000") & ")"
     End Sub
 
     Private Sub btnMonitoring_MouseClick(sender As Object, e As MouseEventArgs) Handles btnMonitoring.Click
@@ -1339,21 +1676,31 @@ Public Class FrmMain
             If btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed Then
                 btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
                 btnMonitoring.Text = "ACTIVO"
-                timerCountdown.Start()
+                My.Settings.isMonitoring = True
+                My.Settings.Save()
 
+                If Not bgwGprsReceiver.IsBusy Then
+                    bgwGprsReceiver.RunWorkerAsync()
+                End If
             Else
                 btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed
                 btnMonitoring.Text = "INACTIVO"
-                timerCountdown.Stop()
+                My.Settings.isMonitoring = False
+                My.Settings.Save()
+                If bgwGprsReceiver.IsBusy Then
+                    bgwGprsReceiver.CancelAsync()
+                End If
             End If
         End If
     End Sub
 
     Private Sub bgwGetEvents_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwGetEvents.DoWork
         Try
+            btnBgwGetEvents.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+
             Dim proc As New Procedure
 
-            Dim event_name, first_name, last_name, license_plate, imei, geofence_name, validation,
+            Dim event_name, first_name, last_name, license_plate, vehicle_code, imei, geofence_name, validation,
                 geofence_points, textToVoice As String
 
             license_plate = ""
@@ -1413,6 +1760,7 @@ Public Class FrmMain
 
                     vehicle_id = If(row("vehicle_id") Is DBNull.Value, 0, row("vehicle_id"))
                     license_plate = If(row("license_plate") Is DBNull.Value, "", row("license_plate"))
+                    vehicle_code = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code"))
 
                     battery_alert = If(row("battery_alert") Is DBNull.Value, 0, row("battery_alert"))
                     geofence_alert = If(row("geofence_alert") Is DBNull.Value, 0, row("geofence_alert"))
@@ -1438,8 +1786,6 @@ Public Class FrmMain
                                 If last_name.Length > 0 Then
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
-
-
 
                                     textToVoice = nombre(0) & " " + apellido(0) & ", Entrada a Geocerca"
                                 Else
@@ -1543,12 +1889,13 @@ Public Class FrmMain
                     If client_id > 0 AndAlso vehicle_id > 0 AndAlso device_id > 0 Then
                         If isVoiceEnabled Then
                             If validation = "" OrElse Date.Parse(validation) < Now Then
-                                textsToVoice.Add(textToVoice)
+                                Me.TextToVoice.Add(textToVoice)
                             End If
                         End If
 
                         dgvEvents.Rows.Insert(0,
                                                 False,
+                                                vehicle_code,
                                                 (first_name & " " & last_name).ToString().Trim,
                                                 imei,
                                                 license_plate,
@@ -1569,8 +1916,8 @@ Public Class FrmMain
                     End If
                 Next
                 dtEvents.AcceptChanges()
-                For x = 0 To dgvEvents.Rows.Count - 1
-                    With dgvEvents.Rows(x)
+                For z = 0 To dgvEvents.Rows.Count - 1
+                    With dgvEvents.Rows(z)
                         If Not TypeOf .Cells("dgvEvents_report_type_id").Value Is DBNull Then
                             If .Cells("dgvEvents_license_plate").Value = license_plate And .Cells("dgvEvents_report_type_id").Value = report_type_id Then
                                 .Cells("dgvEvents_validation").Value = validation
@@ -1585,21 +1932,21 @@ Public Class FrmMain
 
         'Dim thread As New Threading.Thread(AddressOf speak)
         'thread.Start()
+
         Try
-            If Not bgwTTS.IsBusy AndAlso textsToVoice.Count > 0 AndAlso voiceName.Length > 0 Then
+            If Not bgwTTS.IsBusy AndAlso TextToVoice.Count > 0 AndAlso VoiceName.Length > 0 Then
                 bgwTTS.RunWorkerAsync()
             End If
-
         Catch ex As Exception
-
         End Try
+
     End Sub
 
     Private Sub bgwTTS_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwTTS.DoWork
         Try
-            While textsToVoice.Count > 0
-                synth.Speak(textsToVoice(0))
-                textsToVoice.RemoveAt(0)
+            While TextToVoice.Count > 0
+                Synth.Speak(TextToVoice(0))
+                TextToVoice.RemoveAt(0)
             End While
         Catch ex As Exception
 
@@ -1608,14 +1955,10 @@ Public Class FrmMain
 
     Private Sub bgwTTS_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles bgwTTS.ProgressChanged
         Dim texto As String = e.UserState.ToString()
-        voice.Read(texto)
+        Voice.Read(texto)
     End Sub
 
     Private Sub bgwTTS_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwTTS.RunWorkerCompleted
-
-    End Sub
-
-    Private Sub speak()
 
     End Sub
 
@@ -1623,6 +1966,8 @@ Public Class FrmMain
         dgvEvents.ScrollBars = ScrollBars.Both
         DrawingControl.ResumeDrawing(dgvEvents)
         tpageEvents.Text = "EVENTOS (" & dgvEvents.Rows.Count.ToString("000") & ")"
+
+        btnBgwGetEvents.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
     End Sub
 
     Private Sub menuOptionAutoCenter_CheckedChanged(sender As Object, e As EventArgs) Handles menuOptionAutoCenter.CheckedChanged
@@ -1640,6 +1985,7 @@ Public Class FrmMain
                     eventsLayer.Markers.Clear()
                     eventsLayer.Polygons.Clear()
 
+                    Dim vehicle_code = dgvEvents.Rows(e.RowIndex).Cells("vehicle_code").Value
                     Dim event_name = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_name").Value
                     Dim latitude = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_latitude").Value
                     Dim longitude = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_longitude").Value
@@ -1649,6 +1995,7 @@ Public Class FrmMain
                     Dim points = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_geofence_points").Value
 
                     Dim marker As New GmapMarkerEvent(New PointLatLng(latitude, longitude))
+                    marker.Code = vehicle_code
                     marker.Selected = True
                     marker.DateTime = date_time
                     marker.Orientation = orientation
@@ -1702,79 +2049,74 @@ Public Class FrmMain
                         For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
                             Dim row = proc.Ds.Tables(0).Rows(i)
 
-                            If row("key") = 0 Then
-                                Dim geofence_vehicle_id = If(row("geofence_vehicle_id") Is DBNull.Value, 0, row("geofence_vehicle_id"))
-                                Dim geofence_id = If(row("geofence_id") Is DBNull.Value, 0, row("geofence_id"))
-                                Dim imei = If(row("imei") Is DBNull.Value, "", row("imei"))
-                                Dim date_time = If(row("date_time") Is DBNull.Value, Now, row("date_time"))
-                                Dim latitude = If(row("latitude") Is DBNull.Value, 0, row("latitude"))
-                                Dim longitude = If(row("longitude") Is DBNull.Value, 0, row("longitude"))
-                                Dim speed = If(row("speed") Is DBNull.Value, 0, row("speed"))
-                                Dim orientation = If(row("orientation") Is DBNull.Value, 0, row("orientation"))
-                                Dim last_status = If(row("last_status") Is DBNull.Value, 0, row("last_status"))
-                                Dim points = If(row("points") Is DBNull.Value, "", row("points"))
 
-                                Dim gPoints As List(Of GeofencePoint) = New JavaScriptSerializer().Deserialize(Of List(Of GeofencePoint))(points)
-                                Dim _gPoints As New List(Of PointLatLng)
+                            Dim geofence_vehicle_id = If(row("geofence_vehicle_id") Is DBNull.Value, 0, row("geofence_vehicle_id"))
+                            Dim geofence_id = If(row("geofence_id") Is DBNull.Value, 0, row("geofence_id"))
+                            Dim imei = If(row("imei") Is DBNull.Value, "", row("imei"))
+                            Dim date_time = If(row("date_time") Is DBNull.Value, Now, row("date_time"))
+                            Dim latitude = If(row("latitude") Is DBNull.Value, 0, row("latitude"))
+                            Dim longitude = If(row("longitude") Is DBNull.Value, 0, row("longitude"))
+                            Dim speed = If(row("speed") Is DBNull.Value, 0, row("speed"))
+                            Dim orientation = If(row("orientation") Is DBNull.Value, 0, row("orientation"))
+                            Dim last_status = If(row("last_status") Is DBNull.Value, 0, row("last_status"))
+                            Dim points = If(row("points") Is DBNull.Value, "", row("points"))
 
-                                If gPoints.Count > 0 Then
-                                    For x = 0 To gPoints.Count - 1
-                                        _gPoints.Add(New PointLatLng(gPoints(x).Latitude, gPoints(x).Longitude))
-                                    Next
-                                End If
+                            Dim gPoints As List(Of GeofencePoint) = New JavaScriptSerializer().Deserialize(Of List(Of GeofencePoint))(points)
+                            Dim _gPoints As New List(Of PointLatLng)
 
-                                Dim geofence As New GMapPolygon(_gPoints, "geofence")
-                                Dim curPosition As New PointLatLng(latitude, longitude)
+                            If gPoints.Count > 0 Then
+                                For z = 0 To gPoints.Count - 1
+                                    _gPoints.Add(New PointLatLng(gPoints(z).Latitude, gPoints(z).Longitude))
+                                Next
+                            End If
 
-                                If last_status = 0 Then
-                                    If geofence.IsInside(curPosition) Then
-                                        proc.GetData("geofences_vehicles_update", 1, date_time, geofence_vehicle_id)
-                                    Else
-                                        proc.GetData("geofences_vehicles_update", 2, date_time, geofence_vehicle_id)
-                                    End If
+                            Dim geofence As New GMapPolygon(_gPoints, "geofence")
+                            Dim curPosition As New PointLatLng(latitude, longitude)
+
+                            If last_status = 0 Then
+                                If geofence.IsInside(curPosition) Then
+                                    proc.GetData("geofences_vehicles_update", 1, date_time, geofence_vehicle_id)
                                 Else
-                                    If geofence.IsInside(curPosition) Then
-                                        If last_status <> 1 Then
-                                            If proc.GetData("events_insert",
-                                                            date_time,
-                                                            imei,
-                                                            latitude,
-                                                            longitude,
-                                                            "entrada geocerca",
-                                                            speed,
-                                                            orientation,
-                                                            0,
-                                                            geofence_id,
-                                                            points) Then
-
-                                                proc.GetData("geofences_vehicles_update", 1, date_time, geofence_vehicle_id)
-                                            End If
-                                        End If
-                                    Else
-                                        If last_status <> 2 Then
-                                            If proc.GetData("events_insert",
-                                                            date_time,
-                                                            imei,
-                                                            latitude,
-                                                            longitude,
-                                                            "salida geocerca",
-                                                            speed,
-                                                            orientation,
-                                                            0,
-                                                            geofence_id,
-                                                            points) Then
-
-                                                proc.GetData("geofences_vehicles_update", 2, date_time, geofence_vehicle_id)
-                                            End If
-                                        End If
-                                    End If
+                                    proc.GetData("geofences_vehicles_update", 2, date_time, geofence_vehicle_id)
                                 End If
                             Else
-                                If serialModemSms.IsOpen Then
-                                    serialModemSms.Write("AT+CMGS=" & Chr(34) & "04122386203" & Chr(34) & Chr(13))
-                                    serialModemSms.Write("IS INSIDE GEOFENCE" & Chr(26))
+                                If geofence.IsInside(curPosition) Then
+                                    If last_status <> 1 Then
+                                        If proc.GetData("events_insert",
+                                                              date_time,
+                                                              imei,
+                                                              latitude,
+                                                              longitude,
+                                                             "entrada geocerca",
+                                                             speed,
+                                                             orientation,
+                                                             0,
+                                                             geofence_id,
+                                                             points) Then
+
+                                            proc.GetData("geofences_vehicles_update", 1, date_time, geofence_vehicle_id)
+                                        End If
+                                    End If
+                                Else
+                                    If last_status <> 2 Then
+                                        If proc.GetData("events_insert",
+                                                             date_time,
+                                                             imei,
+                                                             latitude,
+                                                             longitude,
+                                                             "salida geocerca",
+                                                             speed,
+                                                             orientation,
+                                                             0,
+                                                             geofence_id,
+                                                             points) Then
+
+                                            proc.GetData("geofences_vehicles_update", 2, date_time, geofence_vehicle_id)
+                                        End If
+                                    End If
                                 End If
                             End If
+
                         Next
                     End If
                 End If
@@ -1790,12 +2132,6 @@ Public Class FrmMain
             frm.Show()
             frm.BringToFront()
         End If
-    End Sub
-
-    Private Sub dgvNoReportingVehicles_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvNoReportingVehicles.CellMouseDoubleClick
-        Dim frm As New frmClients(dgvNoReportingVehicles.Rows(e.RowIndex).Cells("dgvNoReportingVehicles_client_id").Value, Me)
-        frm.Show()
-        frm.BringToFront()
     End Sub
 
     Private Sub cboDealers_Enter(sender As Object, e As EventArgs) Handles cboDealers.Enter
@@ -1818,20 +2154,16 @@ Public Class FrmMain
                         cboxModem.ForeColor = Color.Red
                     End If
 
-                    serialModemSms.DiscardInBuffer()
+                    'serialModemSms.DiscardInBuffer()
 
-                    serialModemSms.Write("AT+CSQ" & Chr(13))
-                    Threading.Thread.Sleep(1000)
-                    serialModemSms.Write("AT+CNMI=1,2,0,1,0" & Chr(13))
-                    Threading.Thread.Sleep(1000)
-                    Application.DoEvents()
+                    'serialModemSms.Write("AT+CSQ" & Chr(13))
+                    'Threading.Thread.Sleep(1000)
+                    'Application.DoEvents()
 
-                    serialModemSms.DiscardInBuffer()
+                    'serialModemSms.DiscardInBuffer()
                 Else
                     connectModem()
                     If serialModemSms.IsOpen Then
-                        serialModemSms.Write("ATZ" & Chr(13))
-                        Threading.Thread.Sleep(1000)
                         serialModemSms.Write("AT+CMGF=1" & Chr(13))
                         Threading.Thread.Sleep(1000)
                         serialModemSms.Write("AT+CSMP=49,167,0,0" & Chr(13))
@@ -1848,27 +2180,27 @@ Public Class FrmMain
                             cboxModem.ForeColor = Color.Red
                         End If
 
-                        serialModemSms.DiscardInBuffer()
+                        'serialModemSms.DiscardInBuffer()
 
-                        serialModemSms.Write("AT+CSQ" & Chr(13))
-                        Threading.Thread.Sleep(1000)
-                        Application.DoEvents()
+                        'serialModemSms.Write("AT+CSQ" & Chr(13))
+                        'Threading.Thread.Sleep(1000)
+                        'Application.DoEvents()
 
-                        serialModemSms.DiscardInBuffer()
+                        'serialModemSms.DiscardInBuffer()
                     End If
                 End If
             Else
                 If serialModemSms.IsOpen Then
                     serialModemSms.Close()
-
-                    cboxModem.Checked = False
-                    cboxModem.Text = "Módem Desconectado"
-                    cboxModem.ForeColor = Color.Red
-
-                    pbarModem.Minimum = 0
-                    pbarModem.Value = 0
-                    pbarModem.Minimum = 32
                 End If
+
+                cboxModem.Checked = False
+                cboxModem.Text = "Módem Desconectado"
+                cboxModem.ForeColor = Color.Red
+
+                pbarModem.Minimum = 0
+                pbarModem.Value = 0
+                pbarModem.Minimum = 32
             End If
         Catch ex As Exception
             cboxModem.Checked = False
@@ -1878,61 +2210,9 @@ Public Class FrmMain
             pbarModem.Minimum = 0
             pbarModem.Value = 0
             pbarModem.Minimum = 32
+
+            cboxModem.Checked = True
         End Try
-    End Sub
-
-    Private Sub connectModem()
-        With serialModemSms
-            If .IsOpen Then
-                .Close()
-            End If
-
-            .PortName = My.Settings.portName
-            .BaudRate = My.Settings.baudRate
-            .DataBits = My.Settings.dataBits
-            Select Case My.Settings.stopBits
-                Case "1"
-                    .StopBits = Ports.StopBits.One
-                Case "1.5"
-                    .StopBits = Ports.StopBits.OnePointFive
-                Case "2"
-                    .StopBits = Ports.StopBits.Two
-                Case "Ninguno"
-                    .StopBits = Ports.StopBits.None
-            End Select
-
-            Select Case My.Settings.parity
-                Case "Par"
-                    .Parity = Ports.Parity.Even
-                Case "Impar"
-                    .Parity = Ports.Parity.Odd
-                Case "Ninguno"
-                    .Parity = Ports.Parity.None
-                Case "Marca"
-                    .Parity = Ports.Parity.Mark
-                Case "Espacio"
-                    .Parity = Ports.Parity.Space
-            End Select
-
-            Select Case My.Settings.handshake
-                Case "Hardware"
-                    .Handshake = Ports.Handshake.RequestToSend
-                Case "Xon / Xoff"
-                    .Handshake = Ports.Handshake.XOnXOff
-                Case "Ninguno"
-                    .Handshake = Ports.Handshake.None
-                Case "Hardware y Xon/Xoff"
-                    .Handshake = Ports.Handshake.RequestToSendXOnXOff
-            End Select
-
-            .DtrEnable = False
-            .ReadBufferSize = My.Settings.readBufferSize
-            .WriteBufferSize = My.Settings.writeBufferSize
-            .WriteTimeout = My.Settings.writeTimeout
-            .RtsEnable = True
-            .Encoding = Encoding.Default
-            .Open()
-        End With
     End Sub
 
     Private Sub BaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles menuOptionDatabase.Click
@@ -1954,152 +2234,307 @@ Public Class FrmMain
     End Sub
 
     Private Sub serialModemSms_DataReceived(sender As Object, e As Ports.SerialDataReceivedEventArgs) Handles serialModemSms.DataReceived
-        Dim strLine = "=========================================================================="
+        Try
+            Dim strLine = "=========================================================================="
 
-        Dim result As String = serialModemSms.ReadExisting().Trim
+            Dim result As String = serialModemSms.ReadExisting().Trim
 
-        'rtb.AppendText(result & vbCrLf)
+            'rtb.AppendText(result & vbCrLf)
 
-        Dim proc As New Procedure
+            Dim proc As New Procedure
 
-        ' se captura la cobertura del modem
-        If result.IndexOf("+CSQ: ") > -1 Then
-            Try
-                result = Mid(result.Replace(vbCrLf, "").Replace(vbLf, ""), result.IndexOf("+CSQ: ") + 7, 5)
+            ' se captura la cobertura del modem
+            If result.IndexOf("+CSQ: ") > -1 Then
+                Try
+                    result = Mid(result.Replace(vbCrLf, "").Replace(vbLf, ""), result.IndexOf("+CSQ: ") + 7, 5)
 
-                Dim signalValue As Double = 0.0
-                Dim signal As String = result
+                    Dim signalValue As Double = 0.0
+                    Dim signal As String = result
 
-                Double.TryParse(signal, signalValue)
-
-                pbarModem.Value = Math.Round(signalValue, 0)
-            Catch ex As Exception
-            End Try
-
-        ElseIf result.IndexOf("+CDS: ") > -1 Then
-            '"+CDS: 24" & vbCrLf & "0791852404009045062C0A811422832630716051102171697160511021816900" & vbCrLf & vbCrLf & "^MODE:3,3" & vbCrLf & vbCrLf & "OK"	String
-            Try
-                result = Mid(result, result.IndexOf("+CDS: ") + 7)
-                Dim splitted() As String = result.Split(vbCrLf)
-                Dim pduCode As String = splitted(1).Replace(vbLf, "")
-                Dim s As Object            '    
-                Dim T As SMSBase.SMSType = SMSBase.GetSMSType(pduCode)
-                s = New SMS_STATUS_REPORT(pduCode)
-
-                Dim status As String = If((s.status).ToString().ToLower().Contains("success"), "Mensaje Entregado", "Mensaje Fallido")
-                Dim date_time As String = DirectCast(s.TP_DP, Date).ToString("dd/MM/yyyy hh:mm:ss tt")
-                Dim client_name As String = ""
-                Dim textToVoice As String = status
-
-                If proc.GetData("clients_getByPhoneNumber", s.SrcAddressValue) Then
-                    If proc.Ds.Tables(0).Rows.Count > 0 Then
-                        client_name = (proc.Ds.Tables(0).Rows(0)("first_name") & " " & If(proc.Ds.Tables(0).Rows(0)("last_name") Is DBNull.Value, "", proc.Ds.Tables(0).Rows(0)("last_name"))).ToString().Trim
-                        textToVoice = client_name & ", " & status
-                    End If
-                End If
-
-                textsToVoice.Add(textToVoice)
-
-                rtb.AppendText(vbCrLf & strLine & vbCrLf & status.ToUpper & vbCrLf)
-                rtb.AppendText("REMITENTE: " & If(client_name = "", s.SrcAddressValue, client_name & " (" & s.SrcAddressValue & ")") & vbCrLf)
-                rtb.AppendText("FECHA/HORA: " & date_time & vbCrLf)
-                rtb.AppendText(vbCrLf & strLine & vbCrLf)
-
-                If cboxAutoScroll.Checked Then
-                    rtb.Select(rtb.Text.Length, 0)
-                    rtb.ScrollToCaret()
-                End If
-
-                Dim th As New Threading.Thread(AddressOf speak)
-                th.Start()
-            Catch ex As Exception
-            End Try
-
-        ElseIf result.IndexOf("+CMT: ") > -1 Then
-            '"+CMT: ""04122372142"",,""17/06/15,23:58:55-16""" & vbCrLf & "Power: ON" & vbCrLf & "Bat: 100%" & vbCrLf & "GPRS: ON" & vbCrLf & "GPS: ON" & vbCrLf & "ACC: ON" & vbCrLf & "Door: OFF" & vbCrLf & "GSM: 21" & vbCrLf & "Oil: 0.00%" & vbCrLf & "APN: gprsweb.digitel.ve,,;" & vbCrLf & "IP: 190.142.248.235:24000" & vbCrLf & "Arm: OFF"
-
-            Dim incoming As String = Mid(result, result.IndexOf("+CMT: ") + 1)
-            Dim arr() As String = incoming.Replace(Chr(34), "").Split(",")
-            Dim phone_number As String = arr(0).Replace("+CMT: ", "")
-            Dim date_time As String = Date.Parse("20" & arr(2) & " " & Mid(arr(3), 1, 8)).ToString("dd/MM/yyyy hh:mm:ss tt")
-            Dim message As String = Mid(incoming, incoming.IndexOf(vbCrLf) + 3).Replace(Chr(34), "")
-            Dim status As String = "Mensaje Recibido"
-            Dim cmdResponse As String = ""
-            Dim client_name As String = ""
-            Dim textToVoice As String = status
-
-            If message.ToLower.Contains("adminip") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "ADMIN IPÉ, OKEY"
-            End If
-
-            If message.ToLower.Contains("apn") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "A P N, OKEY"
-            End If
-
-            If message.ToLower.Contains("gprs") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "GPRS, OKEY"
-            End If
-
-            If message.ToLower.Contains("begin") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "BEGUÍN, OKEY"
-            End If
-
-            If message.ToLower.Contains("reset") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "RESET, OKEY"
-            End If
-
-            If message.ToLower.Contains("admin") AndAlso Not message.ToLower.Contains("ip") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "ADMIN, OKEY"
-            End If
-
-            If message.ToLower.Contains("time") AndAlso message.ToLower.Contains("ok") Then
-                cmdResponse = "TAIM, OKEY"
-            End If
-
-            If proc.GetData("clients_getByPhoneNumber", phone_number) Then
-                If proc.Ds.Tables(0).Rows.Count > 0 Then
-                    client_name = (proc.Ds.Tables(0).Rows(0)("first_name") & " " & If(proc.Ds.Tables(0).Rows(0)("last_name") Is DBNull.Value, "", proc.Ds.Tables(0).Rows(0)("last_name"))).ToString().Trim
-                    textToVoice = client_name & ", " & If(cmdResponse = "", status, cmdResponse)
-                End If
-            End If
-
-            textsToVoice.Add(textToVoice)
-
-            rtb.AppendText(vbCrLf & strLine & vbCrLf & status.ToUpper & vbCrLf)
-            rtb.AppendText("REMITENTE: " & If(client_name = "", phone_number, client_name & " (" & phone_number & ")") & vbCrLf)
-            rtb.AppendText("FECHA/HORA: " & date_time & vbCrLf)
-            rtb.AppendText("MENSAJE: " & vbCrLf & message & vbCrLf)
-            rtb.AppendText(strLine & vbCrLf)
-
-            If cboxAutoScroll.Checked Then
-                rtb.Select(rtb.Text.Length, 0)
-                rtb.ScrollToCaret()
-            End If
-
-            Dim th As New Threading.Thread(AddressOf speak)
-            th.Start()
-        ElseIf result.IndexOf("+CMGL: ") > -1 Then
-
-        ElseIf result.IndexOf("+CMGS: ") > -1 Then
-
-
-        Else
-
-            If Not result.ToLower = "ok" Then
-                If Not result.ToLower = ">" Then
-                    rtb.AppendText(vbCrLf & strLine & vbCrLf & "COMANDO AT" & vbCrLf)
-                    rtb.AppendText(result)
-                    rtb.AppendText(vbCrLf & strLine & vbCrLf)
+                    Double.TryParse(signal, signalValue)
+                    pbarModem.Minimum = 0
+                    pbarModem.Maximum = 32
+                    pbarModem.Value = CInt(Math.Round(signalValue, 0))
+                Catch ex As Exception
+                    rtb.AppendText(vbCrLf & strLine & vbCrLf & " ERROR CSQ " & vbCrLf)
+                    rtb.AppendText(ex.Message)
+                    rtb.AppendText(strLine & vbCrLf)
 
                     If cboxAutoScroll.Checked Then
                         rtb.Select(rtb.Text.Length, 0)
                         rtb.ScrollToCaret()
                     End If
-                End If
-            End If
-        End If
+                End Try
 
-        serialModemSms.DiscardInBuffer()
+            ElseIf result.IndexOf("+CDS: ") > -1 Then 'CONFIRMACION DE ENTREGA
+                '"+CDS: 24" & vbCrLf & "0791852404009045062C0A811422832630716051102171697160511021816900" & vbCrLf & vbCrLf & "^MODE:3,3" & vbCrLf & vbCrLf & "OK"	String
+                Try
+                    result = Mid(result, result.IndexOf("+CDS: ") + 7)
+                    Dim splitted() As String = result.Split(vbCrLf)
+                    Dim pduCode As String = splitted(1).Replace(vbLf, "")
+                    Dim s As Object            '    
+                    Dim T As SMSBase.SMSType = SMSBase.GetSMSType(pduCode)
+                    s = New SMS_STATUS_REPORT(pduCode)
+
+                    Dim status As String = If((s.status).ToString().ToLower().Contains("success"), "Mensaje Entregado", "Mensaje Fallido")
+                    Dim date_time As String = DirectCast(s.TP_DP, Date).ToString("dd/MM/yyyy hh:mm:ss tt")
+                    Dim client_name As String = ""
+                    Dim vehicleCode As String = ""
+                    Dim vehicleBrand As String = ""
+                    Dim vehicleModel As String = ""
+                    Dim vehicleColor As String = ""
+                    Dim textToVoice As String = status
+
+                    If proc.GetData("clients_getByPhoneNumber", s.SrcAddressValue) Then
+                        If proc.Ds.Tables(0).Rows.Count > 0 Then
+                            Dim row As DataRow = proc.Ds.Tables(0).Rows(0)
+                            client_name = (row("first_name") & " " &
+                                            If(row("last_name") Is DBNull.Value, "", row("last_name"))).ToString().Trim
+                            vehicleBrand = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code"))
+                            vehicleBrand = If(row("brand") Is DBNull.Value, "", row("brand"))
+                            vehicleModel = If(row("model") Is DBNull.Value, "", row("model"))
+                            vehicleColor = If(row("color") Is DBNull.Value, "", row("color"))
+
+                            textToVoice = client_name & ", " & status
+                        End If
+                    End If
+
+                    Me.TextToVoice.Add(textToVoice)
+
+                    rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf & status.ToUpper & vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, "REMITENTE: ")
+
+                    If client_name = "" Then
+                        rtbAppendText(rtb, Color.FromArgb(255, 50, 50, 50), s.SrcAddressValue)
+                    Else
+                        rtbAppendText(rtb, Color.FromArgb(255, 50, 50, 50), client_name)
+                        rtbAppendText(rtb, Color.Empty, " (" & s.SrcAddressValue & ")")
+                    End If
+
+                    If vehicleBrand <> "" Then
+                        rtbAppendText(rtb, Color.DarkRed, If(vehicleCode = "", "", " " & vehicleCode))
+                        rtbAppendText(rtb, Color.DarkBlue, " " & vehicleBrand)
+                        rtbAppendText(rtb, Color.Blue, " " & vehicleModel)
+                        rtbAppendText(rtb, Color.DarkBlue, " " & vehicleColor)
+                    End If
+
+                    rtbAppendText(rtb, Color.Empty, vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, "FECHA/HORA: " & date_time & vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf)
+
+                    Dim th As New Threading.Thread(AddressOf speak)
+                    th.Start()
+                Catch ex As Exception
+                    rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf)
+                    rtbAppendText(rtb, Color.DarkRed, " ERROR CDS " & vbCrLf)
+                    rtbAppendText(rtb, Color.Red, ex.Message & vbCrLf)
+                    rtbAppendText(rtb, Color.Red, strLine & vbCrLf)
+                End Try
+
+            ElseIf result.IndexOf("+CMT: ") > -1 Then ' MENSAJE RECIBIDO
+                Try
+                    '"+CMT: ""04122372142"",,""17/06/15,23:58:55-16""" & vbCrLf & "Power: ON" & vbCrLf & "Bat: 100%" & vbCrLf & "GPRS: ON" & vbCrLf & "GPS: ON" & vbCrLf & "ACC: ON" & vbCrLf & "Door: OFF" & vbCrLf & "GSM: 21" & vbCrLf & "Oil: 0.00%" & vbCrLf & "APN: gprsweb.digitel.ve,,;" & vbCrLf & "IP: 190.142.248.235:24000" & vbCrLf & "Arm: OFF"
+
+                    Dim incoming As String = Mid(result, result.IndexOf("+CMT: ") + 1)
+                    Dim arr() As String = incoming.Replace(Chr(34), "").Split(",")
+                    Dim phone_number As String = arr(0).Replace("+CMT: ", "")
+                    Dim date_time As String = Date.Parse("20" & arr(2) & " " & Mid(arr(3), 1, 8)).ToString("dd/MM/yyyy hh:mm:ss tt")
+                    Dim message As String = Mid(incoming, incoming.IndexOf(vbCrLf) + 3).Replace(Chr(34), "")
+                    Dim status As String = "Mensaje Recibido"
+                    Dim cmdResponse As String = ""
+                    Dim client_name As String = ""
+                    Dim vehicleCode As String = ""
+                    Dim vehicleBrand As String = ""
+                    Dim vehicleModel As String = ""
+                    Dim vehicleColor As String = ""
+                    Dim textToVoice As String = status
+                    Dim imei As String = "0"
+
+                    If proc.GetData("clients_getByPhoneNumber", phone_number) Then
+                        If proc.Ds.Tables(0).Rows.Count > 0 Then
+                            Dim row As DataRow = proc.Ds.Tables(0).Rows(0)
+                            client_name = (row("first_name") & " " & If(row("last_name") Is DBNull.Value, "", row("last_name"))).ToString().Trim
+                            textToVoice = client_name & ", " & If(cmdResponse = "", status, cmdResponse)
+                            imei = row("imei")
+                            vehicleBrand = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code"))
+                            vehicleBrand = If(row("brand") Is DBNull.Value, "", row("brand"))
+                            vehicleModel = If(row("model") Is DBNull.Value, "", row("model"))
+                            vehicleColor = If(row("color") Is DBNull.Value, "", row("color"))
+                        End If
+                    End If
+
+                    If message.ToLower.Contains("lat:") AndAlso
+                        (message.ToLower.Contains("lon:") OrElse message.ToLower.Contains("long:")) AndAlso
+                        message.ToLower.Contains("speed:") AndAlso
+                        message.Contains("T:") AndAlso
+                        Not message.ToLower.Contains("last:") Then
+
+                        Dim str2() As String = result.Split(vbCrLf)
+                        Dim lat As String = ""
+                        Dim lng As String = ""
+                        Dim vel As Integer = -1
+                        Dim dat As Date? = Nothing
+
+                        For i = 1 To str2.Length - 1
+                            Dim pos As Integer
+
+                            If str2(i).ToLower.Contains("lat:") AndAlso str2(i).ToLower.Contains("lon:") Then
+                                Dim latPos As Integer = str2(i).ToLower.IndexOf("lat:")
+                                Dim lngPos As Integer = str2(i).ToLower.IndexOf("lon:")
+                                lat = Mid(str2(i), latPos + 5, lngPos - latPos - 5).Trim
+                                lng = Mid(str2(i), lngPos + 5).Trim
+                            ElseIf str2(i).ToLower.Contains("lat:") AndAlso str2(i).ToLower.Contains("long:") Then
+                                Dim latPos As Integer = str2(i).ToLower.IndexOf("lat:")
+                                Dim lngPos As Integer = str2(i).ToLower.IndexOf("long:")
+                                lat = Mid(str2(i), latPos + 5, lngPos - latPos - 5).Trim
+                                lng = Mid(str2(i), lngPos + 5).Trim
+                            Else
+                                If str2(i).ToLower.Contains("lat:") Then
+                                    pos = str2(i).IndexOf("lat:")
+                                    lat = Mid(str2(i), pos + 5).Trim
+                                End If
+
+                                If str2(i).ToLower.Contains("lon:") Then
+                                    pos = str2(i).IndexOf("lon:")
+                                    lng = Mid(str2(i), pos + 5).Trim
+                                End If
+
+                                If str2(i).ToLower.Contains("long:") Then
+                                    pos = str2(i).IndexOf("long:")
+                                    lng = Mid(str2(i), pos + 6).Trim
+                                End If
+                            End If
+
+                            If str2(i).ToLower.Contains("speed:") Then
+                                pos = str2(i).IndexOf("speed:")
+                                Dim _vel As Double = Double.Parse(Mid(str2(i), pos + 7).Trim.Replace(".", ","))
+                                vel = Convert.ToInt32(_vel)
+                            End If
+
+                            If str2(i).Contains("T:") And Not str2(i).Contains("CMT:") Then
+                                pos = str2(i).IndexOf("T:")
+                                Dim fec As String = Mid(str2(i), pos + 3).Trim
+                                dat = Date.ParseExact(fec, "yy/MM/dd HH:mm", CultureInfo.InvariantCulture)
+                            End If
+
+                            If lat <> "" AndAlso
+                                lng <> "" AndAlso
+                                vel <> -1 AndAlso
+                                dat IsNot Nothing Then
+
+
+                                Dim query As String = "INSERT INTO traces (" &
+                                          "imei,event_name,date_time,latitude,longitude,speed,orientation,origin) VALUES " &
+                                          "(@param1, @param2, @param3, @param4, @param5, @param6, @param7, @param8)"
+
+                                Using conn As New MySqlConnection(proc.strConn)
+                                    conn.Open()
+
+                                    Dim cmd As New MySqlCommand(query, conn)
+                                    cmd.Parameters.AddWithValue("@param1", imei)
+                                    cmd.Parameters.AddWithValue("@param2", "tracker")
+                                    cmd.Parameters.AddWithValue("@param3", dat)
+                                    cmd.Parameters.AddWithValue("@param4", lat)
+                                    cmd.Parameters.AddWithValue("@param5", lng)
+                                    cmd.Parameters.AddWithValue("@param6", vel)
+                                    cmd.Parameters.AddWithValue("@param7", 0)
+                                    cmd.Parameters.AddWithValue("@param8", "sms")
+                                    cmd.ExecuteNonQuery()
+                                End Using
+                            End If
+                        Next
+
+                    Else
+                        If message.ToLower.Contains("adminip") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "ADMIN IPÉ, OKEY"
+                        End If
+
+                        If message.ToLower.Contains("apn") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "A P N, OKEY"
+                        End If
+
+                        If message.ToLower.Contains("gprs") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "GPRS, OKEY"
+                        End If
+
+                        If message.ToLower.Contains("begin") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "BEGUÍN, OKEY"
+                        End If
+
+                        If message.ToLower.Contains("reset") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "RESET, OKEY"
+                        End If
+
+                        If message.ToLower.Contains("admin") AndAlso Not message.ToLower.Contains("ip") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "ADMIN, OKEY"
+                        End If
+
+                        If message.ToLower.Contains("time") AndAlso message.ToLower.Contains("ok") Then
+                            cmdResponse = "TAIM, OKEY"
+                        End If
+
+                        Me.TextToVoice.Add(textToVoice)
+
+                        Dim th As New Threading.Thread(AddressOf speak)
+                        th.Start()
+                    End If
+
+                    rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf & status.ToUpper & vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, "REMITENTE: ")
+
+                    If client_name = "" Then
+                        rtbAppendText(rtb, Color.FromArgb(255, 50, 50, 50), phone_number)
+                    Else
+                        rtbAppendText(rtb, Color.FromArgb(255, 50, 50, 50), client_name)
+                        rtbAppendText(rtb, Color.Empty, " (" & phone_number & ")")
+                    End If
+
+                    If vehicleBrand <> "" Then
+                        rtbAppendText(rtb, Color.DarkRed, If(vehicleCode = "", "", " " & vehicleCode))
+                        rtbAppendText(rtb, Color.DarkBlue, " " & vehicleBrand)
+                        rtbAppendText(rtb, Color.Blue, " " & vehicleModel)
+                        rtbAppendText(rtb, Color.DarkBlue, " " & vehicleColor)
+                    End If
+
+                    rtbAppendText(rtb, Color.Empty, vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, "FECHA/HORA: " & date_time & vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, "MENSAJE: " & vbCrLf & message & vbCrLf)
+                    rtbAppendText(rtb, Color.Empty, strLine & vbCrLf)
+
+                Catch ex As Exception
+                    rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf)
+                    rtbAppendText(rtb, Color.DarkRed, " ERROR CMT " & vbCrLf)
+                    rtbAppendText(rtb, Color.Red, ex.Message & vbCrLf)
+                    rtbAppendText(rtb, Color.Red, strLine & vbCrLf)
+                End Try
+
+
+            ElseIf result.IndexOf("+CMGL: ") > -1 Then
+
+            ElseIf result.IndexOf("+CMGS: ") > -1 Then
+
+
+            Else
+
+                'If Not result.ToLower = "ok" Then
+                '    If Not result.ToLower = ">" Then
+                '        rtb.AppendText(vbCrLf & strLine & vbCrLf & "COMANDO AT" & vbCrLf)
+                '        rtb.AppendText(result)
+                '        rtb.AppendText(vbCrLf & strLine & vbCrLf)
+
+                '        If cboxAutoScroll.Checked Then
+                '            rtb.Select(rtb.Text.Length, 0)
+                '            rtb.ScrollToCaret()
+                '        End If
+                '    End If
+                'End If
+            End If
+
+            'serialModemSms.DiscardInBuffer()
+
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub btnClearDgvModemSms_Click(sender As Object, e As EventArgs) Handles btnClearDgvModemSms.Click
@@ -2165,10 +2600,6 @@ Public Class FrmMain
         End If
     End Sub
 
-    Private Shared Function IsThirdLevel(node As TreeNode) As Boolean
-        Return node.Parent IsNot Nothing AndAlso node.Parent.Parent IsNot Nothing
-    End Function
-
     Private Sub cboxExpandClients_CheckedChanged(sender As Object, e As EventArgs) Handles cboxExpandClients.CheckedChanged
         DrawingControl.SuspendDrawing(tviewClients)
 
@@ -2201,42 +2632,6 @@ Public Class FrmMain
 
         End Try
     End Sub
-
-    Public Function updateValidationEvents(ByVal license_plate As String, ByVal report_type_id As Integer, ByVal validation As Date)
-        'For Each row As DataGridViewRow In Me.dgvEvents.Rows
-        '    If Not TypeOf row.Cells("dgvEvents_report_type_id").Value Is DBNull Then
-        '        If row.Cells("dgvEvents_license_plate").Value = license_plate AndAlso
-        '                row.Cells("dgvEvents_report_type_id").Value = report_type_id Then
-
-        '            row.Cells("dgvEvents_validation").Value = validation
-        '        End If
-        '    End If
-        'Next
-
-        Invoke(refreshEvents(license_plate, report_type_id, validation))
-        Return Nothing
-    End Function
-
-    Function refreshEvents(ByVal license_plate As String, ByVal report_type_id As Integer, ByVal validation As Date)
-        Try
-            DrawingControl.SuspendDrawing(dgvEvents)
-            For Each row As DataGridViewRow In Me.dgvEvents.Rows
-                If Not TypeOf row.Cells("dgvEvents_report_type_id").Value Is DBNull Then
-                    If row.Cells("dgvEvents_license_plate").Value = license_plate AndAlso
-                        row.Cells("dgvEvents_report_type_id").Value = report_type_id Then
-
-                        row.Cells("dgvEvents_validation").Value = validation
-                    End If
-                End If
-            Next
-            dgvEvents.Refresh()
-            DrawingControl.ResumeDrawing(dgvEvents)
-        Catch ex As Exception
-
-        End Try
-
-        Return Nothing
-    End Function
 
     Private Sub VehículosEnMovimientoToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles VehículosEnMovimientoToolStripMenuItem.CheckedChanged
         markersMovingLayer.IsVisibile = VehículosEnMovimientoToolStripMenuItem.Checked
@@ -2351,7 +2746,6 @@ Public Class FrmMain
         bgwSendEventsEmail.RunWorkerAsync()
     End Sub
 
-    Private dbClick As Boolean = False
     Private Sub tviewClients_MouseDown(sender As Object, e As MouseEventArgs) Handles tviewClients.MouseDown
         dbClick = e.Button = MouseButtons.Left AndAlso e.Clicks = 2
     End Sub
@@ -2383,11 +2777,15 @@ Public Class FrmMain
                         Exit Sub
                     End If
 
-                    If .Cells("dgvVehicles_expiration_date").Value < Now And .Cells("dgvVehicles_expiration_date").Value > Now.AddMonths(1) Then
-                        .DefaultCellStyle.BackColor = Color.Orange
-                        Exit Sub
-                    End If
+                    'If .Cells("dgvVehicles_expiration_date").Value < Now And .Cells("dgvVehicles_expiration_date").Value > Now.AddMonths(1) Then
+                    '    .DefaultCellStyle.BackColor = Color.Orange
+                    '    Exit Sub
+                    'End If
                 End If
+
+                'If .Cells("dgvVehicles_origin").Value = "sms" Then
+                '    .Cells("dgvVehicles_last_report").Style.BackColor = Color.Orange
+                'End If
             End With
         Catch ex As Exception
 
@@ -2429,48 +2827,55 @@ Public Class FrmMain
         End If
     End Sub
 
-    Private Sub drawGeofenceSelected(ByVal pts As List(Of PointLatLng), ByVal curLocation As PointLatLng)
-
-        Dim geofence As New GMapPolygon(pts, "geofenceSelected")
-        geofence.Stroke = New Pen(Brushes.Blue, 2)
-        geofence.Fill = New SolidBrush(Color.FromArgb(50, Color.LightCoral))
-
-        If geofence.IsInside(curLocation) Then
-            geofence.Fill = New SolidBrush(Color.FromArgb(50, Color.LightGreen))
-        End If
-
-        eventsLayer.Polygons.Clear()
-        eventsLayer.Polygons.Add(geofence)
-
-        If Not mapMain.Overlays.Contains(eventsLayer) Then
-            mapMain.Overlays.Add(eventsLayer)
-        End If
-
-        eventsLayer.IsVisibile = CapaDeEventosToolStripMenuItem.Checked
-    End Sub
-
     Private Sub VentanaDeGeocercasToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles VentanaDeGeocercasToolStripMenuItem.CheckedChanged
         panelGeofencesVehicles.Visible = VentanaDeGeocercasToolStripMenuItem.Checked
         VentanaDeGeocercasToolStripMenuItem.BackColor = If(VentanaDeGeocercasToolStripMenuItem.Checked, Color.LightGreen, Color.Empty)
     End Sub
 
     Private Sub btnSendAtCommand_Click(sender As Object, e As EventArgs) Handles btnSendAtCommand.Click
-        If serialModemSms.IsOpen Then
-            If txtAtCommand.Text.Trim = "" Then
-                MsgBox("Debe escribir un comando para enviar", MsgBoxStyle.Exclamation, "Mensaje del Sistema")
-                Exit Sub
-            End If
+        'If serialModemSms.IsOpen Then
+        '    If txtAtCommand.Text.Trim = "" Then
+        '        MsgBox("Debe escribir un comando para enviar", MsgBoxStyle.Exclamation, "Mensaje del Sistema")
+        '        Exit Sub
+        '    End If
 
-            serialModemSms.Write(txtAtCommand.Text.Trim & Chr(13))
-            Application.DoEvents()
+        '    serialModemSms.Write(txtAtCommand.Text.Trim & Chr(13))
+        '    Application.DoEvents()
+        'Else
+        '    MsgBox("El modem est{a desconectado", MsgBoxStyle.Critical, "Mensaje del Sistema")
+        'End If
+        Dim strLine = "=========================================================================="
+        Dim status As String = "MENSAJE RECIBIDO"
+        Dim client_name As String = "EDGAR VILLASMIL"
+        Dim vehicleCode As String = "VHL-001"
+        Dim vehicleBrand As String = "CHEVROLET"
+        Dim vehicleModel As String = "CRUZE"
+        Dim vehicleColor As String = "NEGRO"
+
+        rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf & status.ToUpper & vbCrLf)
+        rtbAppendText(rtb, Color.Empty, "REMITENTE: ")
+
+        If client_name = "" Then
+            rtbAppendText(rtb, Color.FromArgb(255, 50, 50, 50), "4246557963")
         Else
-            MsgBox("El modem est{a desconectado", MsgBoxStyle.Critical, "Mensaje del Sistema")
+            rtbAppendText(rtb, Color.FromArgb(255, 50, 50, 50), client_name)
+            rtbAppendText(rtb, Color.Empty, " (" & "4246557963" & ")")
         End If
+
+        If vehicleBrand <> "" Then
+            rtbAppendText(rtb, Color.DarkRed, If(vehicleCode = "", "", " " & vehicleCode))
+            rtbAppendText(rtb, Color.DarkBlue, " " & vehicleBrand)
+            rtbAppendText(rtb, Color.Blue, " " & vehicleModel)
+            rtbAppendText(rtb, Color.DarkBlue, " " & vehicleColor)
+        End If
+        rtbAppendText(rtb, Color.Empty, vbCrLf)
+        rtbAppendText(rtb, Color.Empty, "FECHA/HORA: " & Now.ToString("dd-MM-yyyy hh:mm:ss tt") & vbCrLf)
+        rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf)
     End Sub
 
     Private Sub bgwGprsEvents_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwGprsEvents.DoWork
         While True
-            Dim receiveBytes As Byte() = receivingUdpClient.Receive(RemoteIpEndPoint)
+            Dim receiveBytes As Byte() = UdpGprsEvents.Receive(New IPEndPoint(IPAddress.Any, 0))
             Dim strReturnData As String = Encoding.ASCII.GetString(receiveBytes)
             Dim first_name, last_name, textToVoice As String
 
@@ -2503,8 +2908,8 @@ Public Class FrmMain
                         End If
 
                         If textToVoice.Length > 0 Then
-                            synth.SelectVoice(voiceName)
-                            synth.Speak(textToVoice)
+                            Synth.SelectVoice(VoiceName)
+                            Synth.Speak(textToVoice)
                         End If
 
                     ElseIf type = "kt" Then
@@ -2518,12 +2923,221 @@ Public Class FrmMain
                         End If
 
                         If textToVoice.Length > 0 Then
-                            synth.SelectVoice(voiceName)
-                            synth.Speak(textToVoice)
+                            Synth.SelectVoice(VoiceName)
+                            Synth.Speak(textToVoice)
                         End If
                     End If
                 End If
             End If
         End While
     End Sub
+
+    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+        For Each frm As Form In Application.OpenForms
+            If TypeOf frm Is frmAdminPass Then
+                frm.WindowState = FormWindowState.Normal
+                frm.BringToFront()
+                Exit Sub
+            End If
+        Next
+
+        frmAdminPass.Show()
+        frmAdminPass.BringToFront()
+    End Sub
+
+    Private Sub mapMain_OnMarkerEnter(item As GMapMarker) Handles mapMain.OnMarkerEnter
+        Dim marker = DirectCast(item, GmapMarkerMain)
+        marker.ToolTipMode = MarkerTooltipMode.Always
+        marker.ToolTip.Format.Alignment = StringAlignment.Near
+
+        marker.ToolTipText = "Código: " & marker.Code & vbNewLine &
+                             "Cliente: " & marker.Client & vbNewLine &
+                             "Matrícula: " & marker.LicensePlate & vbNewLine &
+                             "Imei: " & marker.Imei & vbNewLine &
+                             "Latitud: " & Math.Round(marker.Position.Lat, 6) & vbNewLine &
+                             "Longitud: " & Math.Round(marker.Position.Lng, 6) & vbNewLine &
+                             "Velocidad: " & marker.Speed & " Km/H" & vbNewLine &
+                             "Fecha: " & marker.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt")
+
+
+    End Sub
+
+    Private Sub mapMain_OnMarkerLeave(item As GMapMarker) Handles mapMain.OnMarkerLeave
+        Dim marker = DirectCast(item, GmapMarkerMain)
+        marker.ToolTipMode = MarkerTooltipMode
+        marker.ToolTipText = marker.LicensePlate
+    End Sub
+
+    Private Sub bgwGprsReceiver_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwGprsReceiver.DoWork
+        btnBgwGprsReceiver.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+
+        While True
+            Dim date_time As Date = Now
+            Dim dataReceived As String = ""
+            Dim Trace() As String
+
+            Try
+                Dim bytesReceive As Byte() = Nothing
+                Dim client As String = ""
+                Dim code As String = ""
+                Dim license_plate As String = ""
+                Dim imei As String = ""
+                Dim event_name As String = ""
+                Dim latitude As String = ""
+                Dim longitude As String = ""
+                Dim speed As Integer = -1
+                Dim orientation As Integer = 0
+                Dim proc As New Procedure
+                Dim remoteDevice As New IPEndPoint(IPAddress.Any, 0)
+                Dim gprsData As New GprsData
+
+                bytesReceive = UdpGprsReceiver.Receive(remoteDevice)
+                dataReceived = Encoding.ASCII.GetString(bytesReceive)
+                dataReceived = dataReceived.Replace("$", "")
+
+                If bgwGprsReceiver.CancellationPending Then
+                    e.Cancel = True
+                    Exit While
+                End If
+
+                ' <================ GET THE IMEI =================
+                If dataReceived.Length = 16 Then
+                    'se verifica si la trama contiene solo el imei del dispositivo
+                    '123456789123456;
+                    'y se envia una respuesta automatica "ON" al dispositivo
+
+                    imei = Mid(dataReceived, 1, 15)
+                ElseIf dataReceived.Contains("##") Then
+                    'se verifica si la trama contiene la cadena solicitud de respuesta
+                    '##,imei:123456789123456,A;
+                    'y se envia una respuesta automatica "LOAD" al dispositivo
+
+                    imei = Mid(dataReceived, 9, 15)
+                Else
+                    'si contiene la trama standard del dispositivo, se captura el imei en una variable
+
+                    imei = Mid(dataReceived, 6, 15)
+                End If
+                ' ================ GET THE IMEI =================/>
+
+                Trace = dataReceived.Split(",")
+
+                If proc.GetData("clients_getByImei", imei) Then
+                    If proc.Ds.Tables(0).Rows.Count > 0 Then
+                        Dim row As DataRow = proc.Ds.Tables(0).Rows(0)
+                        Dim firstName As String = If(row("first_name") Is DBNull.Value, "", row("first_name").ToString.Trim)
+                        Dim lastName As String = If(row("last_name") Is DBNull.Value, "", row("last_name").ToString.Trim)
+                        client = (firstName & " " & lastName).Trim
+                        code = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code").ToString.Trim)
+                        license_plate = If(row("license_plate") Is DBNull.Value, "", row("license_plate").ToString.Trim)
+                    End If
+                End If
+
+                If Trace.Length > 11 Then
+                    If Not Trace(11) = Nothing Or Trace(7).Length > 5 Then
+                        If Trace(4) = "F" Then
+                            'DECLARAMOS LAS VARIABLES DE LOS PARAMETROS
+                            event_name = Trace(1)
+                            latitude = getLatitudeTK103A(Trace(7))
+                            longitude = getLongitudeTK103A(Trace(9))
+                            speed = CInt(Convert.ToDouble(Trace(11), CultureInfo.InvariantCulture) * 1.852)
+                            orientation = 0
+
+                            If Trace(12).Length > 0 Then
+                                orientation = CInt(Convert.ToDouble(Trace(12).Replace(";", ""), Globalization.CultureInfo.InvariantCulture))
+                            End If
+
+                            proc.SendData("traces_insert", imei, event_name, date_time, latitude, longitude, speed, orientation, remoteDevice.Address.ToString, remoteDevice.Port)
+
+                            OnGettingMarker(Double.Parse(latitude, CultureInfo.InvariantCulture), Double.Parse(longitude, CultureInfo.InvariantCulture), imei, client, code, license_plate, "gprs", orientation, date_time, "A", speed)
+
+                            ' se verifica que la capa de marcadores se agregue en el mapa
+                            If Not mapMain.Overlays.Contains(markersLayer) Then
+                                mapMain.Overlays.Add(markersLayer)
+                            End If
+
+                            If markersMovingLayer.Markers.Count > 0 Then
+                                For i = 0 To markersMovingLayer.Markers.Count - 1
+                                    markersMovingLayer.Markers(i).IsVisible = True
+                                Next
+                            End If
+
+                            If Not mapMain.Overlays.Contains(markersMovingLayer) Then
+                                mapMain.Overlays.Add(markersMovingLayer)
+                            End If
+
+                            markersLayer.IsVisibile = True
+                            markersMovingLayer.IsVisibile = VehículosEnMovimientoToolStripMenuItem.Checked
+                        End If
+                    End If
+                Else
+                    dataReceived = dataReceived
+                End If
+
+                gprsData.Client = client
+                gprsData.Port = 15003
+                gprsData.Imei = imei
+                gprsData.DeviceModel = "TK103A"
+                gprsData.DateTime = date_time
+                gprsData.Trace = dataReceived
+
+                bgwGprsReceiver.ReportProgress(0, gprsData)
+            Catch ex As Exception
+                Dim gprsData As New GprsData
+                gprsData.Port = 15003
+                gprsData.DeviceModel = "TK103A"
+                gprsData.Client = "ERROR"
+                gprsData.DateTime = date_time
+                gprsData.Trace = ex.Message
+
+                bgwGprsReceiver.ReportProgress(1, gprsData)
+            End Try
+        End While
+    End Sub
+
+    Private Sub bgwGprsReceiver_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles bgwGprsReceiver.ProgressChanged
+        Try
+            Dim gprsData = DirectCast(e.UserState, GprsData)
+
+            dgvGprsReceiver.Rows.Insert(
+                0,
+                gprsData.Port,
+                gprsData.DeviceModel,
+                gprsData.Client,
+                gprsData.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                gprsData.Trace,
+                e.ProgressPercentage
+            )
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub bgwGprsReceiver_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwGprsReceiver.RunWorkerCompleted
+        btnBgwGprsReceiver.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
+    End Sub
+
+    Private Sub dgvGprsReceiver_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles dgvGprsReceiver.RowsAdded
+        tpageGprsReceiver.Text = "GPRS DATA (" & dgvGprsReceiver.Rows.Count.ToString("000") & ")"
+
+        If e.RowCount = 500 Then
+            dgvGprsReceiver.Rows.Clear()
+        End If
+    End Sub
+
+    Private Sub cboxModem_CheckedChanged(sender As Object, e As EventArgs) Handles cboxModem.CheckedChanged
+        My.Settings.isModemConnected = cboxModem.Checked
+        My.Settings.Save()
+    End Sub
+
+    Private Sub mapMain_OnMarkerClick(item As GMapMarker, e As MouseEventArgs) Handles mapMain.OnMarkerClick
+        If e.Button = MouseButtons.Left Then
+            Dim marker = DirectCast(item, GmapMarkerMain)
+
+            MarkerTooltipMode = If(MarkerTooltipMode = MarkerTooltipMode.Always, MarkerTooltipMode.Never, MarkerTooltipMode.Always)
+            marker.ToolTipMode = MarkerTooltipMode
+        End If
+    End Sub
+#End Region
+
 End Class

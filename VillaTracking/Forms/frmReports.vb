@@ -121,11 +121,13 @@ Public Class frmReports
         dtpByYear.Value = Now
         dtpByRangeFrom.Value = Now
         dtpByRangeTo.Value = Now
-
-        Dim TargetKey As RegistryKey
-        TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
-        btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
-        TargetKey.Close()
+        Try
+            Dim TargetKey As RegistryKey
+            TargetKey = Registry.ClassesRoot.OpenSubKey("excel.application")
+            btnExportExcel.Visible = If(TargetKey Is Nothing, False, True)
+            TargetKey.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub cboxClient_CheckedChanged(sender As Object, e As EventArgs) Handles cboxClient.CheckedChanged

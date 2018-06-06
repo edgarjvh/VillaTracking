@@ -33,7 +33,7 @@
     <SuiteName>Villa Soft Gps</SuiteName>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -103,9 +103,9 @@
     <Reference Include="MimeKit, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.2.0.1\lib\net45\MimeKit.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\MySQL\Connector.NET 6.9\Assemblies\v4.0\MySql.Data.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector NET 8.0\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -153,6 +153,12 @@
     <Compile Include="Data\PduDecoder.vb" />
     <Compile Include="Data\Procedure.vb" />
     <Compile Include="Data\TreeNodeTravel.vb" />
+    <Compile Include="Forms\frmAdminPass.Designer.vb">
+      <DependentUpon>frmAdminPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmAdminPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\frmClients.Designer.vb">
       <DependentUpon>frmClients.vb</DependentUpon>
     </Compile>
@@ -261,6 +267,7 @@
     <Compile Include="Models\Geofence.vb" />
     <Compile Include="Models\GeofencePoint.vb" />
     <Compile Include="Models\GeofenceVehicle.vb" />
+    <Compile Include="Models\GprsData.vb" />
     <Compile Include="Models\License.vb" />
     <Compile Include="Models\PhoneNumber.vb" />
     <Compile Include="Models\Report.vb" />
@@ -287,6 +294,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\frmAdminPass.resx">
+      <DependentUpon>frmAdminPass.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmClients.resx">
       <DependentUpon>frmClients.vb</DependentUpon>
     </EmbeddedResource>
@@ -378,6 +388,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Files\Images\Isotipo.gif" />
     <Content Include="Files\Images\logo.jpg" />
     <None Include="Files\Images\main_server_icon.png" />
     <None Include="Files\Images\uncollapse_icon.png" />
