@@ -24,24 +24,24 @@ Partial Class FrmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMain))
-        Dim DataGridViewCellStyle73 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle74 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle75 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle80 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle76 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle77 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle78 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle79 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle81 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle85 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle82 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle83 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle84 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle86 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle90 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle87 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle88 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle89 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.splitParent = New System.Windows.Forms.SplitContainer()
         Me.panelLoadingClients = New ZUControls.ZUPanel()
         Me.pbarStatusLoadingClients = New System.Windows.Forms.ProgressBar()
@@ -61,6 +61,9 @@ Partial Class FrmMain
         Me.Label4 = New System.Windows.Forms.Label()
         Me.splitChild = New System.Windows.Forms.SplitContainer()
         Me.ZuPanel1 = New ZUControls.ZUPanel()
+        Me.NumericUpDown2 = New System.Windows.Forms.NumericUpDown()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.num = New System.Windows.Forms.NumericUpDown()
         Me.btnBgwGprsReceiver = New ZUControls.ZUButton()
         Me.btnBgwGetEvents = New ZUControls.ZUButton()
         Me.btnBgwGetCurrentLocations = New ZUControls.ZUButton()
@@ -98,6 +101,7 @@ Partial Class FrmMain
         Me.dgvVehicles_color = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_last_report = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_speed = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvVehicles_origin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_expiration_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_client_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_vehicle_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -108,7 +112,6 @@ Partial Class FrmMain
         Me.dgvVehicles_gprs_stop = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_gprs_resume = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvVehicles_call_pass = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvVehicles_origin = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tpageEvents = New System.Windows.Forms.TabPage()
         Me.dgvEvents = New ZUControls.ZUDataGridView()
         Me.dgvEvents_onMap = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -130,6 +133,12 @@ Partial Class FrmMain
         Me.dgvEvents_orientation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tpageGprsReceiver = New System.Windows.Forms.TabPage()
         Me.dgvGprsReceiver = New ZUControls.ZUDataGridView()
+        Me.dgvGprsReceiver_port = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvGprsReceiver_device_model = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvGprsReceiver_client = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvGprsReceiver_date_time = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvGprsReceiver_trace = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgvGprsReceiver_status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tpageModemSms = New System.Windows.Forms.TabPage()
         Me.rtb = New System.Windows.Forms.RichTextBox()
         Me.panelModemSms = New ZUControls.ZUPanel()
@@ -187,8 +196,8 @@ Partial Class FrmMain
         Me.menuOptions = New System.Windows.Forms.ToolStripMenuItem()
         Me.panelInfo = New ZUControls.ZUPanel()
         Me.panelSignal = New ZUControls.ZUPanel()
-        Me.cboxModem = New System.Windows.Forms.CheckBox()
         Me.pbarModem = New System.Windows.Forms.ProgressBar()
+        Me.cboxModem = New System.Windows.Forms.CheckBox()
         Me.btnMonitoring = New ZUControls.ZUButton()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblDateTime = New System.Windows.Forms.Label()
@@ -198,12 +207,6 @@ Partial Class FrmMain
         Me.bgwTTS = New System.ComponentModel.BackgroundWorker()
         Me.bgwGprsEvents = New System.ComponentModel.BackgroundWorker()
         Me.bgwGprsReceiver = New System.ComponentModel.BackgroundWorker()
-        Me.dgvGprsReceiver_port = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvGprsReceiver_device_model = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvGprsReceiver_client = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvGprsReceiver_date_time = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvGprsReceiver_trace = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dgvGprsReceiver_status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.splitParent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.splitParent.Panel1.SuspendLayout()
         Me.splitParent.Panel2.SuspendLayout()
@@ -216,6 +219,9 @@ Partial Class FrmMain
         Me.splitChild.Panel2.SuspendLayout()
         Me.splitChild.SuspendLayout()
         Me.ZuPanel1.SuspendLayout()
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.num, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelGeofencesVehicles.SuspendLayout()
         CType(Me.dgvGeofences, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabConsole.SuspendLayout()
@@ -254,7 +260,7 @@ Partial Class FrmMain
         '
         Me.splitParent.Panel2.Controls.Add(Me.splitChild)
         Me.splitParent.Size = New System.Drawing.Size(1197, 477)
-        Me.splitParent.SplitterDistance = 271
+        Me.splitParent.SplitterDistance = 240
         Me.splitParent.TabIndex = 1
         '
         'panelLoadingClients
@@ -264,7 +270,7 @@ Partial Class FrmMain
         Me.panelLoadingClients.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelLoadingClients.Location = New System.Drawing.Point(0, 89)
         Me.panelLoadingClients.Name = "panelLoadingClients"
-        Me.panelLoadingClients.Size = New System.Drawing.Size(267, 24)
+        Me.panelLoadingClients.Size = New System.Drawing.Size(236, 24)
         Me.panelLoadingClients.TabIndex = 4
         Me.panelLoadingClients.Visible = False
         '
@@ -274,7 +280,7 @@ Partial Class FrmMain
         Me.pbarStatusLoadingClients.Location = New System.Drawing.Point(0, 13)
         Me.pbarStatusLoadingClients.MarqueeAnimationSpeed = 10
         Me.pbarStatusLoadingClients.Name = "pbarStatusLoadingClients"
-        Me.pbarStatusLoadingClients.Size = New System.Drawing.Size(267, 11)
+        Me.pbarStatusLoadingClients.Size = New System.Drawing.Size(236, 11)
         Me.pbarStatusLoadingClients.Style = System.Windows.Forms.ProgressBarStyle.Marquee
         Me.pbarStatusLoadingClients.TabIndex = 1
         '
@@ -285,7 +291,7 @@ Partial Class FrmMain
         Me.lblStatusLoadingClients.ForeColor = System.Drawing.Color.Blue
         Me.lblStatusLoadingClients.Location = New System.Drawing.Point(0, 0)
         Me.lblStatusLoadingClients.Name = "lblStatusLoadingClients"
-        Me.lblStatusLoadingClients.Size = New System.Drawing.Size(267, 13)
+        Me.lblStatusLoadingClients.Size = New System.Drawing.Size(236, 13)
         Me.lblStatusLoadingClients.TabIndex = 0
         Me.lblStatusLoadingClients.Text = "Cargando clientes..."
         Me.lblStatusLoadingClients.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -299,7 +305,7 @@ Partial Class FrmMain
         Me.tviewClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tviewClients.Location = New System.Drawing.Point(0, 89)
         Me.tviewClients.Name = "tviewClients"
-        Me.tviewClients.Size = New System.Drawing.Size(267, 384)
+        Me.tviewClients.Size = New System.Drawing.Size(236, 384)
         Me.tviewClients.TabIndex = 5
         '
         'panelClientFilter
@@ -310,7 +316,7 @@ Partial Class FrmMain
         Me.panelClientFilter.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelClientFilter.Location = New System.Drawing.Point(0, 56)
         Me.panelClientFilter.Name = "panelClientFilter"
-        Me.panelClientFilter.Size = New System.Drawing.Size(267, 33)
+        Me.panelClientFilter.Size = New System.Drawing.Size(236, 33)
         Me.panelClientFilter.TabIndex = 7
         '
         'cboxExpandClients
@@ -318,7 +324,7 @@ Partial Class FrmMain
         Me.cboxExpandClients.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cboxExpandClients.AutoSize = True
         Me.cboxExpandClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboxExpandClients.Location = New System.Drawing.Point(206, 9)
+        Me.cboxExpandClients.Location = New System.Drawing.Point(175, 9)
         Me.cboxExpandClients.Name = "cboxExpandClients"
         Me.cboxExpandClients.Size = New System.Drawing.Size(60, 16)
         Me.cboxExpandClients.TabIndex = 8
@@ -350,7 +356,7 @@ Partial Class FrmMain
         Me.txtClientFilter.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtClientFilter.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtClientFilter.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtClientFilter.Size = New System.Drawing.Size(122, 20)
+        Me.txtClientFilter.Size = New System.Drawing.Size(91, 20)
         Me.txtClientFilter.TabIndex = 6
         Me.txtClientFilter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -366,7 +372,7 @@ Partial Class FrmMain
         Me.panelClientCount.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelClientCount.Location = New System.Drawing.Point(0, 0)
         Me.panelClientCount.Name = "panelClientCount"
-        Me.panelClientCount.Size = New System.Drawing.Size(267, 56)
+        Me.panelClientCount.Size = New System.Drawing.Size(236, 56)
         Me.panelClientCount.TabIndex = 3
         '
         'btnReload
@@ -422,7 +428,7 @@ Partial Class FrmMain
         Me.cboDealers.Name = "cboDealers"
         Me.cboDealers.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboDealers.OnLeaveBackColor = System.Drawing.Color.White
-        Me.cboDealers.Size = New System.Drawing.Size(167, 21)
+        Me.cboDealers.Size = New System.Drawing.Size(136, 21)
         Me.cboDealers.TabIndex = 2
         '
         'Label6
@@ -477,22 +483,50 @@ Partial Class FrmMain
         'splitChild.Panel2
         '
         Me.splitChild.Panel2.Controls.Add(Me.tabConsole)
-        Me.splitChild.Size = New System.Drawing.Size(922, 477)
-        Me.splitChild.SplitterDistance = 227
+        Me.splitChild.Size = New System.Drawing.Size(953, 477)
+        Me.splitChild.SplitterDistance = 275
         Me.splitChild.TabIndex = 1
         '
         'ZuPanel1
         '
+        Me.ZuPanel1.Controls.Add(Me.NumericUpDown2)
+        Me.ZuPanel1.Controls.Add(Me.NumericUpDown1)
+        Me.ZuPanel1.Controls.Add(Me.num)
         Me.ZuPanel1.Controls.Add(Me.btnBgwGprsReceiver)
         Me.ZuPanel1.Controls.Add(Me.btnBgwGetEvents)
         Me.ZuPanel1.Controls.Add(Me.btnBgwGetCurrentLocations)
         Me.ZuPanel1.Controls.Add(Me.btnBgwGetClients)
         Me.ZuPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ZuPanel1.Location = New System.Drawing.Point(0, 180)
+        Me.ZuPanel1.Location = New System.Drawing.Point(0, 228)
         Me.ZuPanel1.Name = "ZuPanel1"
-        Me.ZuPanel1.Size = New System.Drawing.Size(714, 43)
+        Me.ZuPanel1.Size = New System.Drawing.Size(745, 43)
         Me.ZuPanel1.TabIndex = 8
         Me.ZuPanel1.Visible = False
+        '
+        'NumericUpDown2
+        '
+        Me.NumericUpDown2.Location = New System.Drawing.Point(513, 13)
+        Me.NumericUpDown2.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.NumericUpDown2.Minimum = New Decimal(New Integer() {20, 0, 0, 0})
+        Me.NumericUpDown2.Name = "NumericUpDown2"
+        Me.NumericUpDown2.Size = New System.Drawing.Size(74, 20)
+        Me.NumericUpDown2.TabIndex = 3
+        Me.NumericUpDown2.Value = New Decimal(New Integer() {50, 0, 0, 0})
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(463, 13)
+        Me.NumericUpDown1.Maximum = New Decimal(New Integer() {20, 0, 0, 0})
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(40, 20)
+        Me.NumericUpDown1.TabIndex = 2
+        '
+        'num
+        '
+        Me.num.Location = New System.Drawing.Point(355, 13)
+        Me.num.Name = "num"
+        Me.num.Size = New System.Drawing.Size(35, 20)
+        Me.num.TabIndex = 1
         '
         'btnBgwGprsReceiver
         '
@@ -593,9 +627,9 @@ Partial Class FrmMain
         Me.panelGeofencesVehicles.Controls.Add(Me.lblLicensePlate)
         Me.panelGeofencesVehicles.Controls.Add(Me.label8)
         Me.panelGeofencesVehicles.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panelGeofencesVehicles.Location = New System.Drawing.Point(714, 0)
+        Me.panelGeofencesVehicles.Location = New System.Drawing.Point(745, 0)
         Me.panelGeofencesVehicles.Name = "panelGeofencesVehicles"
-        Me.panelGeofencesVehicles.Size = New System.Drawing.Size(204, 223)
+        Me.panelGeofencesVehicles.Size = New System.Drawing.Size(204, 271)
         Me.panelGeofencesVehicles.TabIndex = 7
         Me.panelGeofencesVehicles.Visible = False
         '
@@ -609,24 +643,24 @@ Partial Class FrmMain
         Me.dgvGeofences.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvGeofences.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvGeofences.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle73.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle73.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle73.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle73.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle73.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGeofences.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle73
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvGeofences.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvGeofences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvGeofences.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvGeofences_on_map, Me.dgvGeofences_name, Me.dgvGeofences_imei, Me.dgvGeofences_geofence_id, Me.dgvGeofences_vehicle_id, Me.dgvGeofences_points})
-        DataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle74.BackColor = System.Drawing.Color.Silver
-        DataGridViewCellStyle74.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle74.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.Gold
-        DataGridViewCellStyle74.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGeofences.DefaultCellStyle = DataGridViewCellStyle74
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Silver
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gold
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvGeofences.DefaultCellStyle = DataGridViewCellStyle2
         Me.dgvGeofences.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvGeofences.EnableHeadersVisualStyles = False
         Me.dgvGeofences.GridColor = System.Drawing.SystemColors.Control
@@ -637,7 +671,7 @@ Partial Class FrmMain
         Me.dgvGeofences.RowHeadersVisible = False
         Me.dgvGeofences.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvGeofences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGeofences.Size = New System.Drawing.Size(204, 179)
+        Me.dgvGeofences.Size = New System.Drawing.Size(204, 227)
         Me.dgvGeofences.TabIndex = 1
         '
         'dgvGeofences_on_map
@@ -821,7 +855,7 @@ Partial Class FrmMain
         Me.mapMain.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
         Me.mapMain.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
         Me.mapMain.ShowTileGridLines = False
-        Me.mapMain.Size = New System.Drawing.Size(918, 223)
+        Me.mapMain.Size = New System.Drawing.Size(949, 271)
         Me.mapMain.TabIndex = 1
         Me.mapMain.Zoom = 12.0R
         '
@@ -839,7 +873,7 @@ Partial Class FrmMain
         Me.tabConsole.Location = New System.Drawing.Point(0, 0)
         Me.tabConsole.Name = "tabConsole"
         Me.tabConsole.SelectedIndex = 0
-        Me.tabConsole.Size = New System.Drawing.Size(918, 242)
+        Me.tabConsole.Size = New System.Drawing.Size(949, 194)
         Me.tabConsole.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.tabConsole.TabIndex = 0
         '
@@ -848,7 +882,7 @@ Partial Class FrmMain
         Me.tpageVehicles.Controls.Add(Me.dgvConsoleVehicles)
         Me.tpageVehicles.Location = New System.Drawing.Point(4, 25)
         Me.tpageVehicles.Name = "tpageVehicles"
-        Me.tpageVehicles.Size = New System.Drawing.Size(910, 213)
+        Me.tpageVehicles.Size = New System.Drawing.Size(941, 165)
         Me.tpageVehicles.TabIndex = 0
         Me.tpageVehicles.Text = "VEHÍCULOS (000)"
         Me.tpageVehicles.UseVisualStyleBackColor = True
@@ -859,30 +893,29 @@ Partial Class FrmMain
         Me.dgvConsoleVehicles.AllowUserToDeleteRows = False
         Me.dgvConsoleVehicles.AllowUserToResizeColumns = False
         Me.dgvConsoleVehicles.AllowUserToResizeRows = False
-        Me.dgvConsoleVehicles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvConsoleVehicles.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.dgvConsoleVehicles.BackgroundHeader = CType(resources.GetObject("dgvConsoleVehicles.BackgroundHeader"), System.Drawing.Image)
         Me.dgvConsoleVehicles.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvConsoleVehicles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvConsoleVehicles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle75.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle75.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle75.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle75.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle75.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvConsoleVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle75
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvConsoleVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvConsoleVehicles.ColumnHeadersHeight = 15
         Me.dgvConsoleVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dgvConsoleVehicles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvVehicles_onMap, Me.dgvVehicles_config, Me.dgvVehicles_vehicle_code, Me.dgvVehicles_device_model, Me.dgvVehicles_imei, Me.dgvVehicles_simcard, Me.dgvVehicles_cliente_name, Me.dgvVehicles_license_plate, Me.dgvVehicles_brand, Me.dgvVehicles_model, Me.dgvVehicles_type, Me.dgvVehicles_year, Me.dgvVehicles_color, Me.dgvVehicles_last_report, Me.dgvVehicles_speed, Me.dgvVehicles_expiration_date, Me.dgvVehicles_client_id, Me.dgvVehicles_vehicle_id, Me.dgvVehicles_device_id, Me.dgvVehicles_device_model_id, Me.dgvVehicles_sms_stop, Me.dgvVehicles_sms_resume, Me.dgvVehicles_gprs_stop, Me.dgvVehicles_gprs_resume, Me.dgvVehicles_call_pass, Me.dgvVehicles_origin})
-        DataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle80.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle80.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle80.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvConsoleVehicles.DefaultCellStyle = DataGridViewCellStyle80
+        Me.dgvConsoleVehicles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvVehicles_onMap, Me.dgvVehicles_config, Me.dgvVehicles_vehicle_code, Me.dgvVehicles_device_model, Me.dgvVehicles_imei, Me.dgvVehicles_simcard, Me.dgvVehicles_cliente_name, Me.dgvVehicles_license_plate, Me.dgvVehicles_brand, Me.dgvVehicles_model, Me.dgvVehicles_type, Me.dgvVehicles_year, Me.dgvVehicles_color, Me.dgvVehicles_last_report, Me.dgvVehicles_speed, Me.dgvVehicles_origin, Me.dgvVehicles_expiration_date, Me.dgvVehicles_client_id, Me.dgvVehicles_vehicle_id, Me.dgvVehicles_device_id, Me.dgvVehicles_device_model_id, Me.dgvVehicles_sms_stop, Me.dgvVehicles_sms_resume, Me.dgvVehicles_gprs_stop, Me.dgvVehicles_gprs_resume, Me.dgvVehicles_call_pass})
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvConsoleVehicles.DefaultCellStyle = DataGridViewCellStyle8
         Me.dgvConsoleVehicles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvConsoleVehicles.EnableHeadersVisualStyles = False
         Me.dgvConsoleVehicles.GridColor = System.Drawing.Color.White
@@ -896,7 +929,7 @@ Partial Class FrmMain
         Me.dgvConsoleVehicles.RowHeadersVisible = False
         Me.dgvConsoleVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvConsoleVehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvConsoleVehicles.Size = New System.Drawing.Size(910, 213)
+        Me.dgvConsoleVehicles.Size = New System.Drawing.Size(941, 165)
         Me.dgvConsoleVehicles.TabIndex = 1
         '
         'dgvVehicles_onMap
@@ -912,23 +945,24 @@ Partial Class FrmMain
         Me.dgvVehicles_config.Name = "dgvVehicles_config"
         Me.dgvVehicles_config.ReadOnly = True
         Me.dgvVehicles_config.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvVehicles_config.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.dgvVehicles_config.Text = "Config"
         Me.dgvVehicles_config.UseColumnTextForButtonValue = True
-        Me.dgvVehicles_config.Width = 17
+        Me.dgvVehicles_config.Width = 45
         '
         'dgvVehicles_vehicle_code
         '
         Me.dgvVehicles_vehicle_code.HeaderText = "CÓDIGO"
         Me.dgvVehicles_vehicle_code.Name = "dgvVehicles_vehicle_code"
         Me.dgvVehicles_vehicle_code.ReadOnly = True
-        Me.dgvVehicles_vehicle_code.Width = 78
+        Me.dgvVehicles_vehicle_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvVehicles_vehicle_code.Width = 60
         '
         'dgvVehicles_device_model
         '
         Me.dgvVehicles_device_model.HeaderText = "DISPOSITIVO"
         Me.dgvVehicles_device_model.Name = "dgvVehicles_device_model"
         Me.dgvVehicles_device_model.ReadOnly = True
+        Me.dgvVehicles_device_model.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.dgvVehicles_device_model.Visible = False
         Me.dgvVehicles_device_model.Width = 111
         '
@@ -938,7 +972,6 @@ Partial Class FrmMain
         Me.dgvVehicles_imei.Name = "dgvVehicles_imei"
         Me.dgvVehicles_imei.ReadOnly = True
         Me.dgvVehicles_imei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_imei.Width = 37
         '
         'dgvVehicles_simcard
         '
@@ -946,13 +979,13 @@ Partial Class FrmMain
         Me.dgvVehicles_simcard.Name = "dgvVehicles_simcard"
         Me.dgvVehicles_simcard.ReadOnly = True
         Me.dgvVehicles_simcard.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_simcard.Width = 71
+        Me.dgvVehicles_simcard.Width = 70
         '
         'dgvVehicles_cliente_name
         '
         Me.dgvVehicles_cliente_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvVehicles_cliente_name.DefaultCellStyle = DataGridViewCellStyle76
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvVehicles_cliente_name.DefaultCellStyle = DataGridViewCellStyle4
         Me.dgvVehicles_cliente_name.HeaderText = "CLIENTE"
         Me.dgvVehicles_cliente_name.Name = "dgvVehicles_cliente_name"
         Me.dgvVehicles_cliente_name.ReadOnly = True
@@ -964,7 +997,7 @@ Partial Class FrmMain
         Me.dgvVehicles_license_plate.Name = "dgvVehicles_license_plate"
         Me.dgvVehicles_license_plate.ReadOnly = True
         Me.dgvVehicles_license_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_license_plate.Width = 82
+        Me.dgvVehicles_license_plate.Width = 65
         '
         'dgvVehicles_brand
         '
@@ -972,7 +1005,7 @@ Partial Class FrmMain
         Me.dgvVehicles_brand.Name = "dgvVehicles_brand"
         Me.dgvVehicles_brand.ReadOnly = True
         Me.dgvVehicles_brand.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_brand.Width = 54
+        Me.dgvVehicles_brand.Width = 65
         '
         'dgvVehicles_model
         '
@@ -980,7 +1013,7 @@ Partial Class FrmMain
         Me.dgvVehicles_model.Name = "dgvVehicles_model"
         Me.dgvVehicles_model.ReadOnly = True
         Me.dgvVehicles_model.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_model.Width = 63
+        Me.dgvVehicles_model.Width = 65
         '
         'dgvVehicles_type
         '
@@ -993,9 +1026,9 @@ Partial Class FrmMain
         '
         'dgvVehicles_year
         '
-        DataGridViewCellStyle77.Format = "####"
-        DataGridViewCellStyle77.NullValue = "0000"
-        Me.dgvVehicles_year.DefaultCellStyle = DataGridViewCellStyle77
+        DataGridViewCellStyle5.Format = "####"
+        DataGridViewCellStyle5.NullValue = "0000"
+        Me.dgvVehicles_year.DefaultCellStyle = DataGridViewCellStyle5
         Me.dgvVehicles_year.HeaderText = "AÑO"
         Me.dgvVehicles_year.Name = "dgvVehicles_year"
         Me.dgvVehicles_year.ReadOnly = True
@@ -1009,33 +1042,44 @@ Partial Class FrmMain
         Me.dgvVehicles_color.Name = "dgvVehicles_color"
         Me.dgvVehicles_color.ReadOnly = True
         Me.dgvVehicles_color.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_color.Width = 53
+        Me.dgvVehicles_color.Width = 65
         '
         'dgvVehicles_last_report
         '
-        DataGridViewCellStyle78.Format = "d"
-        DataGridViewCellStyle78.NullValue = Nothing
-        Me.dgvVehicles_last_report.DefaultCellStyle = DataGridViewCellStyle78
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.dgvVehicles_last_report.DefaultCellStyle = DataGridViewCellStyle6
         Me.dgvVehicles_last_report.HeaderText = "ÚLTIMO REPORTE"
         Me.dgvVehicles_last_report.Name = "dgvVehicles_last_report"
         Me.dgvVehicles_last_report.ReadOnly = True
         Me.dgvVehicles_last_report.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvVehicles_last_report.Width = 121
+        Me.dgvVehicles_last_report.Width = 140
         '
         'dgvVehicles_speed
         '
         Me.dgvVehicles_speed.HeaderText = "VELOCIDAD"
         Me.dgvVehicles_speed.Name = "dgvVehicles_speed"
         Me.dgvVehicles_speed.ReadOnly = True
+        Me.dgvVehicles_speed.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvVehicles_speed.Width = 70
+        '
+        'dgvVehicles_origin
+        '
+        Me.dgvVehicles_origin.HeaderText = "ORIGEN"
+        Me.dgvVehicles_origin.Name = "dgvVehicles_origin"
+        Me.dgvVehicles_origin.ReadOnly = True
+        Me.dgvVehicles_origin.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvVehicles_origin.Width = 50
         '
         'dgvVehicles_expiration_date
         '
-        DataGridViewCellStyle79.Format = "d"
-        DataGridViewCellStyle79.NullValue = Nothing
-        Me.dgvVehicles_expiration_date.DefaultCellStyle = DataGridViewCellStyle79
+        DataGridViewCellStyle7.Format = "d"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.dgvVehicles_expiration_date.DefaultCellStyle = DataGridViewCellStyle7
         Me.dgvVehicles_expiration_date.HeaderText = "FECHA VENCIMIENTO"
         Me.dgvVehicles_expiration_date.Name = "dgvVehicles_expiration_date"
         Me.dgvVehicles_expiration_date.ReadOnly = True
+        Me.dgvVehicles_expiration_date.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.dgvVehicles_expiration_date.Visible = False
         Me.dgvVehicles_expiration_date.Width = 161
         '
@@ -1112,19 +1156,12 @@ Partial Class FrmMain
         Me.dgvVehicles_call_pass.Visible = False
         Me.dgvVehicles_call_pass.Width = 98
         '
-        'dgvVehicles_origin
-        '
-        Me.dgvVehicles_origin.HeaderText = "ORIGEN"
-        Me.dgvVehicles_origin.Name = "dgvVehicles_origin"
-        Me.dgvVehicles_origin.ReadOnly = True
-        Me.dgvVehicles_origin.Width = 78
-        '
         'tpageEvents
         '
         Me.tpageEvents.Controls.Add(Me.dgvEvents)
         Me.tpageEvents.Location = New System.Drawing.Point(4, 25)
         Me.tpageEvents.Name = "tpageEvents"
-        Me.tpageEvents.Size = New System.Drawing.Size(910, 213)
+        Me.tpageEvents.Size = New System.Drawing.Size(937, 164)
         Me.tpageEvents.TabIndex = 1
         Me.tpageEvents.Text = "EVENTOS (000)"
         Me.tpageEvents.UseVisualStyleBackColor = True
@@ -1135,30 +1172,29 @@ Partial Class FrmMain
         Me.dgvEvents.AllowUserToDeleteRows = False
         Me.dgvEvents.AllowUserToResizeColumns = False
         Me.dgvEvents.AllowUserToResizeRows = False
-        Me.dgvEvents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvEvents.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
         Me.dgvEvents.BackgroundHeader = CType(resources.GetObject("dgvEvents.BackgroundHeader"), System.Drawing.Image)
         Me.dgvEvents.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvEvents.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvEvents.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle81.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle81.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle81.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle81.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle81.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvEvents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle81
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvEvents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvEvents.ColumnHeadersHeight = 15
         Me.dgvEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvEvents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvEvents_onMap, Me.dgvEvents_vehicle_code, Me.dgvEvents_client_name, Me.dgvEvents_imei, Me.dgvEvents_license_plate, Me.dgvEvents_date_time, Me.dgvEvents_name, Me.dgvEvents_validation, Me.dgvEvents_client_id, Me.dgvEvents_vehicle_id, Me.dgvEvents_report_type_id, Me.dgvEvents_geofence_id, Me.dgvEvents_geofence_points, Me.dgvEvents_latitude, Me.dgvEvents_longitude, Me.dgvEvents_speed, Me.dgvEvents_orientation})
-        DataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle85.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle85.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle85.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle85.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle85.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle85.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvEvents.DefaultCellStyle = DataGridViewCellStyle85
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvEvents.DefaultCellStyle = DataGridViewCellStyle13
         Me.dgvEvents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvEvents.EnableHeadersVisualStyles = False
         Me.dgvEvents.GridColor = System.Drawing.Color.White
@@ -1172,7 +1208,7 @@ Partial Class FrmMain
         Me.dgvEvents.RowHeadersVisible = False
         Me.dgvEvents.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvEvents.Size = New System.Drawing.Size(910, 213)
+        Me.dgvEvents.Size = New System.Drawing.Size(937, 164)
         Me.dgvEvents.TabIndex = 4
         '
         'dgvEvents_onMap
@@ -1188,14 +1224,15 @@ Partial Class FrmMain
         Me.dgvEvents_vehicle_code.HeaderText = "CÓDIGO"
         Me.dgvEvents_vehicle_code.Name = "dgvEvents_vehicle_code"
         Me.dgvEvents_vehicle_code.ReadOnly = True
-        Me.dgvEvents_vehicle_code.Width = 78
+        Me.dgvEvents_vehicle_code.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvEvents_vehicle_code.Width = 60
         '
         'dgvEvents_client_name
         '
         Me.dgvEvents_client_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.dgvEvents_client_name.DataPropertyName = "dgvEvents_client_name"
-        DataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.dgvEvents_client_name.DefaultCellStyle = DataGridViewCellStyle82
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.dgvEvents_client_name.DefaultCellStyle = DataGridViewCellStyle10
         Me.dgvEvents_client_name.HeaderText = "CLIENTE"
         Me.dgvEvents_client_name.Name = "dgvEvents_client_name"
         Me.dgvEvents_client_name.ReadOnly = True
@@ -1203,12 +1240,12 @@ Partial Class FrmMain
         '
         'dgvEvents_imei
         '
+        Me.dgvEvents_imei.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.dgvEvents_imei.DataPropertyName = "dgvEvents_imei"
         Me.dgvEvents_imei.HeaderText = "IMEI"
         Me.dgvEvents_imei.Name = "dgvEvents_imei"
         Me.dgvEvents_imei.ReadOnly = True
         Me.dgvEvents_imei.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_imei.Width = 37
         '
         'dgvEvents_license_plate
         '
@@ -1218,19 +1255,20 @@ Partial Class FrmMain
         Me.dgvEvents_license_plate.Name = "dgvEvents_license_plate"
         Me.dgvEvents_license_plate.ReadOnly = True
         Me.dgvEvents_license_plate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_license_plate.Width = 120
+        Me.dgvEvents_license_plate.Width = 65
         '
         'dgvEvents_date_time
         '
         Me.dgvEvents_date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.dgvEvents_date_time.DataPropertyName = "dgvEvents_date_time"
-        DataGridViewCellStyle83.Format = "G"
-        DataGridViewCellStyle83.NullValue = Nothing
-        Me.dgvEvents_date_time.DefaultCellStyle = DataGridViewCellStyle83
+        DataGridViewCellStyle11.Format = "dd/MM/yyyy hh:mm:ss tt"
+        DataGridViewCellStyle11.NullValue = Nothing
+        Me.dgvEvents_date_time.DefaultCellStyle = DataGridViewCellStyle11
         Me.dgvEvents_date_time.HeaderText = "FECHA"
         Me.dgvEvents_date_time.Name = "dgvEvents_date_time"
         Me.dgvEvents_date_time.ReadOnly = True
-        Me.dgvEvents_date_time.Width = 165
+        Me.dgvEvents_date_time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvEvents_date_time.Width = 140
         '
         'dgvEvents_name
         '
@@ -1245,14 +1283,14 @@ Partial Class FrmMain
         '
         Me.dgvEvents_validation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
         Me.dgvEvents_validation.DataPropertyName = "dgvEvents_validation"
-        DataGridViewCellStyle84.Format = "G"
-        DataGridViewCellStyle84.NullValue = Nothing
-        Me.dgvEvents_validation.DefaultCellStyle = DataGridViewCellStyle84
+        DataGridViewCellStyle12.Format = "dd/MM/yyyy hh:mm:ss tt"
+        DataGridViewCellStyle12.NullValue = Nothing
+        Me.dgvEvents_validation.DefaultCellStyle = DataGridViewCellStyle12
         Me.dgvEvents_validation.HeaderText = "VÁLIDO HASTA"
         Me.dgvEvents_validation.Name = "dgvEvents_validation"
         Me.dgvEvents_validation.ReadOnly = True
         Me.dgvEvents_validation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvEvents_validation.Width = 165
+        Me.dgvEvents_validation.Width = 140
         '
         'dgvEvents_client_id
         '
@@ -1262,7 +1300,7 @@ Partial Class FrmMain
         Me.dgvEvents_client_id.ReadOnly = True
         Me.dgvEvents_client_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
         Me.dgvEvents_client_id.Visible = False
-        Me.dgvEvents_client_id.Width = 82
+        Me.dgvEvents_client_id.Width = 80
         '
         'dgvEvents_vehicle_id
         '
@@ -1271,7 +1309,7 @@ Partial Class FrmMain
         Me.dgvEvents_vehicle_id.Name = "dgvEvents_vehicle_id"
         Me.dgvEvents_vehicle_id.ReadOnly = True
         Me.dgvEvents_vehicle_id.Visible = False
-        Me.dgvEvents_vehicle_id.Width = 111
+        Me.dgvEvents_vehicle_id.Width = 109
         '
         'dgvEvents_report_type_id
         '
@@ -1280,7 +1318,7 @@ Partial Class FrmMain
         Me.dgvEvents_report_type_id.Name = "dgvEvents_report_type_id"
         Me.dgvEvents_report_type_id.ReadOnly = True
         Me.dgvEvents_report_type_id.Visible = False
-        Me.dgvEvents_report_type_id.Width = 141
+        Me.dgvEvents_report_type_id.Width = 139
         '
         'dgvEvents_geofence_id
         '
@@ -1289,7 +1327,7 @@ Partial Class FrmMain
         Me.dgvEvents_geofence_id.Name = "dgvEvents_geofence_id"
         Me.dgvEvents_geofence_id.ReadOnly = True
         Me.dgvEvents_geofence_id.Visible = False
-        Me.dgvEvents_geofence_id.Width = 116
+        Me.dgvEvents_geofence_id.Width = 114
         '
         'dgvEvents_geofence_points
         '
@@ -1298,7 +1336,7 @@ Partial Class FrmMain
         Me.dgvEvents_geofence_points.Name = "dgvEvents_geofence_points"
         Me.dgvEvents_geofence_points.ReadOnly = True
         Me.dgvEvents_geofence_points.Visible = False
-        Me.dgvEvents_geofence_points.Width = 154
+        Me.dgvEvents_geofence_points.Width = 152
         '
         'dgvEvents_latitude
         '
@@ -1307,7 +1345,7 @@ Partial Class FrmMain
         Me.dgvEvents_latitude.Name = "dgvEvents_latitude"
         Me.dgvEvents_latitude.ReadOnly = True
         Me.dgvEvents_latitude.Visible = False
-        Me.dgvEvents_latitude.Width = 85
+        Me.dgvEvents_latitude.Width = 83
         '
         'dgvEvents_longitude
         '
@@ -1316,7 +1354,7 @@ Partial Class FrmMain
         Me.dgvEvents_longitude.Name = "dgvEvents_longitude"
         Me.dgvEvents_longitude.ReadOnly = True
         Me.dgvEvents_longitude.Visible = False
-        Me.dgvEvents_longitude.Width = 96
+        Me.dgvEvents_longitude.Width = 94
         '
         'dgvEvents_speed
         '
@@ -1325,7 +1363,6 @@ Partial Class FrmMain
         Me.dgvEvents_speed.Name = "dgvEvents_speed"
         Me.dgvEvents_speed.ReadOnly = True
         Me.dgvEvents_speed.Visible = False
-        Me.dgvEvents_speed.Width = 102
         '
         'dgvEvents_orientation
         '
@@ -1334,14 +1371,14 @@ Partial Class FrmMain
         Me.dgvEvents_orientation.Name = "dgvEvents_orientation"
         Me.dgvEvents_orientation.ReadOnly = True
         Me.dgvEvents_orientation.Visible = False
-        Me.dgvEvents_orientation.Width = 117
+        Me.dgvEvents_orientation.Width = 115
         '
         'tpageGprsReceiver
         '
         Me.tpageGprsReceiver.Controls.Add(Me.dgvGprsReceiver)
         Me.tpageGprsReceiver.Location = New System.Drawing.Point(4, 25)
         Me.tpageGprsReceiver.Name = "tpageGprsReceiver"
-        Me.tpageGprsReceiver.Size = New System.Drawing.Size(910, 213)
+        Me.tpageGprsReceiver.Size = New System.Drawing.Size(937, 164)
         Me.tpageGprsReceiver.TabIndex = 2
         Me.tpageGprsReceiver.Text = "GPRS DATA"
         Me.tpageGprsReceiver.UseVisualStyleBackColor = True
@@ -1357,24 +1394,24 @@ Partial Class FrmMain
         Me.dgvGprsReceiver.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvGprsReceiver.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvGprsReceiver.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle86.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle86.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle86.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle86.SelectionBackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle86.SelectionForeColor = System.Drawing.Color.White
-        Me.dgvGprsReceiver.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle86
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White
+        Me.dgvGprsReceiver.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.dgvGprsReceiver.ColumnHeadersHeight = 15
         Me.dgvGprsReceiver.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dgvGprsReceiver.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvGprsReceiver_port, Me.dgvGprsReceiver_device_model, Me.dgvGprsReceiver_client, Me.dgvGprsReceiver_date_time, Me.dgvGprsReceiver_trace, Me.dgvGprsReceiver_status})
-        DataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle90.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle90.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle90.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle90.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
-        DataGridViewCellStyle90.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvGprsReceiver.DefaultCellStyle = DataGridViewCellStyle90
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(220, Byte), Integer))
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvGprsReceiver.DefaultCellStyle = DataGridViewCellStyle18
         Me.dgvGprsReceiver.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvGprsReceiver.EnableHeadersVisualStyles = False
         Me.dgvGprsReceiver.GridColor = System.Drawing.Color.White
@@ -1388,8 +1425,68 @@ Partial Class FrmMain
         Me.dgvGprsReceiver.RowHeadersVisible = False
         Me.dgvGprsReceiver.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvGprsReceiver.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvGprsReceiver.Size = New System.Drawing.Size(910, 213)
+        Me.dgvGprsReceiver.Size = New System.Drawing.Size(937, 164)
         Me.dgvGprsReceiver.TabIndex = 5
+        '
+        'dgvGprsReceiver_port
+        '
+        Me.dgvGprsReceiver_port.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.dgvGprsReceiver_port.HeaderText = "PUERTO"
+        Me.dgvGprsReceiver_port.Name = "dgvGprsReceiver_port"
+        Me.dgvGprsReceiver_port.ReadOnly = True
+        Me.dgvGprsReceiver_port.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvGprsReceiver_port.Width = 55
+        '
+        'dgvGprsReceiver_device_model
+        '
+        Me.dgvGprsReceiver_device_model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.dgvGprsReceiver_device_model.HeaderText = "MODELO GPS"
+        Me.dgvGprsReceiver_device_model.Name = "dgvGprsReceiver_device_model"
+        Me.dgvGprsReceiver_device_model.ReadOnly = True
+        Me.dgvGprsReceiver_device_model.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvGprsReceiver_device_model.Width = 80
+        '
+        'dgvGprsReceiver_client
+        '
+        Me.dgvGprsReceiver_client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.dgvGprsReceiver_client.DefaultCellStyle = DataGridViewCellStyle15
+        Me.dgvGprsReceiver_client.HeaderText = "CLIENTE"
+        Me.dgvGprsReceiver_client.Name = "dgvGprsReceiver_client"
+        Me.dgvGprsReceiver_client.ReadOnly = True
+        Me.dgvGprsReceiver_client.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvGprsReceiver_client.Width = 300
+        '
+        'dgvGprsReceiver_date_time
+        '
+        Me.dgvGprsReceiver_date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
+        Me.dgvGprsReceiver_date_time.HeaderText = "FECHA"
+        Me.dgvGprsReceiver_date_time.Name = "dgvGprsReceiver_date_time"
+        Me.dgvGprsReceiver_date_time.ReadOnly = True
+        Me.dgvGprsReceiver_date_time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvGprsReceiver_date_time.Width = 140
+        '
+        'dgvGprsReceiver_trace
+        '
+        Me.dgvGprsReceiver_trace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.dgvGprsReceiver_trace.DefaultCellStyle = DataGridViewCellStyle16
+        Me.dgvGprsReceiver_trace.HeaderText = "TRAZA"
+        Me.dgvGprsReceiver_trace.Name = "dgvGprsReceiver_trace"
+        Me.dgvGprsReceiver_trace.ReadOnly = True
+        Me.dgvGprsReceiver_trace.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        '
+        'dgvGprsReceiver_status
+        '
+        DataGridViewCellStyle17.Format = "N0"
+        DataGridViewCellStyle17.NullValue = Nothing
+        Me.dgvGprsReceiver_status.DefaultCellStyle = DataGridViewCellStyle17
+        Me.dgvGprsReceiver_status.HeaderText = "STATUS"
+        Me.dgvGprsReceiver_status.Name = "dgvGprsReceiver_status"
+        Me.dgvGprsReceiver_status.ReadOnly = True
+        Me.dgvGprsReceiver_status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.dgvGprsReceiver_status.Visible = False
+        Me.dgvGprsReceiver_status.Width = 60
         '
         'tpageModemSms
         '
@@ -1398,9 +1495,9 @@ Partial Class FrmMain
         Me.tpageModemSms.Location = New System.Drawing.Point(4, 25)
         Me.tpageModemSms.Name = "tpageModemSms"
         Me.tpageModemSms.Padding = New System.Windows.Forms.Padding(3)
-        Me.tpageModemSms.Size = New System.Drawing.Size(910, 213)
+        Me.tpageModemSms.Size = New System.Drawing.Size(937, 164)
         Me.tpageModemSms.TabIndex = 3
-        Me.tpageModemSms.Text = "MODEM SMS"
+        Me.tpageModemSms.Text = "SMS DATA"
         Me.tpageModemSms.UseVisualStyleBackColor = True
         '
         'rtb
@@ -1411,7 +1508,7 @@ Partial Class FrmMain
         Me.rtb.Location = New System.Drawing.Point(3, 31)
         Me.rtb.Name = "rtb"
         Me.rtb.ReadOnly = True
-        Me.rtb.Size = New System.Drawing.Size(904, 179)
+        Me.rtb.Size = New System.Drawing.Size(931, 130)
         Me.rtb.TabIndex = 2
         Me.rtb.Text = ""
         '
@@ -1425,7 +1522,7 @@ Partial Class FrmMain
         Me.panelModemSms.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelModemSms.Location = New System.Drawing.Point(3, 3)
         Me.panelModemSms.Name = "panelModemSms"
-        Me.panelModemSms.Size = New System.Drawing.Size(904, 28)
+        Me.panelModemSms.Size = New System.Drawing.Size(931, 28)
         Me.panelModemSms.TabIndex = 1
         '
         'btnSendAtCommand
@@ -1445,7 +1542,7 @@ Partial Class FrmMain
         Me.btnSendAtCommand.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSendAtCommand.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSendAtCommand.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSendAtCommand.Location = New System.Drawing.Point(826, 3)
+        Me.btnSendAtCommand.Location = New System.Drawing.Point(853, 3)
         Me.btnSendAtCommand.Name = "btnSendAtCommand"
         Me.btnSendAtCommand.Size = New System.Drawing.Size(75, 23)
         Me.btnSendAtCommand.TabIndex = 4
@@ -1460,7 +1557,7 @@ Partial Class FrmMain
         Me.txtAtCommand.HintText = "Hint Text"
         Me.txtAtCommand.HintTextColor = System.Drawing.Color.Gray
         Me.txtAtCommand.HintTextEnabled = False
-        Me.txtAtCommand.Location = New System.Drawing.Point(560, 5)
+        Me.txtAtCommand.Location = New System.Drawing.Point(587, 5)
         Me.txtAtCommand.Name = "txtAtCommand"
         Me.txtAtCommand.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtAtCommand.OnFocusBackColor = System.Drawing.Color.Gold
@@ -1474,7 +1571,7 @@ Partial Class FrmMain
         Me.Label9.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(435, 8)
+        Me.Label9.Location = New System.Drawing.Point(462, 8)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(119, 13)
         Me.Label9.TabIndex = 2
@@ -1933,14 +2030,23 @@ Partial Class FrmMain
         '
         'panelSignal
         '
-        Me.panelSignal.Controls.Add(Me.cboxModem)
         Me.panelSignal.Controls.Add(Me.pbarModem)
+        Me.panelSignal.Controls.Add(Me.cboxModem)
         Me.panelSignal.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelSignal.Location = New System.Drawing.Point(579, 2)
+        Me.panelSignal.Location = New System.Drawing.Point(587, 2)
         Me.panelSignal.Name = "panelSignal"
         Me.panelSignal.Padding = New System.Windows.Forms.Padding(20, 1, 5, 2)
-        Me.panelSignal.Size = New System.Drawing.Size(618, 19)
+        Me.panelSignal.Size = New System.Drawing.Size(610, 19)
         Me.panelSignal.TabIndex = 6
+        '
+        'pbarModem
+        '
+        Me.pbarModem.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pbarModem.Location = New System.Drawing.Point(172, 1)
+        Me.pbarModem.Maximum = 32
+        Me.pbarModem.Name = "pbarModem"
+        Me.pbarModem.Size = New System.Drawing.Size(433, 16)
+        Me.pbarModem.TabIndex = 7
         '
         'cboxModem
         '
@@ -1957,15 +2063,6 @@ Partial Class FrmMain
         Me.cboxModem.Text = "Módem Desconectado"
         Me.cboxModem.UseVisualStyleBackColor = True
         '
-        'pbarModem
-        '
-        Me.pbarModem.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pbarModem.Location = New System.Drawing.Point(20, 1)
-        Me.pbarModem.Maximum = 32
-        Me.pbarModem.Name = "pbarModem"
-        Me.pbarModem.Size = New System.Drawing.Size(593, 16)
-        Me.pbarModem.TabIndex = 7
-        '
         'btnMonitoring
         '
         Me.btnMonitoring.BackColor = System.Drawing.Color.Transparent
@@ -1976,7 +2073,7 @@ Partial Class FrmMain
         Me.btnMonitoring.BackgroundOnHover = CType(resources.GetObject("btnMonitoring.BackgroundOnHover"), System.Drawing.Image)
         Me.btnMonitoring.BackgroundOnNormal = CType(resources.GetObject("btnMonitoring.BackgroundOnNormal"), System.Drawing.Image)
         Me.btnMonitoring.BackgroundStyle = ZUControls.ZUButton.styleType.Native
-        Me.btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+        Me.btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed
         Me.btnMonitoring.Dock = System.Windows.Forms.DockStyle.Left
         Me.btnMonitoring.FlatAppearance.BorderSize = 0
         Me.btnMonitoring.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
@@ -1985,9 +2082,9 @@ Partial Class FrmMain
         Me.btnMonitoring.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnMonitoring.Location = New System.Drawing.Point(497, 2)
         Me.btnMonitoring.Name = "btnMonitoring"
-        Me.btnMonitoring.Size = New System.Drawing.Size(82, 19)
+        Me.btnMonitoring.Size = New System.Drawing.Size(90, 19)
         Me.btnMonitoring.TabIndex = 7
-        Me.btnMonitoring.Text = "ACTIVO"
+        Me.btnMonitoring.Text = "INACTIVO"
         Me.btnMonitoring.UseVisualStyleBackColor = False
         '
         'Label3
@@ -2074,66 +2171,6 @@ Partial Class FrmMain
         Me.bgwGprsReceiver.WorkerReportsProgress = True
         Me.bgwGprsReceiver.WorkerSupportsCancellation = True
         '
-        'dgvGprsReceiver_port
-        '
-        Me.dgvGprsReceiver_port.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.dgvGprsReceiver_port.HeaderText = "PUERTO"
-        Me.dgvGprsReceiver_port.Name = "dgvGprsReceiver_port"
-        Me.dgvGprsReceiver_port.ReadOnly = True
-        Me.dgvGprsReceiver_port.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvGprsReceiver_port.Width = 60
-        '
-        'dgvGprsReceiver_device_model
-        '
-        Me.dgvGprsReceiver_device_model.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.dgvGprsReceiver_device_model.HeaderText = "MODELO GPS"
-        Me.dgvGprsReceiver_device_model.Name = "dgvGprsReceiver_device_model"
-        Me.dgvGprsReceiver_device_model.ReadOnly = True
-        Me.dgvGprsReceiver_device_model.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvGprsReceiver_device_model.Width = 90
-        '
-        'dgvGprsReceiver_client
-        '
-        Me.dgvGprsReceiver_client.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        DataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.dgvGprsReceiver_client.DefaultCellStyle = DataGridViewCellStyle87
-        Me.dgvGprsReceiver_client.HeaderText = "CLIENTE"
-        Me.dgvGprsReceiver_client.Name = "dgvGprsReceiver_client"
-        Me.dgvGprsReceiver_client.ReadOnly = True
-        Me.dgvGprsReceiver_client.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvGprsReceiver_client.Width = 250
-        '
-        'dgvGprsReceiver_date_time
-        '
-        Me.dgvGprsReceiver_date_time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None
-        Me.dgvGprsReceiver_date_time.HeaderText = "FECHA"
-        Me.dgvGprsReceiver_date_time.Name = "dgvGprsReceiver_date_time"
-        Me.dgvGprsReceiver_date_time.ReadOnly = True
-        Me.dgvGprsReceiver_date_time.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvGprsReceiver_date_time.Width = 150
-        '
-        'dgvGprsReceiver_trace
-        '
-        Me.dgvGprsReceiver_trace.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.dgvGprsReceiver_trace.DefaultCellStyle = DataGridViewCellStyle88
-        Me.dgvGprsReceiver_trace.HeaderText = "TRAZA"
-        Me.dgvGprsReceiver_trace.Name = "dgvGprsReceiver_trace"
-        Me.dgvGprsReceiver_trace.ReadOnly = True
-        Me.dgvGprsReceiver_trace.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'dgvGprsReceiver_status
-        '
-        DataGridViewCellStyle89.Format = "N0"
-        DataGridViewCellStyle89.NullValue = Nothing
-        Me.dgvGprsReceiver_status.DefaultCellStyle = DataGridViewCellStyle89
-        Me.dgvGprsReceiver_status.HeaderText = "STATUS"
-        Me.dgvGprsReceiver_status.Name = "dgvGprsReceiver_status"
-        Me.dgvGprsReceiver_status.ReadOnly = True
-        Me.dgvGprsReceiver_status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.dgvGprsReceiver_status.Visible = False
-        Me.dgvGprsReceiver_status.Width = 60
-        '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2163,6 +2200,9 @@ Partial Class FrmMain
         CType(Me.splitChild, System.ComponentModel.ISupportInitialize).EndInit()
         Me.splitChild.ResumeLayout(False)
         Me.ZuPanel1.ResumeLayout(False)
+        CType(Me.NumericUpDown2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.num, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelGeofencesVehicles.ResumeLayout(False)
         CType(Me.dgvGeofences, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabConsole.ResumeLayout(False)
@@ -2296,32 +2336,21 @@ Partial Class FrmMain
     Friend WithEvents bgwTTS As System.ComponentModel.BackgroundWorker
     Friend WithEvents bgwGprsEvents As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents dgvVehicles_onMap As DataGridViewCheckBoxColumn
-    Friend WithEvents dgvVehicles_config As DataGridViewButtonColumn
-    Friend WithEvents dgvVehicles_vehicle_code As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_device_model As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_imei As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_simcard As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_cliente_name As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_license_plate As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_brand As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_model As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_type As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_year As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_color As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_last_report As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_speed As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_expiration_date As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_client_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_vehicle_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_device_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_device_model_id As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_sms_stop As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_sms_resume As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_gprs_stop As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_gprs_resume As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_call_pass As DataGridViewTextBoxColumn
-    Friend WithEvents dgvVehicles_origin As DataGridViewTextBoxColumn
+    Friend WithEvents bgwGprsReceiver As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ZuPanel1 As ZUControls.ZUPanel
+    Friend WithEvents btnBgwGetClients As ZUControls.ZUButton
+    Friend WithEvents btnBgwGprsReceiver As ZUControls.ZUButton
+    Friend WithEvents btnBgwGetEvents As ZUControls.ZUButton
+    Friend WithEvents btnBgwGetCurrentLocations As ZUControls.ZUButton
+    Friend WithEvents num As NumericUpDown
+    Friend WithEvents NumericUpDown2 As NumericUpDown
+    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents dgvGprsReceiver_port As DataGridViewTextBoxColumn
+    Friend WithEvents dgvGprsReceiver_device_model As DataGridViewTextBoxColumn
+    Friend WithEvents dgvGprsReceiver_client As DataGridViewTextBoxColumn
+    Friend WithEvents dgvGprsReceiver_date_time As DataGridViewTextBoxColumn
+    Friend WithEvents dgvGprsReceiver_trace As DataGridViewTextBoxColumn
+    Friend WithEvents dgvGprsReceiver_status As DataGridViewTextBoxColumn
     Friend WithEvents dgvEvents_onMap As DataGridViewCheckBoxColumn
     Friend WithEvents dgvEvents_vehicle_code As DataGridViewTextBoxColumn
     Friend WithEvents dgvEvents_client_name As DataGridViewTextBoxColumn
@@ -2339,16 +2368,30 @@ Partial Class FrmMain
     Friend WithEvents dgvEvents_longitude As DataGridViewTextBoxColumn
     Friend WithEvents dgvEvents_speed As DataGridViewTextBoxColumn
     Friend WithEvents dgvEvents_orientation As DataGridViewTextBoxColumn
-    Friend WithEvents bgwGprsReceiver As System.ComponentModel.BackgroundWorker
-    Friend WithEvents ZuPanel1 As ZUControls.ZUPanel
-    Friend WithEvents btnBgwGetClients As ZUControls.ZUButton
-    Friend WithEvents btnBgwGprsReceiver As ZUControls.ZUButton
-    Friend WithEvents btnBgwGetEvents As ZUControls.ZUButton
-    Friend WithEvents btnBgwGetCurrentLocations As ZUControls.ZUButton
-    Friend WithEvents dgvGprsReceiver_port As DataGridViewTextBoxColumn
-    Friend WithEvents dgvGprsReceiver_device_model As DataGridViewTextBoxColumn
-    Friend WithEvents dgvGprsReceiver_client As DataGridViewTextBoxColumn
-    Friend WithEvents dgvGprsReceiver_date_time As DataGridViewTextBoxColumn
-    Friend WithEvents dgvGprsReceiver_trace As DataGridViewTextBoxColumn
-    Friend WithEvents dgvGprsReceiver_status As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_onMap As DataGridViewCheckBoxColumn
+    Friend WithEvents dgvVehicles_config As DataGridViewButtonColumn
+    Friend WithEvents dgvVehicles_vehicle_code As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_device_model As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_imei As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_simcard As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_cliente_name As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_license_plate As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_brand As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_model As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_type As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_year As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_color As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_last_report As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_speed As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_origin As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_expiration_date As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_client_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_vehicle_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_device_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_device_model_id As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_sms_stop As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_sms_resume As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_gprs_stop As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_gprs_resume As DataGridViewTextBoxColumn
+    Friend WithEvents dgvVehicles_call_pass As DataGridViewTextBoxColumn
 End Class

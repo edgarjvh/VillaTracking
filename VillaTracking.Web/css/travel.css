@@ -1,0 +1,63 @@
+.travel-modal{
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top:0;
+    z-index: 102;
+    display: none;
+}
+
+.travel-modal .modal-header{
+    width:100%;
+    height: 50px;
+    background-color: #3498db;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.travel-modal .modal-header span,
+.travel-modal .modal-header input,
+.travel-modal .modal-header div{
+    margin: 0 10px;
+}
+
+.travel-modal .modal-header span{
+    color:#2a00ff;
+}
+
+.travel-modal .modal-header input{
+    width: 150px;
+    text-align: center;
+}
+
+.travel-modal .modal-header div{
+    width:100px;
+    padding:5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.travel-modal .modal-header .btn-search-travel{
+    background-color: #1a5276;
+    color:#fff;
+}
+
+.travel-modal .modal-header .btn-exit-travel{
+    background-color: #e74c3c;
+    color:#000;
+}
+
+.travel-modal .modal-header div:hover{
+    filter:brightness(70%);
+}
+
+.travel-modal #travel-map{
+    width: 100%;
+    height:calc(100% - 50px);
+    background-color: #85c1e9;
+}

@@ -115,6 +115,7 @@ Partial Class frmLogin
         '
         Me.lblStatus.BackColor = System.Drawing.SystemColors.ControlDark
         Me.lblStatus.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lblStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.Location = New System.Drawing.Point(0, 181)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(337, 25)

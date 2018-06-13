@@ -1,0 +1,169 @@
+@import url('font-awesome.min.css');
+@import url('bootstrap.min.css');
+@import url('general.css');
+@import url('header.css');
+@import url("console.css");
+@import url('../responsive/user.css');
+
+.hidden{
+    display: none;
+}
+.main-container{
+    background: url("../img/bg_users.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100%;
+    height: calc(100% + 50px);
+    position: absolute;
+}
+
+.users{
+    width:90%;
+    height: calc(100% - 190px);
+    margin: 10px auto;
+    overflow-y: auto;
+    background-color: rgba(255,255,255,0.9);
+    position: relative;
+    box-shadow: 0 10px 10px rgba(0,0,0,1);
+}
+
+#tbl-users{
+
+}
+
+.user-inputs{
+    width:100%;
+    height: 100%;
+    margin:auto;
+    overflow-y: hidden;
+    position: absolute;
+    z-index:105;
+    top:0;
+}
+
+.new-user,.edit-user{
+    left:-100%;
+}
+
+#tbl-users thead tr th{
+    text-align: center;
+    padding:10px;
+    background-color: #6E6E6E;
+    color: #cecece;
+}
+
+#tbl-users thead tr th.th-dni{
+     width: 100px;
+}
+#tbl-users thead tr th.th-first-name, th.th-last-name{
+    width: 200px;
+}
+#tbl-users thead tr th.th-email{
+    width: 200px;
+}
+#tbl-users thead tr th.th-phone{
+    width: 100px;
+}
+
+#tbl-users thead tr th.th-address{
+    width: 400px;
+}
+
+#tbl-users thead tr th.th-new th.th-edit, th.th-delete{
+    width: 10px;
+}
+
+#tbl-users tbody tr:hover{
+    background-color: #007eb4;
+    color:#fff;
+}
+
+#tbl-users tbody tr td{
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 10px;
+}
+
+#tbl-users tbody tr td i:hover{
+    cursor: pointer;
+    color: #fff50f;
+}
+
+.user-inputs h3{
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid;
+    padding: 5px;
+}
+
+.user-inputs h3 i{
+    float:right;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.inputs{
+    height:calc(100% - 95px);
+    max-width: 600px;
+    width: 90%;
+    overflow: auto;
+    padding: 0 10px;
+    margin: auto;
+}
+
+.user-inputs input{
+    display: block;
+    width: 100%;
+    margin:10px auto;
+    padding:10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    border:1px solid;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.user-inputs input:focus{
+    box-shadow: 0 2px 6px rgba(0,0,255,0.5);
+}
+
+.user-inputs .footer-container{
+    width:100%;
+    height:45px;
+    bottom:0;
+    left:0;
+    border-top: 1px solid;
+    padding:5px 20px;
+    position: absolute;
+}
+
+.btn-footer{
+    max-width: 600px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin:auto;
+    padding: 0 10px;
+}
+
+.villa-button{
+    padding:5px 15px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    background-color: #007eb4;
+    color: #fff;
+    cursor: pointer;
+}
+
+.villa-button i{
+    margin-right: 10px;
+}
+
+.villa-button:hover{
+    -webkit-filter:brightness(80%);
+    -webkit-box-shadow: 0 2px 5px #000;
+    -moz-box-shadow: 0 2px 5px #000;
+    box-shadow: 0 2px 5px #000;
+}

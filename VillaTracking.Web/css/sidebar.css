@@ -1,0 +1,336 @@
+@import url('../responsive/sidebar.css');
+
+.sidebar{
+    max-width: 300px;
+    width: 90%;
+    float:  left;
+    background-color: rgba(0,0,0,0.3);
+    height: calc(100% - 50px);
+    position:absolute;
+    font-family: 'Exo 2', sans-serif;
+    top:50px;
+    z-index: 5;
+    padding-bottom: 10px;
+}
+
+#cbox-toggle-sidebar{
+    display: none;
+}
+
+.main-container #cbox-toggle-sidebar+label{
+    justify-content: center;
+    width:30px;
+    height:30px;
+    align-items: center;
+    font-size: 20px;
+    display:flex;
+    top:10px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.5);
+    color:#fff;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:0 50% 50% 0;
+    left:300px;
+    position: absolute;
+}
+
+.main-container #cbox-toggle-sidebar+label i{
+    transition: transform 0.6s;
+}
+
+.main-container #cbox-toggle-sidebar+label:hover i{
+    color:#000;
+}
+
+.sidebar ul{
+    list-style: none;
+    margin:0;
+    padding: 0;
+}
+
+.sidebar ul#main-list{
+    top:0;
+    height: 100%;
+}
+
+.sidebar ul li{
+    background-color: rgba(0,0,0,0.3);
+    border-bottom: 1px solid #6E6E6E;
+    font-size:12px;
+    display: block;
+}
+
+.sidebar ul li i.left{
+    margin-right:10px;
+    width: 15px;
+    text-align: center;
+}   
+
+.sidebar ul li i.right{
+    float:right;
+    margin-left:10px;
+}
+
+.sidebar ul li.menu1 p{
+    text-decoration: none;
+    color:#fff;
+    padding: 5px 5px 5px 5px;
+    display:flex;
+    margin:0;
+    cursor: pointer;
+    font-size:13px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.sidebar ul li.menu1 p span.client-name{
+    display:flex;
+    flex-direction: column;
+}
+
+.sidebar ul li ul li{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.sidebar ul li ul li a{
+    color:#fff;
+    padding: 5px 25px;
+}
+
+.sidebar li#dealer-select{
+    display: flex;
+    padding: 10px 5px;
+    
+}
+
+.sidebar li#dealer-select select{
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.sidebar li#dealer-select i{
+    margin-right: 10px;
+    color: rgba(0,255,0,0.7);
+    cursor: pointer;
+    line-height: 30px;
+    font-size: 30px;
+    transition-property: transform;
+    transition-duration: 0.3s;
+}
+
+.sidebar li#dealer-select i:hover{
+    color: rgba(0,255,0,0.5);
+    transform: rotate(180deg);
+}
+
+.sidebar ul li ul select{
+    width: 100%;
+    height: 30px;
+}
+
+.sidebar ul li ul li#client-filter{
+    padding: 0 5px;
+    display: none;
+}
+
+.sidebar ul li ul input#txt-client-filter{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+}
+
+.sidebar ul ul li.client{
+    padding: 5px 5px;
+    border-bottom: 1px solid #585858;
+    cursor: pointer;
+}
+
+.sidebar ul ul li.client i.client-row{
+    display:flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-style: normal;
+}
+
+.sidebar ul ul li.client i.client-row .name{
+    color:#fff;
+    font-size: 12px;
+}
+
+.sidebar ul ul li.client i.client-row .first,
+.sidebar ul ul li.client i.client-row .last{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sidebar ul ul li.client i.client-row .last{
+    font-weight: bold;
+}
+
+.sidebar ul ul li.client i.client-row .first{
+    font-weight: 600;
+}
+
+.sidebar ul ul li.client i.client-row .counter{
+    float: right;
+    width: 30px;
+    height: 30px;
+    padding: 0 5px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    margin-left: 5px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar ul ul li.client ul.vehicle{
+    margin-top:10px;
+}
+
+.sidebar ul ul li.client ul li.info{
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+
+    padding: 5px;
+    display:block;
+}
+
+.sidebar ul ul li.client ul li.no-location{
+    background-color: #BDBDBD;
+}
+
+.sidebar ul ul li.client ul li.moving{
+    background-color: #abebc6;
+}
+
+.sidebar ul ul li.client ul li.stop{
+    background-color: #aed6f1;
+}
+
+.sidebar ul ul li.client ul li.expired{
+    background-color: #f5b7b1;
+}
+
+.sidebar ul ul li.client ul li.info input[type=checkbox]{
+    float: right;
+}
+
+.sidebar ul ul li.client ul li.info label span{
+    color:#0404B4;
+    font-weight: normal;    
+}
+
+.sidebar ul ul li.client ul li.info label{
+    display: block;
+}
+
+.sidebar ul ul li.client ul li.info .btn-vehicle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar ul ul li.client ul li.info .btn-vehicle .btn-travel{
+    /*display: none;*/
+}
+
+.sidebar ul ul li.client ul li.info .btn-vehicle .btn-travel,
+.sidebar ul ul li.client ul li.info .btn-vehicle .btn-on-map{
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    background-color: #1a5276;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color:#fff;
+    font-size:10px;
+}
+
+.sidebar ul ul li.client ul li.info .btn-vehicle .vehicle-on-map{
+    background-color: #27ae60;
+    color:#000;
+}
+
+.sidebar ul ul li.client ul li.info .btn-travel:hover,
+.sidebar ul ul li.client ul li.info .btn-on-map:hover{
+    filter: brightness(70%);
+}
+
+.client-id,.vehicle-id,.device-id, .latitude, .longitude, .datetime, .speed, .orientation, .imei, .simcard, .expiration-date{
+    display: none;
+}
+
+.sidebar ul li#client-list{
+    height: calc(100% - 48px);
+    overflow-y: auto !important;
+    position:absolute;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+.hidden{
+    display: none;
+}
+
+.infoTitle{
+    font-weight: bold;
+    font-size: 15px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.infoSubTitle{
+    font-weight: bold;
+    color:#007eb4;
+    margin-right: 5px;
+    font-style: normal;
+}
+
+.clients-counter{
+    margin-right: 15px;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 0 5px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span.vehicles-counter{
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    padding: 0 5px;
+    background: #000;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: right;
+}
+
+#mnu-dealers{
+    display: none;
+}

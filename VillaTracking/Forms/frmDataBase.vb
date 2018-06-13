@@ -257,7 +257,7 @@ Public Class frmDataBase
             Exit Sub
         End If
 
-        Dim str As String = "server=[server];uid=[uid];pwd=[pwd];database=[database];Convert Zero Datetime=True"
+        Dim str As String = "server=[server];uid=[uid];pwd=[pwd];database=[database];Convert Zero Datetime=True;SslMode=none"
         str = str.Replace("[server]", txtServer.Text.Trim)
         str = str.Replace("[uid]", txtUsername.Text.Trim)
         str = str.Replace("[pwd]", txtPassword.Text.Trim)

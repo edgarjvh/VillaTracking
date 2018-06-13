@@ -1,0 +1,302 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5481CAC9-52ED-4A4E-A014-F338EB6F2AF3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VillaTracking.Web</RootNamespace>
+    <AssemblyName>VillaTracking.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\MySQL\Connector NET 8.0\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="less\datetimepicker.less" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\app.css" />
+    <Content Include="css\bootstrap-datetimepicker.css" />
+    <Content Include="css\bootstrap-datetimepicker.min.css" />
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\change_password.css" />
+    <Content Include="css\console.css" />
+    <Content Include="css\dealer.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\general.css" />
+    <Content Include="css\header.css" />
+    <Content Include="css\login.css" />
+    <Content Include="css\logout.css" />
+    <Content Include="css\sidebar.css" />
+    <Content Include="css\suggestions.css" />
+    <Content Include="css\supersized.core.css" />
+    <Content Include="css\travel.css" />
+    <Content Include="css\user.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\2.png" />
+    <Content Include="img\auto_center_icon.png" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\bg.png" />
+    <Content Include="img\cal\cal.gif" />
+    <Content Include="img\cal\cal_close.gif" />
+    <Content Include="img\cal\cal_fastforward.gif" />
+    <Content Include="img\cal\cal_fastreverse.gif" />
+    <Content Include="img\cal\cal_forward.gif" />
+    <Content Include="img\cal\cal_minus.gif" />
+    <Content Include="img\cal\cal_plus.gif" />
+    <Content Include="img\cal\cal_reverse.gif" />
+    <Content Include="img\change_user_icon.png" />
+    <Content Include="img\clients_icon.png" />
+    <Content Include="img\costumer_icon.png" />
+    <Content Include="img\database_icon.png" />
+    <Content Include="img\dealer_icon.png" />
+    <Content Include="img\event_history_icon.png" />
+    <Content Include="img\favicon.png" />
+    <Content Include="img\geofence_icon.png" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\gps_icon.png" />
+    <Content Include="img\icon.png" />
+    <Content Include="img\lock_icon.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\map_control_icon.png" />
+    <Content Include="img\modem_sms_icon.png" />
+    <Content Include="img\no_reporting_icon.png" />
+    <Content Include="img\reports_icon.png" />
+    <Content Include="img\settings_icon.png" />
+    <Content Include="img\show_alerts_layer_icon.png" />
+    <Content Include="img\show_map_center_icon.png" />
+    <Content Include="img\simcard_icon.png" />
+    <Content Include="img\travel_history_icon.png" />
+    <Content Include="img\user_icon.png" />
+    <Content Include="img\vehicles_icon.png" />
+    <Content Include="img\voice_icon.png" />
+    <Content Include="index.aspx" />
+    <Content Include="js\app.js" />
+    <Content Include="js\bootbox.min.js" />
+    <Content Include="js\bootstrap-datetimepicker.js" />
+    <Content Include="js\bootstrap-datetimepicker.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\change_password.js" />
+    <Content Include="js\console.js" />
+    <Content Include="js\datetimepicker_css.js" />
+    <Content Include="js\dealer.js" />
+    <Content Include="js\header.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ar.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.az.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.bn.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ee.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.hy.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ka.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ko.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.no.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="js\locations.js" />
+    <Content Include="js\login.js" />
+    <Content Include="js\logout.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="js\sidebar.js" />
+    <Content Include="js\suggestions.js" />
+    <Content Include="js\travel.js" />
+    <Content Include="js\user.js" />
+    <Content Include="responsive\app.css" />
+    <Content Include="responsive\console.css" />
+    <Content Include="responsive\header.css" />
+    <Content Include="responsive\login.css" />
+    <Content Include="responsive\sidebar.css" />
+    <Content Include="responsive\user.css" />
+    <Content Include="services\villaservice.svc" />
+    <Content Include="app.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="data\Encryptation.cs" />
+    <Compile Include="data\Procedure.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="models\Client.cs" />
+    <Compile Include="models\Response.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="services\villaservice.svc.cs">
+      <DependentUpon>villaservice.svc</DependentUpon>
+    </Compile>
+    <Compile Include="app.aspx.cs">
+      <DependentUpon>app.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="app.aspx.designer.cs">
+      <DependentUpon>app.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="views\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59890</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59891/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

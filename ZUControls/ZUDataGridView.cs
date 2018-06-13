@@ -31,7 +31,7 @@ namespace ZUControls
             this.ColumnHeadersHeight = 17;
             this.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DefaultCellStyle.BackColor = Color.Silver;
-            this.DefaultCellStyle.Font = new Font(new FontFamily("Segoe UI"), (float)7, FontStyle.Bold);
+            this.DefaultCellStyle.Font = new Font(new FontFamily("Microsoft Sans Serif"), (float)7, FontStyle.Bold, GraphicsUnit.Point, Convert.ToByte(0));
             this.DefaultCellStyle.ForeColor = Color.Black;
             this.DefaultCellStyle.SelectionBackColor = Color.Gold;
             this.DefaultCellStyle.SelectionForeColor = Color.Black;

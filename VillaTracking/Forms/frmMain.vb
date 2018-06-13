@@ -6,6 +6,7 @@ Imports GMap.NET.WindowsForms
 Imports VillaTracking.SMS.Decoder
 Imports System.Deployment.Application
 Imports System.IO
+Imports System.IO.Compression
 Imports System.Speech
 Imports System.Speech.Synthesis
 Imports System.Net.Sockets
@@ -68,15 +69,15 @@ Public Class FrmMain
         End Set
     End Property
 
-    Dim _voice As LTTS7Lib.LTTS7 = New LTTS7Lib.LTTS7
-    Public Property Voice As LTTS7
-        Get
-            Return _voice
-        End Get
-        Set(value As LTTS7)
-            _voice = value
-        End Set
-    End Property
+    'Dim _voice As LTTS7Lib.LTTS7 = New LTTS7Lib.LTTS7
+    'Public Property Voice As LTTS7
+    '    Get
+    '        Return _voice
+    '    End Get
+    '    Set(value As LTTS7)
+    '        _voice = value
+    '    End Set
+    'End Property
 
 
     Dim _selectedTabPage As Integer = 0
@@ -89,13 +90,13 @@ Public Class FrmMain
         End Set
     End Property
 
-    Dim _textToVoice As New List(Of String)
-    Public Property TextToVoice As List(Of String)
+    Dim _textToVoiceList As New List(Of String)
+    Public Property TextToVoiceList As List(Of String)
         Get
-            Return _textToVoice
+            Return _textToVoiceList
         End Get
         Set(value As List(Of String))
-            _textToVoice = value
+            _textToVoiceList = value
         End Set
     End Property
 
@@ -129,7 +130,6 @@ Public Class FrmMain
             _markerTooltipMode = value
         End Set
     End Property
-
 
     Dim markersLayer As New GMapOverlay("markersLayer")
     Dim markersMovingLayer As New GMapOverlay("markersMovingLayer")
@@ -467,38 +467,28 @@ Public Class FrmMain
         Return lng
     End Function
 
-    Private Sub OnGettingMarker(ByVal latitude As Double,
-                                ByVal longitude As Double,
-                                ByVal imei As String,
-                                ByVal client As String,
-                                ByVal code As String,
-                                ByVal license_plate As String,
-                                ByVal origin As String,
-                                ByVal orientation As Integer,
-                                ByVal date_time As Date,
-                                ByVal fix As String,
-                                ByVal speed As Integer)
+    Private Sub OnGettingMarker(ByVal data As GprsData)
 
         Dim existDevice As Boolean = False
 
         ' si existen marcadores se verifica que no existe el actual a procesar
         If markersLayer.Markers.Count > 0 Then
             For Each marker As GmapMarkerMain In markersLayer.Markers
-                If marker.Imei = imei Then
-                    marker.Position = New PointLatLng(latitude, longitude)
-                    marker.Client = client
-                    marker.Code = code
-                    marker.LicensePlate = license_plate
-                    marker.Origin = origin
-                    marker.Orientation = orientation
-                    marker.Fix = fix
-                    marker.Speed = speed
-                    marker.DateTime = date_time
+                If marker.Imei = data.Imei Then
+                    marker.Position = New PointLatLng(data.Latitude, data.Longitude)
+                    marker.Client = data.Client
+                    marker.Code = data.Code
+                    marker.LicensePlate = data.LicensePlate
+                    marker.Origin = data.Origin
+                    marker.Orientation = data.Orientation
+                    marker.Fix = data.Fix
+                    marker.Speed = data.Speed
+                    marker.DateTime = data.DateTime
                     marker.SetToolTip()
                     marker.SetIcon()
 
                     If dgvConsoleVehicles.CurrentRow IsNot Nothing Then
-                        If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
+                        If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = data.Imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
                             mapMain.Position = marker.Position
                         End If
                     End If
@@ -514,22 +504,22 @@ Public Class FrmMain
         If Not existDevice Then
             ' se instancia un nuevo marcador
             ' se configuran las propiedades del marcador
-            Dim marker As New GmapMarkerMain(New PointLatLng(latitude, longitude))
-            marker.Imei = imei
-            marker.Client = client
-            marker.Code = code
-            marker.LicensePlate = license_plate
-            marker.Origin = origin
-            marker.Orientation = orientation
-            marker.DateTime = date_time
-            marker.Fix = fix
-            marker.Speed = speed
+            Dim marker As New GmapMarkerMain(New PointLatLng(data.Latitude, data.Longitude))
+            marker.Imei = data.Imei
+            marker.Client = data.Client
+            marker.Code = data.Code
+            marker.LicensePlate = data.LicensePlate
+            marker.Origin = data.Origin
+            marker.Orientation = data.Orientation
+            marker.DateTime = data.DateTime
+            marker.Fix = data.Fix
+            marker.Speed = data.Speed
             marker.IsVisible = False
             marker.SetToolTip()
             marker.SetIcon()
 
             If dgvConsoleVehicles.CurrentRow IsNot Nothing Then
-                If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
+                If dgvConsoleVehicles.CurrentRow.Cells("dgvVehicles_imei").Value.ToString() = data.Imei AndAlso menuOptionAutoCenter.Checked AndAlso marker.IsVisible Then
                     mapMain.Position = marker.Position
                 End If
             End If
@@ -539,27 +529,27 @@ Public Class FrmMain
 
         If dgvConsoleVehicles.Rows.Count > 0 Then
             For Each row As DataGridViewRow In dgvConsoleVehicles.Rows
-                If row.Cells("dgvVehicles_imei").Value.ToString = imei Then
-                    row.Cells("dgvVehicles_last_report").Value = date_time.ToString("dd/MM/yyyy hh:mm:ss tt")
-                    row.Cells("dgvVehicles_speed").Value = speed & " Km/H"
-                    row.Cells("dgvVehicles_origin").Value = origin.ToUpper
+                If row.Cells("dgvVehicles_imei").Value.ToString = data.Imei Then
+                    row.Cells("dgvVehicles_last_report").Value = data.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt")
+                    row.Cells("dgvVehicles_speed").Value = data.Speed & " Km/H"
+                    row.Cells("dgvVehicles_origin").Value = data.Origin.ToUpper
                 End If
             Next
         End If
 
-        If speed > 0 Then
-            If client <> "" Then
+        If data.Speed > 0 Then
+            If data.Client <> "" Then
                 ' se configuran las propiedades del marcador
-                Dim markerMoving As New GmapMarkerMain(New PointLatLng(latitude, longitude))
-                markerMoving.Imei = imei
-                markerMoving.Client = client
-                markerMoving.Code = code
-                markerMoving.LicensePlate = license_plate
-                markerMoving.Origin = origin
-                markerMoving.Orientation = orientation
-                markerMoving.DateTime = date_time
-                markerMoving.Fix = fix
-                markerMoving.Speed = speed
+                Dim markerMoving As New GmapMarkerMain(New PointLatLng(data.Latitude, data.Longitude))
+                markerMoving.Imei = data.Imei
+                markerMoving.Client = data.Client
+                markerMoving.Code = data.Code
+                markerMoving.LicensePlate = data.LicensePlate
+                markerMoving.Origin = data.Origin
+                markerMoving.Orientation = data.Orientation
+                markerMoving.DateTime = data.DateTime
+                markerMoving.Fix = data.Fix
+                markerMoving.Speed = data.Speed
                 markerMoving.IsVisible = True
 
                 markerMoving.SetToolTip()
@@ -568,6 +558,24 @@ Public Class FrmMain
                 markersMovingLayer.Markers.Add(markerMoving)
             End If
         End If
+
+        ' se verifica que la capa de marcadores se agregue en el mapa
+        If Not mapMain.Overlays.Contains(markersLayer) Then
+            mapMain.Overlays.Add(markersLayer)
+        End If
+
+        If markersMovingLayer.Markers.Count > 0 Then
+            For i = 0 To markersMovingLayer.Markers.Count - 1
+                markersMovingLayer.Markers(i).IsVisible = True
+            Next
+        End If
+
+        If Not mapMain.Overlays.Contains(markersMovingLayer) Then
+            mapMain.Overlays.Add(markersMovingLayer)
+        End If
+
+        markersLayer.IsVisibile = True
+        markersMovingLayer.IsVisibile = VehículosEnMovimientoToolStripMenuItem.Checked
     End Sub
 #End Region
 
@@ -652,11 +660,7 @@ Public Class FrmMain
         bgwGetCurrentLocations.RunWorkerAsync()
         bgwSendEventsEmail.RunWorkerAsync()
 
-        If Not bgwGetEvents.IsBusy Then
-            DrawingControl.SuspendDrawing(dgvEvents)
-            dgvEvents.ScrollBars = ScrollBars.None
-            bgwGetEvents.RunWorkerAsync()
-        End If
+        num.Value = dgvGprsReceiver.DefaultCellStyle.Font.Size
     End Sub
 
     Private Sub timerDateTime_Tick(sender As Object, e As EventArgs) Handles timerDateTime.Tick
@@ -1315,7 +1319,6 @@ Public Class FrmMain
                 AddHandler bgw.ProgressChanged, AddressOf bgw_ReportProgress
                 AddHandler bgw.RunWorkerCompleted, AddressOf bgw_RunWorkerCompleted
 
-                dgvConsoleVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
                 dgvConsoleVehicles.ScrollBars = ScrollBars.None
                 DrawingControl.SuspendDrawing(dgvConsoleVehicles)
 
@@ -1388,14 +1391,15 @@ Public Class FrmMain
                             If(rowVehicle("imei") Is DBNull.Value, "", rowVehicle("imei")),
                             If(rowVehicle("phone_number") Is DBNull.Value, 0, rowVehicle("phone_number")),
                             (If(rowVehicle("first_name") Is DBNull.Value, "", rowVehicle("first_name")) & " " & If(rowVehicle("last_name") Is DBNull.Value, "", rowVehicle("last_name"))).ToString().Trim,
-                             If(rowVehicle("license_plate") Is DBNull.Value, "", rowVehicle("license_plate")),
-                             If(rowVehicle("brand") Is DBNull.Value, "", rowVehicle("brand")),
-                             If(rowVehicle("model") Is DBNull.Value, "", rowVehicle("model")),
+                            If(rowVehicle("license_plate") Is DBNull.Value, "", rowVehicle("license_plate")),
+                            If(rowVehicle("brand") Is DBNull.Value, "", rowVehicle("brand")),
+                            If(rowVehicle("model") Is DBNull.Value, "", rowVehicle("model")),
                             If(rowVehicle("type") Is DBNull.Value, "", rowVehicle("type")),
-                             If(rowVehicle("year") Is DBNull.Value, 0, rowVehicle("year")),
-                             If(rowVehicle("color") Is DBNull.Value, "", rowVehicle("color")),
+                            If(rowVehicle("year") Is DBNull.Value, 0, rowVehicle("year")),
+                            If(rowVehicle("color") Is DBNull.Value, "", rowVehicle("color")),
                             date_time,
                             speed,
+                            If(rowVehicle("origin") Is DBNull.Value, "", rowVehicle("origin").ToString.ToUpper),
                             If(rowVehicle("expiration_date") Is DBNull.Value, "", Date.Parse(rowVehicle("expiration_date")).ToString("yyyy-MM-dd")),
                             If(rowVehicle("client_id") Is DBNull.Value, "", rowVehicle("client_id")),
                             If(rowVehicle("vehicle_id") Is DBNull.Value, "", rowVehicle("vehicle_id")),
@@ -1405,8 +1409,7 @@ Public Class FrmMain
                             If(rowVehicle("sms_resume") Is DBNull.Value, "", rowVehicle("sms_resume")),
                             If(rowVehicle("gprs_stop") Is DBNull.Value, "", rowVehicle("gprs_stop")),
                             If(rowVehicle("gprs_resume") Is DBNull.Value, "", rowVehicle("gprs_resume")),
-                            If(rowVehicle("phone_pass") Is DBNull.Value, "", rowVehicle("phone_pass")),
-                            If(rowVehicle("origin") Is DBNull.Value, "", rowVehicle("origin").ToString.ToUpper)
+                            If(rowVehicle("phone_pass") Is DBNull.Value, "", rowVehicle("phone_pass"))
                         )
                         bgw.ReportProgress(1, e.Argument)
                     Next
@@ -1438,7 +1441,6 @@ Public Class FrmMain
 
     Private Sub bgw_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs)
         DrawingControl.ResumeDrawing(dgvConsoleVehicles)
-        dgvConsoleVehicles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         dgvConsoleVehicles.ScrollBars = ScrollBars.Both
     End Sub
 
@@ -1457,6 +1459,11 @@ Public Class FrmMain
             Loop While bgwGetClients.IsBusy
 
             btnBgwGetCurrentLocations.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+
+            If My.Settings.isMonitoring Then
+                btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
+                btnMonitoring.Text = "ACTIVANDO"
+            End If
 
             Dim proc As New Procedure
 
@@ -1524,14 +1531,8 @@ Public Class FrmMain
         End Try
     End Sub
 
-
     Private Sub bgwGetCurrentLocations_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwGetCurrentLocations.RunWorkerCompleted
         Try
-
-            If My.Settings.isMonitoring Then
-                bgwGprsReceiver.RunWorkerAsync()
-            End If
-
             ' actualiza la columna de velocidad y ultimo reporte de la ventana de vehiculos de la consola
             If dgvConsoleVehicles.Rows.Count > 0 Then
                 For Each marker As GmapMarkerMain In markersLayer.Markers
@@ -1549,6 +1550,12 @@ Public Class FrmMain
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Mensaje del Sistema")
         End Try
+
+        If Not bgwGetEvents.IsBusy Then
+            DrawingControl.SuspendDrawing(dgvEvents)
+            dgvEvents.ScrollBars = ScrollBars.None
+            bgwGetEvents.RunWorkerAsync()
+        End If
 
         btnBgwGetCurrentLocations.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
     End Sub
@@ -1701,7 +1708,7 @@ Public Class FrmMain
             Dim proc As New Procedure
 
             Dim event_name, first_name, last_name, license_plate, vehicle_code, imei, geofence_name, validation,
-                geofence_points, textToVoice As String
+                geofence_points As String
 
             license_plate = ""
             validation = ""
@@ -1720,25 +1727,25 @@ Public Class FrmMain
                     MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
                     Exit Sub
                 End If
-            Else
-                isVoiceEnabled = My.Settings.currentVoice <> ""
+                'Else
+                '    isVoiceEnabled = My.Settings.currentVoice <> ""
 
-                Dim last_event_date As Date = dgvEvents.Rows(0).Cells("dgvEvents_date_time").Value
-                Dim seconds As Integer = Now.Subtract(last_event_date).TotalSeconds
+                '    Dim last_event_date As Date = dgvEvents.Rows(0).Cells("dgvEvents_date_time").Value
+                '    Dim seconds As Integer = Now.Subtract(last_event_date).TotalSeconds
 
-                If seconds > 172800 Then
+                '    If seconds > 172800 Then
 
-                    If Not proc.GetData("events_getToConsole", 0, Now) Then
-                        MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
-                        Exit Sub
-                    End If
-                Else
+                '        If Not proc.GetData("events_getToConsole", 0, Now) Then
+                '            MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
+                '            Exit Sub
+                '        End If
+                '    Else
 
-                    If Not proc.GetData("events_getToConsole", 1, last_event_date) Then
-                        MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
-                        Exit Sub
-                    End If
-                End If
+                '        If Not proc.GetData("events_getToConsole", 1, last_event_date) Then
+                '            MsgBox(proc.ErrorMsg, MsgBoxStyle.Critical, "Mensaje del Sistema")
+                '            Exit Sub
+                '        End If
+                '    End If
             End If
 
             If proc.Ds.Tables(0).Rows.Count > 0 Then
@@ -1776,7 +1783,7 @@ Public Class FrmMain
                     first_name = If(row("first_name") Is DBNull.Value, "", row("first_name"))
                     last_name = If(row("last_name") Is DBNull.Value, "", row("last_name"))
 
-                    textToVoice = ""
+                    'TextToVoice = ""
 
                     Select Case event_name
                         Case "entrada geocerca"
@@ -1787,9 +1794,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) & " " + apellido(0) & ", Entrada a Geocerca"
+                                    'TextToVoice = nombre(0) & " " + apellido(0) & ", Entrada a Geocerca"
                                 Else
-                                    textToVoice = first_name & ", Entrada a Geocerca"
+                                    'TextToVoice = first_name & ", Entrada a Geocerca"
                                 End If
                             Else
                                 Continue For
@@ -1804,9 +1811,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) & " " + apellido(0) & ", Salida de Geocerca"
+                                    'TextToVoice = nombre(0) & " " + apellido(0) & ", Salida de Geocerca"
                                 Else
-                                    textToVoice = first_name & ", Salida de Geocerca"
+                                    'TextToVoice = first_name & ", Salida de Geocerca"
                                 End If
                             Else
                                 Continue For
@@ -1821,9 +1828,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) & " " + apellido(0) & ", Alerta de Batería"
+                                    'TextToVoice = nombre(0) & " " + apellido(0) & ", Alerta de Batería"
                                 Else
-                                    textToVoice = first_name & ", Alerta de Batería"
+                                    'TextToVoice = first_name & ", Alerta de Batería"
                                 End If
                             Else
                                 Continue For
@@ -1838,9 +1845,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) & " " & apellido(0) & ", Alerta de Batería"
+                                    'TextToVoice = nombre(0) & " " & apellido(0) & ", Alerta de Batería"
                                 Else
-                                    textToVoice = first_name + ", Alerta de Batería"
+                                    'TextToVoice = first_name + ", Alerta de Batería"
                                 End If
                             Else
                                 Continue For
@@ -1855,9 +1862,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) & " " + apellido(0) & ", Exceso de Velocidad"
+                                    'TextToVoice = nombre(0) & " " + apellido(0) & ", Exceso de Velocidad"
                                 Else
-                                    textToVoice = first_name & ", Exceso de Velocidad"
+                                    'TextToVoice = first_name & ", Exceso de Velocidad"
                                 End If
                             Else
                                 Continue For
@@ -1872,9 +1879,9 @@ Public Class FrmMain
                                     Dim nombre As String() = first_name.Split(" ")
                                     Dim apellido As String() = last_name.Split(" ")
 
-                                    textToVoice = nombre(0) & " " & apellido(0) & ", Exceso de Velocidad"
+                                    'TextToVoice = nombre(0) & " " & apellido(0) & ", Exceso de Velocidad"
                                 Else
-                                    textToVoice = first_name & ", Exceso de Velocidad"
+                                    'TextToVoice = first_name & ", Exceso de Velocidad"
                                 End If
                             Else
                                 Continue For
@@ -1886,14 +1893,14 @@ Public Class FrmMain
                             Exit Select
                     End Select
 
-                    If client_id > 0 AndAlso vehicle_id > 0 AndAlso device_id > 0 Then
-                        If isVoiceEnabled Then
-                            If validation = "" OrElse Date.Parse(validation) < Now Then
-                                Me.TextToVoice.Add(textToVoice)
-                            End If
-                        End If
 
-                        dgvEvents.Rows.Insert(0,
+                    'If isVoiceEnabled Then
+                    '    If validation = "" OrElse Date.Parse(validation) < Now Then
+                    '        Me.TextToVoice.Add(textToVoice)
+                    '    End If
+                    'End If
+
+                    dgvEvents.Rows.Insert(0,
                                                 False,
                                                 vehicle_code,
                                                 (first_name & " " & last_name).ToString().Trim,
@@ -1907,13 +1914,13 @@ Public Class FrmMain
                                                 report_type_id,
                                                 geofence_id,
                                                 geofence_points,
-                                                latitude,
+                                                 latitude,
                                                 longitude,
                                                 current_speed,
                                                 orientation)
 
 
-                    End If
+
                 Next
                 dtEvents.AcceptChanges()
                 For z = 0 To dgvEvents.Rows.Count - 1
@@ -1933,30 +1940,30 @@ Public Class FrmMain
         'Dim thread As New Threading.Thread(AddressOf speak)
         'thread.Start()
 
-        Try
-            If Not bgwTTS.IsBusy AndAlso TextToVoice.Count > 0 AndAlso VoiceName.Length > 0 Then
-                bgwTTS.RunWorkerAsync()
-            End If
-        Catch ex As Exception
-        End Try
+        'Try
+        '    If Not bgwTTS.IsBusy AndAlso TextToVoice.Count > 0 AndAlso VoiceName.Length > 0 Then
+        '        bgwTTS.RunWorkerAsync()
+        '    End If
+        'Catch ex As Exception
+        'End Try
 
     End Sub
 
     Private Sub bgwTTS_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwTTS.DoWork
         Try
-            While TextToVoice.Count > 0
-                Synth.Speak(TextToVoice(0))
-                TextToVoice.RemoveAt(0)
+            While TextToVoiceList.Count > 0
+                Synth.Speak(TextToVoiceList(0))
+                TextToVoiceList.RemoveAt(0)
             End While
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub bgwTTS_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles bgwTTS.ProgressChanged
-        Dim texto As String = e.UserState.ToString()
-        Voice.Read(texto)
-    End Sub
+    'Private Sub bgwTTS_ProgressChanged(sender As Object, e As ProgressChangedEventArgs) Handles bgwTTS.ProgressChanged
+    '    Dim texto As String = e.UserState.ToString()
+    '    Voice.Read(texto)
+    'End Sub
 
     Private Sub bgwTTS_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwTTS.RunWorkerCompleted
 
@@ -1966,6 +1973,10 @@ Public Class FrmMain
         dgvEvents.ScrollBars = ScrollBars.Both
         DrawingControl.ResumeDrawing(dgvEvents)
         tpageEvents.Text = "EVENTOS (" & dgvEvents.Rows.Count.ToString("000") & ")"
+
+        If My.Settings.isMonitoring Then
+            bgwGprsReceiver.RunWorkerAsync()
+        End If
 
         btnBgwGetEvents.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
     End Sub
@@ -1985,7 +1996,7 @@ Public Class FrmMain
                     eventsLayer.Markers.Clear()
                     eventsLayer.Polygons.Clear()
 
-                    Dim vehicle_code = dgvEvents.Rows(e.RowIndex).Cells("vehicle_code").Value
+                    Dim vehicle_code = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_vehicle_code").Value
                     Dim event_name = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_name").Value
                     Dim latitude = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_latitude").Value
                     Dim longitude = dgvEvents.Rows(e.RowIndex).Cells("dgvEvents_longitude").Value
@@ -2048,7 +2059,6 @@ Public Class FrmMain
                     If proc.Ds.Tables(0).Rows.Count > 0 Then
                         For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
                             Dim row = proc.Ds.Tables(0).Rows(i)
-
 
                             Dim geofence_vehicle_id = If(row("geofence_vehicle_id") Is DBNull.Value, 0, row("geofence_vehicle_id"))
                             Dim geofence_id = If(row("geofence_id") Is DBNull.Value, 0, row("geofence_id"))
@@ -2299,7 +2309,7 @@ Public Class FrmMain
                         End If
                     End If
 
-                    Me.TextToVoice.Add(textToVoice)
+                    Me.TextToVoiceList.Add(textToVoice)
 
                     rtbAppendText(rtb, Color.Empty, vbCrLf & strLine & vbCrLf & status.ToUpper & vbCrLf)
                     rtbAppendText(rtb, Color.Empty, "REMITENTE: ")
@@ -2473,7 +2483,7 @@ Public Class FrmMain
                             cmdResponse = "TAIM, OKEY"
                         End If
 
-                        Me.TextToVoice.Add(textToVoice)
+                        Me.TextToVoiceList.Add(textToVoice)
 
                         Dim th As New Threading.Thread(AddressOf speak)
                         th.Start()
@@ -2618,19 +2628,19 @@ Public Class FrmMain
 
     Private Sub dgvEvents_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvEvents.CellFormatting
 
-        Try
-            With dgvEvents.Rows(e.RowIndex)
-                If Not TypeOf .Cells("dgvEvents_validation").Value Is DBNull AndAlso Not .Cells("dgvEvents_validation").Value = "" Then
+        'Try
+        '    With dgvEvents.Rows(e.RowIndex)
+        '        If Not TypeOf .Cells("dgvEvents_validation").Value Is DBNull AndAlso Not .Cells("dgvEvents_validation").Value = "" Then
 
-                    If .Cells("dgvEvents_validation").Value > Now Then
-                        .DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5c85bc")
-                        .DefaultCellStyle.ForeColor = Color.White
-                    End If
-                End If
-            End With
-        Catch ex As Exception
+        '            If .Cells("dgvEvents_validation").Value > Now Then
+        '                .DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#5c85bc")
+        '                .DefaultCellStyle.ForeColor = Color.White
+        '            End If
+        '        End If
+        '    End With
+        'Catch ex As Exception
 
-        End Try
+        'End Try
     End Sub
 
     Private Sub VehículosEnMovimientoToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles VehículosEnMovimientoToolStripMenuItem.CheckedChanged
@@ -2946,151 +2956,283 @@ Public Class FrmMain
     End Sub
 
     Private Sub mapMain_OnMarkerEnter(item As GMapMarker) Handles mapMain.OnMarkerEnter
-        Dim marker = DirectCast(item, GmapMarkerMain)
-        marker.ToolTipMode = MarkerTooltipMode.Always
-        marker.ToolTip.Format.Alignment = StringAlignment.Near
+        Select Case item.Overlay.Id
+            Case "markersLayer"
+                Dim marker = DirectCast(item, GmapMarkerMain)
 
-        marker.ToolTipText = "Código: " & marker.Code & vbNewLine &
-                             "Cliente: " & marker.Client & vbNewLine &
-                             "Matrícula: " & marker.LicensePlate & vbNewLine &
-                             "Imei: " & marker.Imei & vbNewLine &
-                             "Latitud: " & Math.Round(marker.Position.Lat, 6) & vbNewLine &
-                             "Longitud: " & Math.Round(marker.Position.Lng, 6) & vbNewLine &
-                             "Velocidad: " & marker.Speed & " Km/H" & vbNewLine &
-                             "Fecha: " & marker.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt")
+                marker.ToolTipMode = MarkerTooltipMode.Always
+                marker.ToolTip.Format.Alignment = StringAlignment.Near
 
-
+                marker.ToolTipText = "Código: " & marker.Code & vbNewLine &
+                                     "Cliente: " & marker.Client & vbNewLine &
+                                     "Matrícula: " & marker.LicensePlate & vbNewLine &
+                                     "Imei: " & marker.Imei & vbNewLine &
+                                     "Latitud: " & Math.Round(marker.Position.Lat, 6) & vbNewLine &
+                                     "Longitud: " & Math.Round(marker.Position.Lng, 6) & vbNewLine &
+                                     "Velocidad: " & marker.Speed & " Km/H" & vbNewLine &
+                                     "Fecha: " & marker.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt")
+                Exit Select
+            Case "eventsLayer"
+                Exit Select
+            Case "markersMovingLayer"
+                Exit Select
+            Case Else
+                Exit Select
+        End Select
     End Sub
 
     Private Sub mapMain_OnMarkerLeave(item As GMapMarker) Handles mapMain.OnMarkerLeave
-        Dim marker = DirectCast(item, GmapMarkerMain)
-        marker.ToolTipMode = MarkerTooltipMode
-        marker.ToolTipText = marker.LicensePlate
+        Select Case item.Overlay.Id
+            Case "markersLayer"
+                Dim marker = DirectCast(item, GmapMarkerMain)
+                marker.ToolTipMode = MarkerTooltipMode
+                marker.ToolTipText = marker.LicensePlate
+                Exit Select
+            Case "eventsLayer"
+                Exit Select
+            Case "markersMovingLayer"
+                Exit Select
+            Case Else
+                Exit Select
+        End Select
     End Sub
 
     Private Sub bgwGprsReceiver_DoWork(sender As Object, e As DoWorkEventArgs) Handles bgwGprsReceiver.DoWork
         btnBgwGprsReceiver.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+        btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleGreen
+        btnMonitoring.Text = "ACTIVO"
 
         While True
             Dim date_time As Date = Now
             Dim dataReceived As String = ""
             Dim Trace() As String
+            Dim bytesReceive As Byte() = Nothing
+            Dim proc As New Procedure
+            Dim remoteDevice As New IPEndPoint(IPAddress.Any, 0)
+            Dim gprsData As New GprsData
+            Dim textToVoice As String = ""
 
             Try
-                Dim bytesReceive As Byte() = Nothing
-                Dim client As String = ""
-                Dim code As String = ""
-                Dim license_plate As String = ""
-                Dim imei As String = ""
-                Dim event_name As String = ""
-                Dim latitude As String = ""
-                Dim longitude As String = ""
-                Dim speed As Integer = -1
-                Dim orientation As Integer = 0
-                Dim proc As New Procedure
-                Dim remoteDevice As New IPEndPoint(IPAddress.Any, 0)
-                Dim gprsData As New GprsData
-
                 bytesReceive = UdpGprsReceiver.Receive(remoteDevice)
                 dataReceived = Encoding.ASCII.GetString(bytesReceive)
                 dataReceived = dataReceived.Replace("$", "")
+                dataReceived = dataReceived.Replace(";", "")
+                dataReceived = dataReceived.Replace("imei:", "")
 
                 If bgwGprsReceiver.CancellationPending Then
                     e.Cancel = True
                     Exit While
                 End If
 
-                ' <================ GET THE IMEI =================
-                If dataReceived.Length = 16 Then
-                    'se verifica si la trama contiene solo el imei del dispositivo
-                    '123456789123456;
-                    'y se envia una respuesta automatica "ON" al dispositivo
-
-                    imei = Mid(dataReceived, 1, 15)
-                ElseIf dataReceived.Contains("##") Then
-                    'se verifica si la trama contiene la cadena solicitud de respuesta
-                    '##,imei:123456789123456,A;
-                    'y se envia una respuesta automatica "LOAD" al dispositivo
-
-                    imei = Mid(dataReceived, 9, 15)
-                Else
-                    'si contiene la trama standard del dispositivo, se captura el imei en una variable
-
-                    imei = Mid(dataReceived, 6, 15)
-                End If
-                ' ================ GET THE IMEI =================/>
-
+                '123456789123456;
+                '##,imei:123456789123456,A;
+                'imei:868683027344740,tracker,180607012908,,F,172903.000,A,1022.8216,N,07125.9875,W,0.00,0;
                 Trace = dataReceived.Split(",")
 
-                If proc.GetData("clients_getByImei", imei) Then
+                If Trace.Length >= 12 AndAlso Trace(4) = "F" Then
+                    gprsData.Imei = Trace(0)
+                    gprsData.EventName = Trace(1)
+                    gprsData.Latitude = Double.Parse(getLatitudeTK103A(Trace(7)), CultureInfo.InvariantCulture)
+                    gprsData.Longitude = Double.Parse(getLongitudeTK103A(Trace(9)), CultureInfo.InvariantCulture)
+                    gprsData.Speed = CInt(Convert.ToDouble(Trace(11), CultureInfo.InvariantCulture) * 1.852)
+                    gprsData.Orientation = If(Trace(12).Length > 0, CInt(Double.Parse(Trace(12), CultureInfo.InvariantCulture)), 0)
+                    gprsData.LocalPort = 15003
+                    gprsData.DeviceModel = "TK103A"
+                    gprsData.RemotePort = remoteDevice.Port
+                    gprsData.RemoteIp = remoteDevice.Address.ToString
+                    gprsData.Trace = dataReceived
+                    gprsData.DateTime = date_time
+                    gprsData.Origin = "gprs"
+                    gprsData.Fix = "A"
+
+                    If Not proc.GetData("gprsData_getforEvents", gprsData.Imei) Then
+                        Continue While
+                    End If
+
                     If proc.Ds.Tables(0).Rows.Count > 0 Then
                         Dim row As DataRow = proc.Ds.Tables(0).Rows(0)
                         Dim firstName As String = If(row("first_name") Is DBNull.Value, "", row("first_name").ToString.Trim)
                         Dim lastName As String = If(row("last_name") Is DBNull.Value, "", row("last_name").ToString.Trim)
-                        client = (firstName & " " & lastName).Trim
-                        code = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code").ToString.Trim)
-                        license_plate = If(row("license_plate") Is DBNull.Value, "", row("license_plate").ToString.Trim)
+                        gprsData.ClientId = If(row("client_id") Is DBNull.Value, 0, row("client_id"))
+                        gprsData.VehicleId = If(row("vehicle_id") Is DBNull.Value, 0, row("vehicle_id"))
+                        gprsData.DeviceId = If(row("device_id") Is DBNull.Value, 0, row("device_id"))
+                        gprsData.Client = (firstName & " " & lastName).Trim
+                        gprsData.Code = If(row("vehicle_code") Is DBNull.Value, "", row("vehicle_code").ToString.Trim)
+                        gprsData.LicensePlate = If(row("license_plate") Is DBNull.Value, "", row("license_plate").ToString.Trim)
+                        gprsData.SpeedLimit = If(row("speed_limit") Is DBNull.Value, 0, row("speed_limit"))
+                        gprsData.BatteryAlert = If(row("battery_alert") Is DBNull.Value, 0, row("battery_alert"))
+                        gprsData.GeofenceAlert = If(row("geofence_alert") Is DBNull.Value, 0, row("geofence_alert"))
+                        gprsData.SpeedAlert = If(row("speed_alert") Is DBNull.Value, 0, row("speed_alert"))
+                        gprsData.IgnitionAlert = If(row("ignition_alert") Is DBNull.Value, 0, row("ignition_alert"))
+                        gprsData.MotionAlert = If(row("motion_alert") Is DBNull.Value, 0, row("motion_alert"))
+                        gprsData.ValidationBattery = If(row("validation_battery") Is DBNull.Value, Nothing, row("validation_battery"))
+                        gprsData.ValidationSpeed = If(row("validation_speed") Is DBNull.Value, Nothing, row("validation_speed"))
+                        gprsData.ValidationGeofence = If(row("validation_geofence") Is DBNull.Value, Nothing, row("validation_geofence"))
                     End If
-                End If
 
-                If Trace.Length > 11 Then
-                    If Not Trace(11) = Nothing Or Trace(7).Length > 5 Then
-                        If Trace(4) = "F" Then
-                            'DECLARAMOS LAS VARIABLES DE LOS PARAMETROS
-                            event_name = Trace(1)
-                            latitude = getLatitudeTK103A(Trace(7))
-                            longitude = getLongitudeTK103A(Trace(9))
-                            speed = CInt(Convert.ToDouble(Trace(11), CultureInfo.InvariantCulture) * 1.852)
-                            orientation = 0
+                    ' ================= SENDING CURRENT LOCATION ==================
+                    proc.SendData("traces_insert",
+                                              gprsData.Imei,
+                                              gprsData.EventName,
+                                              gprsData.DateTime,
+                                              gprsData.Latitude,
+                                              gprsData.Longitude,
+                                              gprsData.Speed,
+                                              gprsData.Orientation,
+                                              gprsData.RemoteIp,
+                                              gprsData.RemotePort)
+                    OnGettingMarker(gprsData)
+                    bgwGprsReceiver.ReportProgress(1, gprsData)
 
-                            If Trace(12).Length > 0 Then
-                                orientation = CInt(Convert.ToDouble(Trace(12).Replace(";", ""), Globalization.CultureInfo.InvariantCulture))
-                            End If
+                    ' =========================== EVENTS ===========================
+                    ' <<<<<< searching for overspeed alert >>>>>>>
+                    If gprsData.SpeedAlert = 1 AndAlso gprsData.Speed > gprsData.SpeedLimit Then
 
-                            proc.SendData("traces_insert", imei, event_name, date_time, latitude, longitude, speed, orientation, remoteDevice.Address.ToString, remoteDevice.Port)
+                        proc.SendData("events_insert",
+                                              gprsData.DateTime,
+                                              gprsData.Imei,
+                                              gprsData.Latitude,
+                                              gprsData.Longitude,
+                                              "speed",
+                                              gprsData.Speed,
+                                              gprsData.Orientation,
+                                              gprsData.SpeedLimit,
+                                              Nothing,
+                                              Nothing)
 
-                            OnGettingMarker(Double.Parse(latitude, CultureInfo.InvariantCulture), Double.Parse(longitude, CultureInfo.InvariantCulture), imei, client, code, license_plate, "gprs", orientation, date_time, "A", speed)
+                        bgwGprsReceiver.ReportProgress(2, gprsData)
 
-                            ' se verifica que la capa de marcadores se agregue en el mapa
-                            If Not mapMain.Overlays.Contains(markersLayer) Then
-                                mapMain.Overlays.Add(markersLayer)
-                            End If
+                        TextToVoice = gprsData.Client & ", Exceso de Velocidad"
 
-                            If markersMovingLayer.Markers.Count > 0 Then
-                                For i = 0 To markersMovingLayer.Markers.Count - 1
-                                    markersMovingLayer.Markers(i).IsVisible = True
+                        If VoiceName.Length > 0 Then
+                            TextToVoiceList.Add(textToVoice)
+                        End If
+                    End If
+                    ' <<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
+
+                    ' <<<<<< searching for battery alert >>>>>>>
+                    If gprsData.BatteryAlert = 1 AndAlso (gprsData.EventName = "ac alarm" OrElse gprsData.EventName = "low battery") Then
+                        proc.SendData("events_insert",
+                                              gprsData.DateTime,
+                                              gprsData.Imei,
+                                              gprsData.Latitude,
+                                              gprsData.Longitude,
+                                              gprsData.EventName,
+                                              gprsData.Speed,
+                                              gprsData.Orientation,
+                                              gprsData.SpeedLimit,
+                                              Nothing,
+                                              Nothing)
+
+                        bgwGprsReceiver.ReportProgress(3, gprsData)
+
+                        textToVoice = gprsData.Client & ", Alerta de Batería"
+
+                        If VoiceName.Length > 0 Then
+                            TextToVoiceList.Add(textToVoice)
+                        End If
+                    End If
+                    ' <<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
+
+                    ' <<<<<< searching for geofence alert >>>>>>>
+                    If gprsData.GeofenceAlert = 1 AndAlso proc.Ds.Tables(1).Rows.Count > 0 Then
+                        For z = 0 To proc.Ds.Tables(1).Rows.Count - 1
+                            Dim row As DataRow = proc.Ds.Tables(1).Rows(z)
+                            gprsData.GeofenceVehicleId = If(row("geofence_vehicle_id") Is DBNull.Value, 0, row("geofence_vehicle_id"))
+                            gprsData.GeofenceId = If(row("geofence_id") Is DBNull.Value, 0, row("geofence_id"))
+                            gprsData.GeofenceLastStatus = If(row("last_status") Is DBNull.Value, 0, row("last_status"))
+                            gprsData.GeofenceName = If(row("name") Is DBNull.Value, "", row("name"))
+                            gprsData.GeofencePoints = If(row("points") Is DBNull.Value, "", row("points"))
+
+                            Dim gPoints As List(Of GeofencePoint) = New JavaScriptSerializer().Deserialize(Of List(Of GeofencePoint))(gprsData.GeofencePoints)
+                            Dim _gPoints As New List(Of PointLatLng)
+
+                            If gPoints.Count > 0 Then
+                                For y = 0 To gPoints.Count - 1
+                                    _gPoints.Add(New PointLatLng(gPoints(y).Latitude, gPoints(y).Longitude))
                                 Next
                             End If
 
-                            If Not mapMain.Overlays.Contains(markersMovingLayer) Then
-                                mapMain.Overlays.Add(markersMovingLayer)
-                            End If
+                            Dim geofence As New GMapPolygon(_gPoints, "geofence")
+                            Dim curPosition As New PointLatLng(gprsData.Latitude, gprsData.Longitude)
 
-                            markersLayer.IsVisibile = True
-                            markersMovingLayer.IsVisibile = VehículosEnMovimientoToolStripMenuItem.Checked
-                        End If
+                            If gprsData.GeofenceLastStatus = 0 Then
+                                If geofence.IsInside(curPosition) Then
+                                    proc.SendData("geofences_vehicles_update", 1, gprsData.DateTime, gprsData.GeofenceVehicleId)
+                                Else
+                                    proc.SendData("geofences_vehicles_update", 2, gprsData.DateTime, gprsData.GeofenceVehicleId)
+                                End If
+                            Else
+                                If geofence.IsInside(curPosition) Then
+                                    If gprsData.GeofenceLastStatus <> 1 Then
+                                        proc.SendData("events_insert",
+                                                          gprsData.DateTime,
+                                                          gprsData.Imei,
+                                                          gprsData.Latitude,
+                                                          gprsData.Longitude,
+                                                          "entrada geocerca",
+                                                          gprsData.Speed,
+                                                          gprsData.Orientation,
+                                                          0,
+                                                          gprsData.GeofenceId,
+                                                          gprsData.GeofencePoints)
+
+                                        proc.SendData("geofences_vehicles_update", 1, gprsData.DateTime, gprsData.GeofenceVehicleId)
+                                        gprsData.EventName = "ENTRADA A GEOCERCA > " & gprsData.GeofenceName
+                                        bgwGprsReceiver.ReportProgress(4, gprsData)
+
+                                        textToVoice = gprsData.Client & ", Entrada a Geocerca"
+
+                                        If VoiceName.Length > 0 Then
+                                            TextToVoiceList.Add(textToVoice)
+                                        End If
+                                    End If
+                                Else
+                                    If gprsData.GeofenceLastStatus <> 2 Then
+                                        proc.SendData("events_insert",
+                                                          gprsData.DateTime,
+                                                          gprsData.Imei,
+                                                          gprsData.Latitude,
+                                                          gprsData.Longitude,
+                                                          "salida geocerca",
+                                                          gprsData.Speed,
+                                                          gprsData.Orientation,
+                                                          0,
+                                                          gprsData.GeofenceId,
+                                                          gprsData.GeofencePoints)
+
+                                        proc.SendData("geofences_vehicles_update", 2, gprsData.DateTime, gprsData.GeofenceVehicleId)
+                                        gprsData.EventName = "SALIDA GEOCERCA > " & gprsData.GeofenceName
+                                        bgwGprsReceiver.ReportProgress(4, gprsData)
+
+                                        textToVoice = gprsData.Client & ", Salida de Geocerca"
+
+                                        If VoiceName.Length > 0 Then
+                                            TextToVoiceList.Add(textToVoice)
+                                        End If
+                                    End If
+                                End If
+                            End If
+                        Next
                     End If
-                Else
-                    dataReceived = dataReceived
+                    ' <<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>
                 End If
 
-                gprsData.Client = client
-                gprsData.Port = 15003
-                gprsData.Imei = imei
-                gprsData.DeviceModel = "TK103A"
-                gprsData.DateTime = date_time
-                gprsData.Trace = dataReceived
+                Try
+                    If Not bgwTTS.IsBusy AndAlso TextToVoiceList.Count > 0 AndAlso VoiceName.Length > 0 Then
+                        bgwTTS.RunWorkerAsync()
+                    End If
+                Catch ex As Exception
+                End Try
 
-                bgwGprsReceiver.ReportProgress(0, gprsData)
             Catch ex As Exception
-                Dim gprsData As New GprsData
-                gprsData.Port = 15003
+                gprsData.LocalPort = 15003
                 gprsData.DeviceModel = "TK103A"
                 gprsData.Client = "ERROR"
                 gprsData.DateTime = date_time
                 gprsData.Trace = ex.Message
 
-                bgwGprsReceiver.ReportProgress(1, gprsData)
+                bgwGprsReceiver.ReportProgress(0, gprsData)
             End Try
         End While
     End Sub
@@ -3099,15 +3241,85 @@ Public Class FrmMain
         Try
             Dim gprsData = DirectCast(e.UserState, GprsData)
 
-            dgvGprsReceiver.Rows.Insert(
-                0,
-                gprsData.Port,
-                gprsData.DeviceModel,
-                gprsData.Client,
-                gprsData.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt"),
-                gprsData.Trace,
-                e.ProgressPercentage
-            )
+            Select Case e.ProgressPercentage
+                Case <= 1 ' REPORTE NORMAL O ERROR
+                    dgvGprsReceiver.Rows.Insert(
+                        0,
+                        gprsData.LocalPort,
+                        gprsData.DeviceModel,
+                        gprsData.Client,
+                        gprsData.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                        gprsData.Trace,
+                        e.ProgressPercentage
+                    )
+                    Exit Select
+                Case 2 ' EVENTO DE VELOCIDAD
+                    dgvEvents.Rows.Insert(
+                        0,
+                        Nothing,
+                        gprsData.Code,
+                        gprsData.Client,
+                        gprsData.Imei,
+                        gprsData.LicensePlate,
+                        gprsData.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                        "EXCESO DE VELOCIDAD DE " & gprsData.SpeedLimit & "Km/H >> " & gprsData.Speed & "Km/H",
+                        gprsData.ValidationSpeed,
+                        gprsData.ClientId,
+                        gprsData.VehicleId,
+                        3, 'report_type_id for speed event
+                        gprsData.GeofenceId,
+                        gprsData.GeofencePoints,
+                        gprsData.Latitude,
+                        gprsData.Longitude,
+                        gprsData.Speed,
+                        gprsData.Orientation
+                    )
+                    Exit Select
+                Case 3 ' EVENTO DE BATERIA
+                    dgvEvents.Rows.Insert(
+                        0,
+                        Nothing,
+                        gprsData.Code,
+                        gprsData.Client,
+                        gprsData.Imei,
+                        gprsData.LicensePlate,
+                        gprsData.DateTime,
+                        If(gprsData.EventName = "ac alarm", "DESCONEXIÓN DE BATERÍA", "BATERÍA BAJA"),
+                        gprsData.ValidationBattery,
+                        gprsData.ClientId,
+                        gprsData.VehicleId,
+                        2, 'report_type_id for battery event
+                        gprsData.GeofenceId,
+                        gprsData.GeofencePoints,
+                        gprsData.Latitude,
+                        gprsData.Longitude,
+                        gprsData.Speed,
+                        gprsData.Orientation
+                    )
+                    Exit Select
+                Case 4 ' EVENTO DE GEOCERCA
+                    dgvEvents.Rows.Insert(
+                        0,
+                        Nothing,
+                        gprsData.Code,
+                        gprsData.Client,
+                        gprsData.Imei,
+                        gprsData.LicensePlate,
+                        gprsData.DateTime.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                        gprsData.EventName,
+                        gprsData.ValidationGeofence,
+                        gprsData.ClientId,
+                        gprsData.VehicleId,
+                        8, 'report_type_id for geofence event
+                        gprsData.GeofenceId,
+                        gprsData.GeofencePoints,
+                        gprsData.Latitude,
+                        gprsData.Longitude,
+                        gprsData.Speed,
+                        gprsData.Orientation
+                    )
+                    Exit Select
+            End Select
         Catch ex As Exception
 
         End Try
@@ -3115,12 +3327,12 @@ Public Class FrmMain
 
     Private Sub bgwGprsReceiver_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles bgwGprsReceiver.RunWorkerCompleted
         btnBgwGprsReceiver.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleOrange
+        btnMonitoring.ButtonStyle = ZUControls.ZUButton.buttonStyles.StyleRed
+        btnMonitoring.Text = "INACTIVO"
     End Sub
 
     Private Sub dgvGprsReceiver_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles dgvGprsReceiver.RowsAdded
-        tpageGprsReceiver.Text = "GPRS DATA (" & dgvGprsReceiver.Rows.Count.ToString("000") & ")"
-
-        If e.RowCount = 500 Then
+        If dgvGprsReceiver.Rows.Count = 500 Then
             dgvGprsReceiver.Rows.Clear()
         End If
     End Sub
@@ -3132,11 +3344,51 @@ Public Class FrmMain
 
     Private Sub mapMain_OnMarkerClick(item As GMapMarker, e As MouseEventArgs) Handles mapMain.OnMarkerClick
         If e.Button = MouseButtons.Left Then
-            Dim marker = DirectCast(item, GmapMarkerMain)
-
-            MarkerTooltipMode = If(MarkerTooltipMode = MarkerTooltipMode.Always, MarkerTooltipMode.Never, MarkerTooltipMode.Always)
-            marker.ToolTipMode = MarkerTooltipMode
+            Select Case item.Overlay.Id
+                Case "markersLayer"
+                    Dim marker = DirectCast(item, GmapMarkerMain)
+                    MarkerTooltipMode = If(MarkerTooltipMode = MarkerTooltipMode.Always, MarkerTooltipMode.Never, MarkerTooltipMode.Always)
+                    marker.ToolTipMode = MarkerTooltipMode
+                    Exit Select
+                Case "eventsLayer"
+                    Exit Select
+                Case "markersMovingLayer"
+                    Exit Select
+                Case Else
+                    Exit Select
+            End Select
         End If
+    End Sub
+
+    Private Sub dgvEvents_RowsAdded(sender As Object, e As DataGridViewRowsAddedEventArgs) Handles dgvEvents.RowsAdded
+        tpageEvents.Text = "EVENTOS (" & dgvEvents.Rows.Count.ToString("000") & ")"
+    End Sub
+
+    Private Sub dgvEvents_RowsRemoved(sender As Object, e As DataGridViewRowsRemovedEventArgs) Handles dgvEvents.RowsRemoved
+        tpageEvents.Text = "EVENTOS (" & dgvEvents.Rows.Count.ToString("000") & ")"
+    End Sub
+
+    Private Sub num_ValueChanged(sender As Object, e As EventArgs) Handles num.ValueChanged
+        Dim _font As Font = dgvGprsReceiver.DefaultCellStyle.Font
+        Dim ff As FontFamily = dgvGprsReceiver.DefaultCellStyle.Font.FontFamily
+
+        dgvGprsReceiver.DefaultCellStyle.Font = New Font(ff, num.Value)
+    End Sub
+
+    Private Sub NumericUpDown1_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown1.ValueChanged
+        'dgvConsoleVehicles.Columns(CInt(NumericUpDown1.Value)).Width = CInt(NumericUpDown2.Value)
+    End Sub
+
+    Private Sub NumericUpDown2_ValueChanged(sender As Object, e As EventArgs) Handles NumericUpDown2.ValueChanged
+        'dgvConsoleVehicles.Columns(CInt(NumericUpDown1.Value)).Width = CInt(NumericUpDown2.Value)
+    End Sub
+
+    Private Sub btnBgwGprsReceiver_Click(sender As Object, e As EventArgs) Handles btnBgwGprsReceiver.Click
+        Dim startPath As String = "c:\zip"
+        Dim zipPath As String = "c:\zip\result.zip"
+        Dim extractPath As String = "c:\example\extract"
+
+        ZipFile.CreateFromDirectory(startPath, zipPath)
     End Sub
 #End Region
 

@@ -1,0 +1,14 @@
+@media only screen and (max-width: 800px) {
+    .sidebar{
+        left:-300px;
+    }
+
+    .sidebar ul#main-list{
+        position: absolute;
+        width: 100%;
+    }
+
+    .sidebar ul{
+        outline: 0 solid;
+    }
+}

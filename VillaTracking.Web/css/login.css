@@ -1,0 +1,111 @@
+@import url("general.css");
+@import url("../responsive/login.css");
+
+.main-container{
+    background: url("../img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.logo img{
+    width: 90%;
+}
+
+.login{
+    position: relative;
+    max-width: 400px;
+    width: 90%;
+    background-color: rgba(255,255,255,0.8);
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    top:calc(50% - 50px);
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+    box-shadow: 1px 7px 15px #000;
+}
+
+h2{
+    color:#000;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.inputs{
+    width:100%;
+    height: 120px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.inputs input{
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 16px;
+    border: 1px solid #696969;
+}
+
+.inputs input:focus{
+    background-color: #F5F5CD;
+}
+
+.login #btn-login{
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    border: 1px solid #696969;
+}
+
+.login #btn-login:hover{
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.5);    
+    color: #000;
+}
+
+.login #btn-login i{
+    margin-right: 10px;
+}
+
+.message{
+    height: 25px;
+    width:100%;
+    background: rgba(255,255,255,0.5);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 25px;
+    font-weight:bold;
+    font-style: italic;
+    margin-top:10px;
+    font-size: 14px;
+    display: none;
+}
+
+.message p{
+    margin: 0;
+    padding: 0;
+}
+
+.message i{
+    margin-left: 10px;
+}
+
+.is-Disabled{
+    pointer-events: none;
+    opacity: 0.4;
+}

@@ -23,16 +23,16 @@ Partial Class frmClients
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClients))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.btnFLastTen = New ZUControls.ZUButton()
         Me.btnFSearch = New ZUControls.ZUButton()
@@ -57,7 +57,6 @@ Partial Class frmClients
         Me.btnDeleteClient = New ZUControls.ZUButton()
         Me.cboxClientStatus = New System.Windows.Forms.CheckBox()
         Me.btnCancelClient = New ZUControls.ZUButton()
-        Me.Label20 = New System.Windows.Forms.Label()
         Me.bgwSavingReports = New System.ComponentModel.BackgroundWorker()
         Me.panelHeaderPersonal = New ZUControls.ZUPanel()
         Me.txtDni = New ZUControls.ZUNumericBox()
@@ -120,33 +119,24 @@ Partial Class frmClients
         Me.bgwSearchingReports = New System.ComponentModel.BackgroundWorker()
         Me.pboxLoading = New System.Windows.Forms.PictureBox()
         Me.bgwGetClientByDni = New System.ComponentModel.BackgroundWorker()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.cboxVehicleStatus = New System.Windows.Forms.CheckBox()
         Me.btnCancelVehicle = New ZUControls.ZUButton()
         Me.btnDeleteVehicle = New ZUControls.ZUButton()
         Me.btnSaveVehicle = New ZUControls.ZUButton()
         Me.btnEditVehicle = New ZUControls.ZUButton()
         Me.btnNewVehicle = New ZUControls.ZUButton()
-        Me.Label24 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.dtpExpirationDate = New System.Windows.Forms.DateTimePicker()
         Me.dtpInstallationDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.cboDevice = New ZUControls.ZUComboBox()
         Me.cboDealer = New ZUControls.ZUComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.txtSpeedLimit = New ZUControls.ZUNumericBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.txtYear = New ZUControls.ZUNumericBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
         Me.tabConsole = New System.Windows.Forms.TabControl()
         Me.tpageClient = New System.Windows.Forms.TabPage()
         Me.panelHeaderVehicles = New ZUControls.ZUPanel()
         Me.txtVehicleCode = New ZUControls.ZUTextBox()
         Me.txtCallPass = New ZUControls.ZUTextBox()
-        Me.Label37 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label34 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -179,7 +169,6 @@ Partial Class frmClients
         Me.dgvVehicles_image = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtModel = New ZUControls.ZUTextBox()
         Me.txtColor = New ZUControls.ZUTextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.txtType = New ZUControls.ZUTextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtBrand = New ZUControls.ZUTextBox()
@@ -193,11 +182,6 @@ Partial Class frmClients
         Me.btnNewContact = New ZUControls.ZUButton()
         Me.txtContactObservations = New ZUControls.ZUTextBox()
         Me.txtContactName = New ZUControls.ZUTextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtContactPhoneNumber2 = New ZUControls.ZUNumericBox()
         Me.txtContactPhoneNumber1 = New ZUControls.ZUNumericBox()
         Me.txtContactDni = New ZUControls.ZUNumericBox()
@@ -212,11 +196,6 @@ Partial Class frmClients
         Me.dgvContacts_observations = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvContacts_contact_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.panelCenterPersonal = New ZUControls.ZUPanel()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.txtEmail = New ZUControls.ZUTextBox()
         Me.txtObservations = New ZUControls.ZUTextBox()
         Me.txtAddress = New ZUControls.ZUTextBox()
@@ -540,7 +519,7 @@ Partial Class frmClients
         Me.btnSaveClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSaveClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSaveClient.ForeColor = System.Drawing.Color.Black
-        Me.btnSaveClient.Location = New System.Drawing.Point(199, 105)
+        Me.btnSaveClient.Location = New System.Drawing.Point(199, 79)
         Me.btnSaveClient.Name = "btnSaveClient"
         Me.btnSaveClient.Size = New System.Drawing.Size(75, 29)
         Me.btnSaveClient.TabIndex = 7
@@ -564,7 +543,7 @@ Partial Class frmClients
         Me.btnDeleteClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnDeleteClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDeleteClient.ForeColor = System.Drawing.Color.Black
-        Me.btnDeleteClient.Location = New System.Drawing.Point(296, 105)
+        Me.btnDeleteClient.Location = New System.Drawing.Point(296, 79)
         Me.btnDeleteClient.Name = "btnDeleteClient"
         Me.btnDeleteClient.Size = New System.Drawing.Size(75, 29)
         Me.btnDeleteClient.TabIndex = 8
@@ -576,7 +555,7 @@ Partial Class frmClients
         Me.cboxClientStatus.AutoSize = True
         Me.cboxClientStatus.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.cboxClientStatus.Enabled = False
-        Me.cboxClientStatus.Location = New System.Drawing.Point(602, 81)
+        Me.cboxClientStatus.Location = New System.Drawing.Point(602, 56)
         Me.cboxClientStatus.Name = "cboxClientStatus"
         Me.cboxClientStatus.Size = New System.Drawing.Size(60, 18)
         Me.cboxClientStatus.TabIndex = 10
@@ -600,21 +579,12 @@ Partial Class frmClients
         Me.btnCancelClient.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnCancelClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancelClient.ForeColor = System.Drawing.Color.Black
-        Me.btnCancelClient.Location = New System.Drawing.Point(393, 105)
+        Me.btnCancelClient.Location = New System.Drawing.Point(393, 79)
         Me.btnCancelClient.Name = "btnCancelClient"
         Me.btnCancelClient.Size = New System.Drawing.Size(75, 29)
         Me.btnCancelClient.TabIndex = 9
         Me.btnCancelClient.Text = "Cancelar"
         Me.btnCancelClient.UseVisualStyleBackColor = False
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(163, 32)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(57, 14)
-        Me.Label20.TabIndex = 18
-        Me.Label20.Text = "Teléfono 2"
         '
         'bgwSavingReports
         '
@@ -767,31 +737,31 @@ Partial Class frmClients
         Me.dgvReports.AllowUserToDeleteRows = False
         Me.dgvReports.AllowUserToResizeColumns = False
         Me.dgvReports.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray
-        Me.dgvReports.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Gray
+        Me.dgvReports.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle11
         Me.dgvReports.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvReports.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvReports.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvReports.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvReports.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvReports.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvReports.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle12
         Me.dgvReports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvReports.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvReports_date_time, Me.dgvReports_report_name, Me.dgvReports_description, Me.dgvReports_license_plate, Me.dgvReports_user_name, Me.dgvReports_communication_mode, Me.dgvReports_transmitter, Me.dgvReports_receiver, Me.dgvReports_report_id, Me.dgvReports_report_type_id, Me.dgvReports_vehicle_id, Me.dgvReports_user_id})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gold
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvReports.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.Silver
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Gold
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvReports.DefaultCellStyle = DataGridViewCellStyle14
         Me.dgvReports.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvReports.EnableHeadersVisualStyles = False
         Me.dgvReports.GridColor = System.Drawing.SystemColors.Control
@@ -822,8 +792,8 @@ Partial Class frmClients
         '
         'dgvReports_description
         '
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvReports_description.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvReports_description.DefaultCellStyle = DataGridViewCellStyle13
         Me.dgvReports_description.HeaderText = "DESCRIPCIÓN"
         Me.dgvReports_description.Name = "dgvReports_description"
         Me.dgvReports_description.ReadOnly = True
@@ -1301,7 +1271,7 @@ Partial Class frmClients
         '
         Me.pboxLoading.BackColor = System.Drawing.SystemColors.Control
         Me.pboxLoading.Image = Global.VillaTracking.My.Resources.Resources.Isotipo1
-        Me.pboxLoading.Location = New System.Drawing.Point(631, 110)
+        Me.pboxLoading.Location = New System.Drawing.Point(631, 85)
         Me.pboxLoading.Name = "pboxLoading"
         Me.pboxLoading.Size = New System.Drawing.Size(30, 25)
         Me.pboxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -1313,15 +1283,6 @@ Partial Class frmClients
         '
         Me.bgwGetClientByDni.WorkerReportsProgress = True
         Me.bgwGetClientByDni.WorkerSupportsCancellation = True
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(5, 82)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(75, 14)
-        Me.Label23.TabIndex = 17
-        Me.Label23.Text = "Observaciones"
         '
         'cboxVehicleStatus
         '
@@ -1458,32 +1419,14 @@ Partial Class frmClients
         Me.btnNewVehicle.Text = "Nuevo"
         Me.btnNewVehicle.UseVisualStyleBackColor = False
         '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(5, 101)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(75, 14)
-        Me.Label24.TabIndex = 21
-        Me.Label24.Text = "Observaciones"
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(301, 75)
+        Me.Label16.Location = New System.Drawing.Point(245, 76)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(82, 14)
         Me.Label16.TabIndex = 18
         Me.Label16.Text = "Dispositivo Gps"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(141, 26)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(53, 14)
-        Me.Label4.TabIndex = 2
-        Me.Label4.Text = "Matrícula"
         '
         'dtpExpirationDate
         '
@@ -1492,7 +1435,7 @@ Partial Class frmClients
         Me.dtpExpirationDate.Enabled = False
         Me.dtpExpirationDate.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpExpirationDate.Location = New System.Drawing.Point(254, 283)
+        Me.dtpExpirationDate.Location = New System.Drawing.Point(254, 336)
         Me.dtpExpirationDate.Name = "dtpExpirationDate"
         Me.dtpExpirationDate.Size = New System.Drawing.Size(111, 21)
         Me.dtpExpirationDate.TabIndex = 10
@@ -1505,40 +1448,29 @@ Partial Class frmClients
         Me.dtpInstallationDate.Enabled = False
         Me.dtpInstallationDate.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtpInstallationDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpInstallationDate.Location = New System.Drawing.Point(74, 283)
+        Me.dtpInstallationDate.Location = New System.Drawing.Point(74, 336)
         Me.dtpInstallationDate.Name = "dtpInstallationDate"
         Me.dtpInstallationDate.Size = New System.Drawing.Size(107, 21)
         Me.dtpInstallationDate.TabIndex = 9
         Me.dtpInstallationDate.Visible = False
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(277, 26)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(37, 14)
-        Me.Label7.TabIndex = 4
-        Me.Label7.Text = "Marca"
-        '
         'cboDevice
         '
-        Me.cboDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDevice.Enabled = False
-        Me.cboDevice.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboDevice.Font = New System.Drawing.Font("NewsGoth BT", 8.25!)
         Me.cboDevice.FormattingEnabled = True
-        Me.cboDevice.HintText = "Hint Text"
+        Me.cboDevice.HintText = "Dispositivo Gps"
         Me.cboDevice.HintTextColor = System.Drawing.Color.Gray
         Me.cboDevice.HintTextEnabled = False
-        Me.cboDevice.Location = New System.Drawing.Point(386, 72)
+        Me.cboDevice.Location = New System.Drawing.Point(333, 73)
         Me.cboDevice.Name = "cboDevice"
         Me.cboDevice.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboDevice.OnLeaveBackColor = System.Drawing.Color.White
-        Me.cboDevice.Size = New System.Drawing.Size(207, 22)
+        Me.cboDevice.Size = New System.Drawing.Size(161, 22)
         Me.cboDevice.TabIndex = 19
         '
         'cboDealer
         '
-        Me.cboDealer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboDealer.Enabled = False
         Me.cboDealer.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboDealer.FormattingEnabled = True
@@ -1549,17 +1481,8 @@ Partial Class frmClients
         Me.cboDealer.Name = "cboDealer"
         Me.cboDealer.OnFocusBackColor = System.Drawing.Color.Gold
         Me.cboDealer.OnLeaveBackColor = System.Drawing.Color.White
-        Me.cboDealer.Size = New System.Drawing.Size(247, 22)
+        Me.cboDealer.Size = New System.Drawing.Size(193, 22)
         Me.cboDealer.TabIndex = 17
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(471, 26)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(42, 14)
-        Me.Label8.TabIndex = 6
-        Me.Label8.Text = "Modelo"
         '
         'txtSpeedLimit
         '
@@ -1567,27 +1490,18 @@ Partial Class frmClients
         Me.txtSpeedLimit.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtSpeedLimit.Enabled = False
         Me.txtSpeedLimit.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSpeedLimit.HintText = "Hint Text"
+        Me.txtSpeedLimit.HintText = "Velocidad"
         Me.txtSpeedLimit.HintTextColor = System.Drawing.Color.Gray
-        Me.txtSpeedLimit.HintTextEnabled = False
-        Me.txtSpeedLimit.Location = New System.Drawing.Point(612, 47)
+        Me.txtSpeedLimit.HintTextEnabled = True
+        Me.txtSpeedLimit.Location = New System.Drawing.Point(429, 48)
         Me.txtSpeedLimit.MaxLength = 3
         Me.txtSpeedLimit.Name = "txtSpeedLimit"
         Me.txtSpeedLimit.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtSpeedLimit.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtSpeedLimit.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtSpeedLimit.Size = New System.Drawing.Size(48, 21)
+        Me.txtSpeedLimit.Size = New System.Drawing.Size(65, 21)
         Me.txtSpeedLimit.TabIndex = 15
         Me.txtSpeedLimit.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(5, 50)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(28, 14)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Tipo"
         '
         'txtYear
         '
@@ -1595,35 +1509,17 @@ Partial Class frmClients
         Me.txtYear.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtYear.Enabled = False
         Me.txtYear.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtYear.HintText = "Hint Text"
+        Me.txtYear.HintText = "Año"
         Me.txtYear.HintTextColor = System.Drawing.Color.Gray
-        Me.txtYear.HintTextEnabled = False
-        Me.txtYear.Location = New System.Drawing.Point(228, 47)
+        Me.txtYear.HintTextEnabled = True
+        Me.txtYear.Location = New System.Drawing.Point(184, 48)
         Me.txtYear.MaxLength = 4
         Me.txtYear.Name = "txtYear"
         Me.txtYear.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtYear.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtYear.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtYear.Size = New System.Drawing.Size(62, 21)
+        Me.txtYear.Size = New System.Drawing.Size(69, 21)
         Me.txtYear.TabIndex = 11
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(200, 50)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(26, 14)
-        Me.Label10.TabIndex = 10
-        Me.Label10.Text = "Año"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(297, 50)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(33, 14)
-        Me.Label11.TabIndex = 12
-        Me.Label11.Text = "Color"
         '
         'tabConsole
         '
@@ -1660,7 +1556,6 @@ Partial Class frmClients
         Me.panelHeaderVehicles.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.panelHeaderVehicles.Controls.Add(Me.txtVehicleCode)
         Me.panelHeaderVehicles.Controls.Add(Me.txtCallPass)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label37)
         Me.panelHeaderVehicles.Controls.Add(Me.Label13)
         Me.panelHeaderVehicles.Controls.Add(Me.dtpExpirationDate)
         Me.panelHeaderVehicles.Controls.Add(Me.dtpInstallationDate)
@@ -1676,29 +1571,21 @@ Partial Class frmClients
         Me.panelHeaderVehicles.Controls.Add(Me.btnSaveVehicle)
         Me.panelHeaderVehicles.Controls.Add(Me.btnEditVehicle)
         Me.panelHeaderVehicles.Controls.Add(Me.btnNewVehicle)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label24)
         Me.panelHeaderVehicles.Controls.Add(Me.Label16)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label4)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label7)
         Me.panelHeaderVehicles.Controls.Add(Me.cboDevice)
         Me.panelHeaderVehicles.Controls.Add(Me.cboDealer)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label8)
         Me.panelHeaderVehicles.Controls.Add(Me.txtSpeedLimit)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label9)
         Me.panelHeaderVehicles.Controls.Add(Me.txtYear)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label10)
         Me.panelHeaderVehicles.Controls.Add(Me.txtModel)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label11)
         Me.panelHeaderVehicles.Controls.Add(Me.txtColor)
-        Me.panelHeaderVehicles.Controls.Add(Me.Label12)
         Me.panelHeaderVehicles.Controls.Add(Me.txtType)
         Me.panelHeaderVehicles.Controls.Add(Me.Label14)
         Me.panelHeaderVehicles.Controls.Add(Me.txtBrand)
         Me.panelHeaderVehicles.Controls.Add(Me.txtLicensePlate)
         Me.panelHeaderVehicles.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.panelHeaderVehicles.Location = New System.Drawing.Point(3, 391)
+        Me.panelHeaderVehicles.Location = New System.Drawing.Point(3, 338)
         Me.panelHeaderVehicles.Name = "panelHeaderVehicles"
-        Me.panelHeaderVehicles.Size = New System.Drawing.Size(667, 338)
+        Me.panelHeaderVehicles.Size = New System.Drawing.Size(667, 391)
         Me.panelHeaderVehicles.TabIndex = 0
         '
         'txtVehicleCode
@@ -1706,10 +1593,10 @@ Partial Class frmClients
         Me.txtVehicleCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtVehicleCode.Enabled = False
         Me.txtVehicleCode.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVehicleCode.HintText = "Hint Text"
+        Me.txtVehicleCode.HintText = "Código"
         Me.txtVehicleCode.HintTextColor = System.Drawing.Color.Gray
-        Me.txtVehicleCode.HintTextEnabled = False
-        Me.txtVehicleCode.Location = New System.Drawing.Point(46, 23)
+        Me.txtVehicleCode.HintTextEnabled = True
+        Me.txtVehicleCode.Location = New System.Drawing.Point(5, 23)
         Me.txtVehicleCode.MaxLength = 10
         Me.txtVehicleCode.Name = "txtVehicleCode"
         Me.txtVehicleCode.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
@@ -1728,7 +1615,7 @@ Partial Class frmClients
         Me.txtCallPass.HintText = "Hint Text"
         Me.txtCallPass.HintTextColor = System.Drawing.Color.Gray
         Me.txtCallPass.HintTextEnabled = False
-        Me.txtCallPass.Location = New System.Drawing.Point(98, 254)
+        Me.txtCallPass.Location = New System.Drawing.Point(98, 307)
         Me.txtCallPass.Name = "txtCallPass"
         Me.txtCallPass.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtCallPass.OnFocusBackColor = System.Drawing.Color.Gold
@@ -1737,20 +1624,11 @@ Partial Class frmClients
         Me.txtCallPass.TabIndex = 12
         Me.txtCallPass.Visible = False
         '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Location = New System.Drawing.Point(5, 26)
-        Me.Label37.Name = "Label37"
-        Me.Label37.Size = New System.Drawing.Size(40, 14)
-        Me.Label37.TabIndex = 0
-        Me.Label37.Text = "Código"
-        '
         'Label13
         '
         Me.Label13.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(8, 256)
+        Me.Label13.Location = New System.Drawing.Point(8, 309)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(84, 14)
         Me.Label13.TabIndex = 0
@@ -1761,7 +1639,7 @@ Partial Class frmClients
         '
         Me.Label34.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label34.AutoSize = True
-        Me.Label34.Location = New System.Drawing.Point(184, 286)
+        Me.Label34.Location = New System.Drawing.Point(184, 339)
         Me.Label34.Name = "Label34"
         Me.Label34.Size = New System.Drawing.Size(64, 14)
         Me.Label34.TabIndex = 0
@@ -1772,7 +1650,7 @@ Partial Class frmClients
         '
         Me.Label15.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(8, 286)
+        Me.Label15.Location = New System.Drawing.Point(8, 339)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(60, 14)
         Me.Label15.TabIndex = 0
@@ -1785,7 +1663,7 @@ Partial Class frmClients
         Me.panelLoadingVehicles.BackColor = System.Drawing.SystemColors.ControlLight
         Me.panelLoadingVehicles.Controls.Add(Me.lblLoadingVehicles)
         Me.panelLoadingVehicles.Controls.Add(Me.PictureBox1)
-        Me.panelLoadingVehicles.Location = New System.Drawing.Point(8, 312)
+        Me.panelLoadingVehicles.Location = New System.Drawing.Point(8, 365)
         Me.panelLoadingVehicles.Name = "panelLoadingVehicles"
         Me.panelLoadingVehicles.Size = New System.Drawing.Size(651, 22)
         Me.panelLoadingVehicles.TabIndex = 22
@@ -1832,10 +1710,10 @@ Partial Class frmClients
         Me.txtVehicleObservations.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtVehicleObservations.Enabled = False
         Me.txtVehicleObservations.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtVehicleObservations.HintText = "Hint Text"
+        Me.txtVehicleObservations.HintText = "Observaciones"
         Me.txtVehicleObservations.HintTextColor = System.Drawing.Color.Gray
-        Me.txtVehicleObservations.HintTextEnabled = False
-        Me.txtVehicleObservations.Location = New System.Drawing.Point(86, 98)
+        Me.txtVehicleObservations.HintTextEnabled = True
+        Me.txtVehicleObservations.Location = New System.Drawing.Point(74, 99)
         Me.txtVehicleObservations.Name = "txtVehicleObservations"
         Me.txtVehicleObservations.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtVehicleObservations.OnFocusBackColor = System.Drawing.Color.Gold
@@ -1849,8 +1727,8 @@ Partial Class frmClients
         Me.dgvVehicles.AllowUserToDeleteRows = False
         Me.dgvVehicles.AllowUserToResizeColumns = False
         Me.dgvVehicles.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.Gray
-        Me.dgvVehicles.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.Gray
+        Me.dgvVehicles.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle15
         Me.dgvVehicles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -1859,24 +1737,24 @@ Partial Class frmClients
         Me.dgvVehicles.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvVehicles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvVehicles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvVehicles.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle16
         Me.dgvVehicles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvVehicles.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvVehicles_vehicle_code, Me.dgvVehicles_dealer_name, Me.dgvVehicles_imei, Me.dgvVehicles_license_plate, Me.dgvVehicles_brand, Me.dgvVehicles_model, Me.dgvVehicles_type, Me.dgvVehicles_year, Me.dgvVehicles_color, Me.dgvVehicles_speed_limit, Me.dgvVehicles_phone_pass, Me.dgvVehicles_installation_date, Me.dgvVehicles_expiration_date, Me.dgvVehicles_priority, Me.dgvVehicles_status, Me.dgvVehicles_observations, Me.dgvVehicles_vehicle_id, Me.dgvVehicles_device_id, Me.dgvVehicles_dealer_id, Me.dgvVehicles_phone_number, Me.dgvVehicles_image})
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Silver
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvVehicles.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.Silver
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Gold
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvVehicles.DefaultCellStyle = DataGridViewCellStyle17
         Me.dgvVehicles.EnableHeadersVisualStyles = False
         Me.dgvVehicles.GridColor = System.Drawing.SystemColors.Control
         Me.dgvVehicles.Location = New System.Drawing.Point(0, 155)
@@ -1886,7 +1764,7 @@ Partial Class frmClients
         Me.dgvVehicles.RowHeadersVisible = False
         Me.dgvVehicles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dgvVehicles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVehicles.Size = New System.Drawing.Size(663, 179)
+        Me.dgvVehicles.Size = New System.Drawing.Size(663, 232)
         Me.dgvVehicles.TabIndex = 28
         '
         'dgvVehicles_vehicle_code
@@ -2072,10 +1950,10 @@ Partial Class frmClients
         Me.txtModel.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtModel.Enabled = False
         Me.txtModel.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtModel.HintText = "Hint Text"
+        Me.txtModel.HintText = "Modelo"
         Me.txtModel.HintTextColor = System.Drawing.Color.Gray
-        Me.txtModel.HintTextEnabled = False
-        Me.txtModel.Location = New System.Drawing.Point(515, 23)
+        Me.txtModel.HintTextEnabled = True
+        Me.txtModel.Location = New System.Drawing.Point(349, 23)
         Me.txtModel.MaxLength = 50
         Me.txtModel.Name = "txtModel"
         Me.txtModel.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
@@ -2089,42 +1967,33 @@ Partial Class frmClients
         Me.txtColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtColor.Enabled = False
         Me.txtColor.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtColor.HintText = "Hint Text"
+        Me.txtColor.HintText = "Color"
         Me.txtColor.HintTextColor = System.Drawing.Color.Gray
-        Me.txtColor.HintTextEnabled = False
-        Me.txtColor.Location = New System.Drawing.Point(332, 47)
+        Me.txtColor.HintTextEnabled = True
+        Me.txtColor.Location = New System.Drawing.Point(259, 48)
         Me.txtColor.MaxLength = 50
         Me.txtColor.Name = "txtColor"
         Me.txtColor.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtColor.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtColor.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtColor.Size = New System.Drawing.Size(150, 21)
+        Me.txtColor.Size = New System.Drawing.Size(164, 21)
         Me.txtColor.TabIndex = 13
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(489, 50)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(125, 14)
-        Me.Label12.TabIndex = 14
-        Me.Label12.Text = "Velocidad Límite (Km/H)"
         '
         'txtType
         '
         Me.txtType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtType.Enabled = False
         Me.txtType.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtType.HintText = "Hint Text"
+        Me.txtType.HintText = "Tipo"
         Me.txtType.HintTextColor = System.Drawing.Color.Gray
-        Me.txtType.HintTextEnabled = False
-        Me.txtType.Location = New System.Drawing.Point(34, 47)
+        Me.txtType.HintTextEnabled = True
+        Me.txtType.Location = New System.Drawing.Point(5, 48)
         Me.txtType.MaxLength = 50
         Me.txtType.Name = "txtType"
         Me.txtType.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtType.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtType.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtType.Size = New System.Drawing.Size(157, 21)
+        Me.txtType.Size = New System.Drawing.Size(173, 21)
         Me.txtType.TabIndex = 9
         '
         'Label14
@@ -2141,10 +2010,10 @@ Partial Class frmClients
         Me.txtBrand.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtBrand.Enabled = False
         Me.txtBrand.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBrand.HintText = "Hint Text"
+        Me.txtBrand.HintText = "Marca"
         Me.txtBrand.HintTextColor = System.Drawing.Color.Gray
-        Me.txtBrand.HintTextEnabled = False
-        Me.txtBrand.Location = New System.Drawing.Point(317, 23)
+        Me.txtBrand.HintTextEnabled = True
+        Me.txtBrand.Location = New System.Drawing.Point(194, 23)
         Me.txtBrand.MaxLength = 50
         Me.txtBrand.Name = "txtBrand"
         Me.txtBrand.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
@@ -2158,16 +2027,16 @@ Partial Class frmClients
         Me.txtLicensePlate.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtLicensePlate.Enabled = False
         Me.txtLicensePlate.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLicensePlate.HintText = "Hint Text"
+        Me.txtLicensePlate.HintText = "Matrícula"
         Me.txtLicensePlate.HintTextColor = System.Drawing.Color.Gray
-        Me.txtLicensePlate.HintTextEnabled = False
-        Me.txtLicensePlate.Location = New System.Drawing.Point(197, 23)
+        Me.txtLicensePlate.HintTextEnabled = True
+        Me.txtLicensePlate.Location = New System.Drawing.Point(100, 23)
         Me.txtLicensePlate.MaxLength = 20
         Me.txtLicensePlate.Name = "txtLicensePlate"
         Me.txtLicensePlate.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtLicensePlate.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtLicensePlate.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtLicensePlate.Size = New System.Drawing.Size(73, 21)
+        Me.txtLicensePlate.Size = New System.Drawing.Size(88, 21)
         Me.txtLicensePlate.TabIndex = 3
         '
         'panelHeaderContacts
@@ -2180,20 +2049,15 @@ Partial Class frmClients
         Me.panelHeaderContacts.Controls.Add(Me.btnNewContact)
         Me.panelHeaderContacts.Controls.Add(Me.txtContactObservations)
         Me.panelHeaderContacts.Controls.Add(Me.txtContactName)
-        Me.panelHeaderContacts.Controls.Add(Me.Label6)
-        Me.panelHeaderContacts.Controls.Add(Me.Label3)
-        Me.panelHeaderContacts.Controls.Add(Me.Label5)
-        Me.panelHeaderContacts.Controls.Add(Me.Label2)
-        Me.panelHeaderContacts.Controls.Add(Me.Label1)
         Me.panelHeaderContacts.Controls.Add(Me.txtContactPhoneNumber2)
         Me.panelHeaderContacts.Controls.Add(Me.txtContactPhoneNumber1)
         Me.panelHeaderContacts.Controls.Add(Me.txtContactDni)
         Me.panelHeaderContacts.Controls.Add(Me.panelLoadingContacts)
         Me.panelHeaderContacts.Controls.Add(Me.dgvContacts)
         Me.panelHeaderContacts.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelHeaderContacts.Location = New System.Drawing.Point(3, 172)
+        Me.panelHeaderContacts.Location = New System.Drawing.Point(3, 149)
         Me.panelHeaderContacts.Name = "panelHeaderContacts"
-        Me.panelHeaderContacts.Size = New System.Drawing.Size(667, 219)
+        Me.panelHeaderContacts.Size = New System.Drawing.Size(667, 189)
         Me.panelHeaderContacts.TabIndex = 2
         '
         'Label36
@@ -2225,7 +2089,7 @@ Partial Class frmClients
         Me.btnCancelContact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnCancelContact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnCancelContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancelContact.Location = New System.Drawing.Point(490, 97)
+        Me.btnCancelContact.Location = New System.Drawing.Point(490, 73)
         Me.btnCancelContact.Name = "btnCancelContact"
         Me.btnCancelContact.Size = New System.Drawing.Size(75, 25)
         Me.btnCancelContact.TabIndex = 10
@@ -2249,7 +2113,7 @@ Partial Class frmClients
         Me.btnDeleteContact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnDeleteContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDeleteContact.ForeColor = System.Drawing.Color.Black
-        Me.btnDeleteContact.Location = New System.Drawing.Point(393, 97)
+        Me.btnDeleteContact.Location = New System.Drawing.Point(393, 73)
         Me.btnDeleteContact.Name = "btnDeleteContact"
         Me.btnDeleteContact.Size = New System.Drawing.Size(75, 25)
         Me.btnDeleteContact.TabIndex = 9
@@ -2272,7 +2136,7 @@ Partial Class frmClients
         Me.btnSaveContact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnSaveContact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnSaveContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSaveContact.Location = New System.Drawing.Point(296, 97)
+        Me.btnSaveContact.Location = New System.Drawing.Point(296, 73)
         Me.btnSaveContact.Name = "btnSaveContact"
         Me.btnSaveContact.Size = New System.Drawing.Size(75, 25)
         Me.btnSaveContact.TabIndex = 8
@@ -2295,7 +2159,7 @@ Partial Class frmClients
         Me.btnEditContact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnEditContact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnEditContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditContact.Location = New System.Drawing.Point(199, 97)
+        Me.btnEditContact.Location = New System.Drawing.Point(199, 73)
         Me.btnEditContact.Name = "btnEditContact"
         Me.btnEditContact.Size = New System.Drawing.Size(75, 25)
         Me.btnEditContact.TabIndex = 7
@@ -2317,7 +2181,7 @@ Partial Class frmClients
         Me.btnNewContact.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.btnNewContact.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.btnNewContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNewContact.Location = New System.Drawing.Point(102, 97)
+        Me.btnNewContact.Location = New System.Drawing.Point(102, 73)
         Me.btnNewContact.Name = "btnNewContact"
         Me.btnNewContact.Size = New System.Drawing.Size(75, 25)
         Me.btnNewContact.TabIndex = 6
@@ -2329,15 +2193,15 @@ Partial Class frmClients
         Me.txtContactObservations.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtContactObservations.Enabled = False
         Me.txtContactObservations.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactObservations.HintText = "Hint Text"
+        Me.txtContactObservations.HintText = "Observaciones"
         Me.txtContactObservations.HintTextColor = System.Drawing.Color.Gray
-        Me.txtContactObservations.HintTextEnabled = False
-        Me.txtContactObservations.Location = New System.Drawing.Point(86, 71)
+        Me.txtContactObservations.HintTextEnabled = True
+        Me.txtContactObservations.Location = New System.Drawing.Point(7, 48)
         Me.txtContactObservations.Name = "txtContactObservations"
         Me.txtContactObservations.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtContactObservations.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactObservations.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtContactObservations.Size = New System.Drawing.Size(575, 21)
+        Me.txtContactObservations.Size = New System.Drawing.Size(654, 21)
         Me.txtContactObservations.TabIndex = 5
         '
         'txtContactName
@@ -2345,61 +2209,16 @@ Partial Class frmClients
         Me.txtContactName.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtContactName.Enabled = False
         Me.txtContactName.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactName.HintText = "Hint Text"
+        Me.txtContactName.HintText = "Nombre"
         Me.txtContactName.HintTextColor = System.Drawing.Color.Gray
-        Me.txtContactName.HintTextEnabled = False
-        Me.txtContactName.Location = New System.Drawing.Point(214, 24)
+        Me.txtContactName.HintTextEnabled = True
+        Me.txtContactName.Location = New System.Drawing.Point(88, 23)
         Me.txtContactName.Name = "txtContactName"
         Me.txtContactName.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtContactName.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactName.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtContactName.Size = New System.Drawing.Size(447, 21)
+        Me.txtContactName.Size = New System.Drawing.Size(371, 21)
         Me.txtContactName.TabIndex = 2
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(325, 52)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(57, 14)
-        Me.Label6.TabIndex = 1
-        Me.Label6.Text = "Teléfono 2"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(5, 52)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(57, 14)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Teléfono 1"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(5, 74)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 14)
-        Me.Label5.TabIndex = 1
-        Me.Label5.Text = "Observaciones"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(163, 27)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 14)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Nombre"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(5, 27)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 14)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Cédula"
         '
         'txtContactPhoneNumber2
         '
@@ -2407,15 +2226,15 @@ Partial Class frmClients
         Me.txtContactPhoneNumber2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtContactPhoneNumber2.Enabled = False
         Me.txtContactPhoneNumber2.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactPhoneNumber2.HintText = "Hint Text"
+        Me.txtContactPhoneNumber2.HintText = "Teléfono 2"
         Me.txtContactPhoneNumber2.HintTextColor = System.Drawing.Color.Gray
-        Me.txtContactPhoneNumber2.HintTextEnabled = False
-        Me.txtContactPhoneNumber2.Location = New System.Drawing.Point(388, 47)
+        Me.txtContactPhoneNumber2.HintTextEnabled = True
+        Me.txtContactPhoneNumber2.Location = New System.Drawing.Point(566, 23)
         Me.txtContactPhoneNumber2.Name = "txtContactPhoneNumber2"
         Me.txtContactPhoneNumber2.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtContactPhoneNumber2.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactPhoneNumber2.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtContactPhoneNumber2.Size = New System.Drawing.Size(273, 21)
+        Me.txtContactPhoneNumber2.Size = New System.Drawing.Size(95, 21)
         Me.txtContactPhoneNumber2.TabIndex = 4
         '
         'txtContactPhoneNumber1
@@ -2424,15 +2243,15 @@ Partial Class frmClients
         Me.txtContactPhoneNumber1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtContactPhoneNumber1.Enabled = False
         Me.txtContactPhoneNumber1.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactPhoneNumber1.HintText = "Hint Text"
+        Me.txtContactPhoneNumber1.HintText = "Teléfono 1"
         Me.txtContactPhoneNumber1.HintTextColor = System.Drawing.Color.Gray
-        Me.txtContactPhoneNumber1.HintTextEnabled = False
-        Me.txtContactPhoneNumber1.Location = New System.Drawing.Point(68, 48)
+        Me.txtContactPhoneNumber1.HintTextEnabled = True
+        Me.txtContactPhoneNumber1.Location = New System.Drawing.Point(465, 23)
         Me.txtContactPhoneNumber1.Name = "txtContactPhoneNumber1"
         Me.txtContactPhoneNumber1.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtContactPhoneNumber1.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactPhoneNumber1.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtContactPhoneNumber1.Size = New System.Drawing.Size(251, 21)
+        Me.txtContactPhoneNumber1.Size = New System.Drawing.Size(95, 21)
         Me.txtContactPhoneNumber1.TabIndex = 3
         '
         'txtContactDni
@@ -2441,15 +2260,15 @@ Partial Class frmClients
         Me.txtContactDni.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtContactDni.Enabled = False
         Me.txtContactDni.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactDni.HintText = "Hint Text"
+        Me.txtContactDni.HintText = "Cédula"
         Me.txtContactDni.HintTextColor = System.Drawing.Color.Gray
-        Me.txtContactDni.HintTextEnabled = False
-        Me.txtContactDni.Location = New System.Drawing.Point(51, 24)
+        Me.txtContactDni.HintTextEnabled = True
+        Me.txtContactDni.Location = New System.Drawing.Point(7, 23)
         Me.txtContactDni.Name = "txtContactDni"
         Me.txtContactDni.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtContactDni.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtContactDni.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtContactDni.Size = New System.Drawing.Size(106, 21)
+        Me.txtContactDni.Size = New System.Drawing.Size(75, 21)
         Me.txtContactDni.TabIndex = 1
         '
         'panelLoadingContacts
@@ -2492,35 +2311,35 @@ Partial Class frmClients
         Me.dgvContacts.AllowUserToDeleteRows = False
         Me.dgvContacts.AllowUserToResizeColumns = False
         Me.dgvContacts.AllowUserToResizeRows = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.Gray
-        Me.dgvContacts.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.Gray
+        Me.dgvContacts.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle18
         Me.dgvContacts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvContacts.BackgroundColor = System.Drawing.SystemColors.Control
         Me.dgvContacts.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgvContacts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dgvContacts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.Black
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvContacts.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.Black
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvContacts.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle19
         Me.dgvContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvContacts.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dgvContacts_dni, Me.dgvContacts_name, Me.dgvContacts_phone_number1, Me.dgvContacts_phone_number2, Me.dgvContacts_observations, Me.dgvContacts_contact_id})
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.Silver
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gold
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvContacts.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle20.BackColor = System.Drawing.Color.Silver
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Gold
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvContacts.DefaultCellStyle = DataGridViewCellStyle20
         Me.dgvContacts.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgvContacts.EnableHeadersVisualStyles = False
         Me.dgvContacts.GridColor = System.Drawing.SystemColors.Control
-        Me.dgvContacts.Location = New System.Drawing.Point(0, 132)
+        Me.dgvContacts.Location = New System.Drawing.Point(0, 102)
         Me.dgvContacts.MultiSelect = False
         Me.dgvContacts.Name = "dgvContacts"
         Me.dgvContacts.ReadOnly = True
@@ -2586,13 +2405,6 @@ Partial Class frmClients
         Me.panelCenterPersonal.Controls.Add(Me.btnCancelClient)
         Me.panelCenterPersonal.Controls.Add(Me.pboxLoading)
         Me.panelCenterPersonal.Controls.Add(Me.cboxClientStatus)
-        Me.panelCenterPersonal.Controls.Add(Me.Label20)
-        Me.panelCenterPersonal.Controls.Add(Me.Label23)
-        Me.panelCenterPersonal.Controls.Add(Me.Label22)
-        Me.panelCenterPersonal.Controls.Add(Me.Label21)
-        Me.panelCenterPersonal.Controls.Add(Me.Label19)
-        Me.panelCenterPersonal.Controls.Add(Me.Label18)
-        Me.panelCenterPersonal.Controls.Add(Me.Label17)
         Me.panelCenterPersonal.Controls.Add(Me.txtEmail)
         Me.panelCenterPersonal.Controls.Add(Me.txtObservations)
         Me.panelCenterPersonal.Controls.Add(Me.txtAddress)
@@ -2603,53 +2415,8 @@ Partial Class frmClients
         Me.panelCenterPersonal.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelCenterPersonal.Location = New System.Drawing.Point(3, 33)
         Me.panelCenterPersonal.Name = "panelCenterPersonal"
-        Me.panelCenterPersonal.Size = New System.Drawing.Size(667, 139)
+        Me.panelCenterPersonal.Size = New System.Drawing.Size(667, 116)
         Me.panelCenterPersonal.TabIndex = 1
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(325, 32)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(96, 14)
-        Me.Label22.TabIndex = 19
-        Me.Label22.Text = "Correo Electrónico"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(5, 58)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(52, 14)
-        Me.Label21.TabIndex = 15
-        Me.Label21.Text = "Dirección"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(4, 32)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(57, 14)
-        Me.Label19.TabIndex = 14
-        Me.Label19.Text = "Teléfono 1"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(342, 8)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(51, 14)
-        Me.Label18.TabIndex = 16
-        Me.Label18.Text = "Apellidos"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(5, 8)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(50, 14)
-        Me.Label17.TabIndex = 12
-        Me.Label17.Text = "Nombres"
         '
         'txtEmail
         '
@@ -2659,8 +2426,8 @@ Partial Class frmClients
         Me.txtEmail.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.HintText = "Correo Electrónico"
         Me.txtEmail.HintTextColor = System.Drawing.Color.Gray
-        Me.txtEmail.HintTextEnabled = False
-        Me.txtEmail.Location = New System.Drawing.Point(427, 29)
+        Me.txtEmail.HintTextEnabled = True
+        Me.txtEmail.Location = New System.Drawing.Point(7, 29)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtEmail.OnFocusBackColor = System.Drawing.Color.Gold
@@ -2675,13 +2442,13 @@ Partial Class frmClients
         Me.txtObservations.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObservations.HintText = "Observaciones"
         Me.txtObservations.HintTextColor = System.Drawing.Color.Gray
-        Me.txtObservations.HintTextEnabled = False
-        Me.txtObservations.Location = New System.Drawing.Point(86, 79)
+        Me.txtObservations.HintTextEnabled = True
+        Me.txtObservations.Location = New System.Drawing.Point(7, 54)
         Me.txtObservations.Name = "txtObservations"
         Me.txtObservations.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtObservations.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtObservations.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtObservations.Size = New System.Drawing.Size(508, 21)
+        Me.txtObservations.Size = New System.Drawing.Size(589, 21)
         Me.txtObservations.TabIndex = 6
         '
         'txtAddress
@@ -2691,14 +2458,13 @@ Partial Class frmClients
         Me.txtAddress.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtAddress.HintText = "Dirección"
         Me.txtAddress.HintTextColor = System.Drawing.Color.Gray
-        Me.txtAddress.HintTextEnabled = False
-        Me.txtAddress.Location = New System.Drawing.Point(61, 55)
-        Me.txtAddress.Multiline = True
+        Me.txtAddress.HintTextEnabled = True
+        Me.txtAddress.Location = New System.Drawing.Point(248, 29)
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtAddress.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtAddress.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtAddress.Size = New System.Drawing.Size(600, 19)
+        Me.txtAddress.Size = New System.Drawing.Size(413, 21)
         Me.txtAddress.TabIndex = 5
         '
         'txtLastName
@@ -2708,13 +2474,13 @@ Partial Class frmClients
         Me.txtLastName.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtLastName.HintText = "Apellidos"
         Me.txtLastName.HintTextColor = System.Drawing.Color.Gray
-        Me.txtLastName.HintTextEnabled = False
-        Me.txtLastName.Location = New System.Drawing.Point(399, 4)
+        Me.txtLastName.HintTextEnabled = True
+        Me.txtLastName.Location = New System.Drawing.Point(234, 4)
         Me.txtLastName.Name = "txtLastName"
         Me.txtLastName.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtLastName.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtLastName.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtLastName.Size = New System.Drawing.Size(262, 21)
+        Me.txtLastName.Size = New System.Drawing.Size(225, 21)
         Me.txtLastName.TabIndex = 1
         '
         'txtPhoneNumber2
@@ -2725,14 +2491,14 @@ Partial Class frmClients
         Me.txtPhoneNumber2.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPhoneNumber2.HintText = "Teléfono 2"
         Me.txtPhoneNumber2.HintTextColor = System.Drawing.Color.Gray
-        Me.txtPhoneNumber2.HintTextEnabled = False
-        Me.txtPhoneNumber2.Location = New System.Drawing.Point(226, 29)
+        Me.txtPhoneNumber2.HintTextEnabled = True
+        Me.txtPhoneNumber2.Location = New System.Drawing.Point(566, 4)
         Me.txtPhoneNumber2.MaxLength = 10
         Me.txtPhoneNumber2.Name = "txtPhoneNumber2"
         Me.txtPhoneNumber2.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtPhoneNumber2.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtPhoneNumber2.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtPhoneNumber2.Size = New System.Drawing.Size(89, 21)
+        Me.txtPhoneNumber2.Size = New System.Drawing.Size(95, 21)
         Me.txtPhoneNumber2.TabIndex = 3
         '
         'txtPhoneNumber1
@@ -2743,14 +2509,14 @@ Partial Class frmClients
         Me.txtPhoneNumber1.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPhoneNumber1.HintText = "Teléfono 1"
         Me.txtPhoneNumber1.HintTextColor = System.Drawing.Color.Gray
-        Me.txtPhoneNumber1.HintTextEnabled = False
-        Me.txtPhoneNumber1.Location = New System.Drawing.Point(67, 29)
+        Me.txtPhoneNumber1.HintTextEnabled = True
+        Me.txtPhoneNumber1.Location = New System.Drawing.Point(465, 4)
         Me.txtPhoneNumber1.MaxLength = 10
         Me.txtPhoneNumber1.Name = "txtPhoneNumber1"
         Me.txtPhoneNumber1.OnEnterKeyPressed = ZUControls.ZUNumericBox.EnterKeyPressed.doNothing
         Me.txtPhoneNumber1.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtPhoneNumber1.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtPhoneNumber1.Size = New System.Drawing.Size(89, 21)
+        Me.txtPhoneNumber1.Size = New System.Drawing.Size(95, 21)
         Me.txtPhoneNumber1.TabIndex = 2
         '
         'txtFirstName
@@ -2760,13 +2526,13 @@ Partial Class frmClients
         Me.txtFirstName.Font = New System.Drawing.Font("NewsGoth BT", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFirstName.HintText = "Nombres"
         Me.txtFirstName.HintTextColor = System.Drawing.Color.Gray
-        Me.txtFirstName.HintTextEnabled = False
-        Me.txtFirstName.Location = New System.Drawing.Point(61, 4)
+        Me.txtFirstName.HintTextEnabled = True
+        Me.txtFirstName.Location = New System.Drawing.Point(7, 4)
         Me.txtFirstName.Name = "txtFirstName"
         Me.txtFirstName.OnEnterKeyPressed = ZUControls.ZUTextBox.EnterKeyPressed.doNothing
         Me.txtFirstName.OnFocusBackColor = System.Drawing.Color.Gold
         Me.txtFirstName.OnLeaveBackColor = System.Drawing.Color.White
-        Me.txtFirstName.Size = New System.Drawing.Size(269, 21)
+        Me.txtFirstName.Size = New System.Drawing.Size(220, 21)
         Me.txtFirstName.TabIndex = 0
         '
         'frmClients
@@ -2836,7 +2602,6 @@ Partial Class frmClients
     Friend WithEvents btnDeleteClient As ZUControls.ZUButton
     Friend WithEvents cboxClientStatus As CheckBox
     Friend WithEvents btnCancelClient As ZUControls.ZUButton
-    Friend WithEvents Label20 As Label
     Friend WithEvents bgwSavingReports As System.ComponentModel.BackgroundWorker
     Friend WithEvents panelHeaderPersonal As ZUControls.ZUPanel
     Friend WithEvents txtDni As ZUControls.ZUNumericBox
@@ -2887,27 +2652,19 @@ Partial Class frmClients
     Friend WithEvents bgwSearchingReports As System.ComponentModel.BackgroundWorker
     Friend WithEvents pboxLoading As PictureBox
     Friend WithEvents bgwGetClientByDni As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Label23 As Label
     Friend WithEvents cboxVehicleStatus As CheckBox
     Friend WithEvents btnCancelVehicle As ZUControls.ZUButton
     Friend WithEvents btnDeleteVehicle As ZUControls.ZUButton
     Friend WithEvents btnSaveVehicle As ZUControls.ZUButton
     Friend WithEvents btnEditVehicle As ZUControls.ZUButton
     Friend WithEvents btnNewVehicle As ZUControls.ZUButton
-    Friend WithEvents Label24 As Label
     Friend WithEvents Label16 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents dtpExpirationDate As DateTimePicker
     Friend WithEvents dtpInstallationDate As DateTimePicker
-    Friend WithEvents Label7 As Label
     Friend WithEvents cboDevice As ZUControls.ZUComboBox
     Friend WithEvents cboDealer As ZUControls.ZUComboBox
-    Friend WithEvents Label8 As Label
     Friend WithEvents txtSpeedLimit As ZUControls.ZUNumericBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents txtYear As ZUControls.ZUNumericBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
     Friend WithEvents tabConsole As TabControl
     Friend WithEvents tpageClient As TabPage
     Friend WithEvents panelHeaderVehicles As ZUControls.ZUPanel
@@ -2919,7 +2676,6 @@ Partial Class frmClients
     Friend WithEvents dgvVehicles As DataGridView
     Friend WithEvents txtModel As ZUControls.ZUTextBox
     Friend WithEvents txtColor As ZUControls.ZUTextBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents txtCallPass As ZUControls.ZUTextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents txtType As ZUControls.ZUTextBox
@@ -2937,11 +2693,6 @@ Partial Class frmClients
     Friend WithEvents btnNewContact As ZUControls.ZUButton
     Friend WithEvents txtContactObservations As ZUControls.ZUTextBox
     Friend WithEvents txtContactName As ZUControls.ZUTextBox
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
     Friend WithEvents txtContactPhoneNumber2 As ZUControls.ZUNumericBox
     Friend WithEvents txtContactPhoneNumber1 As ZUControls.ZUNumericBox
     Friend WithEvents txtContactDni As ZUControls.ZUNumericBox
@@ -2950,11 +2701,6 @@ Partial Class frmClients
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents dgvContacts As DataGridView
     Friend WithEvents panelCenterPersonal As ZUControls.ZUPanel
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label17 As Label
     Friend WithEvents txtEmail As ZUControls.ZUTextBox
     Friend WithEvents txtObservations As ZUControls.ZUTextBox
     Friend WithEvents txtAddress As ZUControls.ZUTextBox
@@ -2963,7 +2709,6 @@ Partial Class frmClients
     Friend WithEvents txtPhoneNumber1 As ZUControls.ZUNumericBox
     Friend WithEvents txtFirstName As ZUControls.ZUTextBox
     Friend WithEvents txtVehicleCode As ZUControls.ZUTextBox
-    Friend WithEvents Label37 As Label
     Friend WithEvents dgvVehicles_vehicle_code As DataGridViewTextBoxColumn
     Friend WithEvents dgvVehicles_dealer_name As DataGridViewTextBoxColumn
     Friend WithEvents dgvVehicles_imei As DataGridViewTextBoxColumn

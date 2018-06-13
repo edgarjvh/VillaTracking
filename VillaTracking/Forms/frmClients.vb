@@ -1050,6 +1050,11 @@ Public Class frmClients
 
         Dim row As DataRow
 
+        row = dt.NewRow()
+        row.Item("device_id") = 0
+        row.Item("imei") = "Seleccione un dispositivo"
+        dt.Rows.Add(row)
+
         If curVehicleMode = VehicleMode.Editing Then
             row = dt.NewRow()
             row.Item("device_id") = CInt(dgvVehicles.CurrentRow.Cells("dgvVehicles_device_id").Value)
@@ -1076,7 +1081,7 @@ Public Class frmClients
         cboDevice.DataSource = dt
         cboDevice.DisplayMember = "imei"
         cboDevice.ValueMember = "device_id"
-        cboDevice.SelectedIndex = -1
+        cboDevice.SelectedIndex = 0
 
     End Sub
 
@@ -1108,7 +1113,7 @@ Public Class frmClients
                     If Not TypeOf ctl Is ZUControls.ZUButton Then
                         If curVehicleMode = VehicleMode.Registering Then
                             If TypeOf ctl Is ZUControls.ZUComboBox Then
-                                DirectCast(ctl, ZUControls.ZUComboBox).SelectedIndex = -1
+                                DirectCast(ctl, ZUControls.ZUComboBox).SelectedIndex = 0
                             End If
 
                             If TypeOf ctl Is ZUControls.ZUTextBox Or TypeOf ctl Is ZUControls.ZUNumericBox Then
@@ -1164,6 +1169,11 @@ Public Class frmClients
         Dim row As DataRow
         Dim proc As New Procedure
 
+        row = dt.NewRow()
+        row.Item("dealer_id") = 0
+        row.Item("dealer") = "Seleccione un dealer"
+        dt.Rows.Add(row)
+
         If proc.GetData("dealers_getAll") Then
             If proc.Ds.Tables(0).Rows.Count > 0 Then
                 For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
@@ -1184,7 +1194,7 @@ Public Class frmClients
         cboDealer.DataSource = dt
         cboDealer.DisplayMember = "dealer"
         cboDealer.ValueMember = "dealer_id"
-        cboDealer.SelectedIndex = -1
+        cboDealer.SelectedIndex = 0
         cboDealer.Text = ""
         cboDealer.Enabled = False
     End Sub
@@ -1347,13 +1357,13 @@ Public Class frmClients
             Exit Sub
         End If
 
-        If cboDealer.SelectedIndex = -1 Then
+        If cboDealer.SelectedIndex <= 0 Then
             MsgBox("Debe seleccionar el dealer", MsgBoxStyle.Exclamation, "Mensaje del Sistema")
             cboDealer.Focus()
             Exit Sub
         End If
 
-        If cboDevice.SelectedIndex = -1 Then
+        If cboDevice.SelectedIndex <= 0 Then
             MsgBox("Debe seleccionar un dispositivo gps", MsgBoxStyle.Exclamation, "Mensaje del Sistema")
             cboDevice.Focus()
             Exit Sub
@@ -1395,31 +1405,35 @@ Public Class frmClients
                 End If
             Else
                 If proc.GetData("vehicles_update",
-                                                    dgvVehicles.CurrentRow.Cells("dgvVehicles_vehicle_id").Value,
-                                                    currentClient.Id,
-                                                    cboDevice.SelectedValue,
-                                                    cboDealer.SelectedValue,
-                                                    txtLicensePlate.Text.Trim,
-                                                    txtBrand.Text.Trim,
-                                                    txtModel.Text.Trim,
-                                                    txtType.Text.Trim,
-                                                    txtYear.Text.Trim,
-                                                    txtColor.Text.Trim,
-                                                    txtSpeedLimit.Text.Trim,
-                                                    If(txtCallPass.Text.Trim = "", "", enc.Encrypt(txtCallPass.Text.Trim)),
-                                                    dtpInstallationDate.Value,
-                                                    dtpExpirationDate.Value,
-                                                    1,
-                                                    If(cboxVehicleStatus.Checked, 1, 0),
-                                                    txtObservations.Text.Trim,
-                                                    txtVehicleCode.Text.Trim) Then
+                                                  dgvVehicles.CurrentRow.Cells("dgvVehicles_vehicle_id").Value,
+                                                  currentClient.Id,
+                                                  cboDevice.SelectedValue,
+                                                  cboDealer.SelectedValue,
+                                                  txtLicensePlate.Text.Trim,
+                                                  txtBrand.Text.Trim,
+                                                  txtModel.Text.Trim,
+                                                  txtType.Text.Trim,
+                                                  txtYear.Text.Trim,
+                                                  txtColor.Text.Trim,
+                                                  txtSpeedLimit.Text.Trim,
+                                                  If(txtCallPass.Text.Trim = "", "", enc.Encrypt(txtCallPass.Text.Trim)),
+                                                  dtpInstallationDate.Value,
+                                                  dtpExpirationDate.Value,
+                                                  1,
+                                                  If(cboxVehicleStatus.Checked, 1, 0),
+                                                  txtObservations.Text.Trim,
+                                                  txtVehicleCode.Text.Trim) Then
                     bgwSavingVehicles.ReportProgress(2)
                 Else
                     bgwSavingVehicles.ReportProgress(3, proc.ErrorMsg)
                 End If
             End If
         Catch ex As Exception
-            bgwSavingVehicles.ReportProgress(3, ex.Message)
+            If ex.Message.ToLower.Contains("duplicate") AndAlso ex.Message.ToLower.Contains("license_plate") Then
+                bgwSavingVehicles.ReportProgress(3, "La matrícula ya existe")
+            Else
+                bgwSavingVehicles.ReportProgress(3, ex.Message)
+            End If
         End Try
     End Sub
 
@@ -2597,5 +2611,13 @@ Public Class frmClients
     Private Sub cboxFVehicle_CheckedChanged(sender As Object, e As EventArgs) Handles cboxFVehicle.CheckedChanged
         cboFVehicle.Enabled = cboxFVehicle.Checked
         cboFVehicle.SelectedIndex = -1
+    End Sub
+
+    Private Sub cboDevice_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboDevice.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub cboDealer_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cboDealer.KeyPress
+        e.Handled = True
     End Sub
 End Class

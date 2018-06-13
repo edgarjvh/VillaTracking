@@ -752,7 +752,7 @@ Public Class frmDeviceConfig
             If ds.Tables(0).Rows.Count > 0 Then
                 If enc.Encrypt(txtAdminPass.Text.Trim) = ds.Tables(0).Rows(0)("admin_pass").ToString Then
                     Dim udp As New UdpClient
-                    Dim ep As New IPEndPoint(IPAddress.Parse("172.87.221.236"), 15001)
+                    Dim ep As New IPEndPoint(IPAddress.Parse("172.87.221.236"), 15004)
                     Dim respuesta As Byte() = Encoding.ASCII.GetBytes("@**,imei:" & txtImei.Text.Trim & ",J@" & txtImei.Text.Trim)
                     udp.Send(respuesta, respuesta.Length, ep)
 
@@ -787,7 +787,7 @@ Public Class frmDeviceConfig
             If ds.Tables(0).Rows.Count > 0 Then
                 If enc.Encrypt(txtAdminPass.Text.Trim) = ds.Tables(0).Rows(0)("admin_pass").ToString Then
                     Dim udp As New UdpClient
-                    Dim ep As New IPEndPoint(IPAddress.Parse("172.87.221.236"), 15001)
+                    Dim ep As New IPEndPoint(IPAddress.Parse("172.87.221.236"), 15004)
                     Dim respuesta As Byte() = Encoding.ASCII.GetBytes("@**,imei:" & txtImei.Text.Trim & ",K@" & txtImei.Text.Trim)
                     udp.Send(respuesta, respuesta.Length, ep)
 

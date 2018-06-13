@@ -61,20 +61,21 @@ Public Class frmLogin
     End Sub
 
     Private Sub bgwLogin_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bgwLogin.DoWork
-        bgwLogin.ReportProgress(1)
+        Try
+            bgwLogin.ReportProgress(1)
 
-        Dim proc As New Procedure
-        Dim enc As New Encryptation
+            Dim proc As New Procedure
+            Dim enc As New Encryptation
 
-        If proc.GetData("users_getAll") Then
-            If proc.Ds.Tables(0).Rows.Count > 0 Then
-                For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
-                    Dim row As DataRow = proc.Ds.Tables(0).Rows(i)
+            If proc.GetData("users_getAll") Then
+                If proc.Ds.Tables(0).Rows.Count > 0 Then
+                    For i = 0 To proc.Ds.Tables(0).Rows.Count - 1
+                        Dim row As DataRow = proc.Ds.Tables(0).Rows(i)
 
-                    If row("dni") = txtDni.Text.Trim Then
-                        Dim pass As String = enc.Encrypt(txtPass.Text.Trim)
-                        If row("pass") = pass Then
-                            Dim user As New User With {
+                        If row("dni") = txtDni.Text.Trim Then
+                            Dim pass As String = enc.Encrypt(txtPass.Text.Trim)
+                            If row("pass") = pass Then
+                                Dim user As New User With {
                                 .Id = If(row("user_id") Is DBNull.Value, 0, row("user_id")),
                                 .Dni = If(row("dni") Is DBNull.Value, 0, row("dni")),
                                 .FirstName = If(row("first_name") Is DBNull.Value, "", row("first_name")),
@@ -88,20 +89,23 @@ Public Class frmLogin
                                 .Image = If(row("image") Is DBNull.Value, "", row("image"))
                             }
 
-                            bgwLogin.ReportProgress(3, user)
-                            Exit For
-                        Else
-                            bgwLogin.ReportProgress(4)
-                            Exit For
+                                bgwLogin.ReportProgress(3, user)
+                                Exit For
+                            Else
+                                bgwLogin.ReportProgress(4)
+                                Exit For
+                            End If
                         End If
-                    End If
-                Next
+                    Next
+                Else
+                    bgwLogin.ReportProgress(2)
+                End If
             Else
-                bgwLogin.ReportProgress(2)
+                bgwLogin.ReportProgress(5, proc.ErrorMsg)
             End If
-        Else
-            bgwLogin.ReportProgress(5, proc.ErrorMsg)
-        End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub bgwLogin_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles bgwLogin.ProgressChanged

@@ -1,0 +1,13 @@
+@import url(bootstrap.min.css);
+@import url(font-awesome.css);
+@import url('general.css');
+@import url('header.css');
+@import url('sidebar.css');
+@import url('console.css');
+@import url('../responsive/app.css');
+
+.main-container, #map{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
